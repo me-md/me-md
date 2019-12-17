@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --forceExit",
-    "test:watch": "jest --watchAll"
+    "coverage": "npm test -- --coverage --watchAll=false"
   },
   "jest": {
     "preset": "jest-expo"

@@ -17,6 +17,119 @@ exports[`App renders the root without loading screen 1`] = `
     }
   }
 >
-  <AppNavigator />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+      }
+    }
+  >
+    <ViewManagerAdapter_ExpoLinearGradient
+      proxiedProperties={
+        Object {
+          "colors": Array [
+            4278210303,
+            4287155441,
+          ],
+          "endPoint": undefined,
+          "locations": undefined,
+          "startPoint": undefined,
+        }
+      }
+      style={
+        Object {
+          "flex": 0.2,
+        }
+      }
+    />
+    <Image
+      source={1}
+      style={
+        Object {
+          "alignSelf": "center",
+          "borderRadius": 50,
+          "borderWidth": 0,
+          "height": 200,
+          "marginTop": 35,
+          "width": 200,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 0.5,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 40,
+            "fontWeight": "bold",
+            "margin": 25,
+          }
+        }
+      >
+        HELLO!
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 27,
+            "margin": 25,
+          }
+        }
+      >
+        Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessibilityStates={Array []}
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "padding": 8,
+                  "textAlign": "center",
+                },
+                Object {
+                  "color": "#8CDEDC",
+                },
+              ]
+            }
+          >
+            BEGIN
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
 </View>
 `;
