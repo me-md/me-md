@@ -14,13 +14,16 @@
   },
   "dependencies": {
     "@expo/samples": "~36.0.0",
-    "@expo/vector-icons": "~10.0.0",
+    "@expo/vector-icons": "^10.0.6",
     "@react-navigation/web": "~1.0.0-alpha.9",
     "expo": "~36.0.0",
     "expo-asset": "~8.0.0",
     "expo-constants": "~8.0.0",
     "expo-font": "~8.0.0",
+    "expo-linear-gradient": "~8.0.0",
     "expo-web-browser": "~8.0.0",
+    "link": "^0.1.5",
+    "native-base": "^2.13.8",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
@@ -30,8 +33,7 @@
     "react-native-web": "~0.11.7",
     "react-navigation": "~4.0.10",
     "react-navigation-stack": "~1.10.3",
-    "react-navigation-tabs": "~2.6.2",
-    "expo-linear-gradient": "~8.0.0"
+    "react-navigation-tabs": "~2.6.2"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0",
