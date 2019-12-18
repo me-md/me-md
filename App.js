@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import WelcomePage from './components/WelcomePage/WelcomePage';
+import BiologicalInformation from './components/BiologicalInformation/BiologicalInformation';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -21,7 +22,9 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {/* {Platform.OS === 'ios' && <StatusBar barStyle='default' />} */}
-        <WelcomePage />
+        {/* <WelcomePage /> */}
+        <BiologicalInformation />
+        {/* <AppNavigator /> */}
       </View>
     );
   }
