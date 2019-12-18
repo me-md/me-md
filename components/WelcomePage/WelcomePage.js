@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     flex: 0.5
   },
   greeting: {
-    // fontFamily: 'Open Sans'
     fontSize: 40,
     fontWeight: 'bold',
     margin: 25
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
     margin: 25
   },
   button: {
-    color: '#8CDEDC',
+    color: '#FFF',
     height: 100,
     margin: 10,
     width: '75%'
