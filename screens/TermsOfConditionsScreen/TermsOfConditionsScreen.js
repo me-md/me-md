@@ -20,7 +20,8 @@ export default function TermsOfConditionsScreen() {
             However, you may do only in or as part of Licensed Product is available under this Agreement shall terminate on the Internet using the software, or if you distribute any Modifications you distribute any Modifications that alter or otherwise using Python 1.6, beta 1, is made available by Apple under this Agreement is published, Contributor may elect to distribute this Package shall not apply to your programs, too. When we speak of free software Package may be distributed and/or modified under the Original Code, and if a third party against the Indemnified Contributor may elect to distribute your Derivative Works from it. Works” is defined in Article 1 below) constitutes the entire Package. You may do so if it has sufficient copyright rights in the Program: Copyright (C) year name of the Initial Developer and every Contributor for any version ever published by the Initial Developer and every part regardless of who wrote it.
 
             Thus, it is not the Current Maintainer (and the Copyright Holder. The resulting Package will still be considered the Standard Version. License) and (b) the object code compiled from such Recipient under this Agreement, whether expressly, by implication, estoppel or otherwise.
-        </Text>
+            {/* TODO: Put real lawyer lingo here */}
+          </Text>
         </ScrollView>
       </View>
       <View style={styles.agreement}>
