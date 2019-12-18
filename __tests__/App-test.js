@@ -8,8 +8,6 @@ jest.mock('expo', () => ({
   AppLoading: 'AppLoading',
 }));
 
-jest.mock('../navigation/AppNavigator', () => 'AppNavigator');
-
 describe('App', () => {
   jest.useFakeTimers();
 
