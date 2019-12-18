@@ -32,6 +32,7 @@ export default function TermsOfConditionsScreen() {
       <Button
         title="CONTINUE"
         style={styles.button}
+        onPress={() => Alert.alert('And now we start!')}
       />
       {/* TODO: Implement React Basic button */}
       {/* TODO: Enable button ONLY when the ToC and PP are accepted */}

@@ -32,7 +32,6 @@ export default function App(props) {
         {/* <BiologicalInformation /> */}
         {/* <LocationScreen /> */}
         {/* <SelectAge /> */}
-        {/* <AppNavigator /> */}
       </View>
     );
   }
