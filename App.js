@@ -22,8 +22,8 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {/* {Platform.OS === 'ios' && <StatusBar barStyle='default' />} */}
-        <WelcomePage />
-        {/* <BiologicalInformation /> */}
+        {/* <WelcomePage /> */}
+        <BiologicalInformation />
         {/* <AppNavigator /> */}
       </View>
     );

@@ -38,7 +38,10 @@ export default class BiologicalInformation extends Component {
 
 const styles = StyleSheet.create({
   biologicalInformationAnswer: {
-    flex: 1
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'space-around',
+    paddingTop: 75
   },
   biologicalInformationButtons: {
     alignSelf: 'center',
@@ -53,9 +56,12 @@ const styles = StyleSheet.create({
     flex: 1
   },
   biologicalInformationQuestion: {
-    flex: 0.5,
-    fontSize: 24,
-    height: 30
+    alignItems: 'center',
+    color: '#fff',
+    flex: 1,
+    fontSize: 48,
+    height: 30,
+    justifyContent: 'center'
   },
   biologicalInformationButtonText: {
     fontSize: 36
