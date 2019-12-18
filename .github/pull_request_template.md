@@ -4,7 +4,7 @@
 
 #### How should this be manually tested?
 
-#### Has tests been written for all functionality?
+#### Have tests been written for all functionality?
 
 #### Any background context you want to provide?
 
