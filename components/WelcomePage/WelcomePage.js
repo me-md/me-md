@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Image, StyleSheet, Text, View, Alert } from 'react-native';
+import { Image, StyleSheet, Text, View, Alert } from 'react-native';
+import { Button } from 'native-base';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function WelcomePage() {
@@ -24,6 +25,7 @@ export default function WelcomePage() {
           title='BEGIN'
           color='#8CDEDC'
           onPress={() => Alert.alert('Oh my GOD')}
+          style={styles.button}
           // TODO: Link to Terms of Service and Privacy Policy page
         />
       </View>
