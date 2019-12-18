@@ -4,10 +4,12 @@ import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import WelcomePage from './components/WelcomePage/WelcomePage';
+import WelcomeScreen from './screens/WelcomeScreen/WelcomeScreen';
 import BiologicalInformation from './components/BiologicalInformation/BiologicalInformation';
 import LocationScreen from './components/LocationScreen/LocationScreen';
 import SelectAge from './components/SelectAge/SelectAge';
+
+
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -24,11 +26,10 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {/* {Platform.OS === 'ios' && <StatusBar barStyle='default' />} */}
-        <WelcomePage />
+        <WelcomeScreen />
         {/* <BiologicalInformation /> */}
         {/* <LocationScreen /> */}
         {/* <SelectAge /> */}
-        {/* <AppNavigator /> */}
       </View>
     );
   }
