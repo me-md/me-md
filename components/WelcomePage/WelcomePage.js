@@ -28,6 +28,20 @@ export default function WelcomePage() {
           style={styles.button}
           // TODO: Link to Terms of Service and Privacy Policy page
         />
+        <View style={styles.welcome}>
+          <Text style={styles.greeting}>HELLO!</Text>
+          <Text style={styles.message}>
+            Welcome to MeMD, an online platform designed to help diagnose
+            symptoms and locate potential doctors. Please click BEGIN to start
+            your health checkup.
+          </Text>
+          <Button
+            title='BEGIN'
+            color='#8CDEDC'
+            onPress={() => Alert.alert('Oh my GOD')}
+            // TODO: Link to Terms of Service and Privacy Policy page
+          />
+        </View>
       </View>
     </View>
   );
