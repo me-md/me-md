@@ -3,7 +3,7 @@ import { Button, Image, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default function TermsOfConditionsScreen() {
+export default function TermsAndConditionsScreen() {
   return (
     <View style={styles.container}>
       <Header />
@@ -11,7 +11,7 @@ export default function TermsOfConditionsScreen() {
         source={require('../../assets/images/terms-and-conditions.png')}
         style={styles.icon}
       />
-      <Text style={styles.heading}>Terms Of Conditions</Text>
+      <Text style={styles.heading}>Terms and Conditions</Text>
       <View style={styles.scrollContainer}>
         <ScrollView style={styles.scrollText}>
           <Text>
