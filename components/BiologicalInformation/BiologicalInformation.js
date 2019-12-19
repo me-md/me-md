@@ -8,7 +8,10 @@ export default class BiologicalInformation extends Component {
   render() {
     return (
       <View style={styles.biologicalInformationContainer}>
-        <LinearGradient style={styles.header} colors={['#004EFF', '#88CCF1']}>
+        <LinearGradient
+          style={styles.gradientBackground}
+          colors={['#004EFF', '#88CCF1']}
+        >
           <View style={styles.biologicalInformationAnswer}>
             <Text style={styles.biologicalInformationQuestion}>
               What is your biological sex?
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
   biologicalInformationButtonText: {
     fontSize: 36
   },
-  header: {
+  gradientBackground: {
     flex: 1
   }
 });
