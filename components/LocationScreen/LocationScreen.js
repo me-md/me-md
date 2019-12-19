@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default class Location extends Component {
+export default class LocationScreen extends Component {
   render() {
     return (
       <View style={styles.locationContainer}>
