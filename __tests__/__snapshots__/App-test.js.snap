@@ -85,8 +85,6 @@ exports[`App renders the root without loading screen 1`] = `
         Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
       </Text>
       <View
-        accessibilityRole="button"
-        accessibilityStates={Array []}
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -99,36 +97,32 @@ exports[`App renders the root without loading screen 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignItems": "center",
+            "backgroundColor": "#007aff",
+            "borderBottomWidth": null,
+            "borderColor": "#007aff",
+            "borderLeftWidth": null,
+            "borderRadius": 5,
+            "borderRightWidth": null,
+            "borderTopWidth": null,
+            "borderWidth": undefined,
+            "color": "#FFF",
+            "elevation": 2,
+            "flexDirection": "row",
+            "height": 100,
+            "justifyContent": "space-between",
+            "margin": 10,
             "opacity": 1,
+            "paddingBottom": 6,
+            "paddingTop": 6,
+            "shadowColor": undefined,
+            "shadowOffset": undefined,
+            "shadowOpacity": undefined,
+            "shadowRadius": undefined,
+            "width": "75%",
           }
         }
-      >
-        <View
-          style={
-            Array [
-              Object {},
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#007AFF",
-                  "fontSize": 18,
-                  "padding": 8,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#8CDEDC",
-                },
-              ]
-            }
-          >
-            BEGIN
-          </Text>
-        </View>
-      </View>
+      />
     </View>
   </View>
 </View>
