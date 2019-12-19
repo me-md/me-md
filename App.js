@@ -6,7 +6,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import WelcomePage from './components/WelcomePage/WelcomePage';
 import BiologicalInformation from './components/BiologicalInformation/BiologicalInformation';
-import Location from './components/Location/Location';
+import LocationScreen from './components/LocationScreen/LocationScreen';
 import SelectAge from './components/SelectAge/SelectAge';
 
 export default function App(props) {
@@ -26,7 +26,7 @@ export default function App(props) {
         {/* {Platform.OS === 'ios' && <StatusBar barStyle='default' />} */}
         <WelcomePage />
         {/* <BiologicalInformation /> */}
-        {/* <Location /> */}
+        {/* <LocationScreen /> */}
         {/* <SelectAge /> */}
         {/* <AppNavigator /> */}
       </View>
