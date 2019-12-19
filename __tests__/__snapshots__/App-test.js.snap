@@ -20,7 +20,6 @@ exports[`App renders the root without loading screen 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#FFFFFF",
         "flex": 1,
       }
     }
@@ -39,156 +38,92 @@ exports[`App renders the root without loading screen 1`] = `
       }
       style={
         Object {
-          "flex": 0.2,
-        }
-      }
-    />
-    <Image
-      source={1}
-      style={
-        Object {
-          "alignSelf": "center",
-          "borderRadius": 50,
-          "borderWidth": 0,
-          "height": 200,
-          "marginTop": 35,
-          "width": 200,
-        }
-      }
-    />
-    <View
-      style={
-        Object {
-          "flex": 0.5,
+          "alignItems": "center",
+          "flex": 1,
         }
       }
     >
-      <Text
-        style={
-          Object {
-            "fontSize": 40,
-            "fontWeight": "bold",
-            "margin": 25,
-          }
-        }
-      >
-        HELLO!
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 27,
-            "margin": 25,
-          }
-        }
-      >
-        Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
-      </Text>
       <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "alignItems": "center",
-            "backgroundColor": "#007aff",
-            "borderBottomWidth": null,
-            "borderColor": "#007aff",
-            "borderLeftWidth": null,
-            "borderRadius": 5,
-            "borderRightWidth": null,
-            "borderTopWidth": null,
-            "borderWidth": undefined,
-            "color": "#FFF",
-            "elevation": 2,
-            "flexDirection": "row",
-            "height": 100,
-            "justifyContent": "space-between",
-            "margin": 10,
-            "opacity": 1,
-            "paddingBottom": 6,
-            "paddingTop": 6,
-            "shadowColor": undefined,
-            "shadowOffset": undefined,
-            "shadowOpacity": undefined,
-            "shadowRadius": undefined,
-            "width": "75%",
-          }
-        }
-      />
-      <View
-        style={
-          Object {
-            "flex": 0.5,
+            "flex": 1,
+            "justifyContent": "space-evenly",
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "fontSize": 40,
-              "fontWeight": "bold",
-              "margin": 25,
-            }
-          }
-        >
-          HELLO!
-        </Text>
-        <Text
-          style={
-            Object {
-              "fontSize": 27,
-              "margin": 25,
-            }
-          }
-        >
-          Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
-        </Text>
+        <Text />
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#007aff",
-              "borderBottomWidth": null,
-              "borderColor": "#007aff",
-              "borderLeftWidth": null,
-              "borderRadius": 5,
-              "borderRightWidth": null,
-              "borderTopWidth": null,
-              "borderWidth": undefined,
-              "elevation": 2,
-              "flexDirection": "row",
-              "height": 45,
-              "justifyContent": "space-between",
-              "opacity": 1,
-              "paddingBottom": 6,
-              "paddingTop": 6,
-              "shadowColor": undefined,
-              "shadowOffset": undefined,
-              "shadowOpacity": undefined,
-              "shadowRadius": undefined,
+              "flex": 0.75,
             }
           }
-        />
+        >
+          <Text
+            style={
+              Object {
+                "color": "#fff",
+                "fontSize": 48,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Age
+          </Text>
+          <View
+            accessible={true}
+            focusable={false}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderBottomWidth": 1,
+                "borderColor": "#D9D5DC",
+                "borderLeftWidth": 0,
+                "borderRadius": undefined,
+                "borderRightWidth": 0,
+                "borderTopWidth": 0,
+                "borderWidth": undefined,
+                "color": "#FFF",
+                "flexDirection": "row",
+                "marginLeft": 2,
+                "opacity": 1,
+              }
+            }
+          >
+            <TextInput
+              allowFontScaling={true}
+              editable={true}
+              placeholder="Enter your age"
+              placeholderTextColor="#575757"
+              rejectResponderTermination={true}
+              style={
+                Object {
+                  "color": "#000",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 50,
+                  "paddingLeft": 5,
+                  "paddingRight": 5,
+                  "top": 1.5,
+                }
+              }
+              underlineColorAndroid="rgba(0,0,0,0)"
+            />
+          </View>
+        </View>
+        <Text />
       </View>
-    </View>
+    </ViewManagerAdapter_ExpoLinearGradient>
   </View>
 </View>
 `;
