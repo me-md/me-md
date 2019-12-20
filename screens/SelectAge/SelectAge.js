@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Item, Input } from 'native-base';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, FontAwesome } from '@expo/vector-icons';
 
 export default function SelectAge({ navigation }) {
   console.log(navigation.state.params)
@@ -62,9 +62,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   selectAgeInput: {
-    color: '#FFF'
+    color: '#FFF',
+    width: '35%'
   },
   selectAgeChildContainer: {
-    flex: 0.75
+    alignItems: 'center',
+    flex: 0.75,
+    justifyContent: 'space-evenly'
   }
 });
