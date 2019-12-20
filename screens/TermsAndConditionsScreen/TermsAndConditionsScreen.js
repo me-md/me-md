@@ -33,7 +33,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
       <Button
         title="CONTINUE"
         style={styles.button}
-        onPress={() => navigation.navigate('Welcome')}
+        onPress={() => navigation.navigate('SelectAge')}
       />
       {/* TODO: Implement React Basic button */}
       {/* TODO: Enable button ONLY when the ToC and PP are accepted */}

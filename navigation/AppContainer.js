@@ -11,11 +11,12 @@ import SelectAge from '../screens/SelectAge/SelectAge';
 const RootStack = createStackNavigator(
   {
     Welcome: WelcomeScreen,
-    TermsAndConditions: TermsAndConditionsScreen
+    TermsAndConditions: TermsAndConditionsScreen,
+    SelectAge: SelectAge,
   },
   {
     initialRouteName: 'Welcome',
-    transitionConfig: () => fromBottom(),
+    transitionConfig: () => fromBottom(2300),
   }
 )
 
