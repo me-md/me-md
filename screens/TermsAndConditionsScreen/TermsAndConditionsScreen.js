@@ -3,7 +3,7 @@ import { Button, Image, StyleSheet, Text, View } from 'react-native';
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default function TermsAndConditionsScreen() {
+export default function TermsAndConditionsScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Header />
@@ -33,7 +33,7 @@ export default function TermsAndConditionsScreen() {
       <Button
         title="CONTINUE"
         style={styles.button}
-        onPress={() => Alert.alert('And now we start!')}
+        onPress={() => navigation.navigate('Welcome')}
       />
       {/* TODO: Implement React Basic button */}
       {/* TODO: Enable button ONLY when the ToC and PP are accepted */}
