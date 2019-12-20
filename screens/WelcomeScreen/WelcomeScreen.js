@@ -2,15 +2,13 @@ import React from 'react';
 import { Image, StyleSheet, Text, View, Alert } from 'react-native';
 import { Button } from 'native-base';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Header } from '../../components/Header';
 
 
 export default function WelcomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <LinearGradient
-        colors={['#004EFF', '#88CCF1']}
-        style={styles.header}
-      ></LinearGradient>
+      <Header />
       <Image
         source={require('../../assets/images/doctor.png')}
         style={styles.icon}
@@ -52,9 +50,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     flex: 1
-  },
-  header: {
-    flex: 0.2
   },
   icon: {
     alignSelf: 'center',
