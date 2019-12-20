@@ -79,7 +79,7 @@ exports[`App renders the loading screen 1`] = `
               }
               style={
                 Object {
-                  "flex": 0.2,
+                  "height": 70,
                 }
               }
             />
@@ -99,28 +99,44 @@ exports[`App renders the loading screen 1`] = `
             <View
               style={
                 Object {
-                  "flex": 0.5,
+                  "flex": 1,
                 }
               }
             >
               <Text
                 style={
-                  Object {
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "margin": 25,
-                  }
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 40,
+                      "fontWeight": "bold",
+                      "margin": 25,
+                    },
+                  ]
                 }
+                uppercase={false}
               >
                 HELLO!
               </Text>
               <Text
                 style={
-                  Object {
-                    "fontSize": 27,
-                    "margin": 25,
-                  }
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 27,
+                      "margin": 25,
+                    },
+                  ]
                 }
+                uppercase={false}
               >
                 Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
               </Text>
@@ -138,6 +154,7 @@ exports[`App renders the loading screen 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
+                    "alignSelf": "center",
                     "backgroundColor": "#007aff",
                     "borderBottomWidth": null,
                     "borderColor": "#007aff",
@@ -146,12 +163,11 @@ exports[`App renders the loading screen 1`] = `
                     "borderRightWidth": null,
                     "borderTopWidth": null,
                     "borderWidth": undefined,
-                    "color": "#FFF",
                     "elevation": 2,
                     "flexDirection": "row",
-                    "height": 100,
-                    "justifyContent": "space-between",
-                    "margin": 10,
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": 20,
                     "opacity": 1,
                     "paddingBottom": 6,
                     "paddingTop": 6,
@@ -162,71 +178,24 @@ exports[`App renders the loading screen 1`] = `
                     "width": "75%",
                   }
                 }
-              />
-              <View
-                style={
-                  Object {
-                    "flex": 0.5,
-                  }
-                }
               >
                 <Text
                   style={
                     Object {
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "margin": 25,
+                      "backgroundColor": "transparent",
+                      "color": "#fff",
+                      "fontFamily": "System",
+                      "fontSize": 16.5,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "paddingLeft": 16,
+                      "paddingRight": 16,
                     }
                   }
+                  uppercase={false}
                 >
-                  HELLO!
+                  BEGIN
                 </Text>
-                <Text
-                  style={
-                    Object {
-                      "fontSize": 27,
-                      "margin": 25,
-                    }
-                  }
-                >
-                  Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
-                </Text>
-                <View
-                  accessible={true}
-                  focusable={true}
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007aff",
-                      "borderBottomWidth": null,
-                      "borderColor": "#007aff",
-                      "borderLeftWidth": null,
-                      "borderRadius": 5,
-                      "borderRightWidth": null,
-                      "borderTopWidth": null,
-                      "borderWidth": undefined,
-                      "elevation": 2,
-                      "flexDirection": "row",
-                      "height": 45,
-                      "justifyContent": "space-between",
-                      "opacity": 1,
-                      "paddingBottom": 6,
-                      "paddingTop": 6,
-                      "shadowColor": undefined,
-                      "shadowOffset": undefined,
-                      "shadowOpacity": undefined,
-                      "shadowRadius": undefined,
-                    }
-                  }
-                />
               </View>
             </View>
           </View>
@@ -413,7 +382,7 @@ exports[`App renders the root without loading screen 1`] = `
               }
               style={
                 Object {
-                  "flex": 0.2,
+                  "height": 70,
                 }
               }
             />
@@ -433,28 +402,44 @@ exports[`App renders the root without loading screen 1`] = `
             <View
               style={
                 Object {
-                  "flex": 0.5,
+                  "flex": 1,
                 }
               }
             >
               <Text
                 style={
-                  Object {
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "margin": 25,
-                  }
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 40,
+                      "fontWeight": "bold",
+                      "margin": 25,
+                    },
+                  ]
                 }
+                uppercase={false}
               >
                 HELLO!
               </Text>
               <Text
                 style={
-                  Object {
-                    "fontSize": 27,
-                    "margin": 25,
-                  }
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 27,
+                      "margin": 25,
+                    },
+                  ]
                 }
+                uppercase={false}
               >
                 Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
               </Text>
@@ -472,6 +457,7 @@ exports[`App renders the root without loading screen 1`] = `
                 style={
                   Object {
                     "alignItems": "center",
+                    "alignSelf": "center",
                     "backgroundColor": "#007aff",
                     "borderBottomWidth": null,
                     "borderColor": "#007aff",
@@ -480,12 +466,11 @@ exports[`App renders the root without loading screen 1`] = `
                     "borderRightWidth": null,
                     "borderTopWidth": null,
                     "borderWidth": undefined,
-                    "color": "#FFF",
                     "elevation": 2,
                     "flexDirection": "row",
-                    "height": 100,
-                    "justifyContent": "space-between",
-                    "margin": 10,
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": 20,
                     "opacity": 1,
                     "paddingBottom": 6,
                     "paddingTop": 6,
@@ -496,71 +481,24 @@ exports[`App renders the root without loading screen 1`] = `
                     "width": "75%",
                   }
                 }
-              />
-              <View
-                style={
-                  Object {
-                    "flex": 0.5,
-                  }
-                }
               >
                 <Text
                   style={
                     Object {
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "margin": 25,
+                      "backgroundColor": "transparent",
+                      "color": "#fff",
+                      "fontFamily": "System",
+                      "fontSize": 16.5,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "paddingLeft": 16,
+                      "paddingRight": 16,
                     }
                   }
+                  uppercase={false}
                 >
-                  HELLO!
+                  BEGIN
                 </Text>
-                <Text
-                  style={
-                    Object {
-                      "fontSize": 27,
-                      "margin": 25,
-                    }
-                  }
-                >
-                  Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
-                </Text>
-                <View
-                  accessible={true}
-                  focusable={true}
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#007aff",
-                      "borderBottomWidth": null,
-                      "borderColor": "#007aff",
-                      "borderLeftWidth": null,
-                      "borderRadius": 5,
-                      "borderRightWidth": null,
-                      "borderTopWidth": null,
-                      "borderWidth": undefined,
-                      "elevation": 2,
-                      "flexDirection": "row",
-                      "height": 45,
-                      "justifyContent": "space-between",
-                      "opacity": 1,
-                      "paddingBottom": 6,
-                      "paddingTop": 6,
-                      "shadowColor": undefined,
-                      "shadowOffset": undefined,
-                      "shadowOpacity": undefined,
-                      "shadowRadius": undefined,
-                    }
-                  }
-                />
               </View>
             </View>
           </View>
