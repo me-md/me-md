@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Header } from '../../components/Header';
 
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Header />
@@ -23,7 +23,7 @@ export default function WelcomeScreen() {
         <Button
           title='BEGIN'
           color='#8CDEDC'
-          onPress={() => Alert.alert('Oh my GOD')}
+          onPress={() => navigation.navigate('TermsAndConditions')}
           style={styles.button}
         // TODO: Link to Terms of Service and Privacy Policy page
         />
@@ -37,7 +37,7 @@ export default function WelcomeScreen() {
           <Button
             title='BEGIN'
             color='#8CDEDC'
-            onPress={() => Alert.alert('Oh my GOD')}
+            onPress={() => this.props.navigation.navigate('TermsAndConditions')}
           // TODO: Link to Terms of Service and Privacy Policy page
           />
         </View>

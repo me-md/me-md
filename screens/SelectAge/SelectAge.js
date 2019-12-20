@@ -12,7 +12,7 @@ export default class SelectAge extends Component {
           style={styles.gradientBackground}
           colors={['#004EFF', '#88CCF1']}
         >
-          <View style={styles.container}>
+          <View style={styles.contentContainer}>
             <Entypo name='chevron-thin-up' size={36} color='black' />
             <View style={styles.selectAgeChildContainer}>
               <Text style={styles.selectAgeHeader}>Age</Text>
@@ -32,7 +32,7 @@ export default class SelectAge extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'space-evenly'
