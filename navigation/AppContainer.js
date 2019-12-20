@@ -6,7 +6,7 @@ import TermsAndConditionsScreen from '../screens/TermsAndConditionsScreen/TermsA
 import BiologicalInformation from '../screens/BiologicalInformation/BiologicalInformation';
 import SelectAge from '../screens/SelectAge/SelectAge';
 import LocationScreen from '../screens/LocationScreen/LocationScreen';
-
+import SearchSymptoms from '../screens/SearchSymptoms/SearchSymptoms';
 
 const RootStack = createStackNavigator(
   {
