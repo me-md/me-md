@@ -3,7 +3,8 @@ import { Image, StyleSheet, Text, View, Alert } from 'react-native';
 import { Button } from 'native-base';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function WelcomePage() {
+
+export default function WelcomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -24,9 +25,9 @@ export default function WelcomePage() {
         <Button
           title='BEGIN'
           color='#8CDEDC'
-          onPress={() => Alert.alert('Oh my GOD')}
+          onPress={() => navigation.navigate('TermsAndConditions')}
           style={styles.button}
-          // TODO: Link to Terms of Service and Privacy Policy page
+        // TODO: Link to Terms of Service and Privacy Policy page
         />
         <View style={styles.welcome}>
           <Text style={styles.greeting}>HELLO!</Text>
@@ -38,8 +39,8 @@ export default function WelcomePage() {
           <Button
             title='BEGIN'
             color='#8CDEDC'
-            onPress={() => Alert.alert('Oh my GOD')}
-            // TODO: Link to Terms of Service and Privacy Policy page
+            onPress={() => this.props.navigation.navigate('TermsAndConditions')}
+          // TODO: Link to Terms of Service and Privacy Policy page
           />
         </View>
       </View>

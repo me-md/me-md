@@ -4,35 +4,38 @@ import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import WelcomePage from './components/WelcomePage/WelcomePage';
-import BiologicalInformation from './components/BiologicalInformation/BiologicalInformation';
-import LocationScreen from './components/LocationScreen/LocationScreen';
-import SelectAge from './components/SelectAge/SelectAge';
+import { AppContainer } from './navigation/AppContainer';
 
-export default function App(props) {
-  const [isLoadingComplete, setLoadingComplete] = useState(false);
-
-  if (!isLoadingComplete && !props.skipLoadingScreen) {
-    return (
-      <AppLoading
-        startAsync={loadResourcesAsync}
-        onError={handleLoadingError}
-        onFinish={() => handleFinishLoading(setLoadingComplete)}
-      />
-    );
-  } else {
-    return (
-      <View style={styles.container}>
-        {/* {Platform.OS === 'ios' && <StatusBar barStyle='default' />} */}
-        <WelcomePage />
-        {/* <BiologicalInformation /> */}
-        {/* <LocationScreen /> */}
-        {/* <SelectAge /> */}
-        {/* <AppNavigator /> */}
-      </View>
-    );
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />
   }
 }
+
+// export default function App(props) {
+//   const [isLoadingComplete, setLoadingComplete] = useState(false);
+
+//   if (!isLoadingComplete && !props.skipLoadingScreen) {
+//     return (
+//       <AppLoading
+//         startAsync={loadResourcesAsync}
+//         onError={handleLoadingError}
+//         onFinish={() => handleFinishLoading(setLoadingComplete)}
+//       />
+//     );
+//   } else {
+//     return (
+//     <View style={styles.container}>
+//     {/* {Platform.OS === 'ios' && <StatusBar barStyle='default' />} */ }
+//     {/* <WelcomeScreen /> */ }
+//     {/* <TermsOfConditionsScreen /> */ }
+//     {/* <BiologicalInformation /> */ }
+//     {/* <LocationScreen /> */ }
+//     {/* <SelectAge /> */ }
+//     </View>
+//     );
+//   }
+// }
 
 async function loadResourcesAsync() {
   await Promise.all([
