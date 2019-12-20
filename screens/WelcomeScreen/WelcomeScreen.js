@@ -1,7 +1,6 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, Alert } from 'react-native';
-import { Button } from 'native-base';
-import { LinearGradient } from 'expo-linear-gradient';
+import { Image, StyleSheet, View } from 'react-native';
+import { Button, Text } from 'native-base';
 import { Header } from '../../components/Header';
 
 
@@ -16,31 +15,16 @@ export default function WelcomeScreen({ navigation }) {
       <View style={styles.welcome}>
         <Text style={styles.greeting}>HELLO!</Text>
         <Text style={styles.message}>
-          Welcome to MeMD, an online platform designed to help diagnose symptoms
-          and locate potential doctors. Please click BEGIN to start your health
-          checkup.
-        </Text>
-        <Button
-          title='BEGIN'
-          color='#8CDEDC'
-          onPress={() => navigation.navigate('TermsAndConditions')}
-          style={styles.button}
-        // TODO: Link to Terms of Service and Privacy Policy page
-        />
-        <View style={styles.welcome}>
-          <Text style={styles.greeting}>HELLO!</Text>
-          <Text style={styles.message}>
-            Welcome to MeMD, an online platform designed to help diagnose
-            symptoms and locate potential doctors. Please click BEGIN to start
-            your health checkup.
+          Welcome to MeMD, an online platform designed to help diagnose
+          symptoms and locate potential doctors. Please click BEGIN to start
+          your health checkup.
           </Text>
-          <Button
-            title='BEGIN'
-            color='#8CDEDC'
-            onPress={() => this.props.navigation.navigate('TermsAndConditions')}
-          // TODO: Link to Terms of Service and Privacy Policy page
-          />
-        </View>
+        <Button
+          block
+          style={styles.button}
+          onPress={() => navigation.navigate('TermsAndConditions')}>
+          <Text>BEGIN</Text>
+        </Button>
       </View>
     </View>
   );
@@ -60,7 +44,7 @@ const styles = StyleSheet.create({
     width: 200
   },
   welcome: {
-    flex: 0.5
+    flex: 1
   },
   greeting: {
     fontSize: 40,
@@ -72,9 +56,8 @@ const styles = StyleSheet.create({
     margin: 25
   },
   button: {
-    color: '#FFF',
-    height: 100,
-    margin: 10,
+    alignSelf: 'center',
+    marginTop: 20,
     width: '75%'
   }
 });
