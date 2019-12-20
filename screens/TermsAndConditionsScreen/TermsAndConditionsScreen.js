@@ -42,7 +42,12 @@ export default function TermsAndConditionsScreen({ navigation }) {
             </Text>
           </ScrollView>
         </View>
+<<<<<<< HEAD
         <View>
+=======
+        <View style={styles.agreement}>
+          {/* TODO: Create checkable box for user to click */}
+>>>>>>> Use react hooks to enable and disable button on accepting terms and conditions
           <CheckBox
             center
             title={<Text style={styles.agreement}>I read and accept the Terms of Service and Privacy Policy</Text>}
@@ -116,10 +121,17 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginTop: 30,
   },
+  legal: {
+    lineHeight: 20
+  },
   agreement: {
     alignSelf: 'flex-start',
     fontSize: 14,
+<<<<<<< HEAD
     margin: 10
+=======
+    marginLeft: 5
+>>>>>>> Use react hooks to enable and disable button on accepting terms and conditions
   },
   button: {
     alignSelf: 'center',
