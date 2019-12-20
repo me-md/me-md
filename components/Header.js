@@ -15,6 +15,6 @@ export function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    flex: 0.2
+    height: 70
   }
 })
