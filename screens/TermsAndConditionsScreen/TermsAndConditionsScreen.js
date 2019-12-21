@@ -33,8 +33,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
             </Text>
           </ScrollView>
         </View>
-        <View style={styles.agreement}>
-          {/* TODO: Create checkable box for user to click */}
+        <View>
           <CheckBox
             center
             title={<Text style={styles.agreement}>I read and accept the Terms of Service and Privacy Policy</Text>}
@@ -89,7 +88,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flex: 0.8,
-    marginBottom: 20
+    marginBottom: 10
   },
   scrollText: {
     alignSelf: 'center',
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
     width: 400
   },
   legal: {
-    lineHeight: 20
+    lineHeight: 25
   },
   agreement: {
     alignSelf: 'flex-start',
