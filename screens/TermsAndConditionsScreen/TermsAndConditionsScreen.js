@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import { Button, Text } from 'native-base';
 import { CheckBox } from 'react-native-elements'
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
+import { AntDesign } from '@expo/vector-icons';
+
+const height = Dimensions.get('window').height;
 
 export default function TermsAndConditionsScreen({ navigation }) {
 
@@ -13,9 +16,15 @@ export default function TermsAndConditionsScreen({ navigation }) {
   })
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Header />
       <View style={styles.contentContainer}>
+        <AntDesign
+          name="close"
+          size={32}
+          color="black"
+          style={styles.close}
+          onPress={() => navigation.navigate('Welcome')} />
         <Image
           source={require('../../assets/images/terms-and-conditions.png')}
           style={styles.icon}
@@ -58,7 +67,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
             <Text>CONTINUE</Text>
           </Button>}
       </View>
-    </View >
+    </ScrollView >
   );
 }
 
@@ -72,12 +81,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1
   },
+  close: {
+    alignSelf: 'flex-end',
+    marginRight: 20,
+    marginTop: 20,
+  },
   icon: {
     borderWidth: 0,
     borderRadius: 50,
-    height: 150,
-    marginTop: 35,
-    width: 150
+    height: height * 0.15,
+    width: height * 0.15
   },
   heading: {
     alignSelf: 'flex-start',
@@ -87,28 +100,31 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   scrollContainer: {
-    flex: 0.8,
+    height: height * 0.4,
     marginBottom: 10
   },
   scrollText: {
     alignSelf: 'center',
     backgroundColor: '#CCCCCC',
     borderColor: '#FFFFFF',
-    borderWidth: 10,
-    padding: 20,
-    width: 400
+    paddingLeft: 20,
+    paddingRight: 20,
+    margin: 20
   },
   legal: {
-    lineHeight: 25
+    lineHeight: 25,
+    marginBottom: 30,
+    marginTop: 30,
   },
   agreement: {
     alignSelf: 'flex-start',
     fontSize: 14,
-    marginLeft: 5
+    margin: 10
   },
   button: {
     alignSelf: 'center',
-    marginTop: 40,
+    marginBottom: 30,
+    marginTop: 25,
     width: '75%'
   }
 });
