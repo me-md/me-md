@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, StyleSheet, View } from 'react-native';
-import { Button, Text } from 'native-base';
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Button } from 'native-base';
 import { CheckBox } from 'react-native-elements'
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
