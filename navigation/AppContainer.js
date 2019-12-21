@@ -18,7 +18,11 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName: 'Welcome',
-    transitionConfig: () => fromBottom(),
+    transitionConfig: () => fromBottom(1500),
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
   }
 )
 
