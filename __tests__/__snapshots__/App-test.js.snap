@@ -189,7 +189,7 @@ exports[`App renders the loading screen 1`] = `
                   }
                   uppercase={false}
                 >
-                  BEGIN
+                  BEGIN CHECKUP
                 </Text>
               </View>
             </View>
@@ -390,7 +390,7 @@ exports[`App renders the root without loading screen 1`] = `
                   }
                   uppercase={false}
                 >
-                  BEGIN
+                  BEGIN CHECKUP
                 </Text>
               </View>
             </View>
