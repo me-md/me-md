@@ -1,29 +1,47 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Item, Input } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 
-export default class LocationScreen extends Component {
-  render() {
-    return (
-      <View style={styles.locationContainer}>
-        <LinearGradient
-          style={styles.gradientBackground}
-          colors={['#004EFF', '#88CCF1']}
-        >
-          <View style={styles.container}>
-            <Entypo name='chevron-thin-up' size={36} color='black' />
-            <Text style={styles.locationTitle}>Location</Text>
-            <TextInput
+export default function LocationScreen({ navigation }) {
+  const [state, setState] = useState({
+    location: ''
+  });
+
+  console.log('state', state);
+
+  return (
+    <View style={styles.locationContainer}>
+      <LinearGradient
+        style={styles.gradientBackground}
+        colors={['#004EFF', '#88CCF1']}
+      >
+        <View style={styles.container}>
+          <Entypo
+            name='chevron-thin-up'
+            size={36}
+            color='white'
+            onPress={() => navigation.navigate('SelectAge')}
+          />
+          <Text style={styles.locationTitle}>Location</Text>
+          <Item style={styles.locationInput}>
+            <Input
               style={styles.locationInput}
-              value='City, State'
-            ></TextInput>
-            <Entypo name='chevron-thin-down' size={36} color='black' />
-          </View>
-        </LinearGradient>
-      </View>
-    );
-  }
+              placeholder='City, State'
+              onChangeText={text => setState({ location: text })}
+            />
+          </Item>
+          <Entypo
+            name='chevron-thin-down'
+            size={36}
+            color='white'
+            onPress={() => navigation.navigate('SearchSymptoms')}
+          />
+        </View>
+      </LinearGradient>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

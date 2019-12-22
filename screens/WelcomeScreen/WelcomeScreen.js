@@ -16,15 +16,16 @@ export default function WelcomeScreen({ navigation }) {
       <View style={styles.welcome}>
         <Text style={styles.greeting}>Hello!</Text>
         <Text style={styles.message}>
-          Welcome to MeMD, an online platform designed to help diagnose
-          symptoms and locate potential doctors. Please click BEGIN to start
-          your health checkup.
-          </Text>
+          Welcome to MeMD, an online platform designed to help diagnose symptoms
+          and locate potential doctors. Please click BEGIN to start your health
+          checkup.
+        </Text>
         <Button
           block
           style={styles.button}
-          onPress={() => navigation.navigate('TermsAndConditions')}>
-          <Text>BEGIN</Text>
+          onPress={() => navigation.navigate('TermsAndConditions')}
+        >
+          <Text>BEGIN CHECKUP</Text>
         </Button>
       </View>
     </View>
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     height: height * 0.2,
     marginBottom: 10,
     marginTop: 35,
-    width: height * 0.2,
+    width: height * 0.2
   },
   greeting: {
     fontSize: 40,
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 26,
     marginLeft: 25,
-    marginBottom: 25,
+    marginBottom: 25
   },
   button: {
     alignSelf: 'center',

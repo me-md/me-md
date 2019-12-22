@@ -7,6 +7,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { AppContainer } from './navigation/AppContainer';
 
 export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      location: ''
+    };
+  }
+
   render() {
     return <AppContainer />;
   }

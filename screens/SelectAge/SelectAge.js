@@ -27,14 +27,21 @@ export default function SelectAge({ navigation }) {
           />
           <View style={styles.selectAgeChildContainer}>
             <Text style={styles.selectAgeHeader}>Age</Text>
+            <FontAwesome name='birthday-cake' size={48} color='white' />
             <Item style={styles.selectAgeInput}>
               <Input
                 placeholder='Enter your age'
                 style={styles.selectAgeInputText}
+                onChangeText={text => setState({ age: text })}
               />
             </Item>
           </View>
-          <Entypo name='chevron-thin-down' size={36} color='white' />
+          <Entypo
+            name='chevron-thin-down'
+            size={36}
+            color='white'
+            onPress={() => navigation.navigate('LocationScreen')}
+          />
         </View>
       </LinearGradient>
     </View>

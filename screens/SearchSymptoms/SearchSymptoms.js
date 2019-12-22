@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Input, Item } from 'native-base';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
 
 export default function SymptomsScreen() {
+  const [state, setState] = useState({
+    symptoms: []
+  });
+
+  const searchSymptoms = async text => {
+    const searchResults = await searchAllSymptoms(text);
+    console.log('results?', searchResults);
+  };
+
   return (
     <View style={styles.symptomsScreenContainer}>
       <LinearGradient
@@ -17,6 +27,7 @@ export default function SymptomsScreen() {
           <Input
             placeholder='Search all symptoms'
             style={styles.symptomsScreenSearchInput}
+            onChangeText={text => searchSymptoms(text)}
           />
           <FontAwesome
             active
