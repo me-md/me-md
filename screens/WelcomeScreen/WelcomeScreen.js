@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import { Button, Text } from 'native-base';
 import { Header } from '../../components/Header';
 
+const height = Dimensions.get('window').height;
 
 export default function WelcomeScreen({ navigation }) {
   return (
@@ -13,7 +14,7 @@ export default function WelcomeScreen({ navigation }) {
         style={styles.icon}
       />
       <View style={styles.welcome}>
-        <Text style={styles.greeting}>HELLO!</Text>
+        <Text style={styles.greeting}>Hello!</Text>
         <Text style={styles.message}>
           Welcome to MeMD, an online platform designed to help diagnose
           symptoms and locate potential doctors. Please click BEGIN to start
@@ -39,12 +40,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderWidth: 0,
     borderRadius: 50,
-    height: 200,
+    height: height * 0.2,
+    marginBottom: 10,
     marginTop: 35,
-    width: 200
-  },
-  welcome: {
-    flex: 1
+    width: height * 0.2,
   },
   greeting: {
     fontSize: 40,
@@ -52,8 +51,9 @@ const styles = StyleSheet.create({
     margin: 25
   },
   message: {
-    fontSize: 27,
-    margin: 25
+    fontSize: 26,
+    marginLeft: 25,
+    marginBottom: 25,
   },
   button: {
     alignSelf: 'center',

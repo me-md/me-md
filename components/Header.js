@@ -17,6 +17,6 @@ export function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    height: height * 0.1,
+    height: height * 0.15,
   }
 })
