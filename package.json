@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --forceExit",
+    "test": "jest --update-snapshot --forceExit",
     "coverage": "npm test -- --coverage --watchAll=false"
   },
   "jest": {
