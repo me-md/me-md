@@ -7,11 +7,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { AppContainer } from './navigation/AppContainer';
 
 export default class App extends React.Component {
-  // const [appState, setAppState] = useState({
-  //   age: '',
-  //   sex: ''
-  // });
-
   render() {
     return <AppContainer />;
   }
