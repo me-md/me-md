@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
+
+const height = Dimensions.get('window').height;
 
 export function Header(props) {
   return (
@@ -15,6 +17,6 @@ export function Header(props) {
 
 const styles = StyleSheet.create({
   header: {
-    height: 70
+    height: height * 0.1,
   }
 })

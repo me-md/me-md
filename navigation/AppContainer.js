@@ -4,14 +4,17 @@ import { fromBottom } from 'react-navigation-transitions';
 import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen';
 import TermsAndConditionsScreen from '../screens/TermsAndConditionsScreen/TermsAndConditionsScreen';
 import BiologicalInformation from '../screens/BiologicalInformation/BiologicalInformation';
-import LocationScreen from '../screens/LocationScreen/LocationScreen';
 import SelectAge from '../screens/SelectAge/SelectAge';
+import LocationScreen from '../screens/LocationScreen/LocationScreen';
 
 
 const RootStack = createStackNavigator(
   {
     Welcome: WelcomeScreen,
-    TermsAndConditions: TermsAndConditionsScreen
+    TermsAndConditions: TermsAndConditionsScreen,
+    BiologicalInformation: BiologicalInformation,
+    SelectAge: SelectAge,
+    LocationScreen: LocationScreen,
   },
   {
     initialRouteName: 'Welcome',

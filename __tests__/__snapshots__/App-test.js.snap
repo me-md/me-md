@@ -79,7 +79,7 @@ exports[`App renders the loading screen 1`] = `
               }
               style={
                 Object {
-                  "height": 70,
+                  "height": 133.4,
                 }
               }
             />
@@ -382,7 +382,7 @@ exports[`App renders the root without loading screen 1`] = `
               }
               style={
                 Object {
-                  "height": 70,
+                  "height": 133.4,
                 }
               }
             />
