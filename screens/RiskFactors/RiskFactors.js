@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Body, Card, CardItem, Item, Input } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 import { getCommonRiskFactors } from '../../utils/apiCalls/apiCalls';
 
+const height = Dimensions.get('window').height;
+
 export default function RiskFactors({ navigation }) {
   const [factors, setFactors] = useState([]);
+  const [checked, setChecked] = useState({
+    yes: false,
+    no: false
+  });
 
   const getRiskFactors = async () => {
     const riskFactors = await getCommonRiskFactors();
@@ -15,15 +21,36 @@ export default function RiskFactors({ navigation }) {
   };
 
   const riskFactorAnswers = factors.map((factor, index) => {
+    console.log('factor', factor);
     return (
       <Card key={index} style={styles.riskFactorCard}>
         <CardItem>
           <Body>
-            <Text style={styles.riskFactorQuestionCheckbox}>
-              {factor.question}
-            </Text>
-            <CheckBox center></CheckBox>
-            <CheckBox center></CheckBox>
+            <Text style={styles.questionText}>{factor.question}</Text>
+            <View style={styles.checkboxes}>
+              <CheckBox
+                center
+                title={<Text>Yes</Text>}
+                checked={checked.yes}
+                onPress={() =>
+                  setChecked({
+                    yes: !checked.yes,
+                    no: checked.no
+                  })
+                }
+              ></CheckBox>
+              <CheckBox
+                center
+                title={<Text>No</Text>}
+                checked={checked.no}
+                onPress={() =>
+                  setChecked({
+                    yes: checked.yes,
+                    no: !checked.no
+                  })
+                }
+              ></CheckBox>
+            </View>
           </Body>
         </CardItem>
       </Card>
@@ -35,20 +62,20 @@ export default function RiskFactors({ navigation }) {
   }, []);
 
   return (
-    <View style={styles.riskFactorsContainer}>
+    <View style={styles.container}>
       <LinearGradient
         style={styles.gradientBackground}
         colors={['#004EFF', '#88CCF1']}
       >
-        <View style={styles.childRiskFactorsContainer}>
+        <View style={styles.screenContainer}>
           <Entypo
             name='chevron-thin-up'
             size={36}
             color='white'
             onPress={() => navigation.navigate('LocationScreen')}
           />
-          <View style={styles.riskFactorsContentContainer}>
-            <Text style={styles.riskFactorsHeader}>Common Risk Factors:</Text>
+          <View style={styles.contentContainer}>
+            <Text style={styles.header}>Common Risk Factors:</Text>
             {riskFactorAnswers}
           </View>
           <Entypo
@@ -64,10 +91,10 @@ export default function RiskFactors({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  riskFactorsContainer: {
+  container: {
     flex: 1
   },
-  childRiskFactorsContainer: {
+  screenContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center'
@@ -75,24 +102,34 @@ const styles = StyleSheet.create({
   gradientBackground: {
     flex: 1
   },
-  riskFactorsContentContainer: {
+  contentContainer: {
     alignItems: 'center',
-    flex: 0.75,
+    flex: 0.9,
     justifyContent: 'space-evenly',
+    marginBottom: 16,
     width: '100%'
   },
-  riskFactorsHeader: {
+  header: {
     color: 'white',
-    fontSize: 48,
-    fontWeight: 'bold'
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginBottom: 30,
+    marginTop: 10
   },
-  riskFactorQuestionCheckbox: {
+  questionText: {
     alignSelf: 'flex-start',
-    fontSize: 14,
-    margin: 10
+    fontSize: 16
   },
   riskFactorCard: {
-    width: '100%'
+    flex: 1,
+    marginBottom: 14,
+    marginTop: 14,
+    width: '75%'
   },
-  riskFactorsQuestions: {}
+  checkboxes: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    fontSize: 14,
+    marginTop: 10
+  }
 });
