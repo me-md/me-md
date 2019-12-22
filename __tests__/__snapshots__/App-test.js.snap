@@ -36,7 +36,6 @@ exports[`App renders the loading screen 1`] = `
             "bottom": 0,
             "left": 0,
             "opacity": 1,
-            "paddingTop": 64,
             "position": "absolute",
             "right": 0,
             "top": 0,
@@ -79,7 +78,7 @@ exports[`App renders the loading screen 1`] = `
               }
               style={
                 Object {
-                  "height": 133.4,
+                  "height": 200.1,
                 }
               }
             />
@@ -90,19 +89,14 @@ exports[`App renders the loading screen 1`] = `
                   "alignSelf": "center",
                   "borderRadius": 50,
                   "borderWidth": 0,
-                  "height": 200,
+                  "height": 266.8,
+                  "marginBottom": 10,
                   "marginTop": 35,
-                  "width": 200,
+                  "width": 266.8,
                 }
               }
             />
-            <View
-              style={
-                Object {
-                  "flex": 1,
-                }
-              }
-            >
+            <View>
               <Text
                 style={
                   Array [
@@ -120,7 +114,7 @@ exports[`App renders the loading screen 1`] = `
                 }
                 uppercase={false}
               >
-                HELLO!
+                Hello!
               </Text>
               <Text
                 style={
@@ -131,8 +125,9 @@ exports[`App renders the loading screen 1`] = `
                       "fontSize": 16,
                     },
                     Object {
-                      "fontSize": 27,
-                      "margin": 25,
+                      "fontSize": 26,
+                      "marginBottom": 25,
+                      "marginLeft": 25,
                     },
                   ]
                 }
@@ -196,103 +191,6 @@ exports[`App renders the loading screen 1`] = `
                 >
                   BEGIN
                 </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "transform": Array [
-              Object {
-                "translateX": 0,
-              },
-            ],
-          }
-        }
-      >
-        <View
-          onLayout={[Function]}
-          pointerEvents="box-none"
-          style={
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#a7a7aa",
-              "borderBottomWidth": 0.5,
-              "height": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 20,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "bottom": 0,
-                  "flexDirection": "row",
-                  "left": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                }
-              }
-            >
-              <View
-                pointerEvents="box-none"
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "bottom": 0,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "left": 0,
-                    "opacity": 1,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  }
-                }
-              >
-                <Text
-                  accessibilityTraits="header"
-                  allowFontScaling={false}
-                  numberOfLines={1}
-                  onLayout={[Function]}
-                  style={
-                    Object {
-                      "color": "rgba(0, 0, 0, 0.9)",
-                      "fontSize": 17,
-                      "fontWeight": "600",
-                      "marginHorizontal": 16,
-                      "textAlign": "center",
-                    }
-                  }
-                />
               </View>
             </View>
           </View>
@@ -339,7 +237,6 @@ exports[`App renders the root without loading screen 1`] = `
             "bottom": 0,
             "left": 0,
             "opacity": 1,
-            "paddingTop": 64,
             "position": "absolute",
             "right": 0,
             "top": 0,
@@ -382,7 +279,7 @@ exports[`App renders the root without loading screen 1`] = `
               }
               style={
                 Object {
-                  "height": 133.4,
+                  "height": 200.1,
                 }
               }
             />
@@ -393,19 +290,14 @@ exports[`App renders the root without loading screen 1`] = `
                   "alignSelf": "center",
                   "borderRadius": 50,
                   "borderWidth": 0,
-                  "height": 200,
+                  "height": 266.8,
+                  "marginBottom": 10,
                   "marginTop": 35,
-                  "width": 200,
+                  "width": 266.8,
                 }
               }
             />
-            <View
-              style={
-                Object {
-                  "flex": 1,
-                }
-              }
-            >
+            <View>
               <Text
                 style={
                   Array [
@@ -423,7 +315,7 @@ exports[`App renders the root without loading screen 1`] = `
                 }
                 uppercase={false}
               >
-                HELLO!
+                Hello!
               </Text>
               <Text
                 style={
@@ -434,8 +326,9 @@ exports[`App renders the root without loading screen 1`] = `
                       "fontSize": 16,
                     },
                     Object {
-                      "fontSize": 27,
-                      "margin": 25,
+                      "fontSize": 26,
+                      "marginBottom": 25,
+                      "marginLeft": 25,
                     },
                   ]
                 }
@@ -499,103 +392,6 @@ exports[`App renders the root without loading screen 1`] = `
                 >
                   BEGIN
                 </Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      pointerEvents="box-none"
-      style={
-        Object {
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "transform": Array [
-              Object {
-                "translateX": 0,
-              },
-            ],
-          }
-        }
-      >
-        <View
-          onLayout={[Function]}
-          pointerEvents="box-none"
-          style={
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomColor": "#a7a7aa",
-              "borderBottomWidth": 0.5,
-              "height": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 20,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "bottom": 0,
-                  "flexDirection": "row",
-                  "left": 0,
-                  "position": "absolute",
-                  "right": 0,
-                  "top": 0,
-                }
-              }
-            >
-              <View
-                pointerEvents="box-none"
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "bottom": 0,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "left": 0,
-                    "opacity": 1,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  }
-                }
-              >
-                <Text
-                  accessibilityTraits="header"
-                  allowFontScaling={false}
-                  numberOfLines={1}
-                  onLayout={[Function]}
-                  style={
-                    Object {
-                      "color": "rgba(0, 0, 0, 0.9)",
-                      "fontSize": 17,
-                      "fontWeight": "600",
-                      "marginHorizontal": 16,
-                      "textAlign": "center",
-                    }
-                  }
-                />
               </View>
             </View>
           </View>
