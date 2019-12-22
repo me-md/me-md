@@ -2,41 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Item, Input } from 'native-base';
+import { Body, Card, CardItem, Item, Input } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 import { getCommonRiskFactors } from '../../utils/apiCalls/apiCalls';
 
 export default function RiskFactors({ navigation }) {
-  const [state, setState] = useState({
-    factors: []
-  });
+  const [factors, setFactors] = useState([]);
 
   const getRiskFactors = async () => {
     const riskFactors = await getCommonRiskFactors();
-    let setFactors = riskFactors.data.map(factor => {
-      console.log('factor', factor);
-      state.factors.push(factor);
-    });
-    setState({ factors: [setFactors] });
+    setFactors(riskFactors.data);
   };
 
-  const setRiskFactorAnswers = () => {
-    let questions = state.factors.map(factor => {
-      return (
-        <Item>
-          <CheckBox
-            center
-            title={
-              <Text style={styles.riskFactorQuestionCheckbox}>
-                {factor.question}
-              </Text>
-            }
-          ></CheckBox>
-        </Item>
-      );
-    });
-    return questions;
-  };
+  const riskFactorAnswers = factors.map((factor, index) => {
+    return (
+      <Card key={index} style={styles.riskFactorCard}>
+        <CardItem>
+          <Body>
+            <Text style={styles.riskFactorQuestionCheckbox}>
+              {factor.question}
+            </Text>
+            <CheckBox center></CheckBox>
+            <CheckBox center></CheckBox>
+          </Body>
+        </CardItem>
+      </Card>
+    );
+  });
 
   useEffect(() => {
     getRiskFactors();
@@ -57,7 +49,7 @@ export default function RiskFactors({ navigation }) {
           />
           <View style={styles.riskFactorsContentContainer}>
             <Text style={styles.riskFactorsHeader}>Common Risk Factors:</Text>
-            <View>{setRiskFactorAnswers()}</View>
+            {riskFactorAnswers}
           </View>
           <Entypo
             name='chevron-thin-down'
@@ -86,7 +78,8 @@ const styles = StyleSheet.create({
   riskFactorsContentContainer: {
     alignItems: 'center',
     flex: 0.75,
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    width: '100%'
   },
   riskFactorsHeader: {
     color: 'white',
@@ -97,5 +90,9 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     fontSize: 14,
     margin: 10
-  }
+  },
+  riskFactorCard: {
+    width: '100%'
+  },
+  riskFactorsQuestions: {}
 });

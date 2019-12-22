@@ -9,8 +9,6 @@ export default function LocationScreen({ navigation }) {
     location: ''
   });
 
-  console.log('state', state);
-
   return (
     <View style={styles.locationContainer}>
       <LinearGradient
