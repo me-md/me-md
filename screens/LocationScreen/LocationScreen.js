@@ -36,7 +36,7 @@ export default function LocationScreen({ navigation }) {
             name='chevron-thin-down'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('SearchSymptoms')}
+            onPress={() => navigation.navigate('RiskFactors')}
           />
         </View>
       </LinearGradient>

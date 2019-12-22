@@ -6,6 +6,7 @@ import TermsAndConditionsScreen from '../screens/TermsAndConditionsScreen/TermsA
 import BiologicalInformation from '../screens/BiologicalInformation/BiologicalInformation';
 import SelectAge from '../screens/SelectAge/SelectAge';
 import LocationScreen from '../screens/LocationScreen/LocationScreen';
+import RiskFactors from '../screens/RiskFactors/RiskFactors';
 import SearchSymptoms from '../screens/SearchSymptoms/SearchSymptoms';
 
 const RootStack = createStackNavigator(
@@ -14,7 +15,8 @@ const RootStack = createStackNavigator(
     TermsAndConditions: TermsAndConditionsScreen,
     BiologicalInformation: BiologicalInformation,
     SelectAge: SelectAge,
-    LocationScreen: LocationScreen,
+    Location: LocationScreen,
+    RiskFactors: RiskFactors,
     SearchSymptoms: SearchSymptoms
   },
   {
