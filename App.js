@@ -6,17 +6,13 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AppContainer } from './navigation/AppContainer';
 
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      location: ''
-    };
-  }
+export default function App() {
+  const [appState, setAppState] = useState({
+    age: '',
+    sex: ''
+  });
 
-  render() {
-    return <AppContainer />;
-  }
+  return <AppContainer appState={appState} setAppState={setAppState} />;
 }
 
 // export default function App(props) {

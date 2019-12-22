@@ -40,7 +40,7 @@ export default function SelectAge({ navigation }) {
             name='chevron-thin-down'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('LocationScreen')}
+            onPress={() => navigation.navigate('Location')}
           />
         </View>
       </LinearGradient>
