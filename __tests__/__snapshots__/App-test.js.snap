@@ -59,6 +59,7 @@ exports[`App renders the loading screen 1`] = `
           <View
             style={
               Object {
+                "backgroundColor": "#FFFFFF",
                 "flex": 1,
               }
             }
@@ -77,98 +78,121 @@ exports[`App renders the loading screen 1`] = `
               }
               style={
                 Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "justifyContent": "space-evenly",
+                  "height": 70,
                 }
               }
-            >
+            />
+            <Image
+              source={1}
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "borderRadius": 50,
+                  "borderWidth": 0,
+                  "height": 266.8,
+                  "marginBottom": 10,
+                  "marginTop": 35,
+                  "width": 266.8,
+                }
+              }
+            />
+            <View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 40,
+                      "fontWeight": "bold",
+                      "margin": 25,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Hello!
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 26,
+                      "marginBottom": 25,
+                      "marginLeft": 25,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
+              </Text>
               <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
                     "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "space-between",
-                    "marginTop": "35%",
+                    "alignSelf": "center",
+                    "backgroundColor": "#007aff",
+                    "borderBottomWidth": null,
+                    "borderColor": "#007aff",
+                    "borderLeftWidth": null,
+                    "borderRadius": 5,
+                    "borderRightWidth": null,
+                    "borderTopWidth": null,
+                    "borderWidth": undefined,
+                    "elevation": 2,
+                    "flexDirection": "row",
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": 20,
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingTop": 6,
+                    "shadowColor": undefined,
+                    "shadowOffset": undefined,
+                    "shadowOpacity": undefined,
+                    "shadowRadius": undefined,
+                    "width": "75%",
                   }
                 }
               >
-                <Text />
                 <Text
                   style={
                     Object {
-                      "color": "#FFF",
-                      "fontSize": 48,
-                      "fontWeight": "bold",
-                    }
-                  }
-                >
-                  Location
-                </Text>
-                <View
-                  accessible={true}
-                  focusable={false}
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "alignItems": "center",
                       "backgroundColor": "transparent",
-                      "borderBottomWidth": 1,
-                      "borderColor": "white",
-                      "borderLeftWidth": 0,
-                      "borderRadius": undefined,
-                      "borderRightWidth": 0,
-                      "borderTopWidth": 0,
-                      "borderWidth": 1,
                       "color": "#fff",
-                      "flexDirection": "row",
-                      "fontSize": 24,
-                      "height": 40,
-                      "marginLeft": 2,
-                      "opacity": 1,
+                      "fontFamily": "System",
+                      "fontSize": 16.5,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "paddingLeft": 16,
+                      "paddingRight": 16,
                     }
                   }
+                  uppercase={false}
                 >
-                  <TextInput
-                    allowFontScaling={true}
-                    editable={true}
-                    onChangeText={[Function]}
-                    placeholder="City, State"
-                    placeholderTextColor="#575757"
-                    rejectResponderTermination={true}
-                    style={
-                      Array [
-                        Object {
-                          "color": "#000",
-                          "flex": 1,
-                          "fontSize": 17,
-                          "height": 50,
-                          "paddingLeft": 5,
-                          "paddingRight": 5,
-                          "top": 1.5,
-                        },
-                        Object {
-                          "borderColor": "white",
-                          "borderWidth": 1,
-                          "color": "#fff",
-                          "fontSize": 24,
-                          "height": 40,
-                        },
-                      ]
-                    }
-                    underlineColorAndroid="rgba(0,0,0,0)"
-                  />
-                </View>
-                <Text />
+                  BEGIN CHECKUP
+                </Text>
               </View>
-            </ViewManagerAdapter_ExpoLinearGradient>
+            </View>
           </View>
         </View>
       </View>
@@ -236,6 +260,7 @@ exports[`App renders the root without loading screen 1`] = `
           <View
             style={
               Object {
+                "backgroundColor": "#FFFFFF",
                 "flex": 1,
               }
             }
@@ -254,98 +279,121 @@ exports[`App renders the root without loading screen 1`] = `
               }
               style={
                 Object {
-                  "alignItems": "center",
-                  "flex": 1,
-                  "justifyContent": "space-evenly",
+                  "height": 70,
                 }
               }
-            >
+            />
+            <Image
+              source={1}
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "borderRadius": 50,
+                  "borderWidth": 0,
+                  "height": 266.8,
+                  "marginBottom": 10,
+                  "marginTop": 35,
+                  "width": 266.8,
+                }
+              }
+            />
+            <View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 40,
+                      "fontWeight": "bold",
+                      "margin": 25,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Hello!
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 26,
+                      "marginBottom": 25,
+                      "marginLeft": 25,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
+              </Text>
               <View
+                accessible={true}
+                focusable={true}
+                isTVSelectable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
                     "alignItems": "center",
-                    "flex": 1,
-                    "justifyContent": "space-between",
-                    "marginTop": "35%",
+                    "alignSelf": "center",
+                    "backgroundColor": "#007aff",
+                    "borderBottomWidth": null,
+                    "borderColor": "#007aff",
+                    "borderLeftWidth": null,
+                    "borderRadius": 5,
+                    "borderRightWidth": null,
+                    "borderTopWidth": null,
+                    "borderWidth": undefined,
+                    "elevation": 2,
+                    "flexDirection": "row",
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": 20,
+                    "opacity": 1,
+                    "paddingBottom": 6,
+                    "paddingTop": 6,
+                    "shadowColor": undefined,
+                    "shadowOffset": undefined,
+                    "shadowOpacity": undefined,
+                    "shadowRadius": undefined,
+                    "width": "75%",
                   }
                 }
               >
-                <Text />
                 <Text
                   style={
                     Object {
-                      "color": "#FFF",
-                      "fontSize": 48,
-                      "fontWeight": "bold",
-                    }
-                  }
-                >
-                  Location
-                </Text>
-                <View
-                  accessible={true}
-                  focusable={false}
-                  isTVSelectable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "alignItems": "center",
                       "backgroundColor": "transparent",
-                      "borderBottomWidth": 1,
-                      "borderColor": "white",
-                      "borderLeftWidth": 0,
-                      "borderRadius": undefined,
-                      "borderRightWidth": 0,
-                      "borderTopWidth": 0,
-                      "borderWidth": 1,
                       "color": "#fff",
-                      "flexDirection": "row",
-                      "fontSize": 24,
-                      "height": 40,
-                      "marginLeft": 2,
-                      "opacity": 1,
+                      "fontFamily": "System",
+                      "fontSize": 16.5,
+                      "marginLeft": 0,
+                      "marginRight": 0,
+                      "paddingLeft": 16,
+                      "paddingRight": 16,
                     }
                   }
+                  uppercase={false}
                 >
-                  <TextInput
-                    allowFontScaling={true}
-                    editable={true}
-                    onChangeText={[Function]}
-                    placeholder="City, State"
-                    placeholderTextColor="#575757"
-                    rejectResponderTermination={true}
-                    style={
-                      Array [
-                        Object {
-                          "color": "#000",
-                          "flex": 1,
-                          "fontSize": 17,
-                          "height": 50,
-                          "paddingLeft": 5,
-                          "paddingRight": 5,
-                          "top": 1.5,
-                        },
-                        Object {
-                          "borderColor": "white",
-                          "borderWidth": 1,
-                          "color": "#fff",
-                          "fontSize": 24,
-                          "height": 40,
-                        },
-                      ]
-                    }
-                    underlineColorAndroid="rgba(0,0,0,0)"
-                  />
-                </View>
-                <Text />
+                  BEGIN CHECKUP
+                </Text>
               </View>
-            </ViewManagerAdapter_ExpoLinearGradient>
+            </View>
           </View>
         </View>
       </View>
