@@ -15,15 +15,16 @@ const RootStack = createStackNavigator(
     BiologicalInformation: BiologicalInformation,
     SelectAge: SelectAge,
     LocationScreen: LocationScreen,
+    SearchSymptoms: SearchSymptoms
   },
   {
     initialRouteName: 'Welcome',
-    transitionConfig: () => fromBottom(1500),
+    transitionConfig: () => fromBottom(),
     headerMode: 'none',
     navigationOptions: {
-      headerVisible: false,
+      headerVisible: false
     }
   }
-)
+);
 
 export const AppContainer = createAppContainer(RootStack);

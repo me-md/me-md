@@ -8,10 +8,9 @@ import { Entypo } from '@expo/vector-icons';
 const height = Dimensions.get('window').height;
 
 export default function BiologicalInformation({ navigation }) {
-
   const [state, setState] = useState({
-    sex: '',
-  })
+    sex: ''
+  });
 
   return (
     <View style={styles.container}>
@@ -26,25 +25,41 @@ export default function BiologicalInformation({ navigation }) {
             color='white'
             onPress={() => navigation.navigate('TermsAndConditions')}
           />
-          <Text style={styles.question}>
-            What is your biological sex?
-            </Text>
+          <Text style={styles.question}>What is your biological sex?</Text>
           <View style={styles.buttonContainer}>
             <Button
               rounded
-              style={state.sex === 'female' ? styles.pressed : styles.biologicalInformationButtons} onPress={() => state.sex === 'female' ? setState({ sex: '' }) : setState({ sex: 'female' })}>
+              style={
+                state.sex === 'female'
+                  ? styles.pressed
+                  : styles.biologicalInformationButtons
+              }
+              onPress={() =>
+                state.sex === 'female'
+                  ? setState({ sex: '' })
+                  : setState({ sex: 'female' })
+              }
+            >
               <MaterialCommunityIcons
                 name='gender-female'
                 size={64}
                 color='white'
               />
-              <Text style={styles.biologicalInformationButtonText}>
-                Female
-                </Text>
+              <Text style={styles.biologicalInformationButtonText}>Female</Text>
             </Button>
             <Button
               rounded
-              style={state.sex === 'male' ? styles.pressed : styles.biologicalInformationButtons} onPress={() => state.sex === 'male' ? setState({ sex: '' }) : setState({ sex: 'male' })}>
+              style={
+                state.sex === 'male'
+                  ? styles.pressed
+                  : styles.biologicalInformationButtons
+              }
+              onPress={() =>
+                state.sex === 'male'
+                  ? setState({ sex: '' })
+                  : setState({ sex: 'male' })
+              }
+            >
               <MaterialCommunityIcons
                 name='gender-male'
                 size={64}
@@ -53,16 +68,22 @@ export default function BiologicalInformation({ navigation }) {
               <Text style={styles.biologicalInformationButtonText}>Male</Text>
             </Button>
           </View>
-          {state.sex ? <Entypo
-            name='chevron-thin-down'
-            size={36}
-            color='white'
-            onPress={() => { state.sex !== '' ? navigation.navigate('SelectAge', { sex: state.sex }) : <></> }}
-          /> : <Entypo
+          {state.sex ? (
+            <Entypo
               name='chevron-thin-down'
               size={36}
               color='white'
-            />}
+              onPress={() => {
+                state.sex !== '' ? (
+                  navigation.navigate('SelectAge', { sex: state.sex })
+                ) : (
+                  <></>
+                );
+              }}
+            />
+          ) : (
+            <Entypo name='chevron-thin-down' size={36} color='white' />
+          )}
         </View>
       </LinearGradient>
     </View>
@@ -71,7 +92,7 @@ export default function BiologicalInformation({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   gradientBackground: {
     flex: 1
@@ -85,7 +106,7 @@ const styles = StyleSheet.create({
   },
   question: {
     color: '#FFFFFF',
-    fontSize: 48,
+    fontSize: 48
   },
   biologicalInformationButtons: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -104,5 +125,5 @@ const styles = StyleSheet.create({
   biologicalInformationButtonText: {
     color: '#FFFFFF',
     fontSize: 36
-  },
+  }
 });
