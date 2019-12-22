@@ -20,7 +20,7 @@ const RootStack = createStackNavigator(
     SearchSymptoms: SearchSymptoms
   },
   {
-    initialRouteName: 'Welcome',
+    initialRouteName: 'Location',
     transitionConfig: () => fromBottom(),
     headerMode: 'none',
     navigationOptions: {
