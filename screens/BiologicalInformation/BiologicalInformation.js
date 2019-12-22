@@ -4,68 +4,91 @@ import { Button } from 'native-base';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import GestureRecognizer, { swipeDirections } from 'react-native-swipe-gestures';
 
 const height = Dimensions.get('window').height;
 
 export default function BiologicalInformation({ navigation }) {
 
+  const onSwipeDown = (gestureState) => {
+    navigation.navigate('TermsAndConditions')
+  };
+
+  const onSwipeUp = (gestureState) => {
+    navigation.navigate('SelectAge');
+  };
+
   const [state, setState] = useState({
     sex: '',
   })
 
+  const config = {
+    velocityThreshold: 0.3,
+    directionalOffsetThreshold: 80
+  };
+
   return (
-    <View style={styles.container}>
-      <LinearGradient
-        style={styles.gradientBackground}
-        colors={['#004EFF', '#88CCF1']}
-      >
-        <View style={styles.biologicalInformationContainer}>
-          <Entypo
-            name='chevron-thin-up'
-            size={36}
-            color='white'
-            onPress={() => navigation.navigate('TermsAndConditions')}
-          />
-          <Text style={styles.question}>
-            What is your biological sex?
+    <GestureRecognizer
+      onSwipeUp={onSwipeUp}
+      onSwipeDown={onSwipeDown}
+      config={config}
+      style={{
+        flex: 1,
+      }}
+    >
+      <View style={styles.container}>
+        <LinearGradient
+          style={styles.gradientBackground}
+          colors={['#004EFF', '#88CCF1']}
+        >
+          <View style={styles.biologicalInformationContainer}>
+            <Entypo
+              name='chevron-thin-up'
+              size={36}
+              color='white'
+              onPress={() => navigation.navigate('TermsAndConditions')}
+            />
+            <Text style={styles.question}>
+              What is your biological sex?
             </Text>
-          <View style={styles.buttonContainer}>
-            <Button
-              rounded
-              style={state.sex === 'female' ? styles.pressed : styles.biologicalInformationButtons} onPress={() => state.sex === 'female' ? setState({ sex: '' }) : setState({ sex: 'female' })}>
-              <MaterialCommunityIcons
-                name='gender-female'
-                size={64}
-                color='white'
-              />
-              <Text style={styles.biologicalInformationButtonText}>
-                Female
+            <View style={styles.buttonContainer}>
+              <Button
+                rounded
+                style={state.sex === 'female' ? styles.pressed : styles.biologicalInformationButtons} onPress={() => state.sex === 'female' ? setState({ sex: '' }) : setState({ sex: 'female' })}>
+                <MaterialCommunityIcons
+                  name='gender-female'
+                  size={64}
+                  color='white'
+                />
+                <Text style={styles.biologicalInformationButtonText}>
+                  Female
                 </Text>
-            </Button>
-            <Button
-              rounded
-              style={state.sex === 'male' ? styles.pressed : styles.biologicalInformationButtons} onPress={() => state.sex === 'male' ? setState({ sex: '' }) : setState({ sex: 'male' })}>
-              <MaterialCommunityIcons
-                name='gender-male'
-                size={64}
-                color='white'
-              />
-              <Text style={styles.biologicalInformationButtonText}>Male</Text>
-            </Button>
-          </View>
-          {state.sex ? <Entypo
-            name='chevron-thin-down'
-            size={36}
-            color='white'
-            onPress={() => { state.sex !== '' ? navigation.navigate('SelectAge', { sex: state.sex }) : <></> }}
-          /> : <Entypo
+              </Button>
+              <Button
+                rounded
+                style={state.sex === 'male' ? styles.pressed : styles.biologicalInformationButtons} onPress={() => state.sex === 'male' ? setState({ sex: '' }) : setState({ sex: 'male' })}>
+                <MaterialCommunityIcons
+                  name='gender-male'
+                  size={64}
+                  color='white'
+                />
+                <Text style={styles.biologicalInformationButtonText}>Male</Text>
+              </Button>
+            </View>
+            {state.sex ? <Entypo
               name='chevron-thin-down'
               size={36}
               color='white'
-            />}
-        </View>
-      </LinearGradient>
-    </View>
+              onPress={() => { state.sex !== '' ? navigation.navigate('SelectAge', { sex: state.sex }) : <></> }}
+            /> : <Entypo
+                name='chevron-thin-down'
+                size={36}
+                color='white'
+              />}
+          </View>
+        </LinearGradient>
+      </View>
+    </GestureRecognizer>
   );
 }
 
