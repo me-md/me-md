@@ -5,9 +5,9 @@ import { Item, Input } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 
 export default function LocationScreen({ navigation }) {
-  const [state, setState] = useState({
-    location: ''
-  });
+  const sex = navigation.state.params.sex;
+  const age = navigation.state.params.age;
+  const [location, setLocation] = useState('');
 
   return (
     <View style={styles.locationContainer}>
@@ -27,14 +27,16 @@ export default function LocationScreen({ navigation }) {
             <Input
               style={styles.locationInput}
               placeholder='City, State'
-              onChangeText={text => setState({ location: text })}
+              onChangeText={text => setLocation(text)}
             />
           </Item>
           <Entypo
             name='chevron-thin-down'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('RiskFactors')}
+            onPress={() =>
+              navigation.navigate('RiskFactors', { sex, age, location })
+            }
           />
         </View>
       </LinearGradient>
