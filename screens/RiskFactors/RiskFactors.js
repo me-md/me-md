@@ -10,45 +10,53 @@ const height = Dimensions.get('window').height;
 
 export default function RiskFactors({ navigation }) {
   const [factors, setFactors] = useState([]);
-  const [checked, setChecked] = useState({
-    yes: false,
-    no: false
-  });
+  const [present, setPresent] = useState([
+    {
+      id: 'p_7',
+      present: false
+    },
+    {
+      id: 'p_8',
+      present: false
+    },
+    {
+      id: 'p_9',
+      present: false
+    },
+    {
+      id: 'p_10',
+      present: false
+    },
+    {
+      id: 'p_28',
+      present: false
+    }
+  ]);
 
   const getRiskFactors = async () => {
     const riskFactors = await getCommonRiskFactors();
     setFactors(riskFactors.data);
   };
 
-  const riskFactorAnswers = factors.map((factor, index) => {
-    console.log('factor', factor);
+  const findRiskToUpdate = id => {
+    // setPresent({present.id: !present.present})
+  };
+
+  const riskFactorAnswers = factors.map(factor => {
     return (
-      <Card key={index} style={styles.riskFactorCard}>
+      <Card key={factor.id} style={styles.riskFactorCard}>
         <CardItem>
           <Body>
             <Text style={styles.questionText}>{factor.question}</Text>
             <View style={styles.checkboxes}>
               <CheckBox
                 center
+                id={factor.id}
                 title={<Text>Yes</Text>}
-                checked={checked.yes}
-                onPress={() =>
-                  setChecked({
-                    yes: !checked.yes,
-                    no: checked.no
-                  })
-                }
-              ></CheckBox>
-              <CheckBox
-                center
-                title={<Text>No</Text>}
-                checked={checked.no}
-                onPress={() =>
-                  setChecked({
-                    yes: checked.yes,
-                    no: !checked.no
-                  })
-                }
+                checked={present.present}
+                onPress={id => {
+                  findRiskToUpdate(id);
+                }}
               ></CheckBox>
             </View>
           </Body>

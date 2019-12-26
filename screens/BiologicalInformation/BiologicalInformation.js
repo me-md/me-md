@@ -8,9 +8,7 @@ import { Entypo } from '@expo/vector-icons';
 const height = Dimensions.get('window').height;
 
 export default function BiologicalInformation({ navigation }) {
-  const [state, setState] = useState({
-    sex: ''
-  });
+  const [sex, setSex] = useState('');
 
   return (
     <View style={styles.container}>
@@ -30,15 +28,11 @@ export default function BiologicalInformation({ navigation }) {
             <Button
               rounded
               style={
-                state.sex === 'female'
+                sex === 'female'
                   ? styles.pressed
                   : styles.biologicalInformationButtons
               }
-              onPress={() =>
-                state.sex === 'female'
-                  ? setState({ sex: '' })
-                  : setState({ sex: 'female' })
-              }
+              onPress={() => (sex === 'female' ? setSex('') : setSex('female'))}
             >
               <MaterialCommunityIcons
                 name='gender-female'
@@ -50,15 +44,11 @@ export default function BiologicalInformation({ navigation }) {
             <Button
               rounded
               style={
-                state.sex === 'male'
+                sex === 'male'
                   ? styles.pressed
                   : styles.biologicalInformationButtons
               }
-              onPress={() =>
-                state.sex === 'male'
-                  ? setState({ sex: '' })
-                  : setState({ sex: 'male' })
-              }
+              onPress={() => (sex === 'male' ? setSex('') : setSex('male'))}
             >
               <MaterialCommunityIcons
                 name='gender-male'
@@ -68,14 +58,14 @@ export default function BiologicalInformation({ navigation }) {
               <Text style={styles.biologicalInformationButtonText}>Male</Text>
             </Button>
           </View>
-          {state.sex ? (
+          {sex ? (
             <Entypo
               name='chevron-thin-down'
               size={36}
               color='white'
               onPress={() => {
-                state.sex !== '' ? (
-                  navigation.navigate('SelectAge', { sex: state.sex })
+                sex !== '' ? (
+                  navigation.navigate('SelectAge', { sex: sex })
                 ) : (
                   <></>
                 );

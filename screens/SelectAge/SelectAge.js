@@ -5,15 +5,11 @@ import { Item, Input } from 'native-base';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
 
 export default function SelectAge({ navigation }) {
-  console.log(navigation.state.params)
-
-  const [state, setState] = useState({
-    age: '',
-    sex: navigation.state.params
-  })
+  const sex = navigation.state.params.sex;
+  const [age, setAge] = useState('');
 
   return (
-    <View style={styles.selectAgeContainer} >
+    <View style={styles.selectAgeContainer}>
       <LinearGradient
         style={styles.gradientBackground}
         colors={['#004EFF', '#88CCF1']}
@@ -32,7 +28,7 @@ export default function SelectAge({ navigation }) {
               <Input
                 placeholder='Enter your age'
                 style={styles.selectAgeInputText}
-                onChangeText={text => setState({ age: text })}
+                onChangeText={text => setAge(text)}
               />
             </Item>
           </View>
@@ -40,7 +36,7 @@ export default function SelectAge({ navigation }) {
             name='chevron-thin-down'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('Location')}
+            onPress={() => navigation.navigate('Location', { sex, age })}
           />
         </View>
       </LinearGradient>
