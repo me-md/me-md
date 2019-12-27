@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Item, Input } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 
+const height = Dimensions.get('window').height;
+
 export default function LocationScreen({ navigation }) {
-  const sex = navigation.state.params.sex;
-  const age = navigation.state.params.age;
+  const { age, sex } = navigation.state.params;
   const [location, setLocation] = useState('');
 
   return (
-    <View style={styles.locationContainer}>
+    <View style={styles.container}>
       <LinearGradient
         style={styles.gradientBackground}
         colors={['#004EFF', '#88CCF1']}
       >
-        <View style={styles.container}>
+        <View style={styles.contentContainer}>
           <Entypo
             name='chevron-thin-up'
             size={36}
             color='white'
             onPress={() => navigation.navigate('SelectAge')}
           />
-          <Text style={styles.locationTitle}>Location</Text>
-          <Item style={styles.locationInput}>
+          <Text style={styles.title}>Location</Text>
+          <Item style={styles.input}>
             <Input
-              style={styles.locationInput}
+              style={styles.input}
               placeholder='City, State'
               onChangeText={text => setLocation(text)}
             />
@@ -45,23 +46,26 @@ export default function LocationScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'space-between',
-    marginTop: '35%'
+    marginTop: height * 0.075,
+    marginBottom: height * 0.05
   },
-  locationContainer: {
+  container: {
     flex: 1
   },
-  locationInput: {
-    color: '#fff',
-    height: 40,
+  input: {
     borderColor: 'white',
     borderWidth: 1,
-    fontSize: 24
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
+    height: 40,
+    width: '75%'
   },
-  locationTitle: {
+  title: {
     color: '#FFF',
     fontSize: 48,
     fontWeight: 'bold'

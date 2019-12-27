@@ -4,15 +4,13 @@ import { Body, Card, CardItem, Input, Item } from 'native-base';
 import { CheckBox } from 'react-native-elements';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { ScrollView } from 'react-native-gesture-handler';
 import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
 
 export default function SymptomsScreen({ navigation }) {
-  console.log(navigation.state.params);
-  const [state, setState] = useState({
-    symptoms: []
-  });
+  const [symptomIds, setSymptomIds] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
   const searchSymptoms = async text => {
@@ -25,22 +23,22 @@ export default function SymptomsScreen({ navigation }) {
   };
 
   const displaySymptoms = searchResults.map(result => {
-    console.log('search result', result);
     return (
       <Card key={result.id} style={styles.searchResultCard}>
         <CardItem>
           <Body>
-            <Text style={styles.symptomText}>{result.name}</Text>
-            <Text style={styles.symptomText}>{result.common_name}</Text>
+            <Text style={styles.symptomText}>Do you have:</Text>
+            <Text style={styles.symptomText}>{result.common_name}?</Text>
             <View style={styles.checkboxes}>
               <CheckBox
                 center
                 id={result.id}
                 title={<Text>Yes</Text>}
-                // checked={present.present}
-                // onPress={id => {
-                //   findRiskToUpdate(id);
-                // }}
+              ></CheckBox>
+              <CheckBox
+                center
+                id={result.id}
+                title={<Text>No</Text>}
               ></CheckBox>
             </View>
           </Body>
@@ -48,7 +46,6 @@ export default function SymptomsScreen({ navigation }) {
       </Card>
     );
   });
-  console.log('results?', searchResults);
 
   return (
     <View style={styles.container}>
@@ -64,20 +61,24 @@ export default function SymptomsScreen({ navigation }) {
             onPress={() => navigation.navigate('RiskFactors')}
           />
           <Text style={styles.title}>Select all symptoms:</Text>
-          <Item>
+          <Item style={styles.searchBox}>
             <Input
               placeholder='Search all symptoms'
-              style={styles.symptomsScreenSearchInput}
+              style={styles.input}
               onChangeText={text => searchSymptoms(text)}
             />
             <FontAwesome
               active
               name='search'
-              size={48}
+              size={36}
               style={styles.searchIcon}
             />
           </Item>
-          <View style={styles.searchResults}>{displaySymptoms}</View>
+          <View style={styles.searchResultsContainer}>
+            <ScrollView style={styles.searchResults}>
+              {displaySymptoms}
+            </ScrollView>
+          </View>
           <Entypo name='chevron-thin-down' size={36} color='white' />
         </View>
       </LinearGradient>
@@ -93,40 +94,51 @@ const styles = StyleSheet.create({
   searchIcon: {
     color: 'white'
   },
+  searchBox: {
+    width: '75%'
+  },
   container: {
     flex: 1
   },
   contentContainer: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'space-between',
-    marginTop: height * 0.05,
+    justifyContent: 'center',
+    marginBottom: height * 0.12,
+    marginTop: height * 0.15,
     width: '100%'
   },
-  symptomsScreenSearchInput: {
-    color: 'white'
+  input: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold'
   },
   title: {
     color: 'white',
     fontSize: 36,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingTop: height * 0.025
+  },
+  searchResultsContainer: {
+    height: height * 0.65,
+    marginBottom: height * 0.016,
+    width: '100%'
   },
   searchResults: {
-    alignItems: 'center',
     flex: 1,
-    justifyContent: 'space-evenly',
-    marginBottom: 16,
-    overflow: 'scroll',
     width: '100%'
   },
   searchResultCard: {
-    flex: 1,
-    marginBottom: 14,
-    marginTop: 14,
-    width: '75%'
+    marginBottom: height * 0.01,
+    marginTop: height * 0.01,
+    width: '80%'
   },
   symptomText: {
     alignSelf: 'flex-start',
     fontSize: 16
+  },
+  checkboxes: {
+    flex: 1,
+    flexDirection: 'row'
   }
 });

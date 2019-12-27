@@ -35,7 +35,9 @@ export default function WelcomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-    flex: 1
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingBottom: height * 0.075
   },
   icon: {
     alignSelf: 'center',
