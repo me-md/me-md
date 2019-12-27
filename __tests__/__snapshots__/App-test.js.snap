@@ -78,7 +78,7 @@ exports[`App renders the loading screen 1`] = `
               }
               style={
                 Object {
-                  "height": 70,
+                  "height": 200.1,
                 }
               }
             />
@@ -90,8 +90,8 @@ exports[`App renders the loading screen 1`] = `
                   "borderRadius": 50,
                   "borderWidth": 0,
                   "height": 266.8,
-                  "marginBottom": 10,
-                  "marginTop": 35,
+                  "marginBottom": 13.34,
+                  "marginTop": 53.36,
                   "width": 266.8,
                 }
               }
@@ -108,7 +108,7 @@ exports[`App renders the loading screen 1`] = `
                     Object {
                       "fontSize": 40,
                       "fontWeight": "bold",
-                      "margin": 25,
+                      "margin": 40.019999999999996,
                     },
                   ]
                 }
@@ -126,8 +126,8 @@ exports[`App renders the loading screen 1`] = `
                     },
                     Object {
                       "fontSize": 26,
-                      "marginBottom": 25,
-                      "marginLeft": 25,
+                      "marginBottom": 40.019999999999996,
+                      "marginLeft": 40.019999999999996,
                     },
                   ]
                 }
@@ -162,7 +162,7 @@ exports[`App renders the loading screen 1`] = `
                     "flexDirection": "row",
                     "height": 45,
                     "justifyContent": "center",
-                    "marginTop": 20,
+                    "marginTop": 26.68,
                     "opacity": 1,
                     "paddingBottom": 6,
                     "paddingTop": 6,
@@ -279,7 +279,7 @@ exports[`App renders the root without loading screen 1`] = `
               }
               style={
                 Object {
-                  "height": 70,
+                  "height": 200.1,
                 }
               }
             />
@@ -291,8 +291,8 @@ exports[`App renders the root without loading screen 1`] = `
                   "borderRadius": 50,
                   "borderWidth": 0,
                   "height": 266.8,
-                  "marginBottom": 10,
-                  "marginTop": 35,
+                  "marginBottom": 13.34,
+                  "marginTop": 53.36,
                   "width": 266.8,
                 }
               }
@@ -309,7 +309,7 @@ exports[`App renders the root without loading screen 1`] = `
                     Object {
                       "fontSize": 40,
                       "fontWeight": "bold",
-                      "margin": 25,
+                      "margin": 40.019999999999996,
                     },
                   ]
                 }
@@ -327,8 +327,8 @@ exports[`App renders the root without loading screen 1`] = `
                     },
                     Object {
                       "fontSize": 26,
-                      "marginBottom": 25,
-                      "marginLeft": 25,
+                      "marginBottom": 40.019999999999996,
+                      "marginLeft": 40.019999999999996,
                     },
                   ]
                 }
@@ -363,7 +363,7 @@ exports[`App renders the root without loading screen 1`] = `
                     "flexDirection": "row",
                     "height": 45,
                     "justifyContent": "center",
-                    "marginTop": 20,
+                    "marginTop": 26.68,
                     "opacity": 1,
                     "paddingBottom": 6,
                     "paddingTop": 6,

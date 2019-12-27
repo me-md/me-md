@@ -42,23 +42,23 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderRadius: 50,
     height: height * 0.2,
-    marginBottom: 10,
-    marginTop: 35,
+    marginBottom: height * 0.01,
+    marginTop: height * 0.04,
     width: height * 0.2
   },
   greeting: {
     fontSize: 40,
     fontWeight: 'bold',
-    margin: 25
+    margin: height * 0.03
   },
   message: {
     fontSize: 26,
-    marginLeft: 25,
-    marginBottom: 25
+    marginLeft: height * 0.03,
+    marginBottom: height * 0.03
   },
   button: {
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: height * 0.02,
     width: '75%'
   }
 });

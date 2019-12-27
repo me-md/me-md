@@ -20,7 +20,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
       <View style={styles.contentContainer}>
         <AntDesign
           name='close'
-          size={32}
+          size={24}
           color='black'
           style={styles.close}
           onPress={() => navigation.navigate('Welcome')}
@@ -118,48 +118,48 @@ const styles = StyleSheet.create({
   },
   close: {
     alignSelf: 'flex-end',
-    marginRight: 20,
-    marginTop: 20
+    marginRight: height * 0.02,
+    marginTop: height * 0.025
   },
   icon: {
     borderWidth: 0,
     borderRadius: 50,
-    height: height * 0.15,
-    width: height * 0.15
+    height: height * 0.1,
+    width: height * 0.1
   },
   heading: {
     alignSelf: 'flex-start',
-    margin: 20,
-    marginBottom: 5,
-    fontSize: 30,
+    margin: height * 0.02,
+    marginBottom: height * 0.0005,
+    fontSize: height * 0.04,
     fontWeight: 'bold'
   },
   scrollContainer: {
-    height: height * 0.4,
-    marginBottom: 10
+    height: height * 0.35,
+    marginBottom: height * 0.0005
   },
   scrollText: {
     alignSelf: 'center',
     backgroundColor: '#CCCCCC',
     borderColor: '#FFFFFF',
-    paddingLeft: 20,
-    paddingRight: 20,
-    margin: 20
+    paddingLeft: height * 0.02,
+    paddingRight: height * 0.02,
+    margin: height * 0.02
   },
   legal: {
-    lineHeight: 25,
-    marginBottom: 30,
-    marginTop: 30
+    lineHeight: height * 0.035,
+    marginBottom: height * 0.02,
+    marginTop: height * 0.02
   },
   agreement: {
     alignSelf: 'flex-start',
     fontSize: 14,
-    margin: 10
+    margin: height * 0.015
   },
   button: {
     alignSelf: 'center',
-    marginBottom: 30,
-    marginTop: 25,
+    marginBottom: height * 0.03,
+    marginTop: height * 0.02,
     width: '75%'
   }
 });
