@@ -9,8 +9,9 @@ import { getCommonRiskFactors } from '../../utils/apiCalls/apiCalls';
 const height = Dimensions.get('window').height;
 
 export default function RiskFactors({ navigation }) {
+  const { age, location, sex } = navigation.state.params;
   const [factors, setFactors] = useState([]);
-  const [present, setPresent] = useState([
+  const [presentFactors, setPresentFactors] = useState([
     {
       id: 'p_7',
       present: false
@@ -39,10 +40,17 @@ export default function RiskFactors({ navigation }) {
   };
 
   const findRiskToUpdate = id => {
-    // setPresent({present.id: !present.present})
+    let found = presentFactors.findIndex(factor => factor.id == id);
+    setPresentFactors([
+      ...presentFactors,
+      (presentFactors[found].present = !presentFactors[found].present)
+    ]);
   };
 
   const riskFactorAnswers = factors.map(factor => {
+    let foundIndex = presentFactors.findIndex(
+      question => factor.id == question.id
+    );
     return (
       <Card key={factor.id} style={styles.riskFactorCard}>
         <CardItem>
@@ -53,9 +61,9 @@ export default function RiskFactors({ navigation }) {
                 center
                 id={factor.id}
                 title={<Text>Yes</Text>}
-                checked={present.present}
-                onPress={id => {
-                  findRiskToUpdate(id);
+                checked={presentFactors[foundIndex].present}
+                onPress={() => {
+                  findRiskToUpdate(factor.id);
                 }}
               ></CheckBox>
             </View>
@@ -80,7 +88,7 @@ export default function RiskFactors({ navigation }) {
             name='chevron-thin-up'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('LocationScreen')}
+            onPress={() => navigation.navigate('Location')}
           />
           <View style={styles.contentContainer}>
             <Text style={styles.header}>Common Risk Factors:</Text>
@@ -90,7 +98,14 @@ export default function RiskFactors({ navigation }) {
             name='chevron-thin-down'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('SearchSymptoms')}
+            onPress={() =>
+              navigation.navigate('SearchSymptoms', {
+                age,
+                location,
+                sex,
+                present
+              })
+            }
           />
         </View>
       </LinearGradient>
@@ -114,7 +129,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 0.9,
     justifyContent: 'space-evenly',
-    marginBottom: 16,
+    marginBottom: height * 0.015,
+    marginTop: height * 0.015,
     width: '100%'
   },
   header: {
@@ -122,7 +138,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: 'bold',
     marginBottom: 30,
-    marginTop: 10
+    marginTop: height * 0.01
   },
   questionText: {
     alignSelf: 'flex-start',
@@ -130,14 +146,14 @@ const styles = StyleSheet.create({
   },
   riskFactorCard: {
     flex: 1,
-    marginBottom: 14,
-    marginTop: 14,
+    marginBottom: height * 0.01,
+    marginTop: height * 0.01,
     width: '75%'
   },
   checkboxes: {
     alignSelf: 'flex-start',
     flexDirection: 'row',
     fontSize: 14,
-    marginTop: 10
+    marginTop: height * 0.01
   }
 });
