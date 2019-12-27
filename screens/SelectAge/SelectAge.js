@@ -9,7 +9,7 @@ export default function SelectAge({ navigation }) {
   const [age, setAge] = useState('');
 
   return (
-    <View style={styles.selectAgeContainer}>
+    <View style={styles.container}>
       <LinearGradient
         style={styles.gradientBackground}
         colors={['#004EFF', '#88CCF1']}
@@ -21,13 +21,13 @@ export default function SelectAge({ navigation }) {
             color='white'
             onPress={() => navigation.navigate('BiologicalInformation')}
           />
-          <View style={styles.selectAgeChildContainer}>
-            <Text style={styles.selectAgeHeader}>Age</Text>
+          <View style={styles.childContainer}>
+            <Text style={styles.title}>Age</Text>
             <FontAwesome name='birthday-cake' size={48} color='white' />
-            <Item style={styles.selectAgeInput}>
+            <Item style={styles.input}>
               <Input
-                placeholder='Enter your age'
-                style={styles.selectAgeInputText}
+                placeholder='55'
+                style={styles.input}
                 onChangeText={text => setAge(text)}
               />
             </Item>
@@ -52,23 +52,25 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 20
   },
-  selectAgeContainer: {
+  container: {
     flex: 1
   },
   gradientBackground: {
     alignItems: 'center',
     flex: 1
   },
-  selectAgeHeader: {
+  title: {
     color: '#fff',
     fontSize: 48,
     fontWeight: 'bold'
   },
-  selectAgeInput: {
+  input: {
     color: '#FFF',
-    width: '35%'
+    fontSize: 36,
+    fontWeight: 'bold',
+    width: '20%'
   },
-  selectAgeChildContainer: {
+  childContainer: {
     alignItems: 'center',
     flex: 0.75,
     justifyContent: 'space-evenly'

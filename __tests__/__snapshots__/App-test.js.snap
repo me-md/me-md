@@ -61,6 +61,8 @@ exports[`App renders the loading screen 1`] = `
               Object {
                 "backgroundColor": "#FFFFFF",
                 "flex": 1,
+                "justifyContent": "space-between",
+                "paddingBottom": 100.05,
               }
             }
           >
@@ -262,6 +264,8 @@ exports[`App renders the root without loading screen 1`] = `
               Object {
                 "backgroundColor": "#FFFFFF",
                 "flex": 1,
+                "justifyContent": "space-between",
+                "paddingBottom": 100.05,
               }
             }
           >

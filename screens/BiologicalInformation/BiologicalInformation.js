@@ -64,11 +64,7 @@ export default function BiologicalInformation({ navigation }) {
               size={36}
               color='white'
               onPress={() => {
-                sex !== '' ? (
-                  navigation.navigate('SelectAge', { sex: sex })
-                ) : (
-                  <></>
-                );
+                sex !== '' ? navigation.navigate('SelectAge', { sex }) : <></>;
               }}
             />
           ) : (

@@ -103,7 +103,7 @@ export default function RiskFactors({ navigation }) {
                 age,
                 location,
                 sex,
-                present
+                presentFactors
               })
             }
           />
