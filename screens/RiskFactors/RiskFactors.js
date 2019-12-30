@@ -120,16 +120,19 @@ const styles = StyleSheet.create({
   screenContainer: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'space-evenly',
+    marginBottom: height * 0.015,
+    marginTop: height * 0.025
   },
   gradientBackground: {
     flex: 1
   },
   contentContainer: {
+    alignContent: 'space-between',
     alignItems: 'center',
-    flex: 0.9,
-    justifyContent: 'space-evenly',
-    marginBottom: height * 0.015,
+    flex: 0.95,
+    justifyContent: 'space-around',
+    marginBottom: height * 0.01,
     marginTop: height * 0.015,
     width: '100%'
   },
@@ -137,23 +140,27 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 36,
     fontWeight: 'bold',
-    marginBottom: 30,
-    marginTop: height * 0.01
+    marginBottom: height * 0.001,
+    marginTop: height * 0.001
   },
   questionText: {
     alignSelf: 'flex-start',
-    fontSize: 16
+    fontSize: 14
   },
   riskFactorCard: {
-    flex: 1,
-    marginBottom: height * 0.01,
-    marginTop: height * 0.01,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 0.15,
+    marginBottom: height * 0.001,
+    marginTop: height * 0.001,
     width: '75%'
   },
   checkboxes: {
     alignSelf: 'flex-start',
     flexDirection: 'row',
-    fontSize: 14,
-    marginTop: height * 0.01
+    fontSize: 12,
+    // marginBottom: height * 0.001,
+    // marginTop: height * 0.001,
+    padding: 0
   }
 });
