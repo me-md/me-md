@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Body, Card, CardItem, Input, Item } from 'native-base';
 import { CheckBox } from 'react-native-elements';
@@ -10,6 +10,7 @@ import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
 const height = Dimensions.get('window').height;
 
 export default function SymptomsScreen({ navigation }) {
+  const { age, location, presentFactors, sex } = navigation.state.params;
   const [symptomIds, setSymptomIds] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -22,23 +23,40 @@ export default function SymptomsScreen({ navigation }) {
     }
   };
 
+  const findSymptom = id => {
+    if (!symptomIds.includes(id)) {
+      let found = searchResults.find(symptom => symptom.id == id);
+      setSymptomIds([...symptomIds, found.id]);
+    } else {
+      let filteredSymptoms = symptomIds.filter(symptom => symptom !== id);
+      setSymptomIds(filteredSymptoms);
+    }
+  };
+
   const displaySymptoms = searchResults.map(result => {
     return (
       <Card key={result.id} style={styles.searchResultCard}>
         <CardItem>
           <Body>
-            <Text style={styles.symptomText}>Do you have:</Text>
             <Text style={styles.symptomText}>{result.common_name}?</Text>
             <View style={styles.checkboxes}>
               <CheckBox
                 center
                 id={result.id}
                 title={<Text>Yes</Text>}
+                // checked={}
+                onPress={() => {
+                  findSymptom(result.id);
+                }}
               ></CheckBox>
               <CheckBox
                 center
                 id={result.id}
                 title={<Text>No</Text>}
+                // checked={}
+                onPress={() => {
+                  // do something, maybe?
+                }}
               ></CheckBox>
             </View>
           </Body>
@@ -60,7 +78,7 @@ export default function SymptomsScreen({ navigation }) {
             color='white'
             onPress={() => navigation.navigate('RiskFactors')}
           />
-          <Text style={styles.title}>Select all symptoms:</Text>
+          <Text style={styles.title}>Symptoms:</Text>
           <Item style={styles.searchBox}>
             <Input
               placeholder='Search all symptoms'
@@ -75,6 +93,7 @@ export default function SymptomsScreen({ navigation }) {
             />
           </Item>
           <View style={styles.searchResultsContainer}>
+            <Text style={styles.input}>Select all that apply:</Text>
             <ScrollView style={styles.searchResults}>
               {displaySymptoms}
             </ScrollView>
@@ -98,14 +117,15 @@ const styles = StyleSheet.create({
     width: '75%'
   },
   container: {
-    flex: 1
+    flex: 1,
+    width: '100%'
   },
   contentContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    marginBottom: height * 0.12,
-    marginTop: height * 0.15,
+    marginBottom: height * 0.05,
+    marginTop: height * 0.05,
     width: '100%'
   },
   input: {
@@ -120,22 +140,27 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.025
   },
   searchResultsContainer: {
+    alignItems: 'center',
+    flex: 1,
     height: height * 0.65,
+    justifyContent: 'space-evenly',
     marginBottom: height * 0.016,
     width: '100%'
   },
   searchResults: {
     flex: 1,
-    width: '100%'
+    padding: 0,
+    width: '80%'
   },
   searchResultCard: {
     marginBottom: height * 0.01,
     marginTop: height * 0.01,
-    width: '80%'
+    width: '100%'
   },
   symptomText: {
     alignSelf: 'flex-start',
-    fontSize: 16
+    fontSize: 16,
+    padding: 0
   },
   checkboxes: {
     flex: 1,
