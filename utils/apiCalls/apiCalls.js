@@ -103,3 +103,7 @@ export const getCommonRiskFactors = async () => {
   const data = await response.json();
   return data;
 };
+
+export const sendInitialUserSymptoms = async (userSymptoms) => {
+  
+}
