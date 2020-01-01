@@ -24,14 +24,21 @@ export default function SymptomsScreen({ navigation }) {
   };
 
   const findSymptom = id => {
-    if (!symptomIds.includes(id)) {
-      let found = searchResults.find(symptom => symptom.id == id);
-      setSymptomIds([...symptomIds, found.id]);
-    } else {
-      let filteredSymptoms = symptomIds.filter(symptom => symptom !== id);
-      setSymptomIds(filteredSymptoms);
-    }
+    let existingSymptom = symptomIds.find(symptom => symptom.id == id);
+    existingSymptom ? removeSymptom(id) : addSymptom(id);
   };
+
+  const addSymptom = id => {
+    let found = searchResults.find(symptom => symptom.id == id);
+    setSymptomIds([...symptomIds, { id: found.id, present: true }]);
+  };
+
+  const removeSymptom = id => {
+    let filteredSymptoms = symptomIds.filter(symptom => symptom.id !== id);
+    setSymptomIds(filteredSymptoms);
+  };
+
+  // useEffect(() => console.log('symptomIds', symptomIds));
 
   const displaySymptoms = searchResults.map(result => {
     return (
