@@ -43,6 +43,7 @@ export default function SymptomsScreen({ navigation }) {
     const userInfo = { age, presentFactors, symptomIds, sex };
     let data = await cleanInitialUserReport(userInfo);
     navigation.navigate('RiskFactors');
+    return data;
   };
 
   // useEffect(() => console.log('symptomIds', symptomIds));

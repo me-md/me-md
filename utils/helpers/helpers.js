@@ -1,11 +1,13 @@
 export const cleanInitialUserReport = report => {
   const { age, presentFactors, sex, symptomIds } = report;
   let riskFactors = cleanFactorArrays(presentFactors);
-  let symptoms = cleanFactorArrays(symptomIds);
+  let initialSymptoms = cleanFactorArrays(symptomIds);
+  let initialSymptom = setInitialSymptom(initialSymptoms[0]);
+  initialSymptoms[0] = initialSymptom;
   const cleanedFormat = {
     sex,
     age,
-    evidence: [...riskFactors, ...symptoms]
+    evidence: [...riskFactors, ...initialSymptoms]
   };
   return cleanedFormat;
 };
@@ -13,11 +15,14 @@ export const cleanInitialUserReport = report => {
 export const cleanFactorArrays = factors => {
   let filtered = factors.filter(factor => factor.present === true);
   let ids = filtered.map(factor => factor.id);
-  let newFormat = ids.map(id => {
+  return ids.map(id => {
     return {
       id: id,
       choice_id: 'present'
     };
   });
-  return newFormat;
+};
+
+export const setInitialSymptom = symptom => {
+  return (symptom = { ...symptom, initial: 'true' });
 };
