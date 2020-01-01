@@ -6,6 +6,7 @@ import { Entypo, FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
+import { cleanInitialUserReport } from '../../utils/helpers/helpers';
 
 const height = Dimensions.get('window').height;
 
@@ -38,9 +39,16 @@ export default function SymptomsScreen({ navigation }) {
     setSymptomIds(filteredSymptoms);
   };
 
+  const sendInitialSymptoms = async () => {
+    const userInfo = { age, presentFactors, symptomIds, sex };
+    let data = await cleanInitialUserReport(userInfo);
+    navigation.navigate('RiskFactors');
+  };
+
   // useEffect(() => console.log('symptomIds', symptomIds));
 
   const displaySymptoms = searchResults.map(result => {
+    let foundIndex = symptomIds.findIndex(symptom => symptom.id == result.id);
     return (
       <Card key={result.id} style={styles.searchResultCard}>
         <CardItem>
@@ -50,19 +58,10 @@ export default function SymptomsScreen({ navigation }) {
               <CheckBox
                 center
                 id={result.id}
-                title={<Text>Yes</Text>}
+                title={<Text>Add Symptom</Text>}
                 // checked={}
                 onPress={() => {
                   findSymptom(result.id);
-                }}
-              ></CheckBox>
-              <CheckBox
-                center
-                id={result.id}
-                title={<Text>No</Text>}
-                // checked={}
-                onPress={() => {
-                  // do something, maybe?
                 }}
               ></CheckBox>
             </View>
@@ -105,7 +104,12 @@ export default function SymptomsScreen({ navigation }) {
               {displaySymptoms}
             </ScrollView>
           </View>
-          <Entypo name='chevron-thin-down' size={36} color='white' />
+          <Entypo
+            name='chevron-thin-down'
+            size={36}
+            color='white'
+            onPress={() => sendInitialSymptoms()}
+          />
         </View>
       </LinearGradient>
     </View>
