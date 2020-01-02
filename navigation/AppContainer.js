@@ -22,7 +22,7 @@ const RootStack = createStackNavigator(
     SymptomsQA
   },
   {
-    initialRouteName: 'BiologicalInformation',
+    initialRouteName: 'Welcome',
     transitionConfig: () => fromBottom(),
     headerMode: 'none',
     navigationOptions: {
