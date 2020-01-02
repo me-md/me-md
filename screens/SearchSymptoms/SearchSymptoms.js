@@ -46,16 +46,16 @@ export default function SymptomsScreen({ navigation }) {
     const userInfo = { age, presentFactors, symptomIds, sex };
     try {
       let cleanedData = await cleanInitialUserReport(userInfo);
-      let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
+      // let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
       navigation.navigate('SymptomsQA', {
         age,
         location,
         presentFactors,
         sex,
-        symptomFollowup
+        // symptomFollowup
       });
-      console.log('symptom follow up?', symptomFollowup);
-      return symptomFollowup;
+      // console.log('symptom follow up?', symptomFollowup);
+      // return symptomFollowup;
     } catch (error) {
       throw new Error(error);
     }
