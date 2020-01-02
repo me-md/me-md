@@ -47,7 +47,13 @@ export default function SymptomsScreen({ navigation }) {
     try {
       let cleanedData = await cleanInitialUserReport(userInfo);
       let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
-      navigation.navigate('RiskFactors');
+      navigation.navigate('SymptomsQA', {
+        age,
+        location,
+        presentFactors,
+        sex,
+        symptomFollowup
+      });
       console.log('symptom follow up?', symptomFollowup);
       return symptomFollowup;
     } catch (error) {
