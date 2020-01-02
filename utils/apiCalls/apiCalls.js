@@ -1,4 +1,6 @@
 const baseUrl = 'https://triage-ex.herokuapp.com';
+import { REACT_APP_ID, REACT_APP_KEY } from 'react-native-dotenv';
+// require('react-native-dotenv').config();
 
 export const getAllSymptoms = async () => {
   const response = await fetch(`${baseUrl}/api/v1/symptoms`);
@@ -104,6 +106,28 @@ export const getCommonRiskFactors = async () => {
   return data;
 };
 
-export const sendInitialUserSymptoms = async (userSymptoms) => {
-  
-}
+export const sendInitialUserSymptoms = async userSymptoms => {
+  console.log('id?', REACT_APP_ID);
+  console.log('key?', REACT_APP_KEY);
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(userSymptoms),
+    headers: {
+      'App-Id': `${REACT_APP_ID}`,
+      'App-Key': `${REACT_APP_KEY}`,
+      'Content-Type': 'application/json',
+      Model: 'infermedica-en'
+    }
+  };
+  const response = await fetch(
+    ('https://api.infermedica.com/v2/diagnosis', options)
+  );
+  if (!response.ok) {
+    throw new Error(
+      'Could not get follow up symptom questions, please try again later.'
+    );
+  }
+  const data = await response.json();
+
+  return data;
+};

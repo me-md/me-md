@@ -5,8 +5,12 @@ import { CheckBox } from 'react-native-elements';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
-import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
+import {
+  searchAllSymptoms,
+  sendInitialUserSymptoms
+} from '../../utils/apiCalls/apiCalls';
 import { cleanInitialUserReport } from '../../utils/helpers/helpers';
+// require('react-native-dotenv').config();
 
 const height = Dimensions.get('window').height;
 
@@ -41,9 +45,12 @@ export default function SymptomsScreen({ navigation }) {
 
   const sendInitialSymptoms = async () => {
     const userInfo = { age, presentFactors, symptomIds, sex };
-    let data = await cleanInitialUserReport(userInfo);
+    let cleanedData = await cleanInitialUserReport(userInfo);
+    // let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
     navigation.navigate('RiskFactors');
     return data;
+    // console.log('symptom follow up?', symptomFollowup);
+    // return symptomFollowup;
   };
 
   // useEffect(() => console.log('symptomIds', symptomIds));
