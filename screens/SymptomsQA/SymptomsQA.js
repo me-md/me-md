@@ -5,6 +5,7 @@ import { CheckBox } from 'react-native-elements';
 import { Entypo } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
+import SingleQ from '../../components/SingleQ';
 
 const height = Dimensions.get('window').height;
 
@@ -258,6 +259,7 @@ export default function SymptomsQA({ navigation }) {
           <Text style={styles.symptomText}>
             {mockGroupSingle.question.text}
           </Text>
+          <SingleQ style={styles.question} question={mockSingle} />
           <Entypo
             name='chevron-thin-down'
             size={36}
@@ -291,5 +293,8 @@ const styles = {
     alignSelf: 'flex-start',
     fontSize: 16,
     padding: 0
+  },
+  question: {
+    width: '80%'
   }
 };
