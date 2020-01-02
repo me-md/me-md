@@ -8,6 +8,7 @@ import SelectAge from '../screens/SelectAge/SelectAge';
 import LocationScreen from '../screens/LocationScreen/LocationScreen';
 import RiskFactors from '../screens/RiskFactors/RiskFactors';
 import SearchSymptoms from '../screens/SearchSymptoms/SearchSymptoms';
+import SymptomsQA from '../screens/SymptomsQA/SymptomsQA';
 
 const RootStack = createStackNavigator(
   {
@@ -17,10 +18,11 @@ const RootStack = createStackNavigator(
     SelectAge: SelectAge,
     Location: LocationScreen,
     RiskFactors: RiskFactors,
-    SearchSymptoms: SearchSymptoms
+    SearchSymptoms: SearchSymptoms,
+    SymptomsQA
   },
   {
-    initialRouteName: 'Welcome',
+    initialRouteName: 'SymptomsQA',
     transitionConfig: () => fromBottom(),
     headerMode: 'none',
     navigationOptions: {
