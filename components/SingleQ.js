@@ -40,7 +40,7 @@ export default function SingleQ({ question }) {
   );
 }
 
-const styles = {
+const styles = StyleSheet.create({
   questionCard: {
     marginBottom: height * 0.01,
     marginTop: height * 0.01,
@@ -61,4 +61,4 @@ const styles = {
     fontSize: 12,
     padding: 0
   }
-};
+});
