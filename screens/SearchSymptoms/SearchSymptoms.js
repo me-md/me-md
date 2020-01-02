@@ -10,7 +10,6 @@ import {
   sendInitialUserSymptoms
 } from '../../utils/apiCalls/apiCalls';
 import { cleanInitialUserReport } from '../../utils/helpers/helpers';
-// require('react-native-dotenv').config();
 
 const height = Dimensions.get('window').height;
 
@@ -45,12 +44,15 @@ export default function SymptomsScreen({ navigation }) {
 
   const sendInitialSymptoms = async () => {
     const userInfo = { age, presentFactors, symptomIds, sex };
-    let cleanedData = await cleanInitialUserReport(userInfo);
-    // let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
-    navigation.navigate('RiskFactors');
-    return data;
-    // console.log('symptom follow up?', symptomFollowup);
-    // return symptomFollowup;
+    try {
+      let cleanedData = await cleanInitialUserReport(userInfo);
+      let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
+      navigation.navigate('RiskFactors');
+      console.log('symptom follow up?', symptomFollowup);
+      return symptomFollowup;
+    } catch (error) {
+      throw new Error(error);
+    }
   };
 
   // useEffect(() => console.log('symptomIds', symptomIds));
@@ -107,7 +109,9 @@ export default function SymptomsScreen({ navigation }) {
             />
           </Item>
           <View style={styles.searchResultsContainer}>
-            <Text style={styles.input}>Select all that apply:</Text>
+            <Text style={styles.input}>
+              Select all that apply (at least 3):
+            </Text>
             <ScrollView style={styles.searchResults}>
               {displaySymptoms}
             </ScrollView>

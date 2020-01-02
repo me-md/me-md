@@ -7,7 +7,7 @@ export const cleanInitialUserReport = report => {
   const cleanedFormat = {
     sex,
     age,
-    evidence: [...riskFactors, ...initialSymptoms]
+    evidence: [...initialSymptoms, ...riskFactors]
   };
   return cleanedFormat;
 };
