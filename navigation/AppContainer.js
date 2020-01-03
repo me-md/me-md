@@ -10,6 +10,7 @@ import RiskFactors from '../screens/RiskFactors/RiskFactors';
 import SearchSymptoms from '../screens/SearchSymptoms/SearchSymptoms';
 import SymptomsQA from '../screens/SymptomsQA/SymptomsQA';
 import Results from '../screens/Results/Results';
+import DoctorsScreen from '../screens/DoctorsScreen/DoctorsScreen';
 
 const RootStack = createStackNavigator(
   {
@@ -21,7 +22,8 @@ const RootStack = createStackNavigator(
     RiskFactors: RiskFactors,
     SearchSymptoms: SearchSymptoms,
     SymptomsQA,
-    Results
+    Results,
+    Doctors: DoctorsScreen
   },
   {
     initialRouteName: 'Welcome',
