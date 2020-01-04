@@ -7,7 +7,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
   searchAllSymptoms,
-  sendInitialUserSymptoms
 } from '../../utils/apiCalls/apiCalls';
 import { cleanInitialUserReport } from '../../utils/helpers/helpers';
 
@@ -15,6 +14,7 @@ const height = Dimensions.get('window').height;
 
 export default function SymptomsScreen({ navigation }) {
   const { age, location, presentFactors, sex } = navigation.state.params;
+  // console.log(age, location, presentFactors, sex)
   const [symptomIds, setSymptomIds] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -42,26 +42,24 @@ export default function SymptomsScreen({ navigation }) {
     setSymptomIds(filteredSymptoms);
   };
 
-  const sendInitialSymptoms = async () => {
+  const sendInitialSymptoms = () => {
     const userInfo = { age, presentFactors, symptomIds, sex };
-    try {
-      let cleanedData = await cleanInitialUserReport(userInfo);
-      let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
-      navigation.navigate('SymptomsQA', {
-        age,
-        location,
-        presentFactors,
-        sex,
-        symptomFollowup
-      });
-      console.log('symptom follow up?', symptomFollowup);
-      return symptomFollowup;
-    } catch (error) {
-      throw new Error(error);
-    }
+    // console.log(age, presentFactors, symptomIds, sex)
+    // try {
+    let cleanedData = cleanInitialUserReport(userInfo);
+    // let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
+    navigation.navigate('SymptomsQA', {
+      cleanedData,
+      location
+    });
+    // console.log('symptom follow up?', symptomFollowup);
+    // return symptomFollowup;
+    // } catch (error) {
+    //   throw new Error(error);
+    // }
   };
 
-  // useEffect(() => console.log('symptomIds', symptomIds));
+  useEffect(() => console.log('symptomIds', symptomIds));
 
   const displaySymptoms = searchResults.map(result => {
     let foundIndex = symptomIds.findIndex(symptom => symptom.id == result.id);
