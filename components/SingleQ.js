@@ -11,6 +11,14 @@ export default function SingleQ({ question, answerQuestion }) {
 
   useEffect(() => { console.log(checkWho) }, [checkWho])
 
+  const handleSubmit = () => {
+    answerQuestion([{
+      id: question.question.items[0].id,
+      choice_id: checkWho
+    }]);
+    setCheckWho([])
+  }
+
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <CardItem style={styles.questionCardItem}>
@@ -40,10 +48,7 @@ export default function SingleQ({ question, answerQuestion }) {
             ></CheckBox>
             <Button
               block
-              onPress={() => answerQuestion([{
-                id: question.question.items[0].id,
-                choice_id: checkWho
-              }])}
+              onPress={() => handleSubmit()}
             >
               <Text>Submit</Text>
             </Button>

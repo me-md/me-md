@@ -36,6 +36,7 @@ export default function SymptomsQA({ navigation }) {
         sendInitialUserSymptoms(userInfo);
       console.log('symptom follow up?', symptomFollowup);
       setQuestion(symptomFollowup);
+      symptomFollowup.should_stop ? navigation.navigate('Welcome') : null;
     } catch (error) {
       throw new Error(error);
     }
@@ -48,7 +49,7 @@ export default function SymptomsQA({ navigation }) {
       case 'group_single':
         return <GroupSingleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
       case 'group_multiple':
-        return <GroupMultipleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
+        return <GroupSingleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
       default:
         <></>
     }
@@ -76,7 +77,9 @@ export default function SymptomsQA({ navigation }) {
             onPress={() => navigation.navigate('SearchSymptoms')}
           />
           <Text style={styles.symptomText}>Regarding your symptoms:</Text>
-          {question.question && displayQuestion()}
+          <ScrollView style={styles.card}>
+            {question.question && displayQuestion()}
+          </ScrollView>
           <Entypo
             name='chevron-thin-down'
             size={36}
@@ -110,6 +113,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     fontSize: 16,
     padding: 0
+  },
+  card: {
+    flex: 1,
+    padding: 0,
+    width: '100%'
   },
   question: {
     width: '80%'
