@@ -14,7 +14,6 @@ const height = Dimensions.get('window').height;
 
 export default function SymptomsScreen({ navigation }) {
   const { age, location, presentFactors, sex } = navigation.state.params;
-  // console.log(age, location, presentFactors, sex)
   const [symptomIds, setSymptomIds] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -44,22 +43,14 @@ export default function SymptomsScreen({ navigation }) {
 
   const sendInitialSymptoms = () => {
     const userInfo = { age, presentFactors, symptomIds, sex };
-    // console.log(age, presentFactors, symptomIds, sex)
-    // try {
     let cleanedData = cleanInitialUserReport(userInfo);
-    // let symptomFollowup = await sendInitialUserSymptoms(cleanedData);
     navigation.navigate('SymptomsQA', {
       cleanedData,
       location
     });
-    // console.log('symptom follow up?', symptomFollowup);
-    // return symptomFollowup;
-    // } catch (error) {
-    //   throw new Error(error);
-    // }
   };
 
-  useEffect(() => console.log('symptomIds', symptomIds));
+  // useEffect(() => console.log('symptomIds', symptomIds));
 
   const displaySymptoms = searchResults.map(result => {
     let foundIndex = symptomIds.findIndex(symptom => symptom.id == result.id);

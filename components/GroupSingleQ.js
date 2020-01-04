@@ -1,123 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { Body, Card, CardItem, Input, Item } from 'native-base';
+import { Body, Button, Card, CardItem, Input, Item } from 'native-base';
 import { CheckBox } from 'react-native-elements';
 
 const height = Dimensions.get('window').height;
 
-export default function GroupSingleQ({ question }) {
+export default function GroupSingleQ({ question, answerQuestion }) {
+
+  const [checkWho, setCheckWho] = useState([undefined, undefined, undefined]);
+
+  const questions = question.question.items.map((item, questionIndex) => {
+    return <CardItem key={questionIndex} style={styles.questionCardItem}>
+      <Body>
+        <Text style={styles.questionText}>
+          {item.name}
+        </Text>
+        <View style={styles.checkboxes}>
+          {item.choices.map((choice, checkBoxIndex) => {
+            console.log(checkWho)
+            return <CheckBox
+              key={checkBoxIndex}
+              center
+              id={choice.id}
+              title={
+                <Text>{choice.label}</Text>
+              }
+              checked={checkWho[questionIndex] === choice.id}
+              onPress={() => handlePress(choice.id, questionIndex)}
+            ></CheckBox>
+          })}
+        </View>
+      </Body>
+    </CardItem>
+  })
+
+  const handlePress = (id, index) => {
+    let IDs = [...checkWho];
+    IDs[index] = id;
+    setCheckWho(IDs)
+  }
+
+  const handleSubmit = () => {
+    const response = question.question.items.map((item, index) => {
+      return {
+        id: item.id,
+        choice_id: checkWho[index]
+      }
+    })
+    console.log('response', response)
+    answerQuestion(response);
+  }
+
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <Body>
         <Text style={styles.questionText}>{question.question.text}</Text>
-        <CardItem style={styles.questionCardItem}>
-          <Body>
-            <Text style={styles.questionText}>
-              {question.question.items[0].name}
-            </Text>
-            <View style={styles.checkboxes}>
-              <CheckBox
-                center
-                id={question.question.items[0].choices[0].id}
-                title={
-                  <Text>{question.question.items[0].choices[0].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-              <CheckBox
-                center
-                id={question.question.items[0].choices[1].id}
-                title={
-                  <Text>{question.question.items[0].choices[1].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-              <CheckBox
-                center
-                id={question.question.items[0].choices[2].id}
-                title={
-                  <Text>{question.question.items[0].choices[2].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-            </View>
-          </Body>
-        </CardItem>
-        <CardItem style={styles.questionCardItem}>
-          <Body>
-            <Text style={styles.questionText}>
-              {question.question.items[1].name}
-            </Text>
-            <View style={styles.checkboxes}>
-              <CheckBox
-                center
-                id={question.question.items[1].choices[0].id}
-                title={
-                  <Text>{question.question.items[1].choices[0].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-              <CheckBox
-                center
-                id={question.question.items[1].choices[1].id}
-                title={
-                  <Text>{question.question.items[1].choices[1].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-              <CheckBox
-                center
-                id={question.question.items[1].choices[2].id}
-                title={
-                  <Text>{question.question.items[1].choices[2].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-            </View>
-          </Body>
-        </CardItem>
-        <CardItem style={styles.questionCardItem}>
-          <Body>
-            <Text style={styles.questionText}>
-              {question.question.items[2].name}
-            </Text>
-            <View style={styles.checkboxes}>
-              <CheckBox
-                center
-                id={question.question.items[1].choices[0].id}
-                title={
-                  <Text>{question.question.items[1].choices[0].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-              <CheckBox
-                center
-                id={question.question.items[1].choices[1].id}
-                title={
-                  <Text>{question.question.items[1].choices[1].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-              <CheckBox
-                center
-                id={question.question.items[1].choices[2].id}
-                title={
-                  <Text>{question.question.items[1].choices[2].label}</Text>
-                }
-                // checked={}
-                // onPress={}
-              ></CheckBox>
-            </View>
-          </Body>
-        </CardItem>
+        {questions}
+        <Button
+          onPress={() => handleSubmit()}
+        >
+          <Text>Submit</Text>
+        </Button>
       </Body>
     </Card>
   );

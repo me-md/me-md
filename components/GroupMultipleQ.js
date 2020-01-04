@@ -1,11 +1,11 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { Body, Card, CardItem, Input, Item } from 'native-base';
+import { Body, Button, Card, CardItem, Input, Item } from 'native-base';
 import { CheckBox } from 'react-native-elements';
 
 const height = Dimensions.get('window').height;
 
-export default function GroupMultipleQ({ question }) {
+export default function GroupMultipleQ({ question, answerQuestion }) {
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <Body>
@@ -22,8 +22,8 @@ export default function GroupMultipleQ({ question }) {
                 title={
                   <Text>{question.question.items[0].choices[0].label}</Text>
                 }
-                // checked={}
-                // onPress={}
+              // checked={}
+              // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -31,8 +31,8 @@ export default function GroupMultipleQ({ question }) {
                 title={
                   <Text>{question.question.items[0].choices[1].label}</Text>
                 }
-                // checked={}
-                // onPress={}
+              // checked={}
+              // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -40,8 +40,8 @@ export default function GroupMultipleQ({ question }) {
                 title={
                   <Text>{question.question.items[0].choices[2].label}</Text>
                 }
-                // checked={}
-                // onPress={}
+              // checked={}
+              // onPress={}
               ></CheckBox>
             </View>
           </Body>
@@ -58,8 +58,8 @@ export default function GroupMultipleQ({ question }) {
                 title={
                   <Text>{question.question.items[1].choices[0].label}</Text>
                 }
-                // checked={}
-                // onPress={}
+              // checked={}
+              // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -67,8 +67,8 @@ export default function GroupMultipleQ({ question }) {
                 title={
                   <Text>{question.question.items[1].choices[1].label}</Text>
                 }
-                // checked={}
-                // onPress={}
+              // checked={}
+              // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -76,9 +76,18 @@ export default function GroupMultipleQ({ question }) {
                 title={
                   <Text>{question.question.items[1].choices[2].label}</Text>
                 }
-                // checked={}
-                // onPress={}
+              // checked={}
+              // onPress={}
               ></CheckBox>
+              <Button
+                block
+                onPress={() => answerQuestion({
+                  id: question.question.items[0].id,
+                  choice_id: checkWho
+                })}
+              >
+                <Text>Submit</Text>
+              </Button>
             </View>
           </Body>
         </CardItem>

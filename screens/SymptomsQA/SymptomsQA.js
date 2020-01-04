@@ -23,40 +23,44 @@ export default function SymptomsQA({ navigation }) {
   // const { age, location, presentFactors, sex, symptomFollowup } = navigation.state.params;
   // const [currentQuestion, setCurrentQuestion] = useState({})
   const { cleanedData, location } = navigation.state.params;
-  const [state, setState] = useState({});
+  const [question, setQuestion] = useState({});
+  const [userInfo, setUserInfo] = useState(cleanedData);
 
-  useEffect(() => { getQA() }, []);
+  useEffect(() => { getQA() }, [userInfo]);
+  useEffect(() => console.log('question', question), [question]);
+  useEffect(() => console.log('userInfo', userInfo), [userInfo]);
 
   const getQA = async () => {
     try {
-      console.log('uinfo before fetch', cleanedData)
       let symptomFollowup = await
-        sendInitialUserSymptoms(cleanedData);
+        sendInitialUserSymptoms(userInfo);
       console.log('symptom follow up?', symptomFollowup);
-      setState(symptomFollowup);
+      setQuestion(symptomFollowup);
     } catch (error) {
       throw new Error(error);
     }
   }
 
   const displayQuestion = () => {
-    switch (state.question.type) {
+    switch (question.question.type) {
       case 'single':
-        return <SingleQ style={styles.question} question={state} answerQuestion={answerQuestion} />
+        return <SingleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
       case 'group_single':
-        return <GroupSingleQ style={styles.question} question={state} answerQuestion={answerQuestion} />
+        return <GroupSingleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
       case 'group_multiple':
-        return <GroupMultipleQ style={styles.question} question={state} answerQuestion={answerQuestion} />
+        return <GroupMultipleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
       default:
         <></>
     }
   }
 
   const answerQuestion = (answers) => {
-    cleanedData.evidence.push(answers);
+    console.log('oldUserInfo', userInfo)
+    const newUserInfo = { ...userInfo };
+    newUserInfo.evidence.push(...answers);
+    console.log('newUserInfo', newUserInfo)
+    setUserInfo(newUserInfo);
   }
-
-  useEffect(() => console.log('state', state.should_stop), [state]);
 
   return (
     <View style={styles.container}>
@@ -72,7 +76,7 @@ export default function SymptomsQA({ navigation }) {
             onPress={() => navigation.navigate('SearchSymptoms')}
           />
           <Text style={styles.symptomText}>Regarding your symptoms:</Text>
-          {state.question && displayQuestion()}
+          {question.question && displayQuestion()}
           <Entypo
             name='chevron-thin-down'
             size={36}
