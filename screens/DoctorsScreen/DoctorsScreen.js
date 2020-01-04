@@ -41,6 +41,13 @@ export default function DoctorsScreen({ navigation }) {
         <ScrollView style={styles.doctorsContainer}>
           {nearbyPractices}
         </ScrollView>
+        <Button
+          block
+          style={styles.button}
+          onPress={() => navigation.navigate('Email')}
+        >
+          <Text style={styles.buttonText}>Email Report</Text>
+        </Button>
       </View>
     </View>
   );
@@ -70,5 +77,13 @@ const styles = StyleSheet.create({
   doctorName: {
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  button: {
+    alignSelf: 'center',
+    marginTop: height * 0.02,
+    width: '75%'
+  },
+  buttonText: {
+    fontSize: 18
   }
 });
