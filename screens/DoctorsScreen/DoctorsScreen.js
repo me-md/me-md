@@ -8,9 +8,9 @@ import { doctors } from '../../utils/mockDoctors/mockDoctors';
 const height = Dimensions.get('window').height;
 
 export default function DoctorsScreen({ navigation }) {
-  const nearbyPractices = doctors.map(doctor => {
+  const nearbyPractices = doctors.map((doctor, index) => {
     return (
-      <Card>
+      <Card key={index}>
         <CardItem>
           <Body>
             <Text style={styles.doctorName}>{doctor.practice.name}</Text>

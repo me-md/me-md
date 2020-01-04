@@ -11,6 +11,7 @@ import SearchSymptoms from '../screens/SearchSymptoms/SearchSymptoms';
 import SymptomsQA from '../screens/SymptomsQA/SymptomsQA';
 import Results from '../screens/Results/Results';
 import DoctorsScreen from '../screens/DoctorsScreen/DoctorsScreen';
+import EmailScreen from '../screens/EmailScreen/EmailScreen';
 
 const RootStack = createStackNavigator(
   {
@@ -23,7 +24,8 @@ const RootStack = createStackNavigator(
     SearchSymptoms: SearchSymptoms,
     SymptomsQA,
     Results,
-    Doctors: DoctorsScreen
+    Doctors: DoctorsScreen,
+    Email: EmailScreen
   },
   {
     initialRouteName: 'Welcome',
