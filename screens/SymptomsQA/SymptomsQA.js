@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Body, Card, CardItem, Input, Item } from 'native-base';
 import { CheckBox } from 'react-native-elements';
@@ -13,12 +13,50 @@ import {
   mockGroupMultiple,
   mockGroupSingle
 } from '../../utils/mockQuestions/mockQuestions';
+import {
+  sendInitialUserSymptoms
+} from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
 
 export default function SymptomsQA({ navigation }) {
   // const { age, location, presentFactors, sex, symptomFollowup } = navigation.state.params;
   // const [currentQuestion, setCurrentQuestion] = useState({})
+  const { cleanedData, location } = navigation.state.params;
+  const [state, setState] = useState({});
+
+  useEffect(() => { getQA() }, []);
+
+  const getQA = async () => {
+    try {
+      console.log('uinfo before fetch', cleanedData)
+      let symptomFollowup = await
+        sendInitialUserSymptoms(cleanedData);
+      console.log('symptom follow up?', symptomFollowup);
+      setState(symptomFollowup);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  const displayQuestion = () => {
+    switch (state.question.type) {
+      case 'single':
+        return <SingleQ style={styles.question} question={state} answerQuestion={answerQuestion} />
+      case 'group_single':
+        return <GroupSingleQ style={styles.question} question={state} answerQuestion={answerQuestion} />
+      case 'group_multiple':
+        return <GroupMultipleQ style={styles.question} question={state} answerQuestion={answerQuestion} />
+      default:
+        <></>
+    }
+  }
+
+  const answerQuestion = (answers) => {
+    cleanedData.evidence.push(answers);
+  }
+
+  useEffect(() => console.log('state', state.should_stop), [state]);
 
   return (
     <View style={styles.container}>
@@ -34,17 +72,12 @@ export default function SymptomsQA({ navigation }) {
             onPress={() => navigation.navigate('SearchSymptoms')}
           />
           <Text style={styles.symptomText}>Regarding your symptoms:</Text>
-          {/* <SingleQ style={styles.question} question={mockSingle} /> */}
-          {/* <GroupSingleQ style={styles.question} question={mockGroupSingle} /> */}
-          <GroupMultipleQ
-            style={styles.question}
-            question={mockGroupMultiple}
-          />
+          {state.question && displayQuestion()}
           <Entypo
             name='chevron-thin-down'
             size={36}
             color='white'
-            // onPress={() => }
+          // onPress={() => }
           />
         </View>
       </LinearGradient>
