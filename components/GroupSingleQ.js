@@ -7,7 +7,7 @@ const height = Dimensions.get('window').height;
 
 export default function GroupSingleQ({ question, answerQuestion }) {
 
-  const [checkWho, setCheckWho] = useState([undefined, undefined, undefined]);
+  const [checkWho, setCheckWho] = useState([]);
 
   const questions = question.question.items.map((item, questionIndex) => {
     return <CardItem key={questionIndex} style={styles.questionCardItem}>
@@ -48,6 +48,7 @@ export default function GroupSingleQ({ question, answerQuestion }) {
       }
     })
     console.log('response', response)
+    setCheckWho([])
     answerQuestion(response);
   }
 
