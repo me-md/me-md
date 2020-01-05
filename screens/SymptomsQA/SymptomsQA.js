@@ -18,7 +18,7 @@ const height = Dimensions.get('window').height;
 export default function SymptomsQA({ navigation }) {
   // const { age, location, presentFactors, sex, symptomFollowup } = navigation.state.params;
   // const [currentQuestion, setCurrentQuestion] = useState({})
-  const { cleanedData, location } = navigation.state.params;
+  const { cleanedData, location, stateAbbreviation } = navigation.state.params;
   const [question, setQuestion] = useState({});
   const [userInfo, setUserInfo] = useState(cleanedData);
 
@@ -31,7 +31,7 @@ export default function SymptomsQA({ navigation }) {
       let symptomFollowup = await sendInitialUserSymptoms(userInfo);
       setQuestion(symptomFollowup);
       symptomFollowup.should_stop
-        ? navigation.navigate('Results', { userInfo, symptomFollowup })
+        ? navigation.navigate('Results', { userInfo, symptomFollowup, location, stateAbbreviation })
         : null;
     } catch (error) {
       throw new Error(error);
@@ -96,7 +96,7 @@ export default function SymptomsQA({ navigation }) {
             name='chevron-thin-down'
             size={36}
             color='white'
-            // onPress={() => }
+          // onPress={() => }
           />
         </View>
       </LinearGradient>
