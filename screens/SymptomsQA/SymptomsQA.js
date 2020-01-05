@@ -11,9 +11,7 @@ import {
   mockGroupMultiple,
   mockGroupSingle
 } from '../../utils/mockQuestions/mockQuestions';
-import {
-  sendInitialUserSymptoms
-} from '../../utils/apiCalls/apiCalls';
+import { sendInitialUserSymptoms } from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
 
@@ -24,42 +22,58 @@ export default function SymptomsQA({ navigation }) {
   const [question, setQuestion] = useState({});
   const [userInfo, setUserInfo] = useState(cleanedData);
 
-  useEffect(() => { getQA() }, [userInfo]);
-  useEffect(() => console.log('question', question), [question]);
-  useEffect(() => console.log('userInfo', userInfo), [userInfo]);
+  useEffect(() => {
+    getQA();
+  }, [userInfo]);
 
   const getQA = async () => {
     try {
-      let symptomFollowup = await
-        sendInitialUserSymptoms(userInfo);
-      console.log('symptom follow up?', symptomFollowup);
+      let symptomFollowup = await sendInitialUserSymptoms(userInfo);
       setQuestion(symptomFollowup);
-      symptomFollowup.should_stop ? navigation.navigate('Results', { userInfo, symptomFollowup }) : null;
+      symptomFollowup.should_stop
+        ? navigation.navigate('Results', { userInfo, symptomFollowup })
+        : null;
     } catch (error) {
       throw new Error(error);
     }
-  }
+  };
 
   const displayQuestion = () => {
     switch (question.question.type) {
       case 'single':
-        return <SingleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
+        return (
+          <SingleQ
+            style={styles.question}
+            question={question}
+            answerQuestion={answerQuestion}
+          />
+        );
       case 'group_single':
-        return <GroupSingleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
+        return (
+          <GroupSingleQ
+            style={styles.question}
+            question={question}
+            answerQuestion={answerQuestion}
+          />
+        );
       case 'group_multiple':
-        return <GroupSingleQ style={styles.question} question={question} answerQuestion={answerQuestion} />
+        return (
+          <GroupSingleQ
+            style={styles.question}
+            question={question}
+            answerQuestion={answerQuestion}
+          />
+        );
       default:
-        <></>
+        <></>;
     }
-  }
+  };
 
-  const answerQuestion = (answers) => {
-    console.log('oldUserInfo', userInfo)
+  const answerQuestion = answers => {
     const newUserInfo = { ...userInfo };
     newUserInfo.evidence.push(...answers);
-    console.log('newUserInfo', newUserInfo)
     setUserInfo(newUserInfo);
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -82,7 +96,7 @@ export default function SymptomsQA({ navigation }) {
             name='chevron-thin-down'
             size={36}
             color='white'
-          // onPress={() => }
+            // onPress={() => }
           />
         </View>
       </LinearGradient>

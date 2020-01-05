@@ -50,8 +50,6 @@ export default function SymptomsScreen({ navigation }) {
     });
   };
 
-  // useEffect(() => console.log('symptomIds', symptomIds));
-
   const displaySymptoms = searchResults.map(result => {
     let foundIndex = symptomIds.findIndex(symptom => symptom.id == result.id);
     return (

@@ -19,14 +19,11 @@ export default function SymptomsQA({ navigation }) {
   const [conditionDetails, setConditionDetails] = useState({});
 
   useEffect(() => { getResults() }, []);
-  useEffect(() => { console.log('explain!', explanation) }, [explanation]);
-  useEffect(() => { console.log('deets', conditionDetails) }, [conditionDetails])
 
 
   const getResults = async () => {
     try {
       userInfo = specifyTargetCondition(userInfo, symptomFollowup);
-      console.log('symptom follow', symptomFollowup)
       let explanation = await getExplaination(userInfo);
       let conditionDetails = await getConditionById(symptomFollowup.conditions[0].id);
       setExplanation(explanation);

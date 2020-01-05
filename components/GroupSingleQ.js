@@ -17,7 +17,6 @@ export default function GroupSingleQ({ question, answerQuestion }) {
         </Text>
         <View style={styles.checkboxes}>
           {item.choices.map((choice, checkBoxIndex) => {
-            console.log(checkWho)
             return <CheckBox
               key={checkBoxIndex}
               center
@@ -47,7 +46,6 @@ export default function GroupSingleQ({ question, answerQuestion }) {
         choice_id: checkWho[index]
       }
     })
-    console.log('response', response)
     setCheckWho([])
     answerQuestion(response);
   }

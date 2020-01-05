@@ -32,6 +32,5 @@ export const specifyTargetCondition = (userInfo, symptomFollowup) => {
   userInfo.extras = {
     enable_triage_5: true
   };
-  console.log('UserInfo', userInfo)
   return userInfo;
 }
