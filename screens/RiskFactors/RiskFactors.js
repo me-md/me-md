@@ -9,7 +9,7 @@ import { getCommonRiskFactors } from '../../utils/apiCalls/apiCalls';
 const height = Dimensions.get('window').height;
 
 export default function RiskFactors({ navigation }) {
-  const { age, location, sex } = navigation.state.params;
+  const { age, location, sex, stateAbbreviation } = navigation.state.params;
   const [factors, setFactors] = useState([]);
   const [presentFactors, setPresentFactors] = useState([
     {
@@ -103,7 +103,8 @@ export default function RiskFactors({ navigation }) {
                 age,
                 location,
                 sex,
-                presentFactors
+                presentFactors,
+                stateAbbreviation
               })
             }
           />

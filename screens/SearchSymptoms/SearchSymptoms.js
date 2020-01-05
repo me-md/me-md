@@ -13,7 +13,7 @@ import { cleanInitialUserReport } from '../../utils/helpers/helpers';
 const height = Dimensions.get('window').height;
 
 export default function SymptomsScreen({ navigation }) {
-  const { age, location, presentFactors, sex } = navigation.state.params;
+  const { age, location, presentFactors, sex, stateAbbreviation } = navigation.state.params;
   const [symptomIds, setSymptomIds] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -46,7 +46,8 @@ export default function SymptomsScreen({ navigation }) {
     let cleanedData = cleanInitialUserReport(userInfo);
     navigation.navigate('SymptomsQA', {
       cleanedData,
-      location
+      location,
+      stateAbbreviation
     });
   };
 

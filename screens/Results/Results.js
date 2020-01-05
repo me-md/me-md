@@ -13,7 +13,7 @@ const height = Dimensions.get('window').height;
 
 export default function SymptomsQA({ navigation }) {
 
-  let { userInfo, symptomFollowup } = navigation.state.params;
+  let { userInfo, symptomFollowup, location, stateAbbreviation } = navigation.state.params;
 
   const [explanation, setExplanation] = useState({});
   const [conditionDetails, setConditionDetails] = useState({});
@@ -78,7 +78,7 @@ export default function SymptomsQA({ navigation }) {
         {conditionDetails.data ? createTopDiagnosis() : null}
         {getTopDiagnoses()}
       </ScrollView>
-      <Button onPress={() => navigation.navigate('Doctors')}><Text>Find Doctors</Text></Button>
+      <Button onPress={() => navigation.navigate('Doctors'), location, stateAbbreviation}><Text>Find Doctors</Text></Button>
     </View >
   );
 }

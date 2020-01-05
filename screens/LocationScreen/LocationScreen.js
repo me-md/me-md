@@ -10,8 +10,7 @@ const height = Dimensions.get('window').height;
 export default function LocationScreen({ navigation }) {
   const { age, sex } = navigation.state.params;
   const [location, setLocation] = useState('');
-  const [state, setState] = useState('');
-
+  const [stateAbbreviation, setStateAbbreviation] = useState('AL');
 
   navigator.geolocation.getCurrentPosition(
     position => {
@@ -22,8 +21,6 @@ export default function LocationScreen({ navigation }) {
     error => Alert.alert(error.message),
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
   );
-
-  console.log(location)
 
   const stateAbbreviations = statesData.map(state => {
     return <Picker.Item style={styles.item} label={state.abbreviation} value={state.abbreviation} />
@@ -44,10 +41,10 @@ export default function LocationScreen({ navigation }) {
           />
           <Text style={styles.title}>Location</Text>
           <Picker
-            selectedValue={state}
+            selectedValue={stateAbbreviation}
             style={styles.picker}
             onValueChange={(itemValue, itemIndex) =>
-              setState(itemValue)
+              setStateAbbreviation(itemValue)
             }>
             {stateAbbreviations}
           </Picker>
@@ -56,7 +53,7 @@ export default function LocationScreen({ navigation }) {
             size={36}
             color='white'
             onPress={() =>
-              navigation.navigate('RiskFactors', { sex, age, location })
+              navigation.navigate('RiskFactors', { sex, age, location, stateAbbreviation })
             }
           />
         </View>
