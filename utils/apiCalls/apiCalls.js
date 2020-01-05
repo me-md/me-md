@@ -127,3 +127,25 @@ export const sendInitialUserSymptoms = async userSymptoms => {
 
   return data;
 };
+
+export const getExplaination = async userInfo => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'App-Id': `${REACT_APP_ID}`,
+      'App-Key': `${REACT_APP_KEY}`,
+      'Content-Type': 'application/json',
+      Model: 'infermedica-en'
+    },
+    body: JSON.stringify(userInfo)
+  };
+  const response = await fetch(`${infermedicaUrl}/explain`, options);
+  if (!response.ok) {
+    throw new Error(
+      'Could not get condition\'s supporting evidence, please try again later.'
+    );
+  }
+  const data = await response.json();
+
+  return data;
+}

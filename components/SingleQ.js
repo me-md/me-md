@@ -19,40 +19,31 @@ export default function SingleQ({ question, answerQuestion }) {
     setCheckWho([])
   }
 
+  const choices = question.question.items[0].choices.map((choice, index) => {
+    return <CheckBox
+      center
+      key={index}
+      id={choice.id}
+      title={<Text>{choice.label}</Text>}
+      checked={checkWho === choice.id}
+      onPress={() => { setCheckWho(choice.id) }}
+    ></CheckBox>
+  })
+
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <CardItem style={styles.questionCardItem}>
         <Body>
           <Text style={styles.questionText}>{question.question.text}</Text>
           <View style={styles.checkboxes}>
-            <CheckBox
-              center
-              id={question.question.items[0].choices[0].id}
-              title={<Text>{question.question.items[0].choices[0].label}</Text>}
-              checked={checkWho === question.question.items[0].choices[0].id}
-              onPress={() => { setCheckWho(question.question.items[0].choices[0].id) }}
-            ></CheckBox>
-            <CheckBox
-              center
-              id={question.question.items[0].choices[1].id}
-              title={<Text>{question.question.items[0].choices[1].label}</Text>}
-              checked={checkWho === question.question.items[0].choices[1].id}
-              onPress={() => { setCheckWho(question.question.items[0].choices[1].id) }}
-            ></CheckBox>
-            <CheckBox
-              center
-              id={question.question.items[0].choices[2].id}
-              title={<Text>{question.question.items[0].choices[2].label}</Text>}
-              checked={checkWho === question.question.items[0].choices[2].id}
-              onPress={() => { setCheckWho(question.question.items[0].choices[2].id) }}
-            ></CheckBox>
-            <Button
-              block
-              onPress={() => handleSubmit()}
-            >
-              <Text>Submit</Text>
-            </Button>
+            {choices}
           </View>
+          <Button
+            block
+            onPress={() => handleSubmit()}
+          >
+            <Text>Submit</Text>
+          </Button>
         </Body>
       </CardItem>
     </Card>
