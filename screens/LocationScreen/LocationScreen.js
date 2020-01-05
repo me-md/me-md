@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Item, Input } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
+import { statesData } from '../../utils/statesData/statesData';
 
 const height = Dimensions.get('window').height;
 
 export default function LocationScreen({ navigation }) {
   const { age, sex } = navigation.state.params;
   const [location, setLocation] = useState('');
+  const [state, setState] = useState('');
+
 
   navigator.geolocation.getCurrentPosition(
     position => {
@@ -21,6 +24,10 @@ export default function LocationScreen({ navigation }) {
   );
 
   console.log(location)
+
+  const stateAbbreviations = statesData.map(state => {
+    return <Picker.Item style={styles.item} label={state.abbreviation} value={state.abbreviation} />
+  })
 
   return (
     <View style={styles.container}>
@@ -36,13 +43,14 @@ export default function LocationScreen({ navigation }) {
             onPress={() => navigation.navigate('SelectAge')}
           />
           <Text style={styles.title}>Location</Text>
-          <Item style={styles.input}>
-            <Input
-              style={styles.input}
-              placeholder='City, State'
-              onChangeText={text => setLocation(text)}
-            />
-          </Item>
+          <Picker
+            selectedValue={state}
+            style={styles.picker}
+            onValueChange={(itemValue, itemIndex) =>
+              setState(itemValue)
+            }>
+            {stateAbbreviations}
+          </Picker>
           <Entypo
             name='chevron-thin-down'
             size={36}
@@ -53,7 +61,7 @@ export default function LocationScreen({ navigation }) {
           />
         </View>
       </LinearGradient>
-    </View>
+    </View >
   );
 }
 
@@ -76,6 +84,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     height: 40,
     width: '75%'
+  },
+  picker: {
+    color: 'white',
+    height: 100,
+    width: 200
+  },
+  item: {
+    color: 'white'
   },
   title: {
     color: '#FFF',
