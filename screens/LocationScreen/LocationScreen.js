@@ -10,6 +10,18 @@ export default function LocationScreen({ navigation }) {
   const { age, sex } = navigation.state.params;
   const [location, setLocation] = useState('');
 
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const location = JSON.stringify(position);
+
+      setLocation(location);
+    },
+    error => Alert.alert(error.message),
+    { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+  );
+
+  console.log(location)
+
   return (
     <View style={styles.container}>
       <LinearGradient
