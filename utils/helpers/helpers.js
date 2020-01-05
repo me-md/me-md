@@ -26,3 +26,12 @@ export const cleanFactorArrays = factors => {
 export const setInitialSymptom = symptom => {
   return (symptom = { ...symptom, initial: 'true' });
 };
+
+export const specifyTargetCondition = (userInfo, symptomFollowup) => {
+  userInfo.target = symptomFollowup.conditions[0].id;
+  userInfo.extras = {
+    enable_triage_5: true
+  };
+  console.log('UserInfo', userInfo)
+  return userInfo;
+}

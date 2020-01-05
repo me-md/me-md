@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { Body, Card, CardItem, Input, Item } from 'native-base';
-import { CheckBox } from 'react-native-elements';
 import { Entypo } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -36,7 +34,7 @@ export default function SymptomsQA({ navigation }) {
         sendInitialUserSymptoms(userInfo);
       console.log('symptom follow up?', symptomFollowup);
       setQuestion(symptomFollowup);
-      symptomFollowup.should_stop ? navigation.navigate('Welcome') : null;
+      symptomFollowup.should_stop ? navigation.navigate('Results', { userInfo, symptomFollowup }) : null;
     } catch (error) {
       throw new Error(error);
     }
