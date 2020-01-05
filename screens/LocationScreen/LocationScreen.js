@@ -22,9 +22,16 @@ export default function LocationScreen({ navigation }) {
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
   );
 
-  const stateAbbreviations = statesData.map(state => {
-    return <Picker.Item style={styles.item} label={state.abbreviation} value={state.abbreviation} />
-  })
+  const stateAbbreviations = statesData.map((state, index) => {
+    return (
+      <Picker.Item
+        style={styles.item}
+        label={state.abbreviation}
+        value={state.abbreviation}
+        key={index}
+      />
+    );
+  });
 
   return (
     <View style={styles.container}>
@@ -45,7 +52,8 @@ export default function LocationScreen({ navigation }) {
             style={styles.picker}
             onValueChange={(itemValue, itemIndex) =>
               setStateAbbreviation(itemValue)
-            }>
+            }
+          >
             {stateAbbreviations}
           </Picker>
           <Entypo
@@ -53,12 +61,17 @@ export default function LocationScreen({ navigation }) {
             size={36}
             color='white'
             onPress={() =>
-              navigation.navigate('RiskFactors', { sex, age, location, stateAbbreviation })
+              navigation.navigate('RiskFactors', {
+                sex,
+                age,
+                location,
+                stateAbbreviation
+              })
             }
           />
         </View>
       </LinearGradient>
-    </View >
+    </View>
   );
 }
 

@@ -1,20 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Body, Button, Card, CardItem } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Header } from '../../components/Header';
-import { doctors } from '../../utils/mockDoctors/mockDoctors';
+import {
+  getDoctorsByLocation,
+  getAllProviders,
+  getDoctorsForProviderByLocation
+} from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
 
 export default function DoctorsScreen({ navigation }) {
+  const { location, stateAbbreviation } = navigation.state.params;
+
+  const [allProviders, setAllProviders] = useState([]);
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    getProviders();
+    getDoctorsForLocation();
+  }, []);
+
+  useEffect(() => {
+    console.log('providers?', allProviders);
+  }, [allProviders, doctors]);
+
+  const getProviders = async () => {
+    let providers = await getAllProviders();
+    // takes a while
+    setAllProviders(providers);
+  };
+
+  const getDoctorsForLocation = async () => {
+    let doctorsInLocation = await getDoctorsByLocation(
+      stateAbbreviation.toLowerCase()
+    );
+    setDoctors(doctorsInLocation);
+  };
+
   const nearbyPractices = doctors.map((doctor, index) => {
     return (
       <Card key={index}>
         <CardItem>
           <Body>
             <Text style={styles.doctorName}>{doctor.practice.name}</Text>
-            <Text>Phone Number</Text>
+            <Text>{doctor.practice.phone}</Text>
           </Body>
         </CardItem>
         <CardItem>

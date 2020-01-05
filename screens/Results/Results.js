@@ -20,7 +20,6 @@ export default function SymptomsQA({ navigation }) {
 
   useEffect(() => { getResults() }, []);
 
-
   const getResults = async () => {
     try {
       userInfo = specifyTargetCondition(userInfo, symptomFollowup);
@@ -78,8 +77,14 @@ export default function SymptomsQA({ navigation }) {
         {conditionDetails.data ? createTopDiagnosis() : null}
         {getTopDiagnoses()}
       </ScrollView>
-      <Button onPress={() => navigation.navigate('Doctors'), location, stateAbbreviation}><Text>Find Doctors</Text></Button>
-    </View >
+      <Button
+        onPress={() =>
+          navigation.navigate('Doctors', { location, stateAbbreviation })
+        }
+      >
+        <Text>Find Doctors</Text>
+      </Button>
+    </View>
   );
 }
 
