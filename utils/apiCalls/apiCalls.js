@@ -1,7 +1,7 @@
 const baseUrl = 'https://triage-ex.herokuapp.com';
 const infermedicaUrl = 'https://api.infermedica.com/v2';
 const mapquestUrl = 'http://www.mapquestapi.com/geocoding/v1';
-
+const doctorsUrl = 'https://memd-doc-search.herokuapp.com/api/v1';
 import { REACT_APP_ID, REACT_APP_KEY, MAPQUEST_KEY } from 'react-native-dotenv';
 
 export const getAllSymptoms = async () => {
@@ -17,7 +17,7 @@ export const getSymptomsByLocation = async location => {
   const response = await fetch(
     `${baseUrl}/api/v1/symptoms?location=${location}`
   );
-  // available bodyparts: [“abdomen”, “undefined”, “head”, “back”, “chest”, “legs”, “feet”, “groin”, “arms”]
+
   if (!response.ok) {
     throw new Error(
       `Could not retrieve symptoms by ${location}, please try again later.`
@@ -144,30 +144,66 @@ export const getExplaination = async userInfo => {
   const response = await fetch(`${infermedicaUrl}/explain`, options);
   if (!response.ok) {
     throw new Error(
-      'Could not get condition\'s supporting evidence, please try again later.'
+      "Could not get condition's supporting evidence, please try again later."
     );
   }
   const data = await response.json();
 
   return data;
-}
+};
 
-const getLatLong = async (city, state) => {
+export const getLatLong = async (city, state) => {
   const options = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
-    },
+    }
   };
 
-  const response = await fetch(`${mapquestUrl}/adress?key=${MAPQUEST_KEY}&location=${city},+${state}
-`, options);
+  const response = await fetch(
+    `${mapquestUrl}/adress?key=${MAPQUEST_KEY}&location=${city},+${state}
+`,
+    options
+  );
   if (!response.ok) {
     throw new Error(
       'Could not get latitude and longitude for that city, please try again later.'
     );
   }
+};
+
+export const getDoctorsByLocation = async location => {
+  const response = await fetch(`${doctorsUrl}/doctors/?location=${location}`);
+  if (!response.ok) {
+    throw new Error(
+      `Could not get doctors for ${location}, please try again later.`
+    );
+  }
   const data = await response.json();
 
   return data;
-}
+};
+
+export const getDoctorsForProviderByLocation = async (location, provider) => {
+  const response = await fetch(
+    `${doctorsUrl}/doctors/?location=${location}&provider=${provider}`
+  );
+  if (!response.ok) {
+    throw new Error(
+      `Could not get doctors in ${location} that take ${provider}, please try again later.`
+    );
+  }
+  const data = await response.json();
+
+  return data;
+};
+
+export const getAllProviders = async () => {
+  const response = await fetch(`${doctorsUrl}/providers`);
+  if (!response.ok) {
+    throw new Error('Could not get providers, please try again later.');
+  }
+  const data = await response.json();
+
+  return data;
+};
