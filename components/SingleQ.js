@@ -6,10 +6,7 @@ import { CheckBox } from 'react-native-elements';
 const height = Dimensions.get('window').height;
 
 export default function SingleQ({ question, answerQuestion }) {
-
   const [checkWho, setCheckWho] = useState([]);
-
-  useEffect(() => { console.log(checkWho) }, [checkWho])
 
   const handleSubmit = () => {
     answerQuestion([{
