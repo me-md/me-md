@@ -1,6 +1,8 @@
 const baseUrl = 'https://triage-ex.herokuapp.com';
 const infermedicaUrl = 'https://api.infermedica.com/v2';
-import { REACT_APP_ID, REACT_APP_KEY } from 'react-native-dotenv';
+const mapquestUrl = 'http://www.mapquestapi.com/geocoding/v1';
+
+import { REACT_APP_ID, REACT_APP_KEY, MAPQUEST_KEY } from 'react-native-dotenv';
 
 export const getAllSymptoms = async () => {
   const response = await fetch(`${baseUrl}/api/v1/symptoms`);
@@ -143,6 +145,26 @@ export const getExplaination = async userInfo => {
   if (!response.ok) {
     throw new Error(
       'Could not get condition\'s supporting evidence, please try again later.'
+    );
+  }
+  const data = await response.json();
+
+  return data;
+}
+
+const getLatLong = async (city, state) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  };
+
+  const response = await fetch(`${mapquestUrl}/adress?key=${MAPQUEST_KEY}&location=${city},+${state}
+`, options);
+  if (!response.ok) {
+    throw new Error(
+      'Could not get latitude and longitude for that city, please try again later.'
     );
   }
   const data = await response.json();
