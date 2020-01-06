@@ -33,13 +33,15 @@ export default function SymptomsScreen({ navigation }) {
     symptoms.map((symptom, index) => {
       return (
         <CardItem key={index} style={styles.selectedSymptom}>
-          <Text>{symptom.common_name}</Text>
+          <Text style={{ fontSize: 14 }}>{symptom.common_name}</Text>
           <AntDesign
             name='closecircle'
+            style={styles.delete}
             id={symptom.id}
             size={26}
-          // onPress={() => {
-          // }}
+            onPress={() => {
+              findSymptom(symptom)
+            }}
           />
         </CardItem>)
     })
@@ -117,21 +119,20 @@ export default function SymptomsScreen({ navigation }) {
               size={36}
               style={styles.searchIcon}
             />
-
           </Item>
-          <View style={styles.searchResultsContainer}>
-            <Text style={styles.hint}>
-              Select all that apply (at least 3):
+          <Text style={styles.hint}>
+            Select all that apply (at least 3):
             </Text>
-            <ScrollView style={styles.selected}>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.searchResultsContainer}>
               <Card style={styles.selectedContainer}>
                 {displaySelectedSymptoms}
               </Card>
-            </ScrollView>
-            <ScrollView style={styles.searchResults}>
+            </View>
+            <View style={styles.searchResults}>
               {displaySymptoms}
-            </ScrollView>
-          </View>
+            </View>
+          </ScrollView>
           <Entypo
             name='chevron-thin-down'
             size={36}
@@ -169,6 +170,10 @@ const styles = StyleSheet.create({
     marginTop: height * 0.06,
     width: '100%'
   },
+  scroll: {
+    marginTop: height * 0.01,
+    width: '100%'
+  },
   input: {
     color: 'white',
     fontSize: 24,
@@ -184,37 +189,32 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingTop: height * 0.025
   },
-  selected: {
-    flex: 1
-  },
   searchResultsContainer: {
-    alignItems: 'center',
-    flex: 1,
-    height: height * 0.65,
-    justifyContent: 'space-evenly',
-    marginBottom: height * 0.016,
+    marginLeft: '5%',
     width: '100%'
   },
   selectedContainer: {
-    alignItems: 'center',
+    borderColor: 'rgba(256, 256, 256, 0)',
     backgroundColor: 'rgba(256, 256, 256, 0)',
-    flex: 1,
-    flexGrow: 1,
-    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: '80%',
   },
   selectedSymptom: {
     backgroundColor: 'rgba(256, 256, 256, 0.9)',
     borderRadius: 50,
-    height: 80,
+    height: height * 0.06,
     flexDirection: 'row',
     justifyContent: "space-between",
+    marginLeft: 5,
     marginTop: 10,
     padding: 10,
   },
   searchResults: {
+    alignSelf: 'center',
     width: 0,
     flexGrow: 1,
-    flex: 1,
+    flex: 0.5,
     marginTop: height * 0.02,
     padding: 0,
     width: '90%'
@@ -232,5 +232,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: "space-between",
     padding: 10
+  },
+  delete: {
+    marginLeft: 10
   }
 });
