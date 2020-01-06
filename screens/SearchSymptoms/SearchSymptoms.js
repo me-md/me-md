@@ -17,7 +17,7 @@ export default function SymptomsScreen({ navigation }) {
     sex,
     stateAbbreviation
   } = navigation.state.params;
-  const [symptomIds, setSymptomIds] = useState([]);
+  const [symptoms, setSymptoms] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
   const searchSymptoms = async text => {
@@ -29,23 +29,40 @@ export default function SymptomsScreen({ navigation }) {
     }
   };
 
-  const findSymptom = id => {
-    let existingSymptom = symptomIds.find(symptom => symptom.id == id);
-    existingSymptom ? removeSymptom(id) : addSymptom(id);
+  const displaySelectedSymptoms =
+    symptoms.map((symptom, index) => {
+      return (
+        <CardItem key={index} style={styles.selectedSymptom}>
+          <Text>{symptom.common_name}</Text>
+          <AntDesign
+            name='closecircle'
+            id={symptom.id}
+            size={26}
+          // onPress={() => {
+          // }}
+          />
+        </CardItem>)
+    })
+
+
+
+  const findSymptom = result => {
+    let existingSymptom = symptoms.find(symptom => symptom.id == result.id);
+    existingSymptom ? removeSymptom(result) : addSymptom(result);
   };
 
-  const addSymptom = id => {
-    let found = searchResults.find(symptom => symptom.id == id);
-    setSymptomIds([...symptomIds, { id: found.id, present: true }]);
+  const addSymptom = result => {
+    let found = searchResults.find(symptom => symptom.id == result.id);
+    setSymptoms([...symptoms, { ...result, present: true }]);
   };
 
-  const removeSymptom = id => {
-    let filteredSymptoms = symptomIds.filter(symptom => symptom.id !== id);
-    setSymptomIds(filteredSymptoms);
+  const removeSymptom = result => {
+    let filteredSymptoms = symptoms.filter(symptom => symptom.id !== result.id);
+    setSymptoms(filteredSymptoms);
   };
 
   const sendInitialSymptoms = () => {
-    const userInfo = { age, presentFactors, symptomIds, sex };
+    const userInfo = { age, presentFactors, symptoms, sex };
     let cleanedData = cleanInitialUserReport(userInfo);
     navigation.navigate('SymptomsQA', {
       cleanedData,
@@ -54,19 +71,19 @@ export default function SymptomsScreen({ navigation }) {
     });
   };
 
-  const displaySymptoms = searchResults.map(result => {
-    let foundIndex = symptomIds.findIndex(symptom => symptom.id == result.id);
+  const displaySymptoms = searchResults.map((result, index) => {
+    let found = symptoms.find(symptom => symptom.id == result.id);
     return (
-      <View style={styles.checkboxes}>
+      <View key={index} style={styles.checkboxes}>
         <Text style={styles.symptomText}>{result.common_name}?</Text>
         <AntDesign
-          name='pluscircleo'
+          name={found ? 'checkcircle' : 'pluscircleo'}
           id={result.id}
           style={styles.add}
           size={26}
           color='black'
           onPress={() => {
-            findSymptom(result.id);
+            findSymptom(result);
           }}
         />
       </View>
@@ -106,6 +123,11 @@ export default function SymptomsScreen({ navigation }) {
             <Text style={styles.hint}>
               Select all that apply (at least 3):
             </Text>
+            <ScrollView style={styles.selected}>
+              <Card style={styles.selectedContainer}>
+                {displaySelectedSymptoms}
+              </Card>
+            </ScrollView>
             <ScrollView style={styles.searchResults}>
               {displaySymptoms}
             </ScrollView>
@@ -162,6 +184,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingTop: height * 0.025
   },
+  selected: {
+    flex: 1
+  },
   searchResultsContainer: {
     alignItems: 'center',
     flex: 1,
@@ -169,6 +194,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     marginBottom: height * 0.016,
     width: '100%'
+  },
+  selectedContainer: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(256, 256, 256, 0)',
+    flex: 1,
+    flexGrow: 1,
+    width: '100%',
+  },
+  selectedSymptom: {
+    backgroundColor: 'rgba(256, 256, 256, 0.9)',
+    borderRadius: 50,
+    height: 80,
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    marginTop: 10,
+    padding: 10,
   },
   searchResults: {
     width: 0,
@@ -181,9 +222,6 @@ const styles = StyleSheet.create({
   symptomText: {
     fontSize: 18,
     width: '70%'
-  },
-  add: {
-
   },
   checkboxes: {
     alignItems: 'center',
