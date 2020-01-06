@@ -68,8 +68,8 @@ export default function BiologicalInformation({ navigation }) {
               }}
             />
           ) : (
-            <Entypo name='chevron-thin-down' size={36} color='white' />
-          )}
+              <Entypo name='chevron-thin-down' size={36} color='white' />
+            )}
         </View>
       </LinearGradient>
     </View>
@@ -87,8 +87,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'space-between',
-    marginBottom: height * 0.04,
-    marginTop: height * 0.09
+    marginBottom: height * 0.06,
+    marginTop: height * 0.06,
   },
   question: {
     color: '#FFFFFF',

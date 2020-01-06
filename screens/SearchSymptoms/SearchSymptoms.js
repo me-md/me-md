@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Body, Card, CardItem, Input, Item } from 'native-base';
-import { CheckBox } from 'react-native-elements';
-import { Entypo, Ionicons } from '@expo/vector-icons';
+import { Entypo, AntDesign, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
@@ -26,7 +25,7 @@ export default function SymptomsScreen({ navigation }) {
       const searchResults = await searchAllSymptoms(text);
       setSearchResults(searchResults.data);
     } else {
-      null;
+      setSearchResults([]);
     }
   };
 
@@ -58,24 +57,19 @@ export default function SymptomsScreen({ navigation }) {
   const displaySymptoms = searchResults.map(result => {
     let foundIndex = symptomIds.findIndex(symptom => symptom.id == result.id);
     return (
-      <Card key={result.id} style={styles.searchResultCard}>
-        <CardItem>
-          <Body>
-            <Text style={styles.symptomText}>{result.common_name}?</Text>
-            <View style={styles.checkboxes}>
-              <CheckBox
-                center
-                id={result.id}
-                title={<Text>Add Symptom</Text>}
-                // checked={}
-                onPress={() => {
-                  findSymptom(result.id);
-                }}
-              ></CheckBox>
-            </View>
-          </Body>
-        </CardItem>
-      </Card>
+      <View style={styles.checkboxes}>
+        <Text style={styles.symptomText}>{result.common_name}?</Text>
+        <AntDesign
+          name='pluscircleo'
+          id={result.id}
+          style={styles.add}
+          size={26}
+          color='black'
+          onPress={() => {
+            findSymptom(result.id);
+          }}
+        />
+      </View>
     );
   });
 
@@ -92,10 +86,11 @@ export default function SymptomsScreen({ navigation }) {
             color='white'
             onPress={() => navigation.navigate('RiskFactors')}
           />
-          <Text style={styles.title}>Symptoms:</Text>
+          <Text style={styles.title}>Symptoms</Text>
           <Item style={styles.searchBox}>
             <Input
               placeholder='Search all symptoms'
+              placeholderTextColor="#f8f8f8"
               style={styles.input}
               onChangeText={text => searchSymptoms(text)}
             />
@@ -105,9 +100,10 @@ export default function SymptomsScreen({ navigation }) {
               size={36}
               style={styles.searchIcon}
             />
+
           </Item>
           <View style={styles.searchResultsContainer}>
-            <Text style={styles.input}>
+            <Text style={styles.hint}>
               Select all that apply (at least 3):
             </Text>
             <ScrollView style={styles.searchResults}>
@@ -135,6 +131,8 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   searchBox: {
+    marginBottom: height * 0.01,
+    marginTop: height * 0.01,
     width: '75%'
   },
   container: {
@@ -145,14 +143,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    marginBottom: height * 0.05,
-    marginTop: height * 0.05,
+    marginBottom: height * 0.06,
+    marginTop: height * 0.06,
     width: '100%'
   },
   input: {
     color: 'white',
     fontSize: 24,
     fontWeight: 'bold'
+  },
+  hint: {
+    color: 'white',
+    fontSize: 20,
   },
   title: {
     color: 'white',
@@ -169,22 +171,28 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   searchResults: {
+    width: 0,
+    flexGrow: 1,
     flex: 1,
+    marginTop: height * 0.02,
     padding: 0,
-    width: '80%'
-  },
-  searchResultCard: {
-    marginBottom: height * 0.01,
-    marginTop: height * 0.01,
-    width: '100%'
+    width: '90%'
   },
   symptomText: {
-    alignSelf: 'flex-start',
-    fontSize: 16,
-    padding: 0
+    fontSize: 18,
+    width: '70%'
+  },
+  add: {
+
   },
   checkboxes: {
-    flex: 1,
-    flexDirection: 'row'
+    alignItems: 'center',
+    backgroundColor: 'rgba(256, 256, 256, 0.7)',
+    borderBottomWidth: 2,
+    borderColor: 'grey',
+    height: 80,
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    padding: 10
   }
 });

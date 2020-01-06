@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Item, Input } from 'native-base';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
+
+const height = Dimensions.get('window').height;
 
 export default function SelectAge({ navigation }) {
   const sex = navigation.state.params.sex;
@@ -49,8 +51,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'space-between',
-    marginBottom: 20,
-    marginTop: 20
+    marginBottom: height * 0.06,
+    marginTop: height * 0.06,
   },
   container: {
     flex: 1
