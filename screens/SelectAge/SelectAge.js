@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Item, Input } from 'native-base';
-import { Entypo, FontAwesome } from '@expo/vector-icons';
+import { Entypo, MaterialIcons } from '@expo/vector-icons';
 
 export default function SelectAge({ navigation }) {
   const sex = navigation.state.params.sex;
@@ -23,7 +23,7 @@ export default function SelectAge({ navigation }) {
           />
           <View style={styles.childContainer}>
             <Text style={styles.title}>Age</Text>
-            <FontAwesome name='birthday-cake' size={48} color='white' />
+            <MaterialIcons name='cake' size={48} color='white' />
             <Item style={styles.input}>
               <Input
                 placeholder='55'

@@ -2,18 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Body, Card, CardItem, Input, Item } from 'native-base';
 import { CheckBox } from 'react-native-elements';
-import { Entypo, FontAwesome } from '@expo/vector-icons';
+import { Entypo, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
-import {
-  searchAllSymptoms,
-} from '../../utils/apiCalls/apiCalls';
+import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
 import { cleanInitialUserReport } from '../../utils/helpers/helpers';
 
 const height = Dimensions.get('window').height;
 
 export default function SymptomsScreen({ navigation }) {
-  const { age, location, presentFactors, sex, stateAbbreviation } = navigation.state.params;
+  const {
+    age,
+    location,
+    presentFactors,
+    sex,
+    stateAbbreviation
+  } = navigation.state.params;
   const [symptomIds, setSymptomIds] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -95,9 +99,9 @@ export default function SymptomsScreen({ navigation }) {
               style={styles.input}
               onChangeText={text => searchSymptoms(text)}
             />
-            <FontAwesome
+            <Ionicons
               active
-              name='search'
+              name='ios-search'
               size={36}
               style={styles.searchIcon}
             />
