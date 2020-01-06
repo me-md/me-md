@@ -6,58 +6,55 @@ import { CheckBox } from 'react-native-elements';
 const height = Dimensions.get('window').height;
 
 export default function GroupSingleQ({ question, answerQuestion }) {
-
   const [checkWho, setCheckWho] = useState([]);
 
   const questions = question.question.items.map((item, questionIndex) => {
-    return <CardItem key={questionIndex} style={styles.questionCardItem}>
-      <Body>
-        <Text style={styles.questionText}>
-          {item.name}
-        </Text>
-        <View style={styles.checkboxes}>
-          {item.choices.map((choice, checkBoxIndex) => {
-            return <CheckBox
-              key={checkBoxIndex}
-              center
-              id={choice.id}
-              title={
-                <Text>{choice.label}</Text>
-              }
-              checked={checkWho[questionIndex] === choice.id}
-              onPress={() => handlePress(choice.id, questionIndex)}
-            ></CheckBox>
-          })}
-        </View>
-      </Body>
-    </CardItem>
-  })
+    return (
+      <CardItem key={questionIndex} style={styles.questionCardItem}>
+        <Body>
+          <Text style={styles.questionText}>{item.name}</Text>
+          <View style={styles.checkboxes}>
+            {item.choices.map((choice, checkBoxIndex) => {
+              return (
+                <CheckBox
+                  key={checkBoxIndex}
+                  center
+                  id={choice.id}
+                  title={<Text>{choice.label}</Text>}
+                  checked={checkWho[questionIndex] === choice.id}
+                  onPress={() => handlePress(choice.id, questionIndex)}
+                ></CheckBox>
+              );
+            })}
+          </View>
+        </Body>
+      </CardItem>
+    );
+  });
 
   const handlePress = (id, index) => {
     let IDs = [...checkWho];
     IDs[index] = id;
-    setCheckWho(IDs)
-  }
+    setCheckWho(IDs);
+  };
 
   const handleSubmit = () => {
     const response = question.question.items.map((item, index) => {
       return {
         id: item.id,
         choice_id: checkWho[index]
-      }
-    })
-    setCheckWho([])
+      };
+    });
+    setCheckWho([]);
     answerQuestion(response);
-  }
+  };
 
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <Body>
         <Text style={styles.questionText}>{question.question.text}</Text>
         {questions}
-        <Button
-          onPress={() => handleSubmit()}
-        >
+        <Button onPress={() => handleSubmit()}>
           <Text>Submit</Text>
         </Button>
       </Body>

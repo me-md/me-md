@@ -31,7 +31,12 @@ export default function SymptomsQA({ navigation }) {
       let symptomFollowup = await sendInitialUserSymptoms(userInfo);
       setQuestion(symptomFollowup);
       symptomFollowup.should_stop
-        ? navigation.navigate('Results', { userInfo, symptomFollowup, location, stateAbbreviation })
+        ? navigation.navigate('Results', {
+            userInfo,
+            symptomFollowup,
+            location,
+            stateAbbreviation
+          })
         : null;
     } catch (error) {
       throw new Error(error);
@@ -96,7 +101,7 @@ export default function SymptomsQA({ navigation }) {
             name='chevron-thin-down'
             size={36}
             color='white'
-          // onPress={() => }
+            // onPress={() => }
           />
         </View>
       </LinearGradient>

@@ -9,36 +9,37 @@ export default function SingleQ({ question, answerQuestion }) {
   const [checkWho, setCheckWho] = useState([]);
 
   const handleSubmit = () => {
-    answerQuestion([{
-      id: question.question.items[0].id,
-      choice_id: checkWho
-    }]);
-    setCheckWho([])
-  }
+    answerQuestion([
+      {
+        id: question.question.items[0].id,
+        choice_id: checkWho
+      }
+    ]);
+    setCheckWho([]);
+  };
 
   const choices = question.question.items[0].choices.map((choice, index) => {
-    return <CheckBox
-      center
-      key={index}
-      id={choice.id}
-      title={<Text>{choice.label}</Text>}
-      checked={checkWho === choice.id}
-      onPress={() => { setCheckWho(choice.id) }}
-    ></CheckBox>
-  })
+    return (
+      <CheckBox
+        center
+        key={index}
+        id={choice.id}
+        title={<Text>{choice.label}</Text>}
+        checked={checkWho === choice.id}
+        onPress={() => {
+          setCheckWho(choice.id);
+        }}
+      ></CheckBox>
+    );
+  });
 
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <CardItem style={styles.questionCardItem}>
         <Body>
           <Text style={styles.questionText}>{question.question.text}</Text>
-          <View style={styles.checkboxes}>
-            {choices}
-          </View>
-          <Button
-            block
-            onPress={() => handleSubmit()}
-          >
+          <View style={styles.checkboxes}>{choices}</View>
+          <Button block onPress={() => handleSubmit()}>
             <Text>Submit</Text>
           </Button>
         </Body>
