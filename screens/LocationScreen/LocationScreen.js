@@ -14,9 +14,7 @@ export default function LocationScreen({ navigation }) {
 
   navigator.geolocation.getCurrentPosition(
     position => {
-      const location = JSON.stringify(position);
-
-      setLocation(location);
+      setLocation(position);
     },
     error => Alert.alert(error.message),
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }

@@ -33,4 +33,10 @@ export const specifyTargetCondition = (userInfo, symptomFollowup) => {
     enable_triage_5: true
   };
   return userInfo;
-}
+};
+
+export const filterDoctorsByDistance = (location, doctors) => {
+  const { coords } = location;
+  const { latitude, longitude } = coords;
+  // doctors.sort((doctorA, doctorB))
+};
