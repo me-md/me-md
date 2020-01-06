@@ -53,14 +53,17 @@ export default function DoctorsScreen({ navigation }) {
     return distance.route.distance;
   };
 
+  const doctorDistance = async doctor => {
+    let distance = await getDistanceToDoc(
+      doctor.practice.lat,
+      doctor.practice.lon
+    );
+    return distance;
+  };
+
   const nearbyPractices = doctors.map((doctor, index) => {
-    // const doctorCards = await doctors.map(async (doctor, index) => {
-    //   let distance = await getDistanceToDoc(
-    //     doctor.practice.lat,
-    //     doctor.practice.lon
-    //   );
-    // );
-    // return doctorCards;
+    // let distance = await doctorDistance(doctor);
+    // console.log(typeof distance);
     return (
       <Card key={index}>
         <CardItem>
@@ -78,7 +81,7 @@ export default function DoctorsScreen({ navigation }) {
               {doctor.practice.city}, {doctor.practice.state}{' '}
               {doctor.practice.zip}
             </Text>
-            <Text>Distance</Text>
+            {/* <Text>{distance}</Text> */}
           </Body>
         </CardItem>
       </Card>
