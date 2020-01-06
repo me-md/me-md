@@ -122,8 +122,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'space-evenly',
-    marginBottom: height * 0.015,
-    marginTop: height * 0.025
+    marginBottom: height * 0.06,
+    marginTop: height * 0.06
   },
   gradientBackground: {
     flex: 1
