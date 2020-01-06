@@ -34,42 +34,19 @@ export default function TermsAndConditionsScreen({ navigation }) {
           <View style={styles.scrollContainer}>
             <ScrollView style={styles.scrollText}>
               <Text style={styles.legal}>
-                “Version” means the original licensor to copy, sublicense,
-                distribute or transfer NetHack is modified by someone else and
-                passed on, we want its recipients to know that what they have
-                requested that this License or the Derived Program under this
-                License, or (at your option) any later version published by the
-                Free Software Foundation; either version 2 of this License,
-                provided that you include complete instructions on how and where
-                you have knowledge of patent licenses granted hereunder, each
-                Recipient hereby assumes sole responsibility to serve as the
-                Derived Work. If you initiate litigation by asserting a patent
-                infringement claim against Respondent alleging that the
-                Modification is derived, directly or indirectly, from the
-                conditions listed in manifest.txt. Effect of New York and the date
-                of initial External Deployment, whichever is longer. You should
-                also get your employer (if you work as “Original Code” means the
-                original Licensed Product. However, you may do only in or as part
-                of Licensed Product is available under this Agreement shall
-                terminate on the Internet using the software, or if you distribute
-                any Modifications you distribute any Modifications that alter or
-                otherwise using Python 1.6, beta 1, is made available by Apple
-                under this Agreement is published, Contributor may elect to
-                distribute this Package shall not apply to your programs, too.
-                When we speak of free software Package may be distributed and/or
-                modified under the Original Code, and if a third party against the
-                Indemnified Contributor may elect to distribute your Derivative
-                Works from it. Works” is defined in Article 1 below) constitutes
-                the entire Package. You may do so if it has sufficient copyright
-                rights in the Program: Copyright (C) year name of the Initial
-                Developer and every Contributor for any version ever published by
-                the Initial Developer and every part regardless of who wrote it.
-                Thus, it is not the Current Maintainer (and the Copyright Holder.
-                The resulting Package will still be considered the Standard
-                Version. License) and (b) the object code compiled from such
-                Recipient under this Agreement, whether expressly, by implication,
-                estoppel or otherwise.
-              {/* TODO: Put real lawyer lingo here */}
+                This app is not intended to be a substitute for professional
+                medical advice, diagnosis, or treatment. Always read the label
+                before taking any over-the-counter (OTC) medications. The label
+                identifies the active ingredient(s) and contains other important
+                information including warnings about possible drug interactions
+                and side effects. Always seek the advice of your physician or
+                other qualified health provider with any questions you may have
+                regarding a medical condition. Never disregard professional
+                medical advice or delay in seeking it because of something you
+                have read on meMD! If you think you may have a medical
+                emergency, call your doctor or 911 immediately. meMD does not
+                recommend or endorse any specific products or services. Reliance
+                on any information provided by meMD is solely at your own risk.
               </Text>
             </ScrollView>
           </View>
@@ -79,7 +56,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
               title={
                 <Text style={styles.agreement}>
                   I read and accept the Terms of Service and Privacy Policy
-              </Text>
+                </Text>
               }
               checked={state.checked}
               onPress={() =>
@@ -99,14 +76,13 @@ export default function TermsAndConditionsScreen({ navigation }) {
               <Text>CONTINUE</Text>
             </Button>
           ) : (
-              <Button disabled block style={styles.button}>
-                <Text>CONTINUE</Text>
-              </Button>
-            )}
+            <Button disabled block style={styles.button}>
+              <Text>CONTINUE</Text>
+            </Button>
+          )}
         </View>
       </ScrollView>
     </Fragment>
-
   );
 }
 
