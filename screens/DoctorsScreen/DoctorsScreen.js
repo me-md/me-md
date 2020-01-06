@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { Body, Button, Card, CardItem } from 'native-base';
+import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
+import { Body, Button, Card, CardItem, Icon } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Header } from '../../components/Header';
 import {
   getDoctorsByLocation,
   getAllProviders,
-  getDoctorsForProviderByLocation
+  getDoctorsForProviderByLocation,
+  getDistanceToDoctor
 } from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
@@ -16,6 +17,8 @@ export default function DoctorsScreen({ navigation }) {
 
   const [allProviders, setAllProviders] = useState([]);
   const [doctors, setDoctors] = useState([]);
+  const [currentProvider, setCurrentProvider] = useState({});
+  const [displayProviders, setDisplayProviders] = useState([]);
 
   useEffect(() => {
     getProviders();
@@ -23,12 +26,16 @@ export default function DoctorsScreen({ navigation }) {
   }, []);
 
   useEffect(() => {
-    console.log('providers?', allProviders);
-  }, [allProviders, doctors]);
+    const displayProviders = allProviders.map((provider, index) => {
+      return (
+        <Picker.Item label={provider.name} value={provider.uid} key={index} />
+      );
+    });
+    setDisplayProviders(displayProviders);
+  }, [allProviders]);
 
   const getProviders = async () => {
     let providers = await getAllProviders();
-    // takes a while
     setAllProviders(providers);
   };
 
@@ -39,7 +46,21 @@ export default function DoctorsScreen({ navigation }) {
     setDoctors(doctorsInLocation);
   };
 
+  const getDistanceToDoc = async (lat, long) => {
+    const { coords } = location;
+    const { latitude, longitude } = coords;
+    let distance = await getDistanceToDoctor(latitude, longitude, lat, long);
+    return distance.route.distance;
+  };
+
   const nearbyPractices = doctors.map((doctor, index) => {
+    // const doctorCards = await doctors.map(async (doctor, index) => {
+    //   let distance = await getDistanceToDoc(
+    //     doctor.practice.lat,
+    //     doctor.practice.lon
+    //   );
+    // );
+    // return doctorCards;
     return (
       <Card key={index}>
         <CardItem>
@@ -57,18 +78,41 @@ export default function DoctorsScreen({ navigation }) {
               {doctor.practice.city}, {doctor.practice.state}{' '}
               {doctor.practice.zip}
             </Text>
+            <Text>Distance</Text>
           </Body>
         </CardItem>
       </Card>
     );
   });
 
+  const handleChange = async itemValue => {
+    setCurrentProvider(itemValue);
+    const doctors = await getDoctorsForProviderByLocation(
+      stateAbbreviation,
+      currentProvider
+    );
+    setDoctors(doctors);
+  };
+
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.contentContainer}>
         <Text style={styles.title}>Doctors and Specialists Near You:</Text>
-        {/* <Text style={styles.title}>Near You:</Text> */}
+        <Picker
+          prompt={'Select insurance provider'}
+          mode={'dialog'}
+          selectedValue={currentProvider}
+          style={styles.picker}
+          onValueChange={(itemValue, itemIndex) => handleChange(itemValue)}
+        >
+          <Picker.Item
+            label={'Select an inurance provider'}
+            value={'none'}
+            key={'placeholder'}
+          />
+          {displayProviders}
+        </Picker>
         <ScrollView style={styles.doctorsContainer}>
           {nearbyPractices}
         </ScrollView>
@@ -101,6 +145,7 @@ const styles = StyleSheet.create({
     marginTop: height * 0.02
   },
   doctorsContainer: {
+    flex: 0.5,
     marginLeft: height * 0.025,
     marginRight: height * 0.025,
     width: '95%'
@@ -116,5 +161,9 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 18
+  },
+  picker: {
+    flex: 1,
+    width: '100%'
   }
 });

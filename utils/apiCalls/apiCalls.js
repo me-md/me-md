@@ -1,6 +1,7 @@
 const baseUrl = 'https://triage-ex.herokuapp.com';
 const infermedicaUrl = 'https://api.infermedica.com/v2';
 const mapquestUrl = 'http://www.mapquestapi.com/geocoding/v1';
+const mapquestDirectionsUrl = 'http://www.mapquestapi.com/directions/v2/route';
 const doctorsUrl = 'https://memd-doc-search.herokuapp.com/api/v1';
 import { REACT_APP_ID, REACT_APP_KEY, MAPQUEST_KEY } from 'react-native-dotenv';
 
@@ -170,6 +171,10 @@ export const getLatLong = async (city, state) => {
       'Could not get latitude and longitude for that city, please try again later.'
     );
   }
+
+  const data = await response.json();
+
+  return data;
 };
 
 export const getDoctorsByLocation = async location => {
@@ -202,6 +207,25 @@ export const getAllProviders = async () => {
   const response = await fetch(`${doctorsUrl}/providers`);
   if (!response.ok) {
     throw new Error('Could not get providers, please try again later.');
+  }
+  const data = await response.json();
+
+  return data;
+};
+
+export const getDistanceToDoctor = async (
+  userLatitude,
+  userLongitude,
+  doctorLatitude,
+  doctorLongitude
+) => {
+  const response = await fetch(
+    `${mapquestDirectionsUrl}?key=${MAPQUEST_KEY}&from=${userLatitude},${userLongitude}&to=${doctorLatitude},${doctorLongitude}`
+  );
+  if (!response.ok) {
+    throw new Error(
+      'Could not get distance to doctor, please try again later.'
+    );
   }
   const data = await response.json();
 
