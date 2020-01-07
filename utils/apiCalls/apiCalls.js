@@ -131,7 +131,7 @@ export const sendInitialUserSymptoms = async userSymptoms => {
   return data;
 };
 
-export const getExplaination = async userInfo => {
+export const getExplanation = async userInfo => {
   const options = {
     method: 'POST',
     headers: {

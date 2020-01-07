@@ -70,7 +70,7 @@ describe('getAllSymptoms', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it('should return an object with a data array with getAllSymptoms is called', () => {
+  it('should return an object with a data array when getAllSymptoms is called', () => {
     expect(getAllSymptoms()).resolves.toEqual(mockResponse);
   });
 
@@ -130,7 +130,7 @@ describe('getSymptomsByLocation', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it('should return an object with a data array with getSymptomsByLocation is called', () => {
+  it('should return an object with a data array when getSymptomsByLocation is called', () => {
     expect(getSymptomsByLocation(location)).resolves.toEqual(mockResponse);
   });
 
@@ -190,7 +190,7 @@ describe('searchAllSymptoms', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it('should return an object with a data array with searchAllSymptoms is called', () => {
+  it('should return an object with a data array when searchAllSymptoms is called', () => {
     expect(searchAllSymptoms(searchTerm)).resolves.toEqual(mockResponse);
   });
 
@@ -236,7 +236,7 @@ describe('getSymptomById', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it('should return an object with a data object with getSymptomById is called', () => {
+  it('should return an object with a data object when getSymptomById is called', () => {
     expect(getSymptomById(id)).resolves.toEqual(mockResponse);
   });
 
@@ -300,7 +300,7 @@ describe('getSymptomsWithSexFilter', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it('should return an object with a data object with getSymptomsWithSexFilter is called', () => {
+  it('should return an object with a data object when getSymptomsWithSexFilter is called', () => {
     expect(getSymptomsWithSexFilter(filter)).resolves.toEqual(mockResponse);
   });
 
@@ -368,7 +368,7 @@ describe('getAllConditions', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it('should return an object with a data object with getAllConditions is called', () => {
+  it('should return an object with a data object when getAllConditions is called', () => {
     expect(getAllConditions()).resolves.toEqual(mockResponse);
   });
 
@@ -435,7 +435,7 @@ describe('searchAllConditions', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   });
 
-  it('should return an object with a data object with searchAllConditions is called', () => {
+  it('should return an object with a data object when searchAllConditions is called', () => {
     expect(searchAllConditions(searchTerm)).resolves.toEqual(mockResponse);
   });
 
@@ -448,6 +448,372 @@ describe('searchAllConditions', () => {
     expect(searchAllConditions(searchTerm)).rejects.toEqual(
       Error(
         `Could not search conditions by ${searchTerm}, please try again later.`
+      )
+    );
+  });
+});
+
+describe('getConditionById', () => {
+  const id = 'c_926';
+  const url = `${baseUrl}/api/v1/conditions/${id}`;
+  const mockResponse = {
+    data: {
+      acuteness: 'chronic',
+      category: 'Hypertensiology',
+      common_name:
+        'Cough resulting from reaction to angiotensin-converting enzyme inhibitor drugs',
+      hint:
+        'Your symptoms may result from used medication. Please report that symptom to your GP.',
+      icd10_code: 'R05, T88.7, Y52.4',
+      id: 'c_926',
+      name: 'ACE inhibitor-induced cough',
+      prevalence: 'very_rare',
+      severity: 'mild',
+      sex_filter: 'both',
+      triage_level: 'consultation'
+    }
+  };
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should fetch with the correct url', () => {
+    getConditionById(id);
+
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
+
+  it('should return an object with a data object when getConditionById is called', () => {
+    expect(getConditionById(id)).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error if getConditionById property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(getConditionById(id)).rejects.toEqual(
+      Error(
+        `Could not retreive condition with id of: ${id}, please try again later.`
+      )
+    );
+  });
+});
+
+describe('getCommonRiskFactors', () => {
+  const url = `${baseUrl}/api/v1/risks`;
+  const mockResponse = {
+    data: [
+      {
+        common_name: 'Obesity',
+        id: 'p_7',
+        location: 'undefined',
+        name: 'BMI above 30',
+        question: 'Are you overweight?',
+        sex_filter: 'both'
+      },
+      {
+        common_name: 'Diabetes',
+        id: 'p_8',
+        location: 'undefined',
+        name: 'Diabetes',
+        question: 'Do you have Diabetes?',
+        sex_filter: 'both'
+      },
+      {
+        common_name: 'High cholesterol',
+        id: 'p_10',
+        location: 'undefined',
+        name: 'High cholesterol',
+        question: 'Do you have high cholesterol?',
+        sex_filter: 'both'
+      },
+      {
+        common_name: 'High blood pressure',
+        id: 'p_9',
+        location: 'undefined',
+        name: 'Hypertension',
+        question: 'Do you have high blood pressure?',
+        sex_filter: 'both'
+      },
+      {
+        common_name: 'Smoking',
+        id: 'p_28',
+        location: 'undefined',
+        name: 'Smoking',
+        question: 'Are you a tobacco user?',
+        sex_filter: 'both'
+      }
+    ]
+  };
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should fetch with the correct url', () => {
+    getCommonRiskFactors();
+
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
+
+  it('should return an object with a data array when getCommonRiskFactors is called', () => {
+    expect(getCommonRiskFactors()).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error if getCommonRiskFactors property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(getCommonRiskFactors()).rejects.toEqual(
+      Error(`Could not retreive common risk factors, please try again later.`)
+    );
+  });
+});
+
+describe('sendInitialUserSymptoms', () => {
+  const url = `${infermedicaUrl}/diagnosis`;
+  const mockUserSymptoms = {
+    age: '26',
+    evidence: [
+      {
+        choice_id: 'present',
+        id: 'p_28'
+      },
+      {
+        choice_id: 'present',
+        id: 's_1207',
+        initial: 'true'
+      },
+      {
+        choice_id: 'present',
+        id: 's_15'
+      },
+      {
+        choice_id: 'present',
+        id: 's_1387'
+      },
+      {
+        choice_id: 'present',
+        id: 's_1557'
+      }
+    ],
+    sex: 'female'
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'App-Id': `${REACT_APP_ID}`,
+      'App-Key': `${REACT_APP_KEY}`,
+      'Content-Type': 'application/json',
+      Model: 'infermedica-en'
+    },
+    body: JSON.stringify(mockUserSymptoms)
+  };
+  const mockResponse = {
+    question: {
+      type: 'single',
+      text: 'Have you had surgery in the past couple weeks?',
+      items: [
+        {
+          id: 'p_47',
+          name: 'Recent surgery',
+          choices: [
+            {
+              id: 'present',
+              label: 'Yes'
+            },
+            {
+              id: 'absent',
+              label: 'No'
+            }
+          ]
+        }
+      ],
+      extras: {}
+    },
+    conditions: [],
+    extras: {},
+    should_stop: false
+  };
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should fetch with the correct url', () => {
+    sendInitialUserSymptoms(mockUserSymptoms);
+
+    expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+
+  it('should return an object with a data array when sendInitialUserSymptoms is called', () => {
+    expect(sendInitialUserSymptoms(mockUserSymptoms)).resolves.toEqual(
+      mockResponse
+    );
+  });
+
+  it('should return an error if sendInitialUserSymptoms property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(sendInitialUserSymptoms(mockUserSymptoms)).rejects.toEqual(
+      Error(
+        'Could not get follow up symptom questions, please try again later.'
+      )
+    );
+  });
+});
+
+describe('getExplanation', () => {
+  const mockUserInfo = {
+    age: '26',
+    evidence: [
+      {
+        choice_id: 'present',
+        id: 's_15',
+        initial: 'true'
+      },
+      {
+        choice_id: 'present',
+        id: 's_30'
+      },
+      {
+        choice_id: 'present',
+        id: 's_102'
+      },
+      {
+        choice_id: 'present',
+        id: 's_103'
+      },
+      {
+        choice_id: 'present',
+        id: 'p_28'
+      },
+      {
+        choice_id: 'present',
+        id: 'p_167'
+      },
+      {
+        choice_id: 'present',
+        id: 's_1197'
+      },
+      {
+        choice_id: 'present',
+        id: 's_1601'
+      },
+      {
+        choice_id: 'present',
+        id: 's_1925'
+      },
+      {
+        choice_id: 'present',
+        id: 's_2096'
+      }
+    ],
+    sex: 'female'
+  };
+  const url = `${infermedicaUrl}/explain`;
+  const options = {
+    method: 'POST',
+    headers: {
+      'App-Id': `${REACT_APP_ID}`,
+      'App-Key': `${REACT_APP_KEY}`,
+      'Content-Type': 'application/json',
+      Model: 'infermedica-en'
+    },
+    body: JSON.stringify(mockUserInfo)
+  };
+  const mockResponse = {
+    conditions: [
+      {
+        common_name: 'Asthma attack',
+        id: 'c_972',
+        name: 'Asthma exacerbation',
+        probability: 0.9837
+      },
+      {
+        common_name: 'Heart attack',
+        id: 'c_140',
+        name: 'Myocardial infarction',
+        probability: 0.7218
+      }
+    ],
+    extras: {},
+    question: {
+      extras: {},
+      items: [
+        {
+          choices: [],
+          id: 's_1782',
+          name: 'Mild'
+        },
+        {
+          choices: [],
+          id: 's_1783',
+          name: 'Moderate'
+        },
+        {
+          choices: [],
+          id: 's_1195',
+          name: 'Severe'
+        }
+      ],
+      text: 'How strong is your abdominal pain?',
+      type: 'group_single'
+    },
+    should_stop: true
+  };
+
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
+  });
+
+  it('should fetch with the correct url', () => {
+    getExplanation(mockUserInfo);
+
+    expect(window.fetch).toHaveBeenCalledWith(url, options);
+  });
+
+  it('should return an object with a conditions array, question object, extras object, and should_stop boolean when getExplanation is called', () => {
+    expect(getExplanation(mockUserInfo)).resolves.toEqual(mockResponse);
+  });
+
+  it('should return an error if getExplanation property ok is false', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+    expect(getExplanation(mockUserInfo)).rejects.toEqual(
+      Error(
+        "Could not get condition's supporting evidence, please try again later."
       )
     );
   });
