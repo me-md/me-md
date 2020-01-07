@@ -51,3 +51,23 @@ export const filterDoctorsByDistance = (location, doctors) => {
   const { latitude, longitude } = coords;
   // doctors.sort((doctorA, doctorB))
 };
+
+export const compileReport = (
+  location,
+  stateAbbreviation,
+  userInfo,
+  symptomFollowup,
+  conditionDetails,
+  explanation,
+  doctors
+) => {
+  return {
+    location,
+    stateAbbreviation,
+    userInfo,
+    symptomFollowup,
+    conditionDetails,
+    explanation,
+    doctors
+  };
+};

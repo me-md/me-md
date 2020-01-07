@@ -18,7 +18,6 @@ export default function SymptomsQA({ navigation }) {
     location,
     stateAbbreviation
   } = navigation.state.params;
-  console.log('symptomFollowup', symptomFollowup);
 
   const [explanation, setExplanation] = useState({});
   const [conditionDetails, setConditionDetails] = useState({});
@@ -88,7 +87,14 @@ export default function SymptomsQA({ navigation }) {
       </ScrollView>
       <Button
         onPress={() =>
-          navigation.navigate('Doctors', { location, stateAbbreviation })
+          navigation.navigate('Doctors', {
+            location,
+            stateAbbreviation,
+            userInfo,
+            symptomFollowup,
+            conditionDetails,
+            explanation
+          })
         }
       >
         <Text>Find Doctors</Text>
