@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, LayoutAnimation, Platform, UIManager, TouchableOpacity } from 'react-native';
 import { Body, Button, Card, CardItem } from 'native-base';
 import { Header } from '../../components/Header';
 import { specifyTargetCondition } from '../../utils/helpers/helpers';
@@ -21,6 +21,14 @@ export default function SymptomsQA({ navigation }) {
 
   const [explanation, setExplanation] = useState({});
   const [conditionDetails, setConditionDetails] = useState({});
+  const [expanded, setExpanded] = useState({});
+
+
+
+  const changeLayout = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setExpanded(!expanded);
+  }
 
   useEffect(() => {
     getResults();
@@ -45,12 +53,18 @@ export default function SymptomsQA({ navigation }) {
       <Card style={styles.topDiagnosis}>
         <CardItem>
           <Body>
-            <Text>{conditionDetails.data.common_name}</Text>
-            <Text>{conditionDetails.data.severity}</Text>
-            <Text>{conditionDetails.data.triage_level}</Text>
-            <Text>{conditionDetails.data.hint}</Text>
-            <Text>Supporting Evidence:</Text>
-            {createEvidence()}
+            <Text style={styles.conditionName}>{`${conditionDetails.data.name} (${conditionDetails.data.common_name})`}</Text>
+            <Text style={styles.recommendation}>{`Recommendation: ${conditionDetails.data.triage_level}. ${conditionDetails.data.hint}`}</Text>
+            <View style={styles.btnTextHolder}>
+              <TouchableOpacity activeOpacity={0.8} onPress={changeLayout} style={styles.Btn}>
+                <Text style={styles.btnText}>Supporting Evidence</Text>
+              </TouchableOpacity>
+              <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
+                <Text style={styles.text}>
+                  {createEvidence()}
+                </Text>
+              </View>
+            </View>
           </Body>
         </CardItem>
       </Card>
@@ -115,8 +129,15 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     marginBottom: height * 0.05,
-    marginTop: height * 0.05,
+    marginTop: height * 0.02,
     width: '100%'
+  },
+  conditionName: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  recommendation: {
+    marginTop: height * 0.01
   },
   symptomText: {
     alignSelf: 'flex-start',
@@ -138,5 +159,20 @@ const styles = StyleSheet.create({
   topDiagnosis: {
     flex: 1,
     width: '100%'
+  },
+  btnText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 20
+  },
+
+  btnTextHolder: {
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.5)'
+  },
+
+  Btn: {
+    padding: 10,
+    backgroundColor: 'rgba(0,0,0,0.5)'
   }
 });

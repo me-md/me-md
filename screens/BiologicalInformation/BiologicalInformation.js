@@ -23,8 +23,8 @@ export default function BiologicalInformation({ navigation }) {
             color='white'
             onPress={() => navigation.goBack()}
           />
-          <Text style={styles.question}>What is your biological sex?</Text>
           <View style={styles.buttonContainer}>
+            <Text style={styles.question}>What is your biological sex?</Text>
             <Button
               rounded
               style={
@@ -58,7 +58,7 @@ export default function BiologicalInformation({ navigation }) {
               <Text style={styles.biologicalInformationButtonText}>Male</Text>
             </Button>
           </View>
-          {sex !== '' &&
+          {sex !== '' ?
             <Entypo
               name='chevron-thin-down'
               size={36}
@@ -66,6 +66,11 @@ export default function BiologicalInformation({ navigation }) {
               onPress={() => {
                 navigation.push('SelectAge', { sex })
               }}
+            /> : <Entypo
+              name='chevron-thin-down'
+              size={36}
+              style={{ opacity: 0 }}
+              color='grey'
             />}
         </View>
       </LinearGradient>
@@ -87,9 +92,13 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.06,
     marginTop: height * 0.06,
   },
+  buttonContainer: {
+    justifyContent: 'space-between'
+  },
   question: {
     color: '#FFFFFF',
-    fontSize: 48
+    fontSize: 48,
+    marginBottom: height * 0.07
   },
   biologicalInformationButtons: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',

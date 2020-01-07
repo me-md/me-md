@@ -44,16 +44,24 @@ export default function LocationScreen({ navigation }) {
             color='white'
             onPress={() => navigation.goBack()}
           />
-          <Text style={styles.title}>Location</Text>
-          <Picker
-            selectedValue={stateAbbreviation}
-            style={styles.picker}
-            onValueChange={(itemValue, itemIndex) =>
-              setStateAbbreviation(itemValue)
-            }
-          >
-            {stateAbbreviations}
-          </Picker>
+          <View style={styles.childContainer}>
+            <Text style={styles.title}>State</Text>
+            <Entypo
+              name='location-pin'
+              style={styles.pin}
+              size={80}
+              color='white'
+            />
+            <Picker
+              selectedValue={stateAbbreviation}
+              style={styles.picker}
+              onValueChange={(itemValue, itemIndex) =>
+                setStateAbbreviation(itemValue)
+              }
+            >
+              {stateAbbreviations}
+            </Picker>
+          </View>
           <Entypo
             name='chevron-thin-down'
             size={36}
@@ -68,8 +76,8 @@ export default function LocationScreen({ navigation }) {
             }
           />
         </View>
-      </LinearGradient>
-    </View>
+      </LinearGradient >
+    </View >
   );
 }
 
@@ -84,22 +92,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  input: {
-    borderColor: 'white',
-    borderWidth: 1,
-    color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
-    height: 40,
-    width: '75%'
+  childContainer: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flex: 0.8,
+    marginBottom: height * 0.18
+  },
+  pin: {
+
   },
   picker: {
     color: 'white',
-    height: 100,
     width: 200
   },
   item: {
-    color: 'white'
+    color: 'white',
   },
   title: {
     color: '#FFF',
