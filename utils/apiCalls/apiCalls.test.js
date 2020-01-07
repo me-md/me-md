@@ -16,13 +16,13 @@ import {
   getAllProviders,
   getDistanceToDoctor
 } from './apiCalls';
+import { REACT_APP_ID, REACT_APP_KEY, MAPQUEST_KEY } from 'react-native-dotenv';
 
 const baseUrl = 'https://triage-ex.herokuapp.com';
 const infermedicaUrl = 'https://api.infermedica.com/v2';
 const mapquestUrl = 'http://www.mapquestapi.com/geocoding/v1';
 const mapquestDirectionsUrl = 'http://www.mapquestapi.com/directions/v2/route';
 const doctorsUrl = 'https://memd-doc-search.herokuapp.com/api/v1';
-import { REACT_APP_ID, REACT_APP_KEY, MAPQUEST_KEY } from 'react-native-dotenv';
 
 describe('getAllSymptoms', () => {
   const mockResponse = {
