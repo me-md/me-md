@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 import SingleQ from '../../components/SingleQ';
 import GroupSingleQ from '../../components/GroupSingleQ';
-import { sendInitialUserSymptoms } from '../../utils/apiCalls/apiCalls';
+import { sendInitialUserSymptoms } from '../../utils/apiCalls/Infermedica/sendInitialUserSymptoms';
 
 const height = Dimensions.get('window').height;
 

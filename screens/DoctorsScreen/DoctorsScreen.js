@@ -3,12 +3,10 @@ import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
 import { Body, Button, Card, CardItem, Icon } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Header } from '../../components/Header';
-import {
-  getDoctorsByLocation,
-  getAllProviders,
-  getDoctorsForProviderByLocation,
-  getDistanceToDoctor
-} from '../../utils/apiCalls/apiCalls';
+import { getDistanceToDoctor } from '../../utils/apiCalls/DistanceToDoctor/getDistanceToDoctor';
+import { getAllProviders } from '../../utils/apiCalls/DoctorsAndProviders/getAllProviders';
+import { getDoctorsByLocation } from '../../utils/apiCalls/DoctorsAndProviders/getDoctorsByLocation';
+import { getDoctorsForProviderByLocation } from '../../utils/apiCalls/DoctorsAndProviders/getDoctorsForProviderByLocation';
 import { compileReport } from '../../utils/helpers/helpers';
 
 const height = Dimensions.get('window').height;
