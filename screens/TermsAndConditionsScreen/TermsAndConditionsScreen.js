@@ -9,7 +9,7 @@ import { AntDesign } from '@expo/vector-icons';
 const height = Dimensions.get('window').height;
 
 export default function TermsAndConditionsScreen({ navigation }) {
-  const [state, setState] = useState({
+  const [isChecked, setIsChecked] = useState({
     checked: false,
     isButtonEnabled: false
   });
@@ -24,7 +24,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
             size={24}
             color='black'
             style={styles.close}
-            onPress={() => navigation.navigate('Welcome')}
+            onPress={() => navigation.push('Welcome')}
           />
           <Image
             source={require('../../assets/images/terms-and-conditions.png')}
@@ -58,28 +58,28 @@ export default function TermsAndConditionsScreen({ navigation }) {
                   I read and accept the Terms of Service and Privacy Policy
                 </Text>
               }
-              checked={state.checked}
+              checked={isChecked.checked}
               onPress={() =>
-                setState({
-                  checked: !state.checked,
-                  isButtonEnabled: !state.isButtonEnabled
+                setIsChecked({
+                  checked: !isChecked.checked,
+                  isButtonEnabled: !isChecked.isButtonEnabled
                 })
               }
             />
           </View>
-          {state.isButtonEnabled ? (
+          {isChecked.isButtonEnabled ? (
             <Button
               block
               style={styles.button}
-              onPress={() => navigation.navigate('BiologicalInformation')}
+              onPress={() => navigation.push('BiologicalInformation')}
             >
               <Text>CONTINUE</Text>
             </Button>
           ) : (
-            <Button disabled block style={styles.button}>
-              <Text>CONTINUE</Text>
-            </Button>
-          )}
+              <Button disabled block style={styles.button}>
+                <Text>CONTINUE</Text>
+              </Button>
+            )}
         </View>
       </ScrollView>
     </Fragment>

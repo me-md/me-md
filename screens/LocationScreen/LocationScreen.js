@@ -42,7 +42,7 @@ export default function LocationScreen({ navigation }) {
             name='chevron-thin-up'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('SelectAge')}
+            onPress={() => navigation.goBack()}
           />
           <Text style={styles.title}>Location</Text>
           <Picker
@@ -59,7 +59,7 @@ export default function LocationScreen({ navigation }) {
             size={36}
             color='white'
             onPress={() =>
-              navigation.navigate('RiskFactors', {
+              navigation.push('RiskFactors', {
                 sex,
                 age,
                 location,

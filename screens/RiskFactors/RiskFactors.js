@@ -88,7 +88,7 @@ export default function RiskFactors({ navigation }) {
             name='chevron-thin-up'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('Location')}
+            onPress={() => navigation.goBack()}
           />
           <View style={styles.contentContainer}>
             <Text style={styles.header}>Common Risk Factors:</Text>
@@ -99,7 +99,7 @@ export default function RiskFactors({ navigation }) {
             size={36}
             color='white'
             onPress={() =>
-              navigation.navigate('SearchSymptoms', {
+              navigation.push('SearchSymptoms', {
                 age,
                 location,
                 sex,

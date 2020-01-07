@@ -64,61 +64,62 @@ export default function EmailScreen({ navigation }) {
             </Button>
           </Fragment>
         ) : (
-          <Fragment>
-            <Item style={styles.input}>
-              <Input
-                placeholder='Enter your email address'
-                style={styles.input}
-                onChangeText={text => validateEmail(text)}
-              />
-            </Item>
-            <View style={styles.buttonContainer}>
-              {enabled ? (
-                <Button
-                  rounded
-                  style={styles.button}
-                  onPress={() => sendEmail()}
-                >
-                  <Text style={styles.buttonText}>Send Report</Text>
-                  <Ionicons
-                    name='ios-send'
-                    style={styles.icon}
-                    size={26}
-                    color='white'
-                  />
-                </Button>
-              ) : (
-                <Button
-                  disabled
-                  rounded
-                  style={styles.button}
-                  onPress={() => sendEmail()}
-                >
-                  <Text style={styles.buttonText}>Send Report</Text>
-                  <Ionicons
-                    name='ios-send'
-                    style={styles.icon}
-                    size={26}
-                    color='white'
-                  />
-                </Button>
-              )}
-              <Button
-                rounded
-                style={styles.button}
-                onPress={() => navigation.push('Welcome')}
-              >
-                <Text style={styles.buttonText}>New Checkup</Text>
-                <MaterialCommunityIcons
-                  name='stethoscope'
-                  style={styles.icon}
-                  size={26}
-                  color='white'
+            <Fragment>
+              <Item style={styles.input}>
+                <Input
+                  placeholder='Enter your email address'
+                  style={styles.input}
+                  autoCapitalize='none'
+                  onChangeText={text => validateEmail(text)}
                 />
-              </Button>
-            </View>
-          </Fragment>
-        )}
+              </Item>
+              <View style={styles.buttonContainer}>
+                {enabled ? (
+                  <Button
+                    rounded
+                    style={styles.button}
+                    onPress={() => sendEmail()}
+                  >
+                    <Text style={styles.buttonText}>Send Report</Text>
+                    <Ionicons
+                      name='ios-send'
+                      style={styles.icon}
+                      size={26}
+                      color='white'
+                    />
+                  </Button>
+                ) : (
+                    <Button
+                      disabled
+                      rounded
+                      style={styles.button}
+                      onPress={() => sendEmail()}
+                    >
+                      <Text style={styles.buttonText}>Send Report</Text>
+                      <Ionicons
+                        name='ios-send'
+                        style={styles.icon}
+                        size={26}
+                        color='white'
+                      />
+                    </Button>
+                  )}
+                <Button
+                  rounded
+                  style={styles.button}
+                  onPress={() => navigation.push('Welcome')}
+                >
+                  <Text style={styles.buttonText}>New Checkup</Text>
+                  <MaterialCommunityIcons
+                    name='stethoscope'
+                    style={styles.icon}
+                    size={26}
+                    color='white'
+                  />
+                </Button>
+              </View>
+            </Fragment>
+          )}
       </View>
     </Fragment>
   );

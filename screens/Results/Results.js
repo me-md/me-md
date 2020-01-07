@@ -87,7 +87,7 @@ export default function SymptomsQA({ navigation }) {
       </ScrollView>
       <Button
         onPress={() =>
-          navigation.navigate('Doctors', {
+          navigation.push('Doctors', {
             location,
             stateAbbreviation,
             userInfo,

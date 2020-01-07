@@ -66,7 +66,7 @@ export default function SymptomsScreen({ navigation }) {
   const sendInitialSymptoms = () => {
     const userInfo = { age, presentFactors, symptoms, sex };
     let cleanedData = cleanInitialUserReport(userInfo);
-    navigation.navigate('SymptomsQA', {
+    navigation.push('SymptomsQA', {
       cleanedData,
       location,
       stateAbbreviation
@@ -103,7 +103,7 @@ export default function SymptomsScreen({ navigation }) {
             name='chevron-thin-up'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('RiskFactors')}
+            onPress={() => navigation.goBack()}
           />
           <Text style={styles.title}>Symptoms</Text>
           <Item style={styles.searchBox}>
@@ -133,12 +133,12 @@ export default function SymptomsScreen({ navigation }) {
               {displaySymptoms}
             </View>
           </ScrollView>
-          <Entypo
+          {symptoms.length >= 3 && <Entypo
             name='chevron-thin-down'
             size={36}
             color='white'
             onPress={() => sendInitialSymptoms()}
-          />
+          />}
         </View>
       </LinearGradient>
     </View>

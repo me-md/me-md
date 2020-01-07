@@ -10,8 +10,6 @@ import { sendInitialUserSymptoms } from '../../utils/apiCalls/apiCalls';
 const height = Dimensions.get('window').height;
 
 export default function SymptomsQA({ navigation }) {
-  // const { age, location, presentFactors, sex, symptomFollowup } = navigation.state.params;
-  // const [currentQuestion, setCurrentQuestion] = useState({})
   const { cleanedData, location, stateAbbreviation } = navigation.state.params;
   const [question, setQuestion] = useState({});
   const [userInfo, setUserInfo] = useState(cleanedData);
@@ -25,12 +23,12 @@ export default function SymptomsQA({ navigation }) {
       let symptomFollowup = await sendInitialUserSymptoms(userInfo);
       setQuestion(symptomFollowup);
       symptomFollowup.should_stop
-        ? navigation.navigate('Results', {
-            userInfo,
-            symptomFollowup,
-            location,
-            stateAbbreviation
-          })
+        ? navigation.push('Results', {
+          userInfo,
+          symptomFollowup,
+          location,
+          stateAbbreviation
+        })
         : null;
     } catch (error) {
       throw new Error(error);
@@ -85,18 +83,12 @@ export default function SymptomsQA({ navigation }) {
             name='chevron-thin-up'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('SearchSymptoms')}
+            onPress={() => navigation.goBack()}
           />
           <Text style={styles.symptomText}>Regarding your symptoms:</Text>
           <ScrollView style={styles.card}>
             {question.question && displayQuestion()}
           </ScrollView>
-          <Entypo
-            name='chevron-thin-down'
-            size={36}
-            color='white'
-            // onPress={() => }
-          />
         </View>
       </LinearGradient>
     </View>

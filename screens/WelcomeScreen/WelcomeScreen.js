@@ -23,7 +23,7 @@ export default function WelcomeScreen({ navigation }) {
         <Button
           block
           style={styles.button}
-          onPress={() => navigation.navigate('TermsAndConditions')}
+          onPress={() => navigation.push('TermsAndConditions')}
         >
           <Text>BEGIN CHECKUP</Text>
         </Button>

@@ -39,9 +39,13 @@ export default function SingleQ({ question, answerQuestion }) {
         <Body>
           <Text style={styles.questionText}>{question.question.text}</Text>
           <View style={styles.checkboxes}>{choices}</View>
-          <Button block onPress={() => handleSubmit()}>
-            <Text>Submit</Text>
-          </Button>
+          {checkWho.length ?
+            (<Button block onPress={() => handleSubmit()}>
+              <Text>Submit</Text>
+            </Button>) :
+            (<Button disabled block>
+              <Text>Submit</Text>
+            </Button>)}
         </Body>
       </CardItem>
     </Card>
