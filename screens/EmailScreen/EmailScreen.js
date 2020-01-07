@@ -5,7 +5,7 @@ import { Header } from '../../components/Header';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import * as EmailValidator from 'email-validator';
-import { sendEmailReport } from '../../utils/apiCalls/apiCalls';
+import { sendEmailReport } from '../../utils/apiCalls/SendEmail/sendEmailReport';
 
 const height = Dimensions.get('window').height;
 
