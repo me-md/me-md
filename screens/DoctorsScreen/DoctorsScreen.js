@@ -9,11 +9,19 @@ import {
   getDoctorsForProviderByLocation,
   getDistanceToDoctor
 } from '../../utils/apiCalls/apiCalls';
+import { compileReport } from '../../utils/helpers/helpers';
 
 const height = Dimensions.get('window').height;
 
 export default function DoctorsScreen({ navigation }) {
-  const { location, stateAbbreviation } = navigation.state.params;
+  const {
+    location,
+    stateAbbreviation,
+    userInfo,
+    symptomFollowup,
+    conditionDetails,
+    explanation
+  } = navigation.state.params;
 
   const [allProviders, setAllProviders] = useState([]);
   const [doctors, setDoctors] = useState([]);
@@ -60,6 +68,16 @@ export default function DoctorsScreen({ navigation }) {
     );
     return distance;
   };
+
+  const report = compileReport(
+    location,
+    stateAbbreviation,
+    userInfo,
+    symptomFollowup,
+    conditionDetails,
+    explanation,
+    doctors
+  );
 
   const nearbyPractices = doctors.map((doctor, index) => {
     // let distance = await doctorDistance(doctor);
@@ -123,7 +141,11 @@ export default function DoctorsScreen({ navigation }) {
           block
           style={styles.button}
           onPress={() =>
-            navigation.navigate('Email', { location, stateAbbreviation })
+            navigation.navigate('Email', {
+              location,
+              stateAbbreviation,
+              report
+            })
           }
         >
           <Text style={styles.buttonText}>Email Report</Text>

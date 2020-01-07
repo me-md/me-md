@@ -5,17 +5,19 @@ import { Header } from '../../components/Header';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import * as EmailValidator from 'email-validator';
+import { sendEmailReport } from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
 
 export default function EmailScreen({ navigation }) {
-  const { location, stateAbbreviation } = navigation.state.params;
+  const { location, report, stateAbbreviation } = navigation.state.params;
   const [email, setEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
   const [enabled, setEnabled] = useState(false);
 
-  const sendEmail = () => {
+  const sendEmail = async () => {
     setEmailSent(true);
+    return await sendEmailReport(email, report);
   };
 
   const validateEmail = email => {
