@@ -4,6 +4,7 @@ import { Button, Input, Item, Text } from 'native-base';
 import { Header } from '../../components/Header';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import * as EmailValidator from 'email-validator';
 
 const height = Dimensions.get('window').height;
 
@@ -18,7 +19,7 @@ export default function EmailScreen({ navigation }) {
   };
 
   const validateEmail = email => {
-    email.includes('@') && setEnabled(true);
+    EmailValidator.validate(email) && setEnabled(true);
     setEmail(email);
   };
 
