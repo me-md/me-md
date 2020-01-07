@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View, LayoutAnimation, Platform, UIManager, TouchableOpacity } from 'react-native';
-import { Body, Button, Card, CardItem } from 'native-base';
+import { Dimensions, StyleSheet, View, LayoutAnimation, Platform, UIManager, TouchableOpacity, FlatList } from 'react-native';
+import { Body, Button, Card, CardItem, Text } from 'native-base';
+import * as Progress from 'react-native-progress';
 import { Header } from '../../components/Header';
 import { specifyTargetCondition } from '../../utils/helpers/helpers';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -54,15 +55,19 @@ export default function SymptomsQA({ navigation }) {
         <CardItem>
           <Body>
             <Text style={styles.conditionName}>{`${conditionDetails.data.name} (${conditionDetails.data.common_name})`}</Text>
+            <Progress.Bar style={{ marginBottom: height * 0.01 }} progress={symptomFollowup.conditions[0].probability} width={200} />
+            <Text style={styles.probability}>{`Probablity: ${(symptomFollowup.conditions[0].probability * 100).toFixed(0)}%`}</Text>
             <Text style={styles.recommendation}>{`Recommendation: ${conditionDetails.data.triage_level}. ${conditionDetails.data.hint}`}</Text>
             <View style={styles.btnTextHolder}>
               <TouchableOpacity activeOpacity={0.8} onPress={changeLayout} style={styles.Btn}>
                 <Text style={styles.btnText}>Supporting Evidence</Text>
               </TouchableOpacity>
               <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
-                <Text style={styles.text}>
-                  {createEvidence()}
-                </Text>
+                <FlatList
+                  data={createEvidence()}
+                  style={{ padding: height * 0.005 }}
+                  renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+                />
               </View>
             </View>
           </Body>
@@ -73,7 +78,7 @@ export default function SymptomsQA({ navigation }) {
 
   const createEvidence = () => {
     return explanation.supporting_evidence.map((evidence, index) => {
-      return <Text key={index}>{evidence.common_name}</Text>;
+      return { key: `• ${evidence.common_name}` }
     });
   };
 
@@ -83,8 +88,9 @@ export default function SymptomsQA({ navigation }) {
         <Card key={index} style={styles.conditionCard}>
           <CardItem>
             <Body>
-              <Text>Condition: {condition.common_name}</Text>
-              <Text>Probability: {condition.probability}</Text>
+              <Text style={styles.secondaryCondition}>{`${condition.name} (${condition.common_name})`}</Text>
+              <Progress.Bar style={{ marginBottom: height * 0.01 }} progress={condition.probability} width={200} />
+              <Text>{`Probability: ${(condition.probability * 100).toFixed(0)}%`}</Text>
             </Body>
           </CardItem>
         </Card>
@@ -100,6 +106,8 @@ export default function SymptomsQA({ navigation }) {
         {getTopDiagnoses()}
       </ScrollView>
       <Button
+        block
+        style={styles.button}
         onPress={() =>
           navigation.push('Doctors', {
             location,
@@ -111,7 +119,7 @@ export default function SymptomsQA({ navigation }) {
           })
         }
       >
-        <Text>Find Doctors</Text>
+        <Text>FIND DOCTORS</Text>
       </Button>
     </View>
   );
@@ -134,7 +142,8 @@ const styles = StyleSheet.create({
   },
   conditionName: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: height * 0.01
   },
   recommendation: {
     marginTop: height * 0.01
@@ -156,6 +165,11 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%'
   },
+  secondaryCondition: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: height * 0.01,
+  },
   topDiagnosis: {
     flex: 1,
     width: '100%'
@@ -163,16 +177,21 @@ const styles = StyleSheet.create({
   btnText: {
     textAlign: 'center',
     color: 'white',
-    fontSize: 20
+    fontSize: 14
   },
-
   btnTextHolder: {
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.5)'
+    borderColor: 'rgba(0,0,0,0.5)',
+    marginTop: height * 0.01,
+    width: '100%'
   },
-
   Btn: {
     padding: 10,
-    backgroundColor: 'rgba(0,0,0,0.5)'
+    backgroundColor: '#004EFF'
+  },
+  button: {
+    alignSelf: 'center',
+    marginBottom: height * 0.05,
+    width: '80%'
   }
 });
