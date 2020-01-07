@@ -54,9 +54,14 @@ export default function GroupSingleQ({ question, answerQuestion }) {
       <Body>
         <Text style={styles.questionText}>{question.question.text}</Text>
         {questions}
-        <Button onPress={() => handleSubmit()}>
-          <Text>Submit</Text>
-        </Button>
+        {console.log(checkWho.length === question.question.items.length)}
+        {checkWho.length === question.question.items.length ?
+          (<Button block onPress={() => handleSubmit()}>
+            <Text>Submit</Text>
+          </Button>) :
+          (<Button disabled block>
+            <Text>Submit</Text>
+          </Button>)}
       </Body>
     </Card>
   );

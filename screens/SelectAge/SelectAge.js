@@ -21,7 +21,7 @@ export default function SelectAge({ navigation }) {
             name='chevron-thin-up'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('BiologicalInformation')}
+            onPress={() => navigation.goBack()}
           />
           <View style={styles.childContainer}>
             <Text style={styles.title}>Age</Text>
@@ -34,12 +34,12 @@ export default function SelectAge({ navigation }) {
               />
             </Item>
           </View>
-          <Entypo
+          {age !== '' && (<Entypo
             name='chevron-thin-down'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('Location', { sex, age })}
-          />
+            onPress={() => navigation.push('Location', { sex, age })}
+          />)}
         </View>
       </LinearGradient>
     </View>

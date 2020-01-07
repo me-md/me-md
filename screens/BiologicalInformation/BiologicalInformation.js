@@ -21,7 +21,7 @@ export default function BiologicalInformation({ navigation }) {
             name='chevron-thin-up'
             size={36}
             color='white'
-            onPress={() => navigation.navigate('TermsAndConditions')}
+            onPress={() => navigation.goBack()}
           />
           <Text style={styles.question}>What is your biological sex?</Text>
           <View style={styles.buttonContainer}>
@@ -58,18 +58,15 @@ export default function BiologicalInformation({ navigation }) {
               <Text style={styles.biologicalInformationButtonText}>Male</Text>
             </Button>
           </View>
-          {sex ? (
+          {sex !== '' &&
             <Entypo
               name='chevron-thin-down'
               size={36}
               color='white'
               onPress={() => {
-                sex !== '' ? navigation.navigate('SelectAge', { sex }) : <></>;
+                navigation.push('SelectAge', { sex })
               }}
-            />
-          ) : (
-              <Entypo name='chevron-thin-down' size={36} color='white' />
-            )}
+            />}
         </View>
       </LinearGradient>
     </View>

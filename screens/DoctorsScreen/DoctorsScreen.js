@@ -99,7 +99,6 @@ export default function DoctorsScreen({ navigation }) {
               {doctor.practice.city}, {doctor.practice.state}{' '}
               {doctor.practice.zip}
             </Text>
-            {/* <Text>{distance}</Text> */}
           </Body>
         </CardItem>
       </Card>
@@ -108,11 +107,15 @@ export default function DoctorsScreen({ navigation }) {
 
   const handleChange = async itemValue => {
     setCurrentProvider(itemValue);
-    const doctors = await getDoctorsForProviderByLocation(
-      stateAbbreviation,
-      currentProvider
-    );
-    setDoctors(doctors);
+    if (itemValue !== 'none') {
+      const doctors = await getDoctorsForProviderByLocation(
+        stateAbbreviation,
+        currentProvider
+      );
+      setDoctors(doctors);
+    } else {
+      getDoctorsForLocation();
+    }
   };
 
   return (
@@ -141,7 +144,7 @@ export default function DoctorsScreen({ navigation }) {
           block
           style={styles.button}
           onPress={() =>
-            navigation.navigate('Email', {
+            navigation.push('Email', {
               location,
               stateAbbreviation,
               report
