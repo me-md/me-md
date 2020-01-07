@@ -1,59 +1,68 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Body, Button, Card, CardItem } from 'native-base';
-import { Header } from "../../components/Header";
+import { Header } from '../../components/Header';
 import { specifyTargetCondition } from '../../utils/helpers/helpers';
 import { ScrollView } from 'react-native-gesture-handler';
 import {
-  getExplaination,
+  getExplanation,
   getConditionById
 } from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
 
 export default function SymptomsQA({ navigation }) {
-
-  let { userInfo, symptomFollowup, location, stateAbbreviation } = navigation.state.params;
+  let {
+    userInfo,
+    symptomFollowup,
+    location,
+    stateAbbreviation
+  } = navigation.state.params;
+  console.log('symptomFollowup', symptomFollowup);
 
   const [explanation, setExplanation] = useState({});
   const [conditionDetails, setConditionDetails] = useState({});
 
-  useEffect(() => { getResults() }, []);
+  useEffect(() => {
+    getResults();
+  }, []);
 
   const getResults = async () => {
     try {
       userInfo = specifyTargetCondition(userInfo, symptomFollowup);
-      let explanation = await getExplaination(userInfo);
-      let conditionDetails = await getConditionById(symptomFollowup.conditions[0].id);
+      let explanation = await getExplanation(userInfo);
+      let conditionDetails = await getConditionById(
+        symptomFollowup.conditions[0].id
+      );
       setExplanation(explanation);
       setConditionDetails(conditionDetails);
     } catch (error) {
       throw new Error(error);
     }
-  }
+  };
 
   const createTopDiagnosis = () => {
-    return <Card style={styles.topDiagnosis}>
-      <CardItem>
-        <Body>
-          <Text>
-            {conditionDetails.data.common_name}
-          </Text>
-          <Text>{conditionDetails.data.severity}</Text>
-          <Text>{conditionDetails.data.triage_level}</Text>
-          <Text>{conditionDetails.data.hint}</Text>
-          <Text>Supporting Evidence:</Text>
-          {createEvidence()}
-        </Body>
-      </CardItem>
-    </Card>
-  }
+    return (
+      <Card style={styles.topDiagnosis}>
+        <CardItem>
+          <Body>
+            <Text>{conditionDetails.data.common_name}</Text>
+            <Text>{conditionDetails.data.severity}</Text>
+            <Text>{conditionDetails.data.triage_level}</Text>
+            <Text>{conditionDetails.data.hint}</Text>
+            <Text>Supporting Evidence:</Text>
+            {createEvidence()}
+          </Body>
+        </CardItem>
+      </Card>
+    );
+  };
 
   const createEvidence = () => {
     return explanation.supporting_evidence.map((evidence, index) => {
-      return <Text key={index}>{evidence.common_name}</Text>
-    })
-  }
+      return <Text key={index}>{evidence.common_name}</Text>;
+    });
+  };
 
   const getTopDiagnoses = () => {
     return symptomFollowup.conditions.slice(1, 4).map((condition, index) => {
@@ -66,9 +75,9 @@ export default function SymptomsQA({ navigation }) {
             </Body>
           </CardItem>
         </Card>
-      )
-    })
-  }
+      );
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -125,5 +134,3 @@ const styles = StyleSheet.create({
     width: '100%'
   }
 });
-
-
