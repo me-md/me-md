@@ -122,7 +122,9 @@ export default function DoctorsScreen({ navigation }) {
         <Button
           block
           style={styles.button}
-          onPress={() => navigation.navigate('Email')}
+          onPress={() =>
+            navigation.navigate('Email', { location, stateAbbreviation })
+          }
         >
           <Text style={styles.buttonText}>Email Report</Text>
         </Button>

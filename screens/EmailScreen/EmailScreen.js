@@ -1,63 +1,147 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import { Button, Input, Item, Text } from 'native-base';
 import { Header } from '../../components/Header';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
 
 export default function EmailScreen({ navigation }) {
+  const { location, stateAbbreviation } = navigation.state.params;
   const [email, setEmail] = useState('');
+  const [emailSent, setEmailSent] = useState(false);
+  const [enabled, setEnabled] = useState(false);
+
+  const sendEmail = () => {
+    setEmailSent(true);
+  };
+
+  const validateEmail = email => {
+    email.includes('@') && setEnabled(true);
+    setEmail(email);
+  };
 
   return (
-    <View style={styles.container}>
+    <Fragment>
       <Header />
-      <Text style={styles.title}>Send Detailed Report:</Text>
-      <Image
-        source={require('../../assets/images/report.png')}
-        style={styles.report}
+      <AntDesign
+        name='close'
+        size={24}
+        color='black'
+        style={styles.close}
+        onPress={() =>
+          navigation.push('Doctors', { location, stateAbbreviation })
+        }
       />
-      <Item style={styles.input}>
-        <Input
-          placeholder='you@email.com'
-          style={styles.input}
-          onChangeText={text => setEmail(text)}
+      <View style={styles.container}>
+        <Text style={styles.title}>Send Detailed Report:</Text>
+        <Image
+          source={require('../../assets/images/report.png')}
+          style={styles.report}
         />
-      </Item>
-      <Button rounded style={styles.button}>
-        <Text>Send Report</Text>
-        <Ionicons name='ios-send' style={styles.icon} size={26} color='white' />
-      </Button>
-      <Button
-        rounded
-        style={styles.button}
-        onPress={() => navigation.push('Welcome')}
-      >
-        <Text>New Checkup</Text>
-        <MaterialCommunityIcons
-          name='stethoscope'
-          style={styles.icon}
-          size={26}
-          color='white'
-        />
-      </Button>
-    </View>
+        {emailSent ? (
+          <Fragment>
+            <Text style={styles.response}>Thank you!</Text>
+            <Text
+              style={styles.thankYou}
+            >{`A detailed report from today's session has been sent to: ${email}`}</Text>
+            <Button
+              rounded
+              style={styles.button}
+              onPress={() => navigation.push('Welcome')}
+            >
+              <Text style={styles.buttonText}>New Checkup</Text>
+              <MaterialCommunityIcons
+                name='stethoscope'
+                style={styles.icon}
+                size={26}
+                color='white'
+              />
+            </Button>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <Item style={styles.input}>
+              <Input
+                placeholder='Enter your email address'
+                style={styles.input}
+                onChangeText={text => validateEmail(text)}
+              />
+            </Item>
+            <View style={styles.buttonContainer}>
+              {enabled ? (
+                <Button
+                  rounded
+                  style={styles.button}
+                  onPress={() => sendEmail()}
+                >
+                  <Text style={styles.buttonText}>Send Report</Text>
+                  <Ionicons
+                    name='ios-send'
+                    style={styles.icon}
+                    size={26}
+                    color='white'
+                  />
+                </Button>
+              ) : (
+                <Button
+                  disabled
+                  rounded
+                  style={styles.button}
+                  onPress={() => sendEmail()}
+                >
+                  <Text style={styles.buttonText}>Send Report</Text>
+                  <Ionicons
+                    name='ios-send'
+                    style={styles.icon}
+                    size={26}
+                    color='white'
+                  />
+                </Button>
+              )}
+              <Button
+                rounded
+                style={styles.button}
+                onPress={() => navigation.push('Welcome')}
+              >
+                <Text style={styles.buttonText}>New Checkup</Text>
+                <MaterialCommunityIcons
+                  name='stethoscope'
+                  style={styles.icon}
+                  size={26}
+                  color='white'
+                />
+              </Button>
+            </View>
+          </Fragment>
+        )}
+      </View>
+    </Fragment>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
     flex: 1,
     justifyContent: 'space-between',
-    paddingBottom: height * 0.075
+    paddingBottom: height * 0.075,
+    width: '100%'
   },
   contentContainer: {
     alignItems: 'center',
     flex: 1
   },
+  close: {
+    alignSelf: 'flex-end',
+    marginRight: height * 0.02,
+    marginTop: height * 0.025
+  },
   input: {
     fontSize: 16,
-    width: '80%'
+    textAlign: 'center',
+    width: '60%'
   },
   title: {
     fontSize: 36,
@@ -65,8 +149,17 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.025
   },
   button: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
     marginTop: height * 0.02,
-    width: '50%'
+    width: '60%'
+  },
+  buttonText: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  buttonContainer: {
+    marginBottom: height * 0.08
   },
   icon: {
     marginRight: height * 0.02
@@ -74,10 +167,17 @@ const styles = StyleSheet.create({
   report: {
     alignSelf: 'center',
     borderWidth: 0,
-    borderRadius: 50,
-    height: height * 0.2,
+    height: height * 0.17,
     marginBottom: height * 0.01,
     marginTop: height * 0.04,
-    width: height * 0.2
+    width: height * 0.17
+  },
+  response: {
+    fontSize: 24,
+    fontWeight: 'bold'
+  },
+  thankYou: {
+    marginLeft: height * 0.02,
+    marginRight: height * 0.02
   }
 });

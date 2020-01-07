@@ -28,7 +28,7 @@ const RootStack = createStackNavigator(
     Email: EmailScreen
   },
   {
-    initialRouteName: 'Email',
+    initialRouteName: 'Welcome',
     transitionConfig: () => fromBottom(),
     headerMode: 'none',
     navigationOptions: {
