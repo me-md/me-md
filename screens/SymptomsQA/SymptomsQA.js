@@ -5,12 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 import SingleQ from '../../components/SingleQ';
 import GroupSingleQ from '../../components/GroupSingleQ';
-import GroupMultipleQ from '../../components/GroupMultipleQ';
-import {
-  mockSingle,
-  mockGroupMultiple,
-  mockGroupSingle
-} from '../../utils/mockQuestions/mockQuestions';
 import { sendInitialUserSymptoms } from '../../utils/apiCalls/apiCalls';
 
 const height = Dimensions.get('window').height;
