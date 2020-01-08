@@ -135,7 +135,7 @@ exports[`App renders the loading screen 1`] = `
                 }
                 uppercase={false}
               >
-                Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
+                Welcome to MeMD, an online platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
               </Text>
               <View
                 accessible={true}
@@ -338,7 +338,7 @@ exports[`App renders the root without loading screen 1`] = `
                 }
                 uppercase={false}
               >
-                Welcome to MeMD, an online platform designed to help diagnose symptoms and locate potential doctors. Please click BEGIN to start your health checkup.
+                Welcome to MeMD, an online platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
               </Text>
               <View
                 accessible={true}

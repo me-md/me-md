@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BiologicalInformation should match a snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          4278210303,
+          4287155441,
+        ],
+        "endPoint": undefined,
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "space-between",
+          "marginBottom": 80.03999999999999,
+          "marginTop": 80.03999999999999,
+        }
+      }
+    >
+      <Text />
+      <View
+        style={
+          Object {
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 48,
+              "marginBottom": 93.38000000000001,
+            }
+          }
+        >
+          What is your biological sex?
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgba(255, 255, 255, 0.1)",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 57,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": undefined,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 100,
+              "justifyContent": "space-between",
+              "margin": 25,
+              "opacity": 1,
+              "padding": 20,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+              "shadowColor": undefined,
+              "shadowOffset": undefined,
+              "shadowOpacity": undefined,
+              "shadowRadius": undefined,
+              "width": 225,
+            }
+          }
+        >
+          <Text />
+          <Text
+            style={
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 36,
+              }
+            }
+          >
+            Female
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgba(255, 255, 255, 0.1)",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 57,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": undefined,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 100,
+              "justifyContent": "space-between",
+              "margin": 25,
+              "opacity": 1,
+              "padding": 20,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+              "shadowColor": undefined,
+              "shadowOffset": undefined,
+              "shadowOpacity": undefined,
+              "shadowRadius": undefined,
+              "width": 225,
+            }
+          }
+        >
+          <Text />
+          <Text
+            style={
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 36,
+              }
+            }
+          >
+            Male
+          </Text>
+        </View>
+      </View>
+      <Text />
+    </View>
+  </ViewManagerAdapter_ExpoLinearGradient>
+</View>
+`;
