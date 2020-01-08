@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Item, Input } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 import { statesData } from '../../utils/statesData/statesData';
 

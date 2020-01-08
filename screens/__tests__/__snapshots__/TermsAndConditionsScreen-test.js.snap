@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TermsAndConditionsScreen should match a snapshot 1`] = `
+Array [
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          4278210303,
+          4287155441,
+        ],
+        "endPoint": undefined,
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={
+      Object {
+        "height": 200.1,
+      }
+    }
+  />,
+  <RCTScrollView
+    collapsable={false}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+          }
+        }
+      >
+        <Text />
+        <Image
+          source={1}
+          style={
+            Object {
+              "borderRadius": 50,
+              "borderWidth": 0,
+              "height": 133.4,
+              "width": 133.4,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "alignSelf": "center",
+                "fontSize": 53.36,
+                "fontWeight": "bold",
+                "margin": 26.68,
+                "marginBottom": 0.667,
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Terms and Conditions
+        </Text>
+        <View
+          style={
+            Object {
+              "height": 466.9,
+              "marginBottom": 0.667,
+            }
+          }
+        >
+          <RCTScrollView
+            collapsable={false}
+            onGestureHandlerEvent={[Function]}
+            onGestureHandlerStateChange={[Function]}
+            style={
+              Object {
+                "alignSelf": "center",
+                "backgroundColor": "#CCCCCC",
+                "borderColor": "#FFFFFF",
+                "margin": 26.68,
+                "paddingLeft": 26.68,
+                "paddingRight": 26.68,
+              }
+            }
+          >
+            <View>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "lineHeight": 46.690000000000005,
+                      "marginBottom": 26.68,
+                      "marginTop": 26.68,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                This app is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always read the label before taking any over-the-counter (OTC) medications. The label identifies the active ingredient(s) and contains other important information including warnings about possible drug interactions and side effects. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on MeMD! If you think you may have a medical emergency, call your doctor or 911 immediately. MeMD does not recommend or endorse any specific products or services. Reliance on any information provided by MeMD is solely at your own risk.
+              </Text>
+            </View>
+          </RCTScrollView>
+        </View>
+        <View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "backgroundColor": "#fafafa",
+                "borderColor": "#ededed",
+                "borderRadius": 3,
+                "borderWidth": 1,
+                "margin": 5,
+                "marginLeft": 10,
+                "marginRight": 10,
+                "opacity": 1,
+                "padding": 10,
+              }
+            }
+            testID="checkbox"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#bfbfbf",
+                      "fontSize": 24,
+                    },
+                    Object {
+                      "minWidth": 24,
+                    },
+                    Object {
+                      "fontFamily": "FontAwesome",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 14,
+                      "margin": 20.009999999999998,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                I read and accept the Terms of Service and Privacy Policy
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "#b5b5b5",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": undefined,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 45,
+              "justifyContent": "center",
+              "marginBottom": 40.019999999999996,
+              "marginTop": 26.68,
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+              "shadowColor": undefined,
+              "shadowOffset": undefined,
+              "shadowOpacity": undefined,
+              "shadowRadius": undefined,
+              "width": "75%",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "color": "#fff",
+                "fontFamily": "System",
+                "fontSize": 16.5,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "paddingLeft": 16,
+                "paddingRight": 16,
+              }
+            }
+            uppercase={false}
+          >
+            CONTINUE
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>,
+]
+`;
