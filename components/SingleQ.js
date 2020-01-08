@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
-import { Body, Button, Card, CardItem, Text } from 'native-base';
+import { Body, Button, Card, Text } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
