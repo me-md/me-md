@@ -2,10 +2,10 @@
 
 MeMD is a React Native App allowing a user to self diagnosis medical conditions and find the closest specialists.
 
-### Table of contents
+### Table of Contents
 
 <!--ts-->
-   * [Table of contents](#table-of-contents)
+   * [Table of Contents](#table-of-contents)
    * [Set Up](#set-up)
 <!--te-->
 
@@ -65,9 +65,11 @@ The primary learning goals for this project are:
 - Tested with Jest/Enzyme
 
 ### Team
-
 - [Vanessa Randall](https://github.com/vrandall66)
+- [Tylor Schafer](https://github.com/tylorschafer)
 - [Pol Sieira](https://github.com/polsieira)
+- [Evette Telyas](https://github.com/evettetelyas)
+- [Nathan Thomas](https://github.com/nathangthomas)
 
 ### Project Board
 - [MeMD Project Board](https://github.com/orgs/me-md/projects/1)
