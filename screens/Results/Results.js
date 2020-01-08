@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, View, LayoutAnimation, Platform, UIManager, TouchableOpacity, FlatList } from 'react-native';
+import { Dimensions, StyleSheet, SafeAreaView, View, LayoutAnimation, Platform, UIManager, TouchableOpacity, FlatList } from 'react-native';
 import { Body, Button, Card, CardItem, Text } from 'native-base';
 import * as Progress from 'react-native-progress';
 import { Header } from '../../components/Header';
@@ -62,13 +62,13 @@ export default function SymptomsQA({ navigation }) {
               <TouchableOpacity activeOpacity={0.8} onPress={changeLayout} style={styles.Btn}>
                 <Text style={styles.btnText}>Supporting Evidence</Text>
               </TouchableOpacity>
-              <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
+              <SafeAreaView style={{ flex: 1, height: expanded ? null : 0, overflow: 'hidden' }}>
                 <FlatList
                   data={createEvidence()}
                   style={{ padding: height * 0.005 }}
                   renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
                 />
-              </View>
+              </SafeAreaView>
             </View>
           </Body>
         </CardItem>

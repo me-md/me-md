@@ -52,6 +52,11 @@ export const filterDoctorsByDistance = (location, doctors) => {
   // doctors.sort((doctorA, doctorB))
 };
 
+export const formatPhoneNumber = number => {
+  let phone = number.toString()
+  return `(${phone.slice(0, 3)})-${phone.slice(3, 6)}-${phone.slice(6, 10)}`
+}
+
 export const compileReport = (
   location,
   stateAbbreviation,
@@ -71,3 +76,4 @@ export const compileReport = (
     doctors
   };
 };
+

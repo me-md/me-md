@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
-import { Body, Button, Card, CardItem, Icon } from 'native-base';
+import React, { useState, useEffect, Fragment } from 'react';
+import { ActivityIndicator, Dimensions, Picker, StyleSheet, View } from 'react-native';
+import { Body, Button, Card, CardItem, Text } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Header } from '../../components/Header';
 import {
@@ -9,7 +9,8 @@ import {
   getDoctorsForProviderByLocation,
   getDistanceToDoctor
 } from '../../utils/apiCalls/apiCalls';
-import { compileReport } from '../../utils/helpers/helpers';
+import { compileReport, formatPhoneNumber } from '../../utils/helpers/helpers';
+import { isLoaded, isLoading } from 'expo-font';
 
 const height = Dimensions.get('window').height;
 
@@ -27,8 +28,10 @@ export default function DoctorsScreen({ navigation }) {
   const [doctors, setDoctors] = useState([]);
   const [currentProvider, setCurrentProvider] = useState({});
   const [displayProviders, setDisplayProviders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true)
     getProviders();
     getDoctorsForLocation();
   }, []);
@@ -52,6 +55,7 @@ export default function DoctorsScreen({ navigation }) {
       stateAbbreviation.toLowerCase()
     );
     setDoctors(doctorsInLocation);
+    setLoading(false);
   };
 
   const getDistanceToDoc = async (lat, long) => {
@@ -87,7 +91,7 @@ export default function DoctorsScreen({ navigation }) {
         <CardItem>
           <Body>
             <Text style={styles.doctorName}>{doctor.practice.name}</Text>
-            <Text>{doctor.practice.phone}</Text>
+            <Text>{formatPhoneNumber(doctor.practice.phone)}</Text>
           </Body>
         </CardItem>
         <CardItem>
@@ -106,13 +110,15 @@ export default function DoctorsScreen({ navigation }) {
   });
 
   const handleChange = async itemValue => {
+    setLoading(true);
     setCurrentProvider(itemValue);
     if (itemValue !== 'none') {
       const doctors = await getDoctorsForProviderByLocation(
         stateAbbreviation,
-        currentProvider
+        itemValue
       );
       setDoctors(doctors);
+      setLoading(false);
     } else {
       getDoctorsForLocation();
     }
@@ -122,37 +128,50 @@ export default function DoctorsScreen({ navigation }) {
     <View style={styles.container}>
       <Header />
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>Doctors and Specialists Near You:</Text>
-        <Picker
-          prompt={'Select insurance provider'}
-          mode={'dialog'}
-          selectedValue={currentProvider}
-          style={styles.picker}
-          onValueChange={(itemValue, itemIndex) => handleChange(itemValue)}
-        >
-          <Picker.Item
-            label={'Select an inurance provider'}
-            value={'none'}
-            key={'placeholder'}
-          />
-          {displayProviders}
-        </Picker>
-        <ScrollView style={styles.doctorsContainer}>
-          {nearbyPractices}
-        </ScrollView>
-        <Button
-          block
-          style={styles.button}
-          onPress={() =>
-            navigation.push('Email', {
-              location,
-              stateAbbreviation,
-              report
-            })
-          }
-        >
-          <Text style={styles.buttonText}>Email Report</Text>
-        </Button>
+        <Text style={styles.title}>Doctors and Specialists Near You</Text>
+        {allProviders.length ?
+          <Fragment>
+            <Picker
+              block
+              prompt={'Select insurance provider'}
+              mode={'dialog'}
+              selectedValue={currentProvider}
+              style={styles.picker}
+              onValueChange={(itemValue) => handleChange(itemValue)}
+            >
+              <Picker.Item
+                label={'Select an insurance provider'}
+                value={'none'}
+                key={'placeholder'}
+              />
+              {displayProviders}
+            </Picker>
+            {loading ? <View style={styles.horizontal}>
+              <ActivityIndicator size="large" color="#0000ff" />
+            </View> :
+              <Fragment>
+                <ScrollView block style={styles.doctorsContainer}>
+                  {nearbyPractices.length > 0 && !loading ? nearbyPractices : <View style={styles.noDoctorsContainer}><Text style={styles.noDoctors}>{`There are currently no doctors in ${stateAbbreviation} for this insurance provider.`}</Text></View>}
+                </ScrollView>
+                <Button
+                  block
+                  style={styles.button}
+                  onPress={() =>
+                    navigation.push('Email', {
+                      location,
+                      stateAbbreviation,
+                      report
+                    })
+                  }
+                >
+                  <Text style={styles.buttonText}>Email Report</Text>
+                </Button>
+              </Fragment>
+            }
+          </Fragment> :
+          <View style={styles.horizontal}>
+            <ActivityIndicator size="large" color="#0000ff" />
+          </View>}
       </View>
     </View>
   );
@@ -161,21 +180,26 @@ export default function DoctorsScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    paddingBottom: height * 0.075
+    paddingBottom: height * 0.05,
+  },
+  horizontal: {
+    flex: 0.5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    padding: height * 0.2
   },
   contentContainer: {
     alignItems: 'center',
-    flex: 1
   },
   title: {
+    alignSelf: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: height * 0.02,
-    marginTop: height * 0.02
+    marginTop: height * 0.02,
+    textAlign: 'center'
   },
   doctorsContainer: {
-    flex: 0.5,
+    height: height * 0.4,
     marginLeft: height * 0.025,
     marginRight: height * 0.025,
     width: '95%'
@@ -186,14 +210,22 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
-    marginTop: height * 0.02,
+    marginTop: height * 0.04,
     width: '75%'
   },
   buttonText: {
     fontSize: 18
   },
   picker: {
-    flex: 1,
+    height: height * 0.22,
     width: '100%'
+  },
+  noDoctorsContainer: {
+    marginTop: height * 0.1,
+    padding: height * 0.02,
+    textAlign: 'center'
+  },
+  noDoctors: {
+    fontSize: 24
   }
 });
