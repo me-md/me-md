@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectAge should match a snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          4278210303,
+          4287155441,
+        ],
+        "endPoint": undefined,
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "space-between",
+          "marginBottom": 80.03999999999999,
+          "marginTop": 80.03999999999999,
+        }
+      }
+    >
+      <Text />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "space-evenly",
+            "marginBottom": 400.2,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fff",
+              "fontSize": 48,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Age
+        </Text>
+        <Text />
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": 1,
+              "borderColor": "#D9D5DC",
+              "borderLeftWidth": 0,
+              "borderRadius": undefined,
+              "borderRightWidth": 0,
+              "borderTopWidth": 0,
+              "borderWidth": undefined,
+              "color": "#FFF",
+              "flexDirection": "row",
+              "fontSize": 36,
+              "fontWeight": "bold",
+              "marginLeft": 2,
+              "opacity": 1,
+              "textAlign": "center",
+              "width": "20%",
+            }
+          }
+        >
+          <TextInput
+            allowFontScaling={true}
+            editable={true}
+            onChangeText={[Function]}
+            placeholder="35"
+            placeholderTextColor="#919191"
+            rejectResponderTermination={true}
+            style={
+              Array [
+                Object {
+                  "color": "#000",
+                  "flex": 1,
+                  "fontSize": 17,
+                  "height": 50,
+                  "paddingLeft": 5,
+                  "paddingRight": 5,
+                  "top": 1.5,
+                },
+                Object {
+                  "color": "#FFF",
+                  "fontSize": 36,
+                  "fontWeight": "bold",
+                  "textAlign": "center",
+                  "width": "20%",
+                },
+              ]
+            }
+            underlineColorAndroid="rgba(0,0,0,0)"
+          />
+        </View>
+      </View>
+      <Text />
+    </View>
+  </ViewManagerAdapter_ExpoLinearGradient>
+</View>
+`;
