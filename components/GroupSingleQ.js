@@ -88,8 +88,6 @@ export default function GroupSingleQ({ question, answerQuestion }) {
   });
 
   const handlePress = (id, index) => {
-    console.log('id', id);
-    console.log('index', index);
     let IDs = [...checkWho];
     IDs[index] = id;
     setCheckWho(IDs);
@@ -112,12 +110,12 @@ export default function GroupSingleQ({ question, answerQuestion }) {
         <Text style={styles.questionText}>{question.question.text}</Text>
         {questions}
         {checkWho.length === question.question.items.length ? (
-          <Button block onPress={() => handleSubmit()}>
-            <Text>Submit</Text>
+          <Button style={styles.button} block onPress={() => handleSubmit()}>
+            <Text>SUBMIT</Text>
           </Button>
         ) : (
-          <Button disabled block>
-            <Text>Submit</Text>
+          <Button style={styles.button} disabled block>
+            <Text>SUBMIT</Text>
           </Button>
         )}
       </Body>
@@ -132,18 +130,29 @@ const styles = StyleSheet.create({
     width: '80%'
   },
   questionCardItem: {
-    height: height * 0.15
+    height: height * 0.15,
+    marginBottom: height * 0.01,
+    marginTop: height * 0.01
   },
   questionText: {
     alignSelf: 'flex-start',
-    flex: 1,
+    flex: 0.5,
     fontSize: 16,
+    marginBottom: height * 0.02,
+    marginTop: height * 0.01,
     padding: 0
   },
   checkboxes: {
-    alignSelf: 'flex-start',
+    alignItems: 'center',
     flexDirection: 'row',
     fontSize: 12,
-    padding: 0
+    justifyContent: 'space-around',
+    marginBottom: height * 0.02,
+    padding: 0,
+    width: '90%'
+  },
+  button: {
+    marginBottom: height * 0.04,
+    marginTop: height * 0.02
   }
 });

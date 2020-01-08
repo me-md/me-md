@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     alignItems: 'center',
+    flex: 1,
     marginBottom: height * 0.05,
     marginTop: height * 0.05,
     width: '100%'
