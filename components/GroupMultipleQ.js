@@ -22,8 +22,8 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                 title={
                   <Text>{question.question.items[0].choices[0].label}</Text>
                 }
-              // checked={}
-              // onPress={}
+                // checked={}
+                // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -31,8 +31,8 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                 title={
                   <Text>{question.question.items[0].choices[1].label}</Text>
                 }
-              // checked={}
-              // onPress={}
+                // checked={}
+                // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -40,8 +40,8 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                 title={
                   <Text>{question.question.items[0].choices[2].label}</Text>
                 }
-              // checked={}
-              // onPress={}
+                // checked={}
+                // onPress={}
               ></CheckBox>
             </View>
           </Body>
@@ -58,8 +58,8 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                 title={
                   <Text>{question.question.items[1].choices[0].label}</Text>
                 }
-              // checked={}
-              // onPress={}
+                // checked={}
+                // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -67,8 +67,8 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                 title={
                   <Text>{question.question.items[1].choices[1].label}</Text>
                 }
-              // checked={}
-              // onPress={}
+                // checked={}
+                // onPress={}
               ></CheckBox>
               <CheckBox
                 center
@@ -76,15 +76,17 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                 title={
                   <Text>{question.question.items[1].choices[2].label}</Text>
                 }
-              // checked={}
-              // onPress={}
+                // checked={}
+                // onPress={}
               ></CheckBox>
               <Button
                 block
-                onPress={() => answerQuestion({
-                  id: question.question.items[0].id,
-                  choice_id: checkWho
-                })}
+                onPress={() =>
+                  answerQuestion({
+                    id: question.question.items[0].id,
+                    choice_id: checkWho
+                  })
+                }
               >
                 <Text>Submit</Text>
               </Button>
@@ -98,13 +100,14 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
 
 const styles = StyleSheet.create({
   questionCard: {
-    flex: 0.65,
+    alignItems: 'center',
+    flex: 1,
     marginBottom: height * 0.01,
     marginTop: height * 0.01,
     width: '80%'
   },
   questionCardItem: {
-    height: height * 0.15
+    height: height * 0.25
   },
   questionText: {
     alignSelf: 'flex-start',

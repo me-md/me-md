@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Body, Button, Card, CardItem, Input, Item } from 'native-base';
 import { CheckBox } from 'react-native-elements';
+import { AntDesign } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
 
@@ -19,18 +20,62 @@ export default function SingleQ({ question, answerQuestion }) {
   };
 
   const choices = question.question.items[0].choices.map((choice, index) => {
-    return (
-      <CheckBox
-        center
-        key={index}
-        id={choice.id}
-        title={<Text>{choice.label}</Text>}
-        checked={checkWho === choice.id}
-        onPress={() => {
-          setCheckWho(choice.id);
-        }}
-      ></CheckBox>
-    );
+    switch (choice.label) {
+      case 'Yes':
+        return (
+          <AntDesign
+            key={index}
+            name={checkWho === choice.id ? 'checkcircleo' : 'checkcircle'}
+            id={choice.id}
+            style={styles.add}
+            size={26}
+            color='black'
+            onPress={() => {
+              setCheckWho(choice.id);
+            }}
+          />
+        );
+      case 'No':
+        return (
+          <AntDesign
+            key={index}
+            name='closecircleo'
+            id={choice.id}
+            style={styles.add}
+            size={26}
+            color='black'
+            onPress={() => {
+              setCheckWho(choice.id);
+            }}
+          />
+        );
+      case `Don't know`:
+        return (
+          <AntDesign
+            key={index}
+            name='questioncircleo'
+            id={choice.id}
+            style={styles.add}
+            size={26}
+            color='black'
+            onPress={() => {
+              setCheckWho(choice.id);
+            }}
+          />
+        );
+      default:
+        <></>;
+    }
+    // <CheckBox
+    //   center
+    //   key={index}
+    //   id={choice.id}
+    //   // title={<Text>{choice.label}</Text>}
+    //   checked={checkWho === choice.id}
+    //   onPress={() => {
+    //     setCheckWho(choice.id);
+    //   }}
+    // ></CheckBox>
   });
 
   return (
@@ -39,13 +84,15 @@ export default function SingleQ({ question, answerQuestion }) {
         <Body>
           <Text style={styles.questionText}>{question.question.text}</Text>
           <View style={styles.checkboxes}>{choices}</View>
-          {checkWho.length ?
-            (<Button block onPress={() => handleSubmit()}>
+          {checkWho.length ? (
+            <Button block onPress={() => handleSubmit()}>
               <Text>Submit</Text>
-            </Button>) :
-            (<Button disabled block>
+            </Button>
+          ) : (
+            <Button disabled block>
               <Text>Submit</Text>
-            </Button>)}
+            </Button>
+          )}
         </Body>
       </CardItem>
     </Card>
@@ -59,7 +106,7 @@ const styles = StyleSheet.create({
     width: '80%'
   },
   questionCardItem: {
-    height: height * 0.15
+    height: height * 0.2
   },
   questionText: {
     alignSelf: 'flex-start',

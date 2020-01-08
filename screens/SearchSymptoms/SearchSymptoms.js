@@ -128,12 +128,14 @@ export default function SymptomsScreen({ navigation }) {
             </View>
             <View style={styles.searchResults}>{displaySymptoms}</View>
           </ScrollView>
-          {symptoms.length >= 3 && <Entypo
-            name='chevron-thin-down'
-            size={36}
-            color='white'
-            onPress={() => sendInitialSymptoms()}
-          />}
+          {symptoms.length >= 3 && (
+            <Entypo
+              name='chevron-thin-down'
+              size={36}
+              color='white'
+              onPress={() => sendInitialSymptoms()}
+            />
+          )}
         </View>
       </LinearGradient>
     </View>

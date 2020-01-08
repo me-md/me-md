@@ -24,11 +24,11 @@ export default function SymptomsQA({ navigation }) {
       setQuestion(symptomFollowup);
       symptomFollowup.should_stop
         ? navigation.push('Results', {
-          userInfo,
-          symptomFollowup,
-          location,
-          stateAbbreviation
-        })
+            userInfo,
+            symptomFollowup,
+            location,
+            stateAbbreviation
+          })
         : null;
     } catch (error) {
       throw new Error(error);
@@ -85,12 +85,12 @@ export default function SymptomsQA({ navigation }) {
             color='white'
             onPress={() => navigation.goBack()}
           />
-          <View style={styles.parentContainer}>
-            <Text style={styles.symptomText}>Regarding your symptoms:</Text>
-            <ScrollView style={styles.card}>
+          <Text style={styles.symptomText}>Regarding your symptoms:</Text>
+          <ScrollView style={styles.card}>
+            <View style={styles.cardContainer}>
               {question.question && displayQuestion()}
-            </ScrollView>
-          </View>
+            </View>
+          </ScrollView>
         </View>
       </LinearGradient>
     </View>
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems: 'center',
     flex: 1,
-    // justifyContent: 'center',
     marginBottom: height * 0.05,
     marginTop: height * 0.05,
     width: '100%'
@@ -120,11 +119,18 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   symptomText: {
-    fontSize: 16,
+    alignSelf: 'flex-start',
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
     padding: 0
   },
-  card: {
+  cardContainer: {
+    alignItems: 'center',
     flex: 1,
+    width: '100%'
+  },
+  card: {
     padding: 0,
     width: '100%'
   },
