@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import { Button, Text } from 'native-base';
-import { CheckBox } from 'react-native-elements';
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
+import Checkbox from '../../components/Checkbox';
 
 const height = Dimensions.get('window').height;
 
@@ -51,7 +51,8 @@ export default function TermsAndConditionsScreen({ navigation }) {
             </ScrollView>
           </View>
           <View>
-            <CheckBox
+            <Checkbox />
+            {/* <CheckBox
               center
               title={
                 <Text style={styles.agreement}>
@@ -65,7 +66,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
                   isButtonEnabled: !isChecked.isButtonEnabled
                 })
               }
-            />
+            /> */}
           </View>
           {isChecked.isButtonEnabled ? (
             <Button
@@ -76,10 +77,10 @@ export default function TermsAndConditionsScreen({ navigation }) {
               <Text>CONTINUE</Text>
             </Button>
           ) : (
-              <Button disabled block style={styles.button}>
-                <Text>CONTINUE</Text>
-              </Button>
-            )}
+            <Button disabled block style={styles.button}>
+              <Text>CONTINUE</Text>
+            </Button>
+          )}
         </View>
       </ScrollView>
     </Fragment>
