@@ -7,6 +7,12 @@ MeMD is a React Native App allowing a user to self diagnosis medical conditions 
 <!--ts-->
    * [Table of Contents](#table-of-contents)
    * [Set Up](#set-up)
+   * [Focuses](#focuses)
+   * [Screenshots](#screenshots)
+   * [Tech Stack](#tech-stack)
+   * [Team](#team)
+   * [Project Board](#project-board)
+   
 <!--te-->
 
 ### Set Up
@@ -60,9 +66,17 @@ The primary learning goals for this project are:
 
 ### Tech Stack
 
+#### Front End
 - React Native
 - React Navigation
 - Tested with Jest/Enzyme
+
+#### Front End
+- Elixir/Phoenix
+- Pyhton/Django
+- Python/Flask
+- Ruby/Rails
+
 
 ### Team
 - [Vanessa Randall](https://github.com/vrandall66)
