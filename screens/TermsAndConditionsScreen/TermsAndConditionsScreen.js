@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
-import { Button } from 'native-base';
+import { Dimensions, Image, StyleSheet, View } from 'react-native';
+import { Button, Text } from 'native-base';
 import { CheckBox } from 'react-native-elements';
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -43,10 +43,10 @@ export default function TermsAndConditionsScreen({ navigation }) {
                 other qualified health provider with any questions you may have
                 regarding a medical condition. Never disregard professional
                 medical advice or delay in seeking it because of something you
-                have read on meMD! If you think you may have a medical
-                emergency, call your doctor or 911 immediately. meMD does not
+                have read on MeMD! If you think you may have a medical
+                emergency, call your doctor or 911 immediately. MeMD does not
                 recommend or endorse any specific products or services. Reliance
-                on any information provided by meMD is solely at your own risk.
+                on any information provided by MeMD is solely at your own risk.
               </Text>
             </ScrollView>
           </View>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     width: height * 0.1
   },
   heading: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     margin: height * 0.02,
     marginBottom: height * 0.0005,
     fontSize: height * 0.04,

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { Body, Button, Card, CardItem } from 'native-base';
+import { Dimensions, StyleSheet, SafeAreaView, View, LayoutAnimation, Platform, UIManager, TouchableOpacity, FlatList } from 'react-native';
+import { Body, Button, Card, CardItem, Text } from 'native-base';
+import * as Progress from 'react-native-progress';
 import { Header } from '../../components/Header';
 import { specifyTargetCondition } from '../../utils/helpers/helpers';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -19,6 +20,14 @@ export default function SymptomsQA({ navigation }) {
 
   const [explanation, setExplanation] = useState({});
   const [conditionDetails, setConditionDetails] = useState({});
+  const [expanded, setExpanded] = useState({});
+
+
+
+  const changeLayout = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setExpanded(!expanded);
+  }
 
   useEffect(() => {
     getResults();
@@ -43,12 +52,22 @@ export default function SymptomsQA({ navigation }) {
       <Card style={styles.topDiagnosis}>
         <CardItem>
           <Body>
-            <Text>{conditionDetails.data.common_name}</Text>
-            <Text>{conditionDetails.data.severity}</Text>
-            <Text>{conditionDetails.data.triage_level}</Text>
-            <Text>{conditionDetails.data.hint}</Text>
-            <Text>Supporting Evidence:</Text>
-            {createEvidence()}
+            <Text style={styles.conditionName}>{`${conditionDetails.data.name} (${conditionDetails.data.common_name})`}</Text>
+            <Progress.Bar style={{ marginBottom: height * 0.01 }} progress={symptomFollowup.conditions[0].probability} width={200} />
+            <Text style={styles.probability}>{`Probablity: ${(symptomFollowup.conditions[0].probability * 100).toFixed(0)}%`}</Text>
+            <Text style={styles.recommendation}>{`Recommendation: ${conditionDetails.data.triage_level}. ${conditionDetails.data.hint}`}</Text>
+            <View style={styles.btnTextHolder}>
+              <TouchableOpacity activeOpacity={0.8} onPress={changeLayout} style={styles.Btn}>
+                <Text style={styles.btnText}>Supporting Evidence</Text>
+              </TouchableOpacity>
+              <SafeAreaView style={{ flex: 1, height: expanded ? null : 0, overflow: 'hidden' }}>
+                <FlatList
+                  data={createEvidence()}
+                  style={{ padding: height * 0.005 }}
+                  renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+                />
+              </SafeAreaView>
+            </View>
           </Body>
         </CardItem>
       </Card>
@@ -57,7 +76,7 @@ export default function SymptomsQA({ navigation }) {
 
   const createEvidence = () => {
     return explanation.supporting_evidence.map((evidence, index) => {
-      return <Text key={index}>{evidence.common_name}</Text>;
+      return { key: `• ${evidence.common_name}` }
     });
   };
 
@@ -67,8 +86,9 @@ export default function SymptomsQA({ navigation }) {
         <Card key={index} style={styles.conditionCard}>
           <CardItem>
             <Body>
-              <Text>Condition: {condition.common_name}</Text>
-              <Text>Probability: {condition.probability}</Text>
+              <Text style={styles.secondaryCondition}>{`${condition.name} (${condition.common_name})`}</Text>
+              <Progress.Bar style={{ marginBottom: height * 0.01 }} progress={condition.probability} width={200} />
+              <Text>{`Probability: ${(condition.probability * 100).toFixed(0)}%`}</Text>
             </Body>
           </CardItem>
         </Card>
@@ -84,6 +104,8 @@ export default function SymptomsQA({ navigation }) {
         {getTopDiagnoses()}
       </ScrollView>
       <Button
+        block
+        style={styles.button}
         onPress={() =>
           navigation.push('Doctors', {
             location,
@@ -95,7 +117,7 @@ export default function SymptomsQA({ navigation }) {
           })
         }
       >
-        <Text>Find Doctors</Text>
+        <Text>FIND DOCTORS</Text>
       </Button>
     </View>
   );
@@ -113,8 +135,16 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     marginBottom: height * 0.05,
-    marginTop: height * 0.05,
+    marginTop: height * 0.02,
     width: '100%'
+  },
+  conditionName: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: height * 0.01
+  },
+  recommendation: {
+    marginTop: height * 0.01
   },
   symptomText: {
     alignSelf: 'flex-start',
@@ -133,8 +163,33 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%'
   },
+  secondaryCondition: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: height * 0.01,
+  },
   topDiagnosis: {
     flex: 1,
     width: '100%'
+  },
+  btnText: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 14
+  },
+  btnTextHolder: {
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.5)',
+    marginTop: height * 0.01,
+    width: '100%'
+  },
+  Btn: {
+    padding: 10,
+    backgroundColor: '#004EFF'
+  },
+  button: {
+    alignSelf: 'center',
+    marginBottom: height * 0.05,
+    width: '80%'
   }
 });

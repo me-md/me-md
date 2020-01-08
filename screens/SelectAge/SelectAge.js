@@ -25,20 +25,26 @@ export default function SelectAge({ navigation }) {
           />
           <View style={styles.childContainer}>
             <Text style={styles.title}>Age</Text>
-            <MaterialIcons name='cake' size={48} color='white' />
+            <MaterialIcons name='cake' size={80} color='white' />
             <Item style={styles.input}>
               <Input
-                placeholder='55'
+                placeholder='35'
+                placeholderTextColor="#919191"
                 style={styles.input}
                 onChangeText={text => setAge(text)}
               />
             </Item>
           </View>
-          {age !== '' && (<Entypo
+          {age !== '' ? (<Entypo
             name='chevron-thin-down'
             size={36}
             color='white'
             onPress={() => navigation.push('Location', { sex, age })}
+          />) : (<Entypo
+            name='chevron-thin-down'
+            size={36}
+            color='white'
+            style={{ opacity: 0 }}
           />)}
         </View>
       </LinearGradient>
@@ -70,11 +76,13 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 36,
     fontWeight: 'bold',
+    textAlign: 'center',
     width: '20%'
   },
   childContainer: {
     alignItems: 'center',
-    flex: 0.75,
-    justifyContent: 'space-evenly'
+    flex: 1,
+    justifyContent: 'space-evenly',
+    marginBottom: height * 0.30
   }
 });

@@ -85,10 +85,12 @@ export default function SymptomsQA({ navigation }) {
             color='white'
             onPress={() => navigation.goBack()}
           />
-          <Text style={styles.symptomText}>Regarding your symptoms:</Text>
-          <ScrollView style={styles.card}>
-            {question.question && displayQuestion()}
-          </ScrollView>
+          <View style={styles.parentContainer}>
+            <Text style={styles.symptomText}>Regarding your symptoms:</Text>
+            <ScrollView style={styles.card}>
+              {question.question && displayQuestion()}
+            </ScrollView>
+          </View>
         </View>
       </LinearGradient>
     </View>
@@ -107,13 +109,17 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     marginBottom: height * 0.05,
     marginTop: height * 0.05,
     width: '100%'
   },
+  parentContainer: {
+    alignContent: 'center',
+    flex: 1,
+    width: '100%'
+  },
   symptomText: {
-    alignSelf: 'flex-start',
     fontSize: 16,
     padding: 0
   },

@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Body, Card, CardItem, Item, Input } from 'native-base';
-import { Entypo } from '@expo/vector-icons';
+import { AntDesign, Entypo } from '@expo/vector-icons';
 import { getCommonRiskFactors } from '../../utils/apiCalls/SymptomsAndRiskFactors/getCommonRiskFactors';
 
 const height = Dimensions.get('window').height;
@@ -53,22 +53,19 @@ export default function RiskFactors({ navigation }) {
     );
     return (
       <Card key={factor.id} style={styles.riskFactorCard}>
-        <CardItem>
-          <Body>
-            <Text style={styles.questionText}>{factor.question}</Text>
-            <View style={styles.checkboxes}>
-              <CheckBox
-                center
-                id={factor.id}
-                title={<Text>Yes</Text>}
-                checked={presentFactors[foundIndex].present}
-                onPress={() => {
-                  findRiskToUpdate(factor.id);
-                }}
-              ></CheckBox>
-            </View>
-          </Body>
-        </CardItem>
+        <View style={styles.checkboxes}>
+          <Text style={styles.questionText}>{factor.question}</Text>
+          <AntDesign
+            name={presentFactors[foundIndex].present ? 'checkcircle' : 'pluscircleo'}
+            id={factor.id}
+            color={presentFactors[foundIndex].present ? 'green' : 'black'}
+            style={styles.add}
+            size={26}
+            onPress={() => {
+              findRiskToUpdate(factor.id);
+            }}
+          />
+        </View>
       </Card>
     );
   });
@@ -91,7 +88,7 @@ export default function RiskFactors({ navigation }) {
             onPress={() => navigation.goBack()}
           />
           <View style={styles.contentContainer}>
-            <Text style={styles.header}>Common Risk Factors:</Text>
+            <Text style={styles.header}>Common Risk Factors</Text>
             {riskFactorAnswers}
           </View>
           <Entypo
@@ -150,6 +147,7 @@ const styles = StyleSheet.create({
   },
   riskFactorCard: {
     alignItems: 'center',
+    borderRadius: 15,
     justifyContent: 'center',
     flex: 0.15,
     marginBottom: height * 0.001,
@@ -157,11 +155,11 @@ const styles = StyleSheet.create({
     width: '75%'
   },
   checkboxes: {
-    alignSelf: 'flex-start',
+    alignContent: 'center',
     flexDirection: 'row',
     fontSize: 12,
-    // marginBottom: height * 0.001,
-    // marginTop: height * 0.001,
-    padding: 0
+    justifyContent: 'space-between',
+    padding: 10,
+    width: '100%'
   }
 });

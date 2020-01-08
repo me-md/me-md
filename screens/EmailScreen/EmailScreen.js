@@ -38,7 +38,7 @@ export default function EmailScreen({ navigation }) {
         }
       />
       <View style={styles.container}>
-        <Text style={styles.title}>Send Detailed Report:</Text>
+        <Text style={styles.title}>Send Detailed Report</Text>
         <Image
           source={require('../../assets/images/report.png')}
           style={styles.report}
@@ -65,7 +65,7 @@ export default function EmailScreen({ navigation }) {
           </Fragment>
         ) : (
             <Fragment>
-              <Item style={styles.input}>
+              <Item style={styles.item}>
                 <Input
                   placeholder='Enter your email address'
                   style={styles.input}
@@ -142,6 +142,10 @@ const styles = StyleSheet.create({
     marginRight: height * 0.02,
     marginTop: height * 0.025
   },
+  item: {
+    marginBottom: height * 0.1,
+    width: '80%'
+  },
   input: {
     fontSize: 16,
     textAlign: 'center',
@@ -154,8 +158,9 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
+    height: height * 0.07,
     justifyContent: 'space-around',
-    marginTop: height * 0.02,
+    marginTop: height * 0.05,
     width: '60%'
   },
   buttonText: {

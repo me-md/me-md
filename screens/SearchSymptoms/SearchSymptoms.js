@@ -29,22 +29,23 @@ export default function SymptomsScreen({ navigation }) {
     }
   };
 
-  const displaySelectedSymptoms = symptoms.map((symptom, index) => {
-    return (
-      <CardItem key={index} style={styles.selectedSymptom}>
-        <Text style={{ fontSize: 14 }}>{symptom.common_name}</Text>
-        <AntDesign
-          name='closecircle'
-          style={styles.delete}
-          id={symptom.id}
-          size={26}
-          onPress={() => {
-            findSymptom(symptom);
-          }}
-        />
-      </CardItem>
-    );
-  });
+  const displaySelectedSymptoms =
+    symptoms.map((symptom, index) => {
+      return (
+        <CardItem key={index} style={styles.selectedSymptom}>
+          <Text style={{ fontSize: 14 }}>{symptom.common_name}</Text>
+          <AntDesign
+            name='closecircle'
+            style={styles.delete}
+            id={symptom.id}
+            size={26}
+            color='red'
+            onPress={() => {
+              findSymptom(symptom)
+            }}
+          />
+        </CardItem>)
+    })
 
   const findSymptom = result => {
     let existingSymptom = symptoms.find(symptom => symptom.id == result.id);
@@ -81,7 +82,7 @@ export default function SymptomsScreen({ navigation }) {
           id={result.id}
           style={styles.add}
           size={26}
-          color='black'
+          color={found ? 'green' : 'black'}
           onPress={() => {
             findSymptom(result);
           }}
@@ -197,12 +198,12 @@ const styles = StyleSheet.create({
   selectedSymptom: {
     backgroundColor: 'rgba(256, 256, 256, 0.9)',
     borderRadius: 50,
-    height: height * 0.06,
+    height: height * 0.08,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginLeft: 5,
-    marginTop: 10,
-    padding: 10
+    justifyContent: "space-between",
+    marginLeft: height * 0.01,
+    marginTop: height * 0.01,
+    padding: height * 0.01,
   },
   searchResults: {
     alignSelf: 'center',
@@ -220,11 +221,12 @@ const styles = StyleSheet.create({
   checkboxes: {
     alignItems: 'center',
     backgroundColor: 'rgba(256, 256, 256, 0.7)',
-    borderBottomWidth: 2,
     borderColor: 'grey',
-    height: 80,
+    borderRadius: 15,
+    height: height * 0.1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
+    marginTop: height * 0.02,
     padding: 10
   },
   delete: {

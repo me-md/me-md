@@ -16,8 +16,8 @@ export default function WelcomeScreen({ navigation }) {
       <View style={styles.welcome}>
         <Text style={styles.greeting}>Hello!</Text>
         <Text style={styles.message}>
-          Welcome to MeMD, an online platform designed to help diagnose symptoms
-          and locate potential doctors. Please click BEGIN to start your health
+          Welcome to MeMD, an online platform designed to help diagnose conditions
+          and locate potential doctors. Please click BEGIN CHECKUP to start your health
           checkup.
         </Text>
         <Button
