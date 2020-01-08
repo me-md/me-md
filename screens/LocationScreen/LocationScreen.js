@@ -98,9 +98,6 @@ const styles = StyleSheet.create({
     flex: 0.8,
     marginBottom: height * 0.18
   },
-  pin: {
-
-  },
   picker: {
     color: 'white',
     width: 200
