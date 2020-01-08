@@ -1,12 +1,13 @@
 const infermedicaUrl = 'https://api.infermedica.com/v2';
-import { REACT_APP_ID, REACT_APP_KEY } from 'react-native-dotenv';
+import Config from 'react-native-config';
+// import { REACT_APP_ID, REACT_APP_KEY } from 'react-native-dotenv';
 
 export const getExplanation = async userInfo => {
   const options = {
     method: 'POST',
     headers: {
-      'App-Id': `${REACT_APP_ID}`,
-      'App-Key': `${REACT_APP_KEY}`,
+      'App-Id': `${Config.REACT_APP_ID}`,
+      'App-Key': `${Config.REACT_APP_KEY}`,
       'Content-Type': 'application/json',
       Model: 'infermedica-en'
     },
