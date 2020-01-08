@@ -71,7 +71,7 @@ The primary learning goals for this project are:
 - React Navigation
 - Tested with Jest/Enzyme
 
-#### Front End
+#### Back End
 - Elixir/Phoenix
 - Pyhton/Django
 - Python/Flask
