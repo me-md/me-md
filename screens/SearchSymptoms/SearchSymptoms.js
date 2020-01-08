@@ -4,7 +4,7 @@ import { Body, Card, CardItem, Input, Item } from 'native-base';
 import { Entypo, AntDesign, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
-import { searchAllSymptoms } from '../../utils/apiCalls/apiCalls';
+import { searchAllSymptoms } from '../../utils/apiCalls/SymptomsAndRiskFactors/searchAllSymptoms';
 import { cleanInitialUserReport } from '../../utils/helpers/helpers';
 
 const height = Dimensions.get('window').height;
@@ -46,8 +46,6 @@ export default function SymptomsScreen({ navigation }) {
           />
         </CardItem>)
     })
-
-
 
   const findSymptom = result => {
     let existingSymptom = symptoms.find(symptom => symptom.id == result.id);
@@ -110,7 +108,7 @@ export default function SymptomsScreen({ navigation }) {
           <Item style={styles.searchBox}>
             <Input
               placeholder='Search all symptoms'
-              placeholderTextColor="#f8f8f8"
+              placeholderTextColor='#f8f8f8'
               style={styles.input}
               onChangeText={text => searchSymptoms(text)}
             />
@@ -121,18 +119,14 @@ export default function SymptomsScreen({ navigation }) {
               style={styles.searchIcon}
             />
           </Item>
-          <Text style={styles.hint}>
-            Select all that apply (at least 3):
-            </Text>
+          <Text style={styles.hint}>Select all that apply (at least 3):</Text>
           <ScrollView style={styles.scroll}>
             <View style={styles.searchResultsContainer}>
               <Card style={styles.selectedContainer}>
                 {displaySelectedSymptoms}
               </Card>
             </View>
-            <View style={styles.searchResults}>
-              {displaySymptoms}
-            </View>
+            <View style={styles.searchResults}>{displaySymptoms}</View>
           </ScrollView>
           {symptoms.length >= 3 && <Entypo
             name='chevron-thin-down'
@@ -182,7 +176,7 @@ const styles = StyleSheet.create({
   },
   hint: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 20
   },
   title: {
     color: 'white',
@@ -199,7 +193,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(256, 256, 256, 0)',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    width: '80%',
+    width: '80%'
   },
   selectedSymptom: {
     backgroundColor: 'rgba(256, 256, 256, 0.9)',

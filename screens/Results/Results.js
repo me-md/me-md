@@ -5,10 +5,8 @@ import * as Progress from 'react-native-progress';
 import { Header } from '../../components/Header';
 import { specifyTargetCondition } from '../../utils/helpers/helpers';
 import { ScrollView } from 'react-native-gesture-handler';
-import {
-  getExplanation,
-  getConditionById
-} from '../../utils/apiCalls/apiCalls';
+import { getExplanation } from '../../utils/apiCalls/Infermedica/getExplanation';
+import { getConditionById } from '../../utils/apiCalls/Conditions/getConditionById';
 
 const height = Dimensions.get('window').height;
 

@@ -1,0 +1,1 @@
+import { getDoctorsForProviderByLocation } from './getDoctorsForProviderByLocation';

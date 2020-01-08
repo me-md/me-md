@@ -4,7 +4,7 @@ import { CheckBox } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Body, Card, CardItem, Item, Input } from 'native-base';
 import { AntDesign, Entypo } from '@expo/vector-icons';
-import { getCommonRiskFactors } from '../../utils/apiCalls/apiCalls';
+import { getCommonRiskFactors } from '../../utils/apiCalls/SymptomsAndRiskFactors/getCommonRiskFactors';
 
 const height = Dimensions.get('window').height;
 
