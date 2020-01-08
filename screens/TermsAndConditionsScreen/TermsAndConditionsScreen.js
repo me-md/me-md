@@ -1,5 +1,11 @@
 import React, { useState, Fragment } from 'react';
-import { Dimensions, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native';
 import { Button, Text } from 'native-base';
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -10,10 +16,11 @@ const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
 export default function TermsAndConditionsScreen({ navigation }) {
-  const [isChecked, setIsChecked] = useState({
-    checked: false,
-    isButtonEnabled: false
-  });
+  const [enabled, setEnabled] = useState(false);
+
+  const changeButton = checked => {
+    setEnabled(checked);
+  };
 
   return (
     <Fragment>
@@ -52,24 +59,9 @@ export default function TermsAndConditionsScreen({ navigation }) {
             </ScrollView>
           </View>
           <View>
-            <Checkbox />
-            {/* <CheckBox
-              center
-              title={
-                <Text style={styles.agreement}>
-                  I read and accept the Terms of Service and Privacy Policy
-                </Text>
-              }
-              checked={isChecked.checked}
-              onPress={() =>
-                setIsChecked({
-                  checked: !isChecked.checked,
-                  isButtonEnabled: !isChecked.isButtonEnabled
-                })
-              }
-            /> */}
+            <Checkbox changeButton={changeButton} />
           </View>
-          {isChecked.isButtonEnabled ? (
+          {enabled ? (
             <Button
               block
               style={styles.button}
