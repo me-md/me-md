@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { Dimensions, Image, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Button, Text } from 'native-base';
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -7,6 +7,7 @@ import { AntDesign } from '@expo/vector-icons';
 import Checkbox from '../../components/Checkbox';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function TermsAndConditionsScreen({ navigation }) {
   const [isChecked, setIsChecked] = useState({
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: height * 0.02,
     marginBottom: height * 0.0005,
-    fontSize: height * 0.04,
+    fontSize: width * 0.07,
     fontWeight: 'bold'
   },
   scrollContainer: {
@@ -127,6 +128,7 @@ const styles = StyleSheet.create({
     margin: height * 0.02
   },
   legal: {
+    fontSize: height * 0.018,
     lineHeight: height * 0.035,
     marginBottom: height * 0.02,
     marginTop: height * 0.02
@@ -141,5 +143,9 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.03,
     marginTop: height * 0.02,
     width: '75%'
+  },
+  checkbox: {
+    height: 30,
+    width: 30
   }
 });

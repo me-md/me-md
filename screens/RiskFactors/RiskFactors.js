@@ -7,6 +7,7 @@ import { AntDesign, Entypo } from '@expo/vector-icons';
 import { getCommonRiskFactors } from '../../utils/apiCalls/SymptomsAndRiskFactors/getCommonRiskFactors';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function RiskFactors({ navigation }) {
   const { age, location, sex, stateAbbreviation } = navigation.state.params;
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
   },
   questionText: {
     alignSelf: 'flex-start',
-    fontSize: 14
+    fontSize: width * 0.030
   },
   riskFactorCard: {
     alignItems: 'center',

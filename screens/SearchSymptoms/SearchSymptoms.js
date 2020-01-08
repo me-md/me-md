@@ -8,6 +8,7 @@ import { searchAllSymptoms } from '../../utils/apiCalls/SymptomsAndRiskFactors/s
 import { cleanInitialUserReport } from '../../utils/helpers/helpers';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function SymptomsScreen({ navigation }) {
   const {
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
   },
   input: {
     color: 'white',
-    fontSize: 24,
+    fontSize: width * 0.05,
     fontWeight: 'bold'
   },
   hint: {
@@ -200,11 +201,12 @@ const styles = StyleSheet.create({
   selectedSymptom: {
     backgroundColor: 'rgba(256, 256, 256, 0.9)',
     borderRadius: 50,
-    height: height * 0.08,
+    // height: height * 0.08,
     flexDirection: 'row',
     justifyContent: "space-between",
     marginLeft: height * 0.01,
     marginTop: height * 0.01,
+    maxWidth: width * 0.9,
     padding: height * 0.01,
   },
   searchResults: {
@@ -217,7 +219,7 @@ const styles = StyleSheet.create({
     width: '90%'
   },
   symptomText: {
-    fontSize: 18,
+    fontSize: width * 0.038,
     width: '70%'
   },
   checkboxes: {
@@ -225,7 +227,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(256, 256, 256, 0.7)',
     borderColor: 'grey',
     borderRadius: 15,
-    height: height * 0.1,
+    height: height * 0.13,
     flexDirection: 'row',
     justifyContent: "space-between",
     marginTop: height * 0.02,

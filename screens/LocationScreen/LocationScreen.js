@@ -22,7 +22,7 @@ export default function LocationScreen({ navigation }) {
   const stateAbbreviations = statesData.map((state, index) => {
     return (
       <Picker.Item
-        style={styles.item}
+        style={{ color: 'white' }}
         label={state.abbreviation}
         value={state.abbreviation}
         key={index}
