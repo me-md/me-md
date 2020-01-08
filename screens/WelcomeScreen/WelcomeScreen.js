@@ -4,29 +4,33 @@ import { Button, Text } from 'native-base';
 import { Header } from '../../components/Header';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
+
 
 export default function WelcomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Header />
-      <Image
-        source={require('../../assets/images/doctor.png')}
-        style={styles.icon}
-      />
-      <View style={styles.welcome}>
-        <Text style={styles.greeting}>Hello!</Text>
-        <Text style={styles.message}>
-          Welcome to MeMD, an online platform designed to help diagnose conditions
-          and locate potential doctors. Please click BEGIN CHECKUP to start your health
-          checkup.
+      <View style={styles.contentContainer} >
+        <Image
+          source={require('../../assets/images/doctor.png')}
+          style={styles.icon}
+        />
+        <View style={styles.welcome}>
+          <Text style={styles.greeting}>Hello!</Text>
+          <Text style={styles.message}>
+            Welcome to MeMD, a mobile platform designed to help diagnose conditions
+            and locate potential doctors. Please click BEGIN CHECKUP to start your health
+            checkup.
         </Text>
-        <Button
-          block
-          style={styles.button}
-          onPress={() => navigation.push('TermsAndConditions')}
-        >
-          <Text>BEGIN CHECKUP</Text>
-        </Button>
+          <Button
+            block
+            style={styles.button}
+            onPress={() => navigation.push('TermsAndConditions')}
+          >
+            <Text>BEGIN CHECKUP</Text>
+          </Button>
+        </View>
       </View>
     </View>
   );
@@ -38,6 +42,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     paddingBottom: height * 0.075
+  },
+  contentContainer: {
   },
   icon: {
     alignSelf: 'center',
@@ -51,12 +57,15 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 40,
     fontWeight: 'bold',
-    margin: height * 0.03
+    margin: width * 0.06,
+  },
+  welcome: {
+    textAlign: 'center'
   },
   message: {
-    fontSize: 26,
-    marginLeft: height * 0.03,
-    marginBottom: height * 0.03
+    alignSelf: 'center',
+    padding: width * 0.06,
+    fontSize: 22,
   },
   button: {
     alignSelf: 'center',

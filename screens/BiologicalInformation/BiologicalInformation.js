@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { Button } from 'native-base';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import { Button, Text } from 'native-base';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function BiologicalInformation({ navigation }) {
   const [sex, setSex] = useState('');
@@ -93,29 +94,34 @@ const styles = StyleSheet.create({
     marginTop: height * 0.06,
   },
   buttonContainer: {
+    alignItems: 'center',
     justifyContent: 'space-between'
   },
   question: {
     color: '#FFFFFF',
-    fontSize: 48,
-    marginBottom: height * 0.07
+    fontSize: width * 0.09,
+    fontWeight: 'bold',
+    marginBottom: height * 0.07,
+    textAlign: 'center',
+    width: width * 0.9
   },
   biologicalInformationButtons: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     height: 100,
     margin: 25,
     padding: 20,
-    width: 225
+    width: width * 0.75
   },
   pressed: {
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     height: 100,
     margin: 25,
     padding: 20,
-    width: 225
+    width: width * 0.75
   },
   biologicalInformationButtonText: {
     color: '#FFFFFF',
-    fontSize: 36
+    fontSize: width * 0.08,
+    width: width * 0.4
   }
 });

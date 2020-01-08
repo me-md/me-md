@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Item, Input } from 'native-base';
+import NumericInput from 'react-native-numeric-input';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
+import { ageData } from '../../utils/ageData/ageData';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function SelectAge({ navigation }) {
   const sex = navigation.state.params.sex;
   const [age, setAge] = useState('');
+
+
 
   return (
     <View style={styles.container}>
@@ -26,14 +30,17 @@ export default function SelectAge({ navigation }) {
           <View style={styles.childContainer}>
             <Text style={styles.title}>Age</Text>
             <MaterialIcons name='cake' size={80} color='white' />
-            <Item style={styles.input}>
-              <Input
-                placeholder='35'
-                placeholderTextColor="#919191"
-                style={styles.input}
-                onChangeText={text => setAge(text)}
-              />
-            </Item>
+            <NumericInput
+              value={age}
+              onChange={(itemValue) =>
+                setAge(itemValue)}
+              minValue={1}
+              maxValue={99}
+              // initValue={35}
+              totalHeight={height * 0.1}
+              totalWidth={width * 0.75}
+              textColor='white'
+            />
           </View>
           {age !== '' ? (<Entypo
             name='chevron-thin-down'
