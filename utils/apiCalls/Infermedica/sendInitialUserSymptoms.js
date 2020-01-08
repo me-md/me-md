@@ -1,4 +1,3 @@
-// import { REACT_APP_ID, REACT_APP_KEY } from 'react-native-dotenv';
 import Config from 'react-native-config';
 
 const infermedicaUrl = 'https://api.infermedica.com/v2';

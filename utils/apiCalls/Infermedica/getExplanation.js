@@ -1,6 +1,5 @@
 const infermedicaUrl = 'https://api.infermedica.com/v2';
 import Config from 'react-native-config';
-// import { REACT_APP_ID, REACT_APP_KEY } from 'react-native-dotenv';
 
 export const getExplanation = async userInfo => {
   const options = {
