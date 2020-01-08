@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { Body, Button, Card, CardItem, Input, Item } from 'native-base';
-import { CheckBox } from 'react-native-elements';
+import React, { useState, Fragment } from 'react';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import { Body, Button, Card, CardItem, Text } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
@@ -23,78 +22,77 @@ export default function SingleQ({ question, answerQuestion }) {
     switch (choice.label) {
       case 'Yes':
         return (
-          <AntDesign
-            key={index}
-            name={checkWho === choice.id ? 'checkcircleo' : 'checkcircle'}
-            id={choice.id}
-            style={styles.add}
-            size={26}
-            color='black'
-            onPress={() => {
-              setCheckWho(choice.id);
-            }}
-          />
+          <Fragment>
+            <Text>Yes</Text>
+            <AntDesign
+              key={index}
+              name={checkWho === choice.id ? 'checkcircle' : 'checkcircleo'}
+              id={choice.id}
+              style={styles.add}
+              size={32}
+              color='green'
+              onPress={() => {
+                setCheckWho(choice.id);
+              }}
+            />
+          </Fragment>
         );
       case 'No':
         return (
-          <AntDesign
-            key={index}
-            name='closecircleo'
-            id={choice.id}
-            style={styles.add}
-            size={26}
-            color='black'
-            onPress={() => {
-              setCheckWho(choice.id);
-            }}
-          />
+          <Fragment>
+            <Text>No</Text>
+            <AntDesign
+              key={index}
+              name={checkWho === choice.id ? 'closecircle' : 'closecircleo'}
+              id={choice.id}
+              style={styles.add}
+              size={32}
+              color='red'
+              onPress={() => {
+                setCheckWho(choice.id);
+              }}
+            />
+          </Fragment>
         );
       case `Don't know`:
         return (
-          <AntDesign
-            key={index}
-            name='questioncircleo'
-            id={choice.id}
-            style={styles.add}
-            size={26}
-            color='black'
-            onPress={() => {
-              setCheckWho(choice.id);
-            }}
-          />
+          <Fragment>
+            <Text>Unsure</Text>
+            <AntDesign
+              key={index}
+              name={
+                checkWho === choice.id ? 'questioncircle' : 'questioncircleo'
+              }
+              id={choice.id}
+              style={styles.add}
+              size={32}
+              color='black'
+              onPress={() => {
+                setCheckWho(choice.id);
+              }}
+            />
+          </Fragment>
         );
       default:
         <></>;
     }
-    // <CheckBox
-    //   center
-    //   key={index}
-    //   id={choice.id}
-    //   // title={<Text>{choice.label}</Text>}
-    //   checked={checkWho === choice.id}
-    //   onPress={() => {
-    //     setCheckWho(choice.id);
-    //   }}
-    // ></CheckBox>
   });
 
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
-      <CardItem style={styles.questionCardItem}>
-        <Body>
-          <Text style={styles.questionText}>{question.question.text}</Text>
-          <View style={styles.checkboxes}>{choices}</View>
-          {checkWho.length ? (
-            <Button block onPress={() => handleSubmit()}>
-              <Text>Submit</Text>
-            </Button>
-          ) : (
-            <Button disabled block>
-              <Text>Submit</Text>
-            </Button>
-          )}
-        </Body>
-      </CardItem>
+      <Body style={styles.cardBody}>
+        <Text style={styles.questionText}>{question.question.text}</Text>
+        <View style={styles.checkboxes}>{choices}</View>
+        {checkWho.length ? (
+          <Button style={styles.button} block onPress={() => handleSubmit()}>
+            <Text>Submit</Text>
+          </Button>
+        ) : (
+          <Button style={styles.button} disabled block>
+            <Text>Submit</Text>
+          </Button>
+        )}
+      </Body>
     </Card>
   );
 }
@@ -105,19 +103,25 @@ const styles = StyleSheet.create({
     marginTop: height * 0.01,
     width: '80%'
   },
-  questionCardItem: {
-    height: height * 0.2
+  cardBody: {
+    padding: height * 0.02,
+    width: '100%'
   },
   questionText: {
     alignSelf: 'flex-start',
-    flex: 1,
+    flex: 0.5,
     fontSize: 16,
+    marginBottom: height * 0.02,
+    marginTop: height * 0.01,
     padding: 0
   },
   checkboxes: {
-    alignSelf: 'flex-start',
+    alignItems: 'center',
     flexDirection: 'row',
     fontSize: 12,
-    padding: 0
+    justifyContent: 'space-around',
+    marginBottom: height * 0.02,
+    padding: 0,
+    width: '90%'
   }
 });

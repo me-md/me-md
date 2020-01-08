@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import { Text } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -85,7 +86,7 @@ export default function SymptomsQA({ navigation }) {
             color='white'
             onPress={() => navigation.goBack()}
           />
-          <Text style={styles.symptomText}>Regarding your symptoms:</Text>
+          <Text style={styles.symptomText}>Regarding your symptoms</Text>
           <ScrollView style={styles.card}>
             <View style={styles.cardContainer}>
               {question.question && displayQuestion()}
@@ -108,7 +109,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     alignItems: 'center',
-    flex: 1,
     marginBottom: height * 0.05,
     marginTop: height * 0.05,
     width: '100%'
@@ -119,15 +119,18 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   symptomText: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     color: 'white',
     fontSize: 30,
     fontWeight: 'bold',
+    marginBottom: height * 0.02,
     padding: 0
   },
   cardContainer: {
+    alignContent: 'center',
     alignItems: 'center',
     flex: 1,
+    justifyContent: 'center',
     width: '100%'
   },
   card: {
