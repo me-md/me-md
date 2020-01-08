@@ -6,7 +6,7 @@ import { Feather } from '@expo/vector-icons';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
-export default function Checkbox() {
+export default function Checkbox({ changeButton }) {
   const [checked, setChecked] = useState(false);
 
   return (
@@ -17,6 +17,7 @@ export default function Checkbox() {
           size={24}
           color='black'
           onPress={() => {
+            changeButton(!checked);
             setChecked(!checked);
           }}
         />
