@@ -1,5 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { ActivityIndicator, Dimensions, Picker, StyleSheet, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Dimensions,
+  Picker,
+  StyleSheet,
+  View
+} from 'react-native';
 import { Body, Button, Card, CardItem, Text } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Header } from '../../components/Header';
@@ -29,7 +35,7 @@ export default function DoctorsScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     getProviders();
     getDoctorsForLocation();
   }, []);
@@ -82,8 +88,6 @@ export default function DoctorsScreen({ navigation }) {
   );
 
   const nearbyPractices = doctors.map((doctor, index) => {
-    // let distance = await doctorDistance(doctor);
-    // console.log(typeof distance);
     return (
       <Card key={index}>
         <CardItem>
@@ -127,7 +131,7 @@ export default function DoctorsScreen({ navigation }) {
       <Header />
       <View style={styles.contentContainer}>
         <Text style={styles.title}>Doctors and Specialists Near You</Text>
-        {allProviders.length ?
+        {allProviders.length ? (
           <Fragment>
             <Picker
               block
@@ -135,7 +139,7 @@ export default function DoctorsScreen({ navigation }) {
               mode={'dialog'}
               selectedValue={currentProvider}
               style={styles.picker}
-              onValueChange={(itemValue) => handleChange(itemValue)}
+              onValueChange={itemValue => handleChange(itemValue)}
             >
               <Picker.Item
                 label={'Select an insurance provider'}
@@ -144,12 +148,22 @@ export default function DoctorsScreen({ navigation }) {
               />
               {displayProviders}
             </Picker>
-            {loading ? <View style={styles.horizontal}>
-              <ActivityIndicator size="large" color="#0000ff" />
-            </View> :
+            {loading ? (
+              <View style={styles.horizontal}>
+                <ActivityIndicator size='large' color='#0000ff' />
+              </View>
+            ) : (
               <Fragment>
                 <ScrollView block style={styles.doctorsContainer}>
-                  {nearbyPractices.length > 0 && !loading ? nearbyPractices : <View style={styles.noDoctorsContainer}><Text style={styles.noDoctors}>{`There are currently no doctors in ${stateAbbreviation} for this insurance provider.`}</Text></View>}
+                  {nearbyPractices.length > 0 && !loading ? (
+                    nearbyPractices
+                  ) : (
+                    <View style={styles.noDoctorsContainer}>
+                      <Text
+                        style={styles.noDoctors}
+                      >{`There are currently no doctors in ${stateAbbreviation} for this insurance provider.`}</Text>
+                    </View>
+                  )}
                 </ScrollView>
                 <Button
                   block
@@ -165,11 +179,13 @@ export default function DoctorsScreen({ navigation }) {
                   <Text style={styles.buttonText}>Email Report</Text>
                 </Button>
               </Fragment>
-            }
-          </Fragment> :
+            )}
+          </Fragment>
+        ) : (
           <View style={styles.horizontal}>
-            <ActivityIndicator size="large" color="#0000ff" />
-          </View>}
+            <ActivityIndicator size='large' color='#0000ff' />
+          </View>
+        )}
       </View>
     </View>
   );
@@ -178,7 +194,7 @@ export default function DoctorsScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom: height * 0.05,
+    paddingBottom: height * 0.05
   },
   horizontal: {
     flex: 0.5,
@@ -187,7 +203,7 @@ const styles = StyleSheet.create({
     padding: height * 0.2
   },
   contentContainer: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   title: {
     alignSelf: 'center',
