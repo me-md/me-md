@@ -10,10 +10,7 @@
     "coverage": "npm test -- --coverage --watchAll=false"
   },
   "jest": {
-    "preset": "jest-expo",
-    "setupFiles": [
-      "<rootDir>/screens/__tests__/setup.js"
-    ]
+    "preset": "jest-expo"
   },
   "dependencies": {
     "@expo/samples": "~36.0.0",
