@@ -13,6 +13,9 @@ export const getExplanation = async userInfo => {
     body: JSON.stringify(userInfo)
   };
   const response = await fetch(`${infermedicaUrl}/explain`, options);
+  setTimeout(() => {
+
+  }, 2000);
   if (!response.ok) {
     throw new Error(
       "Could not get condition's supporting evidence, please try again later."

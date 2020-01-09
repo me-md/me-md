@@ -14,6 +14,9 @@ export const sendInitialUserSymptoms = async userSymptoms => {
     body: JSON.stringify(userSymptoms)
   };
   const response = await fetch(`${infermedicaUrl}/diagnosis`, options);
+  setTimeout(() => {
+
+  }, 2000);
   if (!response.ok) {
     throw new Error(
       'Could not get follow up symptom questions, please try again later.'
