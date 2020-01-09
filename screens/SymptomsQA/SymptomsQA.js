@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 import SingleQ from '../../components/SingleQ';
 import GroupSingleQ from '../../components/GroupSingleQ';
+import GroupMultipleQ from '../../components/GroupMultipleQ';
 import { sendInitialUserSymptoms } from '../../utils/apiCalls/Infermedica/sendInitialUserSymptoms';
 
 const height = Dimensions.get('window').height;
@@ -57,7 +58,7 @@ export default function SymptomsQA({ navigation }) {
         );
       case 'group_multiple':
         return (
-          <GroupSingleQ
+          <GroupMultipleQ
             style={styles.question}
             question={question}
             answerQuestion={answerQuestion}
