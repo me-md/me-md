@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     alignItems: 'center',
-    flex: 1
+    flex: 0.8
   },
   close: {
     alignSelf: 'flex-end',

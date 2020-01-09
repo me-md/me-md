@@ -4,7 +4,6 @@ import { AppContainer } from './navigation/AppContainer';
 import FontAwesome from './assets/fonts/FontAwesome.ttf';
 import Ionicons from './assets/fonts/ionicons.ttf';
 
-
 console.disableYellowBox = true;
 
 export default class App extends React.Component {
