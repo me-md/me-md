@@ -84,115 +84,125 @@ exports[`App renders the loading screen 1`] = `
                 }
               }
             />
-            <Image
-              source={1}
-              style={
-                Object {
-                  "alignSelf": "center",
-                  "borderRadius": 50,
-                  "borderWidth": 0,
-                  "height": 266.8,
-                  "marginBottom": 13.34,
-                  "marginTop": 53.36,
-                  "width": 266.8,
-                }
-              }
-            />
-            <View>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "margin": 40.019999999999996,
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                Hello!
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontSize": 26,
-                      "marginBottom": 40.019999999999996,
-                      "marginLeft": 40.019999999999996,
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                Welcome to MeMD, an online platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
-              </Text>
-              <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
+            <View
+              style={Object {}}
+            >
+              <Image
+                source={1}
                 style={
                   Object {
-                    "alignItems": "center",
                     "alignSelf": "center",
-                    "backgroundColor": "#007aff",
-                    "borderBottomWidth": null,
-                    "borderColor": "#007aff",
-                    "borderLeftWidth": null,
-                    "borderRadius": 5,
-                    "borderRightWidth": null,
-                    "borderTopWidth": null,
-                    "borderWidth": undefined,
-                    "elevation": 2,
-                    "flexDirection": "row",
-                    "height": 45,
-                    "justifyContent": "center",
-                    "marginTop": 26.68,
-                    "opacity": 1,
-                    "paddingBottom": 6,
-                    "paddingTop": 6,
-                    "shadowColor": undefined,
-                    "shadowOffset": undefined,
-                    "shadowOpacity": undefined,
-                    "shadowRadius": undefined,
-                    "width": "75%",
+                    "borderRadius": 50,
+                    "borderWidth": 0,
+                    "height": 266.8,
+                    "marginBottom": 13.34,
+                    "marginTop": 53.36,
+                    "width": 266.8,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "textAlign": "center",
                   }
                 }
               >
                 <Text
                   style={
-                    Object {
-                      "backgroundColor": "transparent",
-                      "color": "#fff",
-                      "fontFamily": "System",
-                      "fontSize": 16.5,
-                      "marginLeft": 0,
-                      "marginRight": 0,
-                      "paddingLeft": 16,
-                      "paddingRight": 16,
-                    }
+                    Array [
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "System",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "fontSize": 40,
+                        "fontWeight": "bold",
+                        "margin": 45,
+                      },
+                    ]
                   }
                   uppercase={false}
                 >
-                  BEGIN CHECKUP
+                  Hello!
                 </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "System",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "fontSize": 22,
+                        "padding": 45,
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Welcome to MeMD, a mobile platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
+                </Text>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "alignSelf": "center",
+                      "backgroundColor": "#007aff",
+                      "borderBottomWidth": null,
+                      "borderColor": "#007aff",
+                      "borderLeftWidth": null,
+                      "borderRadius": 5,
+                      "borderRightWidth": null,
+                      "borderTopWidth": null,
+                      "borderWidth": undefined,
+                      "elevation": 2,
+                      "flexDirection": "row",
+                      "height": 45,
+                      "justifyContent": "center",
+                      "marginTop": 26.68,
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingTop": 6,
+                      "shadowColor": undefined,
+                      "shadowOffset": undefined,
+                      "shadowOpacity": undefined,
+                      "shadowRadius": undefined,
+                      "width": "75%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontFamily": "System",
+                        "fontSize": 16.5,
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                        "paddingLeft": 16,
+                        "paddingRight": 16,
+                      }
+                    }
+                    uppercase={false}
+                  >
+                    BEGIN CHECKUP
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -287,115 +297,125 @@ exports[`App renders the root without loading screen 1`] = `
                 }
               }
             />
-            <Image
-              source={1}
-              style={
-                Object {
-                  "alignSelf": "center",
-                  "borderRadius": 50,
-                  "borderWidth": 0,
-                  "height": 266.8,
-                  "marginBottom": 13.34,
-                  "marginTop": 53.36,
-                  "width": 266.8,
-                }
-              }
-            />
-            <View>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "margin": 40.019999999999996,
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                Hello!
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontSize": 26,
-                      "marginBottom": 40.019999999999996,
-                      "marginLeft": 40.019999999999996,
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                Welcome to MeMD, an online platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
-              </Text>
-              <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
+            <View
+              style={Object {}}
+            >
+              <Image
+                source={1}
                 style={
                   Object {
-                    "alignItems": "center",
                     "alignSelf": "center",
-                    "backgroundColor": "#007aff",
-                    "borderBottomWidth": null,
-                    "borderColor": "#007aff",
-                    "borderLeftWidth": null,
-                    "borderRadius": 5,
-                    "borderRightWidth": null,
-                    "borderTopWidth": null,
-                    "borderWidth": undefined,
-                    "elevation": 2,
-                    "flexDirection": "row",
-                    "height": 45,
-                    "justifyContent": "center",
-                    "marginTop": 26.68,
-                    "opacity": 1,
-                    "paddingBottom": 6,
-                    "paddingTop": 6,
-                    "shadowColor": undefined,
-                    "shadowOffset": undefined,
-                    "shadowOpacity": undefined,
-                    "shadowRadius": undefined,
-                    "width": "75%",
+                    "borderRadius": 50,
+                    "borderWidth": 0,
+                    "height": 266.8,
+                    "marginBottom": 13.34,
+                    "marginTop": 53.36,
+                    "width": 266.8,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "textAlign": "center",
                   }
                 }
               >
                 <Text
                   style={
-                    Object {
-                      "backgroundColor": "transparent",
-                      "color": "#fff",
-                      "fontFamily": "System",
-                      "fontSize": 16.5,
-                      "marginLeft": 0,
-                      "marginRight": 0,
-                      "paddingLeft": 16,
-                      "paddingRight": 16,
-                    }
+                    Array [
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "System",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "fontSize": 40,
+                        "fontWeight": "bold",
+                        "margin": 45,
+                      },
+                    ]
                   }
                   uppercase={false}
                 >
-                  BEGIN CHECKUP
+                  Hello!
                 </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#000",
+                        "fontFamily": "System",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "alignSelf": "center",
+                        "fontSize": 22,
+                        "padding": 45,
+                      },
+                    ]
+                  }
+                  uppercase={false}
+                >
+                  Welcome to MeMD, a mobile platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
+                </Text>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "alignSelf": "center",
+                      "backgroundColor": "#007aff",
+                      "borderBottomWidth": null,
+                      "borderColor": "#007aff",
+                      "borderLeftWidth": null,
+                      "borderRadius": 5,
+                      "borderRightWidth": null,
+                      "borderTopWidth": null,
+                      "borderWidth": undefined,
+                      "elevation": 2,
+                      "flexDirection": "row",
+                      "height": 45,
+                      "justifyContent": "center",
+                      "marginTop": 26.68,
+                      "opacity": 1,
+                      "paddingBottom": 6,
+                      "paddingTop": 6,
+                      "shadowColor": undefined,
+                      "shadowOffset": undefined,
+                      "shadowOpacity": undefined,
+                      "shadowRadius": undefined,
+                      "width": "75%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#fff",
+                        "fontFamily": "System",
+                        "fontSize": 16.5,
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                        "paddingLeft": 16,
+                        "paddingRight": 16,
+                      }
+                    }
+                    uppercase={false}
+                  >
+                    BEGIN CHECKUP
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
