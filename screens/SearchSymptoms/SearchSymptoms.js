@@ -30,23 +30,25 @@ export default function SymptomsScreen({ navigation }) {
     }
   };
 
-  const displaySelectedSymptoms =
-    symptoms.map((symptom, index) => {
-      return (
-        <CardItem key={index} style={styles.selectedSymptom}>
-          <Text style={{ fontSize: 14 }}>{symptom.common_name}</Text>
-          <AntDesign
-            name='closecircle'
-            style={styles.delete}
-            id={symptom.id}
-            size={26}
-            color='red'
-            onPress={() => {
-              findSymptom(symptom)
-            }}
-          />
-        </CardItem>)
-    })
+  const displaySelectedSymptoms = symptoms.map((symptom, index) => {
+    return (
+      <CardItem key={index} style={styles.selectedSymptom}>
+        <Text style={{ fontSize: 14, maxWidth: width * 0.6 }}>
+          {symptom.common_name}
+        </Text>
+        <AntDesign
+          name='closecircle'
+          style={styles.delete}
+          id={symptom.id}
+          size={26}
+          color='red'
+          onPress={() => {
+            findSymptom(symptom);
+          }}
+        />
+      </CardItem>
+    );
+  });
 
   const findSymptom = result => {
     let existingSymptom = symptoms.find(symptom => symptom.id == result.id);
@@ -201,13 +203,12 @@ const styles = StyleSheet.create({
   selectedSymptom: {
     backgroundColor: 'rgba(256, 256, 256, 0.9)',
     borderRadius: 50,
-    // height: height * 0.08,
     flexDirection: 'row',
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginLeft: height * 0.01,
     marginTop: height * 0.01,
     maxWidth: width * 0.9,
-    padding: height * 0.01,
+    padding: height * 0.01
   },
   searchResults: {
     alignSelf: 'center',
@@ -216,11 +217,11 @@ const styles = StyleSheet.create({
     flex: 0.5,
     marginTop: height * 0.02,
     padding: 0,
-    width: '90%'
+    width: width * 0.9
   },
   symptomText: {
     fontSize: width * 0.038,
-    width: '70%'
+    width: width * 0.7
   },
   checkboxes: {
     alignItems: 'center',
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     height: height * 0.13,
     flexDirection: 'row',
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginTop: height * 0.02,
     padding: 10
   },

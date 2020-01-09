@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: 'center',
     marginBottom: height * 0.03,
-    marginTop: height * 0.02,
     width: '75%'
   },
   checkbox: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import { Body, Card, Text } from 'native-base';
 import { Feather } from '@expo/vector-icons';
 
@@ -10,20 +10,23 @@ export default function Checkbox({ changeButton }) {
   const [checked, setChecked] = useState(false);
 
   return (
-    <Card style={styles.card}>
-      <Body style={styles.body}>
-        <Feather
-          name={checked ? 'x-square' : 'square'}
-          size={24}
-          color='black'
-          onPress={() => {
-            changeButton(!checked);
-            setChecked(!checked);
-          }}
-        />
-        <Text>I have read and accept the Terms of Service</Text>
-      </Body>
-    </Card>
+    <TouchableOpacity
+      onPress={() => {
+        changeButton(!checked);
+        setChecked(!checked);
+      }}
+    >
+      <Card style={styles.card}>
+        <Body style={styles.body}>
+          <Feather
+            name={checked ? 'x-square' : 'square'}
+            size={32}
+            color='black'
+          />
+          <Text>I have read and accept the Terms of Service</Text>
+        </Body>
+      </Card>
+    </TouchableOpacity>
   );
 }
 

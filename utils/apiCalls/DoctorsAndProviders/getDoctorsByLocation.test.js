@@ -1,1 +1,0 @@
-import { getDoctorsByLocation } from './getDoctorsByLocation';

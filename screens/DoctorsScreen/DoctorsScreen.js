@@ -150,7 +150,7 @@ export default function DoctorsScreen({ navigation }) {
             </Picker>
             {loading ? (
               <View style={styles.horizontal}>
-                <ActivityIndicator size='large' color='#0000ff' />
+                <ActivityIndicator size='large' color='#004EFF' />
               </View>
             ) : (
               <Fragment>
@@ -183,7 +183,7 @@ export default function DoctorsScreen({ navigation }) {
           </Fragment>
         ) : (
           <View style={styles.horizontal}>
-            <ActivityIndicator size='large' color='#0000ff' />
+            <ActivityIndicator size='large' color='#004EFF' />
           </View>
         )}
       </View>
