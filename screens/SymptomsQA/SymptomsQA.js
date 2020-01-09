@@ -23,13 +23,14 @@ export default function SymptomsQA({ navigation }) {
     try {
       let symptomFollowup = await sendInitialUserSymptoms(userInfo);
       setQuestion(symptomFollowup);
+      console.log(symptomFollowup);
       symptomFollowup.should_stop
         ? navigation.push('Results', {
-            userInfo,
-            symptomFollowup,
-            location,
-            stateAbbreviation
-          })
+          userInfo,
+          symptomFollowup,
+          location,
+          stateAbbreviation
+        })
         : null;
     } catch (error) {
       throw new Error(error);
