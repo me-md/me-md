@@ -3,7 +3,6 @@ import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import NumericInput from 'react-native-numeric-input';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
-import { ageData } from '../../utils/ageData/ageData';
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
@@ -11,8 +10,6 @@ const width = Dimensions.get('window').width;
 export default function SelectAge({ navigation }) {
   const sex = navigation.state.params.sex;
   const [age, setAge] = useState('');
-
-
 
   return (
     <View style={styles.container}>
@@ -31,28 +28,30 @@ export default function SelectAge({ navigation }) {
             <Text style={styles.title}>Age</Text>
             <MaterialIcons name='cake' size={80} color='white' />
             <NumericInput
-              value={age}
-              onChange={(itemValue) =>
-                setAge(itemValue)}
+              value={parseInt(age)}
+              onChange={itemValue => setAge(itemValue.toString())}
               minValue={1}
               maxValue={99}
-              // initValue={35}
               totalHeight={height * 0.1}
               totalWidth={width * 0.75}
               textColor='white'
             />
           </View>
-          {age !== '' ? (<Entypo
-            name='chevron-thin-down'
-            size={36}
-            color='white'
-            onPress={() => navigation.push('Location', { sex, age })}
-          />) : (<Entypo
-            name='chevron-thin-down'
-            size={36}
-            color='white'
-            style={{ opacity: 0 }}
-          />)}
+          {age !== '' ? (
+            <Entypo
+              name='chevron-thin-down'
+              size={36}
+              color='white'
+              onPress={() => navigation.push('Location', { sex, age })}
+            />
+          ) : (
+            <Entypo
+              name='chevron-thin-down'
+              size={36}
+              color='white'
+              style={{ opacity: 0 }}
+            />
+          )}
         </View>
       </LinearGradient>
     </View>
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     marginBottom: height * 0.06,
-    marginTop: height * 0.06,
+    marginTop: height * 0.06
   },
   container: {
     flex: 1
@@ -90,6 +89,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'space-evenly',
-    marginBottom: height * 0.30
+    marginBottom: height * 0.3
   }
 });
