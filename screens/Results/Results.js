@@ -18,6 +18,8 @@ export default function SymptomsQA({ navigation }) {
     stateAbbreviation
   } = navigation.state.params;
 
+  console.log(symptomFollowup)
+
   const [explanation, setExplanation] = useState({});
   const [conditionDetails, setConditionDetails] = useState({});
   const [expanded, setExpanded] = useState({});
