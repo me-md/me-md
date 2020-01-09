@@ -88,10 +88,10 @@ export default function SingleQ({ question, answerQuestion }) {
             <Text>Submit</Text>
           </Button>
         ) : (
-          <Button style={styles.button} disabled block>
-            <Text>Submit</Text>
-          </Button>
-        )}
+            <Button style={styles.button} disabled block>
+              <Text>Submit</Text>
+            </Button>
+          )}
       </Body>
     </Card>
   );
@@ -99,6 +99,7 @@ export default function SingleQ({ question, answerQuestion }) {
 
 const styles = StyleSheet.create({
   questionCard: {
+    backgroundColor: '#f7f7f7',
     marginBottom: height * 0.01,
     marginTop: height * 0.01,
     width: '80%'

@@ -6,7 +6,7 @@ import { AntDesign } from '@expo/vector-icons';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
-export default function GroupSingleQ({ question, answerQuestion }) {
+export default function GroupMultipleQ({ question, answerQuestion }) {
   const [checkWho, setCheckWho] = useState([]);
 
   const questions = question.question.items.map((item, cardIndex) => {
@@ -88,25 +88,9 @@ export default function GroupSingleQ({ question, answerQuestion }) {
   });
 
   const handlePress = (id, index) => {
-    let IDs;
-    if (id === 'present') {
-      IDs = [...checkWho];
-      IDs = question.question.items.map(id => {
-        return id = 'absent'
-      });
-      IDs[index] = id;
-      setCheckWho(IDs);
-    } else if (id === 'absent') {
-      IDs = [...checkWho];
-      IDs[index] = id;
-      setCheckWho(IDs);
-    } else {
-      IDs = question.question.items.map(id => {
-        return id = 'unknown'
-      });
-      IDs[index] = id;
-      setCheckWho(IDs);
-    }
+    let IDs = [...checkWho];
+    IDs[index] = id;
+    setCheckWho(IDs);
   };
 
   const handleSubmit = () => {
