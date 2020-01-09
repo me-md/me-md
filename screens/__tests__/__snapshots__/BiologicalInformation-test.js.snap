@@ -41,18 +41,30 @@ exports[`BiologicalInformation should match a snapshot 1`] = `
       <View
         style={
           Object {
+            "alignItems": "center",
             "justifyContent": "space-between",
           }
         }
       >
         <Text
           style={
-            Object {
-              "color": "#FFFFFF",
-              "fontSize": 48,
-              "marginBottom": 93.38000000000001,
-            }
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 67.5,
+                "fontWeight": "bold",
+                "marginBottom": 93.38000000000001,
+                "textAlign": "center",
+                "width": 675,
+              },
+            ]
           }
+          uppercase={false}
         >
           What is your biological sex?
         </Text>
@@ -91,18 +103,32 @@ exports[`BiologicalInformation should match a snapshot 1`] = `
               "shadowOffset": undefined,
               "shadowOpacity": undefined,
               "shadowRadius": undefined,
-              "width": 225,
+              "width": 562.5,
             }
           }
         >
           <Text />
           <Text
             style={
-              Object {
-                "color": "#FFFFFF",
-                "fontSize": 36,
-              }
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "color": "#fff",
+                  "fontFamily": "System",
+                  "fontSize": 16.5,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                  "fontSize": 60,
+                  "width": 300,
+                },
+              ]
             }
+            uppercase={false}
           >
             Female
           </Text>
@@ -142,18 +168,32 @@ exports[`BiologicalInformation should match a snapshot 1`] = `
               "shadowOffset": undefined,
               "shadowOpacity": undefined,
               "shadowRadius": undefined,
-              "width": 225,
+              "width": 562.5,
             }
           }
         >
           <Text />
           <Text
             style={
-              Object {
-                "color": "#FFFFFF",
-                "fontSize": 36,
-              }
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "color": "#fff",
+                  "fontFamily": "System",
+                  "fontSize": 16.5,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                },
+                Object {
+                  "color": "#FFFFFF",
+                  "fontSize": 60,
+                  "width": 300,
+                },
+              ]
             }
+            uppercase={false}
           >
             Male
           </Text>

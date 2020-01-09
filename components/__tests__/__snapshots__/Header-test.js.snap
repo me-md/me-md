@@ -15,8 +15,25 @@ exports[`should render correctly 1`] = `
   }
   style={
     Object {
+      "alignItems": "center",
+      "flexDirection": "row",
       "height": 200.1,
+      "justifyContent": "center",
     }
   }
-/>
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "alignSelf": "center",
+        "borderWidth": 0,
+        "height": 133.4,
+        "marginBottom": 13.34,
+        "marginTop": 60.03,
+        "width": 133.4,
+      }
+    }
+  />
+</ViewManagerAdapter_ExpoLinearGradient>
 `;

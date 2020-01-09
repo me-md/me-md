@@ -5,6 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function GroupSingleQ({ question, answerQuestion }) {
   const [checkWho, setCheckWho] = useState([]);
@@ -12,7 +13,7 @@ export default function GroupSingleQ({ question, answerQuestion }) {
   const questions = question.question.items.map((item, cardIndex) => {
     return (
       <Card key={cardIndex} style={styles.questionCardItem}>
-        <Body>
+        <Body style={styles.body}>
           <Text style={styles.questionText}>{item.name}</Text>
           <View style={styles.checkboxes}>
             {item.choices.map((choice, index) => {
@@ -106,8 +107,8 @@ export default function GroupSingleQ({ question, answerQuestion }) {
 
   return (
     <Card id={question.question.items[0].id} style={styles.questionCard}>
-      <Body>
-        <Text style={styles.questionText}>{question.question.text}</Text>
+      <Body style={styles.body}>
+        <Text style={styles.questionTextHeader}>{question.question.text}</Text>
         {questions}
         {checkWho.length === question.question.items.length ? (
           <Button style={styles.button} block onPress={() => handleSubmit()}>
@@ -127,7 +128,11 @@ const styles = StyleSheet.create({
   questionCard: {
     marginBottom: height * 0.01,
     marginTop: height * 0.01,
-    width: '80%'
+    padding: height * 0.02,
+    width: width * 0.8
+  },
+  body: {
+    padding: height * 0.01
   },
   questionCardItem: {
     height: height * 0.15,
@@ -136,8 +141,17 @@ const styles = StyleSheet.create({
   },
   questionText: {
     alignSelf: 'flex-start',
-    flex: 0.5,
     fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: height * 0.02,
+    marginTop: height * 0.01,
+    padding: 0
+  },
+  questionTextHeader: {
+    alignSelf: 'flex-start',
+    flex: 0.5,
+    fontSize: 20,
+    fontWeight: 'bold',
     marginBottom: height * 0.02,
     marginTop: height * 0.01,
     padding: 0
@@ -149,10 +163,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginBottom: height * 0.02,
     padding: 0,
-    width: '90%'
+    width: width * 0.7
   },
   button: {
-    marginBottom: height * 0.04,
-    marginTop: height * 0.02
+    alignSelf: 'center',
+    marginBottom: height * 0.02,
+    marginTop: height * 0.02,
+    width: width * 0.6
   }
 });

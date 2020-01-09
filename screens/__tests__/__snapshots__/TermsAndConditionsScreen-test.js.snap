@@ -16,10 +16,27 @@ Array [
     }
     style={
       Object {
+        "alignItems": "center",
+        "flexDirection": "row",
         "height": 200.1,
+        "justifyContent": "center",
       }
     }
-  />,
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "alignSelf": "center",
+          "borderWidth": 0,
+          "height": 133.4,
+          "marginBottom": 13.34,
+          "marginTop": 60.03,
+          "width": 133.4,
+        }
+      }
+    />
+  </ViewManagerAdapter_ExpoLinearGradient>,
   <RCTScrollView
     collapsable={false}
     onGestureHandlerEvent={[Function]}
@@ -36,7 +53,7 @@ Array [
         style={
           Object {
             "alignItems": "center",
-            "flex": 1,
+            "flex": 0.8,
           }
         }
       >
@@ -62,7 +79,7 @@ Array [
               },
               Object {
                 "alignSelf": "center",
-                "fontSize": 53.36,
+                "fontSize": 52.50000000000001,
                 "fontWeight": "bold",
                 "margin": 26.68,
                 "marginBottom": 0.667,
@@ -106,6 +123,7 @@ Array [
                       "fontSize": 16,
                     },
                     Object {
+                      "fontSize": 24.011999999999997,
                       "lineHeight": 46.690000000000005,
                       "marginBottom": 26.68,
                       "marginTop": 26.68,
@@ -121,80 +139,68 @@ Array [
         </View>
         <View>
           <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "backgroundColor": "#fafafa",
-                "borderColor": "#ededed",
-                "borderRadius": 3,
-                "borderWidth": 1,
-                "margin": 5,
-                "marginLeft": 10,
-                "marginRight": 10,
-                "opacity": 1,
-                "padding": 10,
-              }
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderBottomWidth": 0.5,
+                  "borderColor": "#ccc",
+                  "borderLeftWidth": 0.5,
+                  "borderRadius": 2,
+                  "borderRightWidth": 0.5,
+                  "borderTopWidth": 0.5,
+                  "elevation": 3,
+                  "flexWrap": "nowrap",
+                  "marginBottom": 5,
+                  "marginLeft": 2,
+                  "marginRight": 2,
+                  "marginTop": 5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.1,
+                  "shadowRadius": 1.5,
+                },
+                Object {
+                  "flex": 0.2,
+                  "justifyContent": "space-evenly",
+                  "width": 690,
+                },
+              ]
             }
-            testID="checkbox"
           >
             <View
               style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "justifyContent": "center",
-                }
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "flex": 1,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 0.3,
+                    "flexDirection": "row",
+                    "justifyContent": "space-evenly",
+                    "width": "100%",
+                  },
+                ]
               }
             >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#bfbfbf",
-                      "fontSize": 24,
-                    },
-                    Object {
-                      "minWidth": 24,
-                    },
-                    Object {
-                      "fontFamily": "FontAwesome",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+              <Text />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "alignSelf": "flex-start",
-                      "fontSize": 14,
-                      "margin": 20.009999999999998,
-                    },
-                  ]
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
+                  }
                 }
                 uppercase={false}
               >
-                I read and accept the Terms of Service and Privacy Policy
+                I have read and accept the Terms of Service
               </Text>
             </View>
           </View>
