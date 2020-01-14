@@ -62,6 +62,9 @@ The primary learning goals for this project are:
 
 ### Screenshots
 
+<img width="535" alt="Screen Shot 2020-01-09 at 11 35 53 AM" src="https://user-images.githubusercontent.com/25589695/72379016-775cea00-370a-11ea-9c20-4501c88bc2e2.png">
+<img width="535" alt="Screen Shot 2020-01-09 at 11 35 40 AM" src="https://user-images.githubusercontent.com/25589695/72379018-788e1700-370a-11ea-862f-2ce72fc3e0f2.png">
+<img width="535" alt="Screen Shot 2020-01-09 at 11 35 34 AM" src="https://user-images.githubusercontent.com/25589695/72379021-79bf4400-370a-11ea-8dfa-fc9dc33e0c1e.png">
 
 
 ### Tech Stack
