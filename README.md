@@ -32,11 +32,11 @@ npm install
 
 Create an `.env` file in the root directory of the repository.
   You will need to declare three environmental variables:
-    ```
-    REACT_APP_ID=yourAppIdHere
-    REACT_APP_KEY=yourAppKeyHere
-    MAPQUEST_KEY=yourMapQuestAPIKeyHere
-    ```
+```
+REACT_APP_ID=yourAppIdHere
+REACT_APP_KEY=yourAppKeyHere
+MAPQUEST_KEY=yourMapQuestAPIKeyHere
+```
 
 Run browser.
 ```
