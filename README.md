@@ -17,6 +17,10 @@ MeMD is a React Native App allowing a user to self diagnosis medical conditions 
 
 ### Set Up
 
+To fetch all information, you will have to apply for an API key and App ID with the Infermedica API [here](https://developer.infermedica.com/signup). This can take 24-36 hours, so plan accordingly.
+
+You will also need to apply for a MapQuest API key [here](https://developer.mapquest.com/plan_purchase/steps/business_edition/business_edition_free/register). This normally doesn't take long and you should receive your API key within the hour.
+
 Clone repo.
 ```
 https://github.com/me-md/me-md.git
@@ -25,6 +29,15 @@ Install dependencies.
 ```
 npm install
 ```
+
+Create an `.env` file in the root directory of the repository.
+  You will need to declare three environmental variables:
+    ```
+    REACT_APP_ID=yourAppIdHere
+    REACT_APP_KEY=yourAppKeyHere
+    MAPQUEST_KEY=yourMapQuestAPIKeyHere
+    ```
+
 Run browser.
 ```
 npm start
