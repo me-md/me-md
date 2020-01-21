@@ -25,7 +25,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
   return (
     <Fragment>
       <Header />
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.contentContainer}>
           <AntDesign
             name='close'
@@ -70,12 +70,12 @@ export default function TermsAndConditionsScreen({ navigation }) {
               <Text>CONTINUE</Text>
             </Button>
           ) : (
-            <Button disabled block style={styles.button}>
-              <Text>CONTINUE</Text>
-            </Button>
-          )}
+              <Button disabled block style={styles.button}>
+                <Text>CONTINUE</Text>
+              </Button>
+            )}
         </View>
-      </ScrollView>
+      </View>
     </Fragment>
   );
 }
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     alignItems: 'center',
-    flex: 0.8
+    flex: 1
   },
   close: {
     alignSelf: 'flex-end',
@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
-    marginBottom: height * 0.03,
+    marginBottom: height * 0.02,
+    marginTop: -height * 0.25,
     width: '75%'
   },
   checkbox: {

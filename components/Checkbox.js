@@ -19,11 +19,11 @@ export default function Checkbox({ changeButton }) {
       <Card style={styles.card}>
         <Body style={styles.body}>
           <Feather
-            name={checked ? 'x-square' : 'square'}
-            size={32}
+            name={checked ? 'check-square' : 'square'}
+            size={25}
             color='black'
           />
-          <Text>I have read and accept the Terms of Service</Text>
+          <Text style={styles.text}>I have read and accept the Terms of Service</Text>
         </Body>
       </Card>
     </TouchableOpacity>
@@ -32,15 +32,17 @@ export default function Checkbox({ changeButton }) {
 
 const styles = StyleSheet.create({
   card: {
-    flex: 0.2,
+    flex: 0.45,
     justifyContent: 'space-evenly',
     width: width * 0.92
   },
   body: {
     alignItems: 'center',
-    flex: 0.3,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: '100%'
+  },
+  text: {
+    fontSize: 14
   }
 });
