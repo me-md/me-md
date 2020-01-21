@@ -1,6 +1,7 @@
-![memd-logo](https://i.ibb.co/rkRkYMS/github-banner.png)<br>
-# MeMD
-MeMD is a React Native App allowing a user to self diagnosis medical conditions and find the closest specialists.
+<p align="center">
+  <img src="https://i.ibb.co/rkRkYMS/github-banner.png" /><br>
+  MeMD is a React Native App allowing a user to self diagnosis medical conditions and find the closest specialists.
+</p>
 
 ### Table of Contents
 
