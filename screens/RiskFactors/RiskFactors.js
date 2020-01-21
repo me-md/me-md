@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useEffect, useState, Fragment } from 'react';
+import {
+  ActivityIndicator, Dimensions, StyleSheet, Text, TouchableOpacity, View
+} from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Body, Card, CardItem, Item, Input } from 'native-base';
@@ -86,9 +88,13 @@ export default function RiskFactors({ navigation }) {
             onPress={() => navigation.goBack()}
           />
           <View style={styles.contentContainer}>
-            <Text style={styles.header}>Common Risk Factors</Text>
-            <Text style={styles.instruction}>Select all that apply:</Text>
-            {riskFactorAnswers}
+            <View style={{ height: height * 0.1 }} >
+              <Text style={styles.header}>Common Risk Factors</Text>
+              <Text style={styles.instruction}>Select all that apply:</Text>
+            </View>
+            <View style={styles.questionContiner}>
+              {riskFactorAnswers.length ? riskFactorAnswers : <ActivityIndicator size='large' color='#004EFF' />}
+            </View>
           </View>
           <Entypo
             name='chevron-thin-down'
@@ -106,7 +112,7 @@ export default function RiskFactors({ navigation }) {
           />
         </View>
       </LinearGradient>
-    </View>
+    </View >
   );
 }
 
@@ -137,12 +143,19 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: width * 0.09,
     fontWeight: 'bold',
-    marginBottom: -height * 0.015,
     marginTop: height * 0.001
   },
   instruction: {
     color: 'white',
     fontSize: width * 0.05,
+    textAlign: 'center'
+  },
+  questionContiner: {
+    alignContent: 'space-between',
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'space-around',
+    width: '100%'
   },
   questionText: {
     fontSize: width * 0.030,
