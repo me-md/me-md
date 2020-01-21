@@ -20,7 +20,7 @@ export default function BiologicalInformation({ navigation }) {
         <View style={styles.biologicalInformationContainer}>
           <Entypo
             name='chevron-thin-up'
-            size={36}
+            size={50}
             color='white'
             onPress={() => navigation.goBack()}
           />
@@ -62,14 +62,14 @@ export default function BiologicalInformation({ navigation }) {
           {sex !== '' ?
             <Entypo
               name='chevron-thin-down'
-              size={36}
+              size={50}
               color='white'
               onPress={() => {
                 navigation.push('SelectAge', { sex })
               }}
             /> : <Entypo
               name='chevron-thin-down'
-              size={36}
+              size={50}
               style={{ opacity: 0 }}
               color='grey'
             />}
