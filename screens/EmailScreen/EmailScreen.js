@@ -134,10 +134,6 @@ const styles = StyleSheet.create({
     paddingBottom: height * 0.075,
     width: width
   },
-  contentContainer: {
-    alignItems: 'center',
-    flex: 1
-  },
   close: {
     alignSelf: 'flex-end',
     marginRight: height * 0.02,
@@ -148,14 +144,16 @@ const styles = StyleSheet.create({
     width: width * 0.8
   },
   input: {
-    fontSize: height * 0.02,
+    fontSize: width * 0.04,
     textAlign: 'center',
     width: width * 0.6
   },
   title: {
-    fontSize: height * 0.04,
+    fontSize: width * 0.07,
     fontWeight: 'bold',
-    paddingTop: height * 0.025
+    paddingTop: height * 0.01,
+    textAlign: 'center',
+    width: width * 0.9
   },
   button: {
     alignItems: 'center',
@@ -188,6 +186,7 @@ const styles = StyleSheet.create({
   },
   thankYou: {
     marginLeft: height * 0.02,
-    marginRight: height * 0.02
+    marginRight: height * 0.02,
+    textAlign: 'center'
   }
 });
