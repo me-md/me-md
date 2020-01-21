@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Dimensions, Picker, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import NumericInput from 'react-native-numeric-input';
+import { ageData } from '../../utils/ageData/ageData';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
@@ -9,7 +9,20 @@ const width = Dimensions.get('window').width;
 
 export default function SelectAge({ navigation }) {
   const sex = navigation.state.params.sex;
-  const [age, setAge] = useState('');
+  const [age, setAge] = useState('35');
+
+  const ages = ageData.map((age, index) => {
+    return (
+      <Picker.Item
+        style={{ color: 'white' }}
+        label={`${age}`}
+        value={`${age}`}
+        key={index}
+      />
+    );
+  });
+
+  console.log(ages)
 
   return (
     <View style={styles.container}>
@@ -20,38 +33,38 @@ export default function SelectAge({ navigation }) {
         <View style={styles.contentContainer}>
           <Entypo
             name='chevron-thin-up'
-            size={36}
+            size={50}
             color='white'
             onPress={() => navigation.goBack()}
           />
           <View style={styles.childContainer}>
-            <Text style={styles.title}>Age</Text>
+            <Text style={styles.title}>What is your age?</Text>
             <MaterialIcons name='cake' size={80} color='white' />
-            <NumericInput
-              value={parseInt(age)}
-              onChange={itemValue => setAge(itemValue.toString())}
-              minValue={1}
-              maxValue={99}
-              totalHeight={height * 0.1}
-              totalWidth={width * 0.75}
-              textColor='white'
-            />
+            <Picker
+              selectedValue={age}
+              style={styles.picker}
+              onValueChange={(itemValue, itemIndex) =>
+                setAge(itemValue)
+              }
+            >
+              {ages}
+            </Picker>
           </View>
           {age !== '' ? (
             <Entypo
               name='chevron-thin-down'
-              size={36}
+              size={50}
               color='white'
               onPress={() => navigation.push('Location', { sex, age })}
             />
           ) : (
-            <Entypo
-              name='chevron-thin-down'
-              size={36}
-              color='white'
-              style={{ opacity: 0 }}
-            />
-          )}
+              <Entypo
+                name='chevron-thin-down'
+                size={50}
+                color='white'
+                style={{ opacity: 0 }}
+              />
+            )}
         </View>
       </LinearGradient>
     </View>
@@ -75,15 +88,12 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 48,
+    fontSize: width * 0.09,
     fontWeight: 'bold'
   },
-  input: {
-    color: '#FFF',
-    fontSize: 36,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    width: '20%'
+  picker: {
+    color: 'white',
+    width: 200
   },
   childContainer: {
     alignItems: 'center',
