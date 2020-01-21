@@ -74,7 +74,6 @@ export default function SelectAge({ navigation }) {
 const styles = StyleSheet.create({
   contentContainer: {
     alignItems: 'center',
-    flex: 1,
     justifyContent: 'space-between',
     marginBottom: height * 0.06,
     marginTop: height * 0.06
@@ -84,7 +83,6 @@ const styles = StyleSheet.create({
   },
   gradientBackground: {
     alignItems: 'center',
-    flex: 1
   },
   title: {
     color: '#fff',
@@ -99,6 +97,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'space-evenly',
-    marginBottom: height * 0.3
   }
 });
