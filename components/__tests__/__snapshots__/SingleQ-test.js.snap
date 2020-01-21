@@ -28,6 +28,7 @@ exports[`should render correctly 1`] = `
         "shadowRadius": 1.5,
       },
       Object {
+        "backgroundColor": "#f7f7f7",
         "marginBottom": 13.34,
         "marginTop": 13.34,
         "width": "80%",
