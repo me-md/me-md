@@ -6,17 +6,25 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { Body, Button, Card, CardItem, Text } from 'native-base';
+import {
+  Accordion,
+  Body,
+  Button,
+  Card,
+  CardItem,
+  Icon,
+  Text
+} from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Header } from '../../components/Header';
 import { compileReport, formatPhoneNumber } from '../../utils/helpers/helpers';
-import { isLoaded, isLoading } from 'expo-font';
 import { getDistanceToDoctor } from '../../utils/apiCalls/DistanceToDoctor/getDistanceToDoctor';
 import { getAllProviders } from '../../utils/apiCalls/DoctorsAndProviders/getAllProviders';
 import { getDoctorsByLocation } from '../../utils/apiCalls/DoctorsAndProviders/getDoctorsByLocation';
 import { getDoctorsForProviderByLocation } from '../../utils/apiCalls/DoctorsAndProviders/getDoctorsForProviderByLocation';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function DoctorsScreen({ navigation }) {
   const {
@@ -87,12 +95,54 @@ export default function DoctorsScreen({ navigation }) {
     doctors
   );
 
+  const renderHeader = (item, expanded) => {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          padding: 10,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: '#004EFF',
+          width: '100%'
+        }}
+      >
+        <Text style={{ fontWeight: '600', color: '#fff' }}> {item.title}</Text>
+        {expanded ? (
+          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-up' />
+        ) : (
+          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-down' />
+        )}
+      </View>
+    );
+  };
+  const renderContent = item => {
+    return (
+      <Text
+        style={{
+          backgroundColor: '#fff',
+          padding: 10,
+          fontStyle: 'italic'
+        }}
+      >
+        {item.content}
+      </Text>
+    );
+  };
+
   const nearbyPractices = doctors.map((doctor, index) => {
     return (
       <Card key={index}>
         <CardItem>
           <Body>
-            <Text style={styles.doctorName}>{doctor.practice.name}</Text>
+            <Accordion
+              dataArray={[
+                { title: doctor.practice.name, content: doctor.profile.bio }
+              ]}
+              renderHeader={renderHeader}
+              renderContent={renderContent}
+              style={styles.accordion}
+            />
             <Text>{formatPhoneNumber(doctor.practice.phone)}</Text>
           </Body>
         </CardItem>
@@ -176,7 +226,7 @@ export default function DoctorsScreen({ navigation }) {
                     })
                   }
                 >
-                  <Text style={styles.buttonText}>Email Report</Text>
+                  <Text style={styles.buttonText}>EMAIL REPORT</Text>
                 </Button>
               </Fragment>
             )}
@@ -241,5 +291,10 @@ const styles = StyleSheet.create({
   },
   noDoctors: {
     fontSize: 24
+  },
+  accordion: {
+    alignSelf: 'center',
+    marginBottom: height * 0.01,
+    width: width * 0.87
   }
 });
