@@ -54,4 +54,8 @@ describe('getConditionById', () => {
       )
     );
   });
+
+  it('should return an error if getConditionById is passed an improper id', () => {
+    expect(getConditionById('c_000')).rejects.toEqual('Could not retreive condition with id of: c_000, please try again later.')
+  });
 });
