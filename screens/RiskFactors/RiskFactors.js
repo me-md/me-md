@@ -56,16 +56,14 @@ export default function RiskFactors({ navigation }) {
       <TouchableOpacity key={factor.id} style={styles.riskFactorCard} onPress={() => {
         findRiskToUpdate(factor.id);
       }}>
-        <View style={styles.checkboxes}>
-          <Text style={styles.questionText}>{factor.question}</Text>
-          <AntDesign
-            name={presentFactors[foundIndex].present ? 'checkcircle' : 'pluscircleo'}
-            id={factor.id}
-            color={presentFactors[foundIndex].present ? 'green' : 'black'}
-            style={styles.add}
-            size={26}
-          />
-        </View>
+        <Text style={styles.questionText}>{factor.question}</Text>
+        <AntDesign
+          name={presentFactors[foundIndex].present ? 'checkcircle' : 'pluscircleo'}
+          id={factor.id}
+          color={presentFactors[foundIndex].present ? 'green' : 'black'}
+          style={styles.add}
+          size={26}
+        />
       </TouchableOpacity>
     );
   });
@@ -147,25 +145,26 @@ const styles = StyleSheet.create({
     fontSize: width * 0.05,
   },
   questionText: {
-    alignSelf: 'flex-start',
     fontSize: width * 0.030,
   },
   riskFactorCard: {
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 15,
-    justifyContent: 'center',
     flex: 0.15,
-    marginBottom: height * 0.001,
-    marginTop: height * 0.001,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
     width: '75%'
   },
   checkboxes: {
-    alignContent: 'center',
+    // alignContent: 'center',
+    flex: 0.15,
     flexDirection: 'row',
     fontSize: 12,
     justifyContent: 'space-between',
-    padding: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
     width: '100%'
   }
 });
