@@ -5,11 +5,12 @@ import { Entypo } from '@expo/vector-icons';
 import { statesData } from '../../utils/statesData/statesData';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function LocationScreen({ navigation }) {
   const { age, sex } = navigation.state.params;
   const [location, setLocation] = useState('');
-  const [stateAbbreviation, setStateAbbreviation] = useState('AL');
+  const [stateAbbreviation, setStateAbbreviation] = useState('MD');
 
   navigator.geolocation.getCurrentPosition(
     position => {
@@ -39,12 +40,12 @@ export default function LocationScreen({ navigation }) {
         <View style={styles.contentContainer}>
           <Entypo
             name='chevron-thin-up'
-            size={36}
+            size={50}
             color='white'
             onPress={() => navigation.goBack()}
           />
           <View style={styles.childContainer}>
-            <Text style={styles.title}>State</Text>
+            <Text style={styles.title}>What state are you located in?</Text>
             <Entypo
               name='location-pin'
               style={styles.pin}
@@ -63,7 +64,7 @@ export default function LocationScreen({ navigation }) {
           </View>
           <Entypo
             name='chevron-thin-down'
-            size={36}
+            size={50}
             color='white'
             onPress={() =>
               navigation.push('RiskFactors', {
@@ -95,7 +96,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flex: 0.8,
-    marginBottom: height * 0.18
   },
   picker: {
     color: 'white',
@@ -106,8 +106,9 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#FFF',
-    fontSize: 48,
-    fontWeight: 'bold'
+    fontSize: width * 0.09,
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   gradientBackground: {
     alignItems: 'center',
