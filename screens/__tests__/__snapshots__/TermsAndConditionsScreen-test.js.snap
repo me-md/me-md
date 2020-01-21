@@ -139,69 +139,87 @@ Array [
         </View>
         <View>
           <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "backgroundColor": "#fff",
-                  "borderBottomWidth": 0.5,
-                  "borderColor": "#ccc",
-                  "borderLeftWidth": 0.5,
-                  "borderRadius": 2,
-                  "borderRightWidth": 0.5,
-                  "borderTopWidth": 0.5,
-                  "elevation": 3,
-                  "flexWrap": "nowrap",
-                  "marginBottom": 5,
-                  "marginLeft": 2,
-                  "marginRight": 2,
-                  "marginTop": 5,
-                  "shadowColor": "#000",
-                  "shadowOffset": Object {
-                    "height": 2,
-                    "width": 0,
-                  },
-                  "shadowOpacity": 0.1,
-                  "shadowRadius": 1.5,
-                },
-                Object {
-                  "flex": 0.2,
-                  "justifyContent": "space-evenly",
-                  "width": 690,
-                },
-              ]
+              Object {
+                "opacity": 1,
+              }
             }
           >
             <View
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "alignSelf": "center",
-                    "flex": 1,
+                    "backgroundColor": "#fff",
+                    "borderBottomWidth": 0.5,
+                    "borderColor": "#ccc",
+                    "borderLeftWidth": 0.5,
+                    "borderRadius": 2,
+                    "borderRightWidth": 0.5,
+                    "borderTopWidth": 0.5,
+                    "elevation": 3,
+                    "flexWrap": "nowrap",
+                    "marginBottom": 5,
+                    "marginLeft": 2,
+                    "marginRight": 2,
+                    "marginTop": 5,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.1,
+                    "shadowRadius": 1.5,
                   },
                   Object {
-                    "alignItems": "center",
-                    "flex": 0.3,
-                    "flexDirection": "row",
+                    "flex": 0.2,
                     "justifyContent": "space-evenly",
-                    "width": "100%",
+                    "width": 690,
                   },
                 ]
               }
             >
-              <Text />
-              <Text
+              <View
                 style={
-                  Object {
-                    "color": "#000",
-                    "fontFamily": "System",
-                    "fontSize": 16,
-                  }
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "alignSelf": "center",
+                      "flex": 1,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "flex": 0.3,
+                      "flexDirection": "row",
+                      "justifyContent": "space-evenly",
+                      "width": "100%",
+                    },
+                  ]
                 }
-                uppercase={false}
               >
-                I have read and accept the Terms of Service
-              </Text>
+                <Text />
+                <Text
+                  style={
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    }
+                  }
+                  uppercase={false}
+                >
+                  I have read and accept the Terms of Service
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -233,7 +251,6 @@ Array [
               "height": 45,
               "justifyContent": "center",
               "marginBottom": 40.019999999999996,
-              "marginTop": 26.68,
               "opacity": 1,
               "paddingBottom": 6,
               "paddingTop": 6,

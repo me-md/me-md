@@ -8,6 +8,7 @@ import * as EmailValidator from 'email-validator';
 import { sendEmailReport } from '../../utils/apiCalls/SendEmail/sendEmailReport';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function EmailScreen({ navigation }) {
   const { location, report, stateAbbreviation } = navigation.state.params;
@@ -64,62 +65,62 @@ export default function EmailScreen({ navigation }) {
             </Button>
           </Fragment>
         ) : (
-            <Fragment>
-              <Item style={styles.item}>
-                <Input
-                  placeholder='Enter your email address'
-                  style={styles.input}
-                  autoCapitalize='none'
-                  onChangeText={text => validateEmail(text)}
-                />
-              </Item>
-              <View style={styles.buttonContainer}>
-                {enabled ? (
-                  <Button
-                    rounded
-                    style={styles.button}
-                    onPress={() => sendEmail()}
-                  >
-                    <Text style={styles.buttonText}>Send Report</Text>
-                    <Ionicons
-                      name='ios-send'
-                      style={styles.icon}
-                      size={26}
-                      color='white'
-                    />
-                  </Button>
-                ) : (
-                    <Button
-                      disabled
-                      rounded
-                      style={styles.button}
-                      onPress={() => sendEmail()}
-                    >
-                      <Text style={styles.buttonText}>Send Report</Text>
-                      <Ionicons
-                        name='ios-send'
-                        style={styles.icon}
-                        size={26}
-                        color='white'
-                      />
-                    </Button>
-                  )}
+          <Fragment>
+            <Item style={styles.item}>
+              <Input
+                placeholder='Enter your email address'
+                style={styles.input}
+                autoCapitalize='none'
+                onChangeText={text => validateEmail(text)}
+              />
+            </Item>
+            <View style={styles.buttonContainer}>
+              {enabled ? (
                 <Button
                   rounded
                   style={styles.button}
-                  onPress={() => navigation.push('Welcome')}
+                  onPress={() => sendEmail()}
                 >
-                  <Text style={styles.buttonText}>New Checkup</Text>
-                  <MaterialCommunityIcons
-                    name='stethoscope'
+                  <Text style={styles.buttonText}>Send Report</Text>
+                  <Ionicons
+                    name='ios-send'
                     style={styles.icon}
                     size={26}
                     color='white'
                   />
                 </Button>
-              </View>
-            </Fragment>
-          )}
+              ) : (
+                <Button
+                  disabled
+                  rounded
+                  style={styles.button}
+                  onPress={() => sendEmail()}
+                >
+                  <Text style={styles.buttonText}>Send Report</Text>
+                  <Ionicons
+                    name='ios-send'
+                    style={styles.icon}
+                    size={26}
+                    color='white'
+                  />
+                </Button>
+              )}
+              <Button
+                rounded
+                style={styles.button}
+                onPress={() => navigation.push('Welcome')}
+              >
+                <Text style={styles.buttonText}>New Checkup</Text>
+                <MaterialCommunityIcons
+                  name='stethoscope'
+                  style={styles.icon}
+                  size={26}
+                  color='white'
+                />
+              </Button>
+            </View>
+          </Fragment>
+        )}
       </View>
     </Fragment>
   );
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     paddingBottom: height * 0.075,
-    width: '100%'
+    width: width
   },
   contentContainer: {
     alignItems: 'center',
@@ -144,15 +145,15 @@ const styles = StyleSheet.create({
   },
   item: {
     marginBottom: height * 0.1,
-    width: '80%'
+    width: width * 0.8
   },
   input: {
-    fontSize: 16,
+    fontSize: height * 0.02,
     textAlign: 'center',
-    width: '60%'
+    width: width * 0.6
   },
   title: {
-    fontSize: 36,
+    fontSize: height * 0.04,
     fontWeight: 'bold',
     paddingTop: height * 0.025
   },
@@ -161,10 +162,10 @@ const styles = StyleSheet.create({
     height: height * 0.07,
     justifyContent: 'space-around',
     marginTop: height * 0.05,
-    width: '60%'
+    width: width * 0.65
   },
   buttonText: {
-    fontSize: 20,
+    fontSize: height * 0.025,
     fontWeight: 'bold'
   },
   buttonContainer: {
@@ -178,11 +179,11 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     height: height * 0.17,
     marginBottom: height * 0.01,
-    marginTop: height * 0.04,
+    marginTop: height * 0.03,
     width: height * 0.17
   },
   response: {
-    fontSize: 24,
+    fontSize: width * 0.06,
     fontWeight: 'bold'
   },
   thankYou: {
