@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Body, Card, CardItem, Item, Input } from 'native-base';
@@ -53,7 +53,9 @@ export default function RiskFactors({ navigation }) {
       question => factor.id == question.id
     );
     return (
-      <Card key={factor.id} style={styles.riskFactorCard}>
+      <TouchableOpacity key={factor.id} style={styles.riskFactorCard} onPress={() => {
+        findRiskToUpdate(factor.id);
+      }}>
         <View style={styles.checkboxes}>
           <Text style={styles.questionText}>{factor.question}</Text>
           <AntDesign
@@ -62,12 +64,9 @@ export default function RiskFactors({ navigation }) {
             color={presentFactors[foundIndex].present ? 'green' : 'black'}
             style={styles.add}
             size={26}
-            onPress={() => {
-              findRiskToUpdate(factor.id);
-            }}
           />
         </View>
-      </Card>
+      </TouchableOpacity>
     );
   });
 
@@ -84,17 +83,18 @@ export default function RiskFactors({ navigation }) {
         <View style={styles.screenContainer}>
           <Entypo
             name='chevron-thin-up'
-            size={36}
+            size={50}
             color='white'
             onPress={() => navigation.goBack()}
           />
           <View style={styles.contentContainer}>
             <Text style={styles.header}>Common Risk Factors</Text>
+            <Text style={styles.instruction}>Select all that apply:</Text>
             {riskFactorAnswers}
           </View>
           <Entypo
             name='chevron-thin-down'
-            size={36}
+            size={50}
             color='white'
             onPress={() =>
               navigation.push('SearchSymptoms', {
@@ -137,17 +137,22 @@ const styles = StyleSheet.create({
   },
   header: {
     color: 'white',
-    fontSize: 36,
+    fontSize: width * 0.09,
     fontWeight: 'bold',
-    marginBottom: height * 0.001,
+    marginBottom: -height * 0.015,
     marginTop: height * 0.001
+  },
+  instruction: {
+    color: 'white',
+    fontSize: width * 0.05,
   },
   questionText: {
     alignSelf: 'flex-start',
-    fontSize: width * 0.030
+    fontSize: width * 0.030,
   },
   riskFactorCard: {
     alignItems: 'center',
+    backgroundColor: 'white',
     borderRadius: 15,
     justifyContent: 'center',
     flex: 0.15,
