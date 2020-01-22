@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, SafeAreaView, View, LayoutAnimation, Platform, UIManager, TouchableOpacity, FlatList } from 'react-native';
-import { Body, Button, Card, CardItem, Text } from 'native-base';
+import {
+  Dimensions,
+  StyleSheet,
+  SafeAreaView,
+  View,
+  LayoutAnimation,
+  FlatList
+} from 'react-native';
+import {
+  Accordion,
+  Body,
+  Button,
+  Card,
+  CardItem,
+  Icon,
+  Text
+} from 'native-base';
 import * as Progress from 'react-native-progress';
 import { Header } from '../../components/Header';
 import { specifyTargetCondition } from '../../utils/helpers/helpers';
@@ -18,21 +33,13 @@ export default function SymptomsQA({ navigation }) {
     stateAbbreviation
   } = navigation.state.params;
 
-  console.log(symptomFollowup)
-
   const [explanation, setExplanation] = useState({});
   const [conditionDetails, setConditionDetails] = useState({});
   const [expanded, setExpanded] = useState({});
 
-
-
-  const changeLayout = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    setExpanded(!expanded);
-  }
-
   useEffect(() => {
     getResults();
+    console.log(explanation);
   }, []);
 
   const getResults = async () => {
@@ -49,26 +56,105 @@ export default function SymptomsQA({ navigation }) {
     }
   };
 
+  const renderHeader = (item, expanded) => {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          padding: 10,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: '#0960FF',
+          width: '100%'
+        }}
+      >
+        <Text style={{ fontWeight: '600', color: '#fff' }}> {item.title}</Text>
+        {expanded ? (
+          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-up' />
+        ) : (
+          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-down' />
+        )}
+      </View>
+    );
+  };
+  const renderSupportingContent = item => {
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          height: expanded ? null : 0,
+          overflow: 'hidden'
+        }}
+      >
+        <FlatList
+          data={createSupportingEvidence()}
+          style={{ padding: height * 0.005 }}
+          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+        />
+      </SafeAreaView>
+    );
+  };
+
+  const renderConflictingContent = item => {
+    return explanation.conflicting_evidence.length ? (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          height: expanded ? null : 0,
+          overflow: 'hidden'
+        }}
+      >
+        <FlatList
+          data={createConflictingEvidence()}
+          style={{ padding: height * 0.005 }}
+          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+        />
+      </SafeAreaView>
+    ) : (
+      <Text>No conflicting evidence</Text>
+    );
+  };
+
   const createTopDiagnosis = () => {
     return (
       <Card style={styles.topDiagnosis}>
         <CardItem>
           <Body>
-            <Text style={styles.conditionName}>{`${conditionDetails.data.name} (${conditionDetails.data.common_name})`}</Text>
-            <Progress.Bar style={{ marginBottom: height * 0.01 }} progress={symptomFollowup.conditions[0].probability} width={200} />
-            <Text style={styles.probability}>{`Probablity: ${(symptomFollowup.conditions[0].probability * 100).toFixed(0)}%`}</Text>
-            <Text style={styles.recommendation}>{`Recommendation: ${conditionDetails.data.triage_level}. ${conditionDetails.data.hint}`}</Text>
+            <Text
+              style={styles.conditionName}
+            >{`${conditionDetails.data.name} (${conditionDetails.data.common_name})`}</Text>
+            <Progress.Bar
+              style={{ marginBottom: height * 0.01 }}
+              progress={symptomFollowup.conditions[0].probability}
+              width={200}
+            />
+            <Text style={styles.probability}>{`Probablity: ${(
+              symptomFollowup.conditions[0].probability * 100
+            ).toFixed(0)}%`}</Text>
+            <Text
+              style={styles.recommendation}
+            >{`Recommendation: ${conditionDetails.data.triage_level}. ${conditionDetails.data.hint}`}</Text>
             <View style={styles.btnTextHolder}>
-              <TouchableOpacity activeOpacity={0.8} onPress={changeLayout} style={styles.Btn}>
-                <Text style={styles.btnText}>Supporting Evidence</Text>
-              </TouchableOpacity>
-              <SafeAreaView style={{ flex: 1, height: expanded ? null : 0, overflow: 'hidden' }}>
-                <FlatList
-                  data={createEvidence()}
-                  style={{ padding: height * 0.005 }}
-                  renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
-                />
-              </SafeAreaView>
+              <Accordion
+                dataArray={[
+                  {
+                    title: 'Supporting Evidence'
+                  }
+                ]}
+                renderHeader={renderHeader}
+                renderContent={renderSupportingContent}
+                style={styles.accordion}
+              />
+              <Accordion
+                dataArray={[
+                  {
+                    title: 'Conflicting Evidence'
+                  }
+                ]}
+                renderHeader={renderHeader}
+                renderContent={renderConflictingContent}
+                style={styles.accordion}
+              />
             </View>
           </Body>
         </CardItem>
@@ -76,9 +162,15 @@ export default function SymptomsQA({ navigation }) {
     );
   };
 
-  const createEvidence = () => {
+  const createSupportingEvidence = () => {
     return explanation.supporting_evidence.map((evidence, index) => {
-      return { key: `• ${evidence.common_name}` }
+      return { key: `• ${evidence.common_name}` };
+    });
+  };
+
+  const createConflictingEvidence = () => {
+    return explanation.conflicting_evidence.map((evidence, index) => {
+      return { key: `• ${evidence.common_name}` };
     });
   };
 
@@ -88,9 +180,17 @@ export default function SymptomsQA({ navigation }) {
         <Card key={index} style={styles.conditionCard}>
           <CardItem>
             <Body>
-              <Text style={styles.secondaryCondition}>{`${condition.name} (${condition.common_name})`}</Text>
-              <Progress.Bar style={{ marginBottom: height * 0.01 }} progress={condition.probability} width={200} />
-              <Text>{`Probability: ${(condition.probability * 100).toFixed(0)}%`}</Text>
+              <Text
+                style={styles.secondaryCondition}
+              >{`${condition.name} (${condition.common_name})`}</Text>
+              <Progress.Bar
+                style={{ marginBottom: height * 0.01 }}
+                progress={condition.probability}
+                width={200}
+              />
+              <Text>{`Probability: ${(condition.probability * 100).toFixed(
+                0
+              )}%`}</Text>
             </Body>
           </CardItem>
         </Card>
@@ -168,7 +268,7 @@ const styles = StyleSheet.create({
   secondaryCondition: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: height * 0.01,
+    marginBottom: height * 0.01
   },
   topDiagnosis: {
     flex: 1,

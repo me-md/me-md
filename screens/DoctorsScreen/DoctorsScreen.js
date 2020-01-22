@@ -103,7 +103,7 @@ export default function DoctorsScreen({ navigation }) {
           padding: 10,
           justifyContent: 'space-between',
           alignItems: 'center',
-          backgroundColor: '#004EFF',
+          backgroundColor: '#0960FF',
           width: '100%'
         }}
       >
