@@ -278,7 +278,8 @@ const styles = StyleSheet.create({
     width: '75%'
   },
   buttonText: {
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   picker: {
     height: height * 0.22,

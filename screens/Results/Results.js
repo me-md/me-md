@@ -4,7 +4,6 @@ import {
   StyleSheet,
   SafeAreaView,
   View,
-  LayoutAnimation,
   FlatList
 } from 'react-native';
 import {
@@ -219,7 +218,7 @@ export default function SymptomsQA({ navigation }) {
           })
         }
       >
-        <Text>FIND DOCTORS</Text>
+        <Text style={styles.buttonText}>FIND DOCTORS</Text>
       </Button>
     </View>
   );
@@ -293,5 +292,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: height * 0.05,
     width: '80%'
+  },
+  buttonText: {
+    fontWeight: 'bold'
   }
 });

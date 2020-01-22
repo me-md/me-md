@@ -22,7 +22,7 @@ export default function SingleQ({ question, answerQuestion }) {
     switch (choice.label) {
       case 'Yes':
         return (
-          <Fragment>
+          <Fragment key={index}>
             <Text>Yes</Text>
             <AntDesign
               key={index}
@@ -39,7 +39,7 @@ export default function SingleQ({ question, answerQuestion }) {
         );
       case 'No':
         return (
-          <Fragment>
+          <Fragment key={index}>
             <Text>No</Text>
             <AntDesign
               key={index}
@@ -56,7 +56,7 @@ export default function SingleQ({ question, answerQuestion }) {
         );
       case `Don't know`:
         return (
-          <Fragment>
+          <Fragment key={index}>
             <Text>Unsure</Text>
             <AntDesign
               key={index}
@@ -88,10 +88,10 @@ export default function SingleQ({ question, answerQuestion }) {
             <Text>Submit</Text>
           </Button>
         ) : (
-            <Button style={styles.button} disabled block>
-              <Text>Submit</Text>
-            </Button>
-          )}
+          <Button style={styles.button} disabled block>
+            <Text>Submit</Text>
+          </Button>
+        )}
       </Body>
     </Card>
   );

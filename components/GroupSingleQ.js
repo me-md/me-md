@@ -19,7 +19,7 @@ export default function GroupSingleQ({ question, answerQuestion }) {
               switch (choice.label) {
                 case 'Yes':
                   return (
-                    <Fragment>
+                    <Fragment key={index}>
                       <Text>Yes</Text>
                       <AntDesign
                         key={index}
@@ -39,7 +39,7 @@ export default function GroupSingleQ({ question, answerQuestion }) {
                   );
                 case 'No':
                   return (
-                    <Fragment>
+                    <Fragment key={index}>
                       <Text>No</Text>
                       <AntDesign
                         key={index}
@@ -59,7 +59,7 @@ export default function GroupSingleQ({ question, answerQuestion }) {
                   );
                 case `Don't know`:
                   return (
-                    <Fragment>
+                    <Fragment key={index}>
                       <Text>Unsure</Text>
                       <AntDesign
                         key={index}
@@ -92,7 +92,7 @@ export default function GroupSingleQ({ question, answerQuestion }) {
     if (id === 'present') {
       IDs = [...checkWho];
       IDs = question.question.items.map(id => {
-        return id = 'absent'
+        return (id = 'absent');
       });
       IDs[index] = id;
       setCheckWho(IDs);
@@ -102,7 +102,7 @@ export default function GroupSingleQ({ question, answerQuestion }) {
       setCheckWho(IDs);
     } else {
       IDs = question.question.items.map(id => {
-        return id = 'unknown'
+        return (id = 'unknown');
       });
       IDs[index] = id;
       setCheckWho(IDs);
@@ -130,10 +130,10 @@ export default function GroupSingleQ({ question, answerQuestion }) {
             <Text>SUBMIT</Text>
           </Button>
         ) : (
-            <Button style={styles.button} disabled block>
-              <Text>SUBMIT</Text>
-            </Button>
-          )}
+          <Button style={styles.button} disabled block>
+            <Text>SUBMIT</Text>
+          </Button>
+        )}
       </Body>
     </Card>
   );
@@ -151,12 +151,12 @@ const styles = StyleSheet.create({
     padding: height * 0.01
   },
   questionCardItem: {
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: 4
     },
-    shadowOpacity: 0.30,
+    shadowOpacity: 0.3,
     shadowRadius: 4.65,
     elevation: 8,
     height: height * 0.15,
