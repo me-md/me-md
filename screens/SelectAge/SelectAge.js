@@ -22,8 +22,6 @@ export default function SelectAge({ navigation }) {
     );
   });
 
-  console.log(ages)
-
   return (
     <View style={styles.container}>
       <LinearGradient
