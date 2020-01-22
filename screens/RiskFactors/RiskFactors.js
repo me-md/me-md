@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   questionText: {
-    fontSize: width * 0.030,
+    fontSize: width * 0.035,
   },
   riskFactorCard: {
     alignItems: 'center',
@@ -168,10 +168,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
     width: '75%'
   },
   checkboxes: {
-    // alignContent: 'center',
     flex: 0.15,
     flexDirection: 'row',
     fontSize: 12,

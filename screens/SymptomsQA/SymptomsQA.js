@@ -83,7 +83,7 @@ export default function SymptomsQA({ navigation }) {
         <View style={styles.contentContainer}>
           <Entypo
             name='chevron-thin-up'
-            size={36}
+            size={50}
             color='white'
             onPress={() => navigation.goBack()}
           />

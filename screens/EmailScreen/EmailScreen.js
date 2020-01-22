@@ -160,6 +160,10 @@ const styles = StyleSheet.create({
     height: height * 0.07,
     justifyContent: 'space-around',
     marginTop: height * 0.05,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
     width: width * 0.65
   },
   buttonText: {

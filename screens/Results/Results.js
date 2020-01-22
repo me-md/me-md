@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    marginBottom: height * 0.05,
+    marginBottom: height * 0.04,
     marginTop: height * 0.02,
     width: '100%'
   },
@@ -252,26 +252,32 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 0
   },
-  card: {
-    flex: 1,
-    padding: 0,
-    width: '100%'
-  },
   question: {
     width: '80%'
   },
   conditionCard: {
+    alignSelf: 'center',
     flex: 1,
-    width: '100%'
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    width: '95%'
   },
   secondaryCondition: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: height * 0.01
+    marginBottom: height * 0.01,
+    marginTop: height * 0.002
   },
   topDiagnosis: {
+    alignSelf: 'center',
     flex: 1,
-    width: '100%'
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    width: '95%'
   },
   btnText: {
     textAlign: 'center',
@@ -284,13 +290,13 @@ const styles = StyleSheet.create({
     marginTop: height * 0.01,
     width: '100%'
   },
-  Btn: {
-    padding: 10,
-    backgroundColor: '#004EFF'
-  },
   button: {
     alignSelf: 'center',
     marginBottom: height * 0.05,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
     width: '80%'
   },
   buttonText: {

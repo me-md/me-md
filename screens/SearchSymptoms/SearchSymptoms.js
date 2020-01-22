@@ -103,7 +103,7 @@ export default function SymptomsScreen({ navigation }) {
         <View style={styles.contentContainer}>
           <Entypo
             name='chevron-thin-up'
-            size={36}
+            size={50}
             color='white'
             onPress={() => navigation.goBack()}
           />
@@ -134,7 +134,7 @@ export default function SymptomsScreen({ navigation }) {
           {symptoms.length >= 3 && (
             <Entypo
               name='chevron-thin-down'
-              size={36}
+              size={50}
               color='white'
               onPress={() => sendInitialSymptoms()}
             />
@@ -185,9 +185,9 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'white',
-    fontSize: 36,
+    fontSize: height * 0.04,
     fontWeight: 'bold',
-    paddingTop: height * 0.025
+    paddingTop: height * 0.01
   },
   searchResultsContainer: {
     marginLeft: '5%',
@@ -208,7 +208,11 @@ const styles = StyleSheet.create({
     marginLeft: height * 0.01,
     marginTop: height * 0.01,
     maxWidth: width * 0.9,
-    padding: height * 0.01
+    padding: height * 0.01,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
   },
   searchResults: {
     alignSelf: 'center',
@@ -225,14 +229,18 @@ const styles = StyleSheet.create({
   },
   checkboxes: {
     alignItems: 'center',
-    backgroundColor: 'rgba(256, 256, 256, 0.7)',
+    backgroundColor: 'rgba(256, 256, 256, 0.9)',
     borderColor: 'grey',
     borderRadius: 15,
     height: height * 0.13,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: height * 0.02,
-    padding: 10
+    padding: 10,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
   },
   delete: {
     marginLeft: 10
