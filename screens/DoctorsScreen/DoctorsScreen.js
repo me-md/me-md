@@ -16,6 +16,7 @@ import {
   Text
 } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
 import { Header } from '../../components/Header';
 import { compileReport, formatPhoneNumber } from '../../utils/helpers/helpers';
 import { getDistanceToDoctor } from '../../utils/apiCalls/DistanceToDoctor/getDistanceToDoctor';
@@ -107,11 +108,11 @@ export default function DoctorsScreen({ navigation }) {
           width: '100%'
         }}
       >
-        <Text style={{ fontWeight: '600', color: '#fff' }}> {item.title}</Text>
+        <Text style={{ fontWeight: '700', color: '#fff' }}> {item.title}</Text>
         {expanded ? (
-          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-up' />
+          <Icon style={{ fontSize: 24, color: '#fff' }} name='arrow-up' />
         ) : (
-          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-down' />
+          <Icon style={{ fontSize: 24, color: '#fff' }} name='arrow-down' />
         )}
       </View>
     );
@@ -132,7 +133,7 @@ export default function DoctorsScreen({ navigation }) {
 
   const nearbyPractices = doctors.map((doctor, index) => {
     return (
-      <Card key={index}>
+      <Card key={index} style={styles.doctorCard}>
         <CardItem>
           <Body>
             <Accordion
@@ -216,7 +217,7 @@ export default function DoctorsScreen({ navigation }) {
                   )}
                 </ScrollView>
                 <Button
-                  block
+                  rounded
                   style={styles.button}
                   onPress={() =>
                     navigation.push('Email', {
@@ -226,7 +227,13 @@ export default function DoctorsScreen({ navigation }) {
                     })
                   }
                 >
-                  <Text style={styles.buttonText}>EMAIL REPORT</Text>
+                  <Text style={styles.buttonText}>Email Report</Text>
+                    <Ionicons
+                      name='ios-send'
+                      style={styles.icon}
+                      size={26}
+                      color='white'
+                    />
                 </Button>
               </Fragment>
             )}
@@ -273,12 +280,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   button: {
-    alignSelf: 'center',
-    marginTop: height * 0.04,
-    width: '75%'
+    alignItems: 'center',
+    height: height * 0.07,
+    justifyContent: 'space-around',
+    marginTop: height * 0.05,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    width: width * 0.65
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: height * 0.025,
     fontWeight: 'bold'
   },
   picker: {
@@ -297,5 +310,17 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: height * 0.01,
     width: width * 0.87
-  }
+  },
+  doctorCard: {
+    alignSelf: 'center',
+    marginBottom: height * 0.01,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    width: '95%'
+  },
+  icon: {
+    marginRight: height * 0.02
+  },
 });

@@ -127,11 +127,11 @@ export default function GroupSingleQ({ question, answerQuestion }) {
         {questions}
         {checkWho.length === question.question.items.length ? (
           <Button style={styles.button} block onPress={() => handleSubmit()}>
-            <Text>SUBMIT</Text>
+            <Text style={styles.buttonText}>SUBMIT</Text>
           </Button>
         ) : (
           <Button style={styles.button} disabled block>
-            <Text>SUBMIT</Text>
+            <Text style={styles.buttonText}>SUBMIT</Text>
           </Button>
         )}
       </Body>
@@ -145,17 +145,18 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.01,
     marginTop: height * 0.01,
     padding: height * 0.02,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
     width: width * 0.8
   },
   body: {
     padding: height * 0.01
   },
   questionCardItem: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4
-    },
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
     elevation: 8,
@@ -193,6 +194,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: height * 0.02,
     marginTop: height * 0.02,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
     width: width * 0.6
+  },
+  buttonText: {
+    fontWeight: 'bold'
   }
 });

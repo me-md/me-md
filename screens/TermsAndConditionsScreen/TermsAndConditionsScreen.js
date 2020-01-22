@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     fontSize: height * 0.018,
     lineHeight: height * 0.035,
     marginBottom: height * 0.02,
-    marginTop: height * 0.02
+    marginTop: height * 0.02,
   },
   agreement: {
     alignSelf: 'flex-start',
@@ -134,6 +134,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: height * 0.02,
     marginTop: -height * 0.25,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
     width: '75%'
   },
   checkbox: {

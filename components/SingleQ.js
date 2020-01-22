@@ -85,11 +85,11 @@ export default function SingleQ({ question, answerQuestion }) {
         <View style={styles.checkboxes}>{choices}</View>
         {checkWho.length ? (
           <Button style={styles.button} block onPress={() => handleSubmit()}>
-            <Text>Submit</Text>
+            <Text style={styles.buttonText}>SUBMIT</Text>
           </Button>
         ) : (
           <Button style={styles.button} disabled block>
-            <Text>Submit</Text>
+            <Text style={styles.buttonText}>SUBMIT</Text>
           </Button>
         )}
       </Body>
@@ -102,6 +102,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f7f7f7',
     marginBottom: height * 0.01,
     marginTop: height * 0.01,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
     width: '80%'
   },
   cardBody: {
@@ -124,5 +128,14 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     padding: 0,
     width: '90%'
+  },
+  button: {
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+  },
+  buttonText: {
+    fontWeight: 'bold'
   }
 });
