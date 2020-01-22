@@ -67,11 +67,11 @@ export default function TermsAndConditionsScreen({ navigation }) {
               style={styles.button}
               onPress={() => navigation.push('BiologicalInformation')}
             >
-              <Text>CONTINUE</Text>
+              <Text style={styles.buttonText}>CONTINUE</Text>
             </Button>
           ) : (
               <Button disabled block style={styles.button}>
-                <Text>CONTINUE</Text>
+                <Text style={styles.buttonText}>CONTINUE</Text>
               </Button>
             )}
         </View>
@@ -139,5 +139,8 @@ const styles = StyleSheet.create({
   checkbox: {
     height: 30,
     width: 30
-  }
+  },
+  buttonText: {
+  fontWeight: 'bold'
+}
 });
