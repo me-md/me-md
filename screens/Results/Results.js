@@ -15,6 +15,7 @@ import {
   Icon,
   Text
 } from 'native-base';
+import { Entypo } from '@expo/vector-icons';
 import * as Progress from 'react-native-progress';
 import { Header } from '../../components/Header';
 import { specifyTargetCondition } from '../../utils/helpers/helpers';
@@ -23,6 +24,7 @@ import { getExplanation } from '../../utils/apiCalls/Infermedica/getExplanation'
 import { getConditionById } from '../../utils/apiCalls/Conditions/getConditionById';
 
 const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 export default function SymptomsQA({ navigation }) {
   let {
@@ -219,6 +221,12 @@ export default function SymptomsQA({ navigation }) {
         }
       >
         <Text style={styles.buttonText}>Find Doctors</Text>
+        <Entypo
+          name='location-pin'
+          style={styles.icon}
+          size={36}
+          color='white'
+        />
       </Button>
     </View>
   );
@@ -291,15 +299,22 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   button: {
-    alignSelf: 'center',
-    marginBottom: height * 0.05,
-    shadowColor: 'black',
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-    width: '80%'
+      alignSelf: 'center',
+      height: height * 0.07,
+      justifyContent: 'space-around',
+      marginBottom: height * 0.02,
+      marginTop: -height * 0.25,
+      shadowColor: 'black',
+      shadowOffset: { width: 5, height: 5 },
+      shadowOpacity: 0.3,
+      shadowRadius: 4.65,
+      width: width * 0.65
   },
   buttonText: {
+    fontSize: height * 0.025,
     fontWeight: 'bold'
+  },
+  icon: {
+    marginRight: height * 0.02
   }
 });
