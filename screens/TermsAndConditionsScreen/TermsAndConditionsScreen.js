@@ -9,7 +9,7 @@ import {
 import { Button, Text } from 'native-base';
 import { Header } from '../../components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 import Checkbox from '../../components/Checkbox';
 
 const height = Dimensions.get('window').height;
@@ -63,17 +63,29 @@ export default function TermsAndConditionsScreen({ navigation }) {
           </View>
           {enabled ? (
             <Button
-              block
+              rounded
               style={styles.button}
               onPress={() => navigation.push('BiologicalInformation')}
             >
-              <Text style={styles.buttonText}>CONTINUE</Text>
+              <Text style={styles.buttonText}>Continue</Text>
+              <Feather
+                name='arrow-right-circle'
+                size={30}
+                color='white'
+                style={styles.nextIcon}
+              />
             </Button>
           ) : (
-              <Button disabled block style={styles.button}>
-                <Text style={styles.buttonText}>CONTINUE</Text>
-              </Button>
-            )}
+            <Button disabled rounded style={styles.button}>
+              <Text style={styles.buttonText}>Continue</Text>
+              <Feather
+                name='arrow-right-circle'
+                size={30}
+                color='white'
+                style={styles.nextIcon}
+              />
+            </Button>
+          )}
         </View>
       </View>
     </Fragment>
@@ -123,7 +135,7 @@ const styles = StyleSheet.create({
     fontSize: height * 0.018,
     lineHeight: height * 0.035,
     marginBottom: height * 0.02,
-    marginTop: height * 0.02,
+    marginTop: height * 0.02
   },
   agreement: {
     alignSelf: 'flex-start',
@@ -132,19 +144,25 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
+    height: height * 0.07,
+    justifyContent: 'space-around',
     marginBottom: height * 0.02,
     marginTop: -height * 0.25,
     shadowColor: 'black',
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    width: '75%'
+    width: width * 0.65
   },
   checkbox: {
     height: 30,
     width: 30
   },
   buttonText: {
-  fontWeight: 'bold'
-}
+    fontSize: height * 0.025,
+    fontWeight: 'bold'
+  },
+  nextIcon: {
+    marginRight: height * 0.02
+  }
 });

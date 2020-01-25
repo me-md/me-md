@@ -107,7 +107,7 @@ export default function SymptomsScreen({ navigation }) {
             color='white'
             onPress={() => navigation.goBack()}
           />
-          <Text style={styles.title}>Symptoms</Text>
+          <Text style={styles.title}>Search Symptoms</Text>
           <Item style={styles.searchBox}>
             <Input
               placeholder='Search all symptoms'
