@@ -2,6 +2,7 @@ import React from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
 import { Button, Text } from 'native-base';
 import { Header } from '../../components/Header';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
@@ -19,15 +20,21 @@ export default function WelcomeScreen({ navigation }) {
           <Text style={styles.greeting}>Hello!</Text>
           <Text style={styles.message}>
             Welcome to MeMD, a mobile platform designed to help diagnose
-            conditions and locate potential doctors. Please click BEGIN CHECKUP
+            conditions and locate potential doctors. Please click Start Checkup
             to start your health checkup.
           </Text>
           <Button
-            block
+            rounded
             style={styles.button}
             onPress={() => navigation.push('TermsAndConditions')}
           >
-            <Text style={styles.buttonText}>BEGIN CHECKUP</Text>
+            <Text style={styles.buttonText}>New Checkup</Text>
+            <MaterialCommunityIcons
+              name='stethoscope'
+              style={styles.buttonIcon}
+              size={26}
+              color='white'
+            />
           </Button>
         </View>
       </View>
@@ -68,14 +75,20 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: 'center',
     fontWeight: 'bold',
+    height: height * 0.07,
+    justifyContent: 'space-around',
     marginTop: height * 0.02,
     shadowColor: 'black',
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    width: '75%'
+    width: width * 0.65,
   },
   buttonText: {
+    fontSize: height * 0.025,
     fontWeight: 'bold'
+  },
+  buttonIcon: {
+      marginRight: height * 0.02
   }
 });

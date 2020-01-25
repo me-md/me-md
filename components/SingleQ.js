@@ -84,12 +84,12 @@ export default function SingleQ({ question, answerQuestion }) {
         <Text style={styles.questionText}>{question.question.text}</Text>
         <View style={styles.checkboxes}>{choices}</View>
         {checkWho.length ? (
-          <Button style={styles.button} block onPress={() => handleSubmit()}>
-            <Text style={styles.buttonText}>SUBMIT</Text>
+          <Button rounded style={styles.button} block onPress={() => handleSubmit()}>
+            <Text style={styles.buttonText}>Continue</Text>
           </Button>
         ) : (
-          <Button style={styles.button} disabled block>
-            <Text style={styles.buttonText}>SUBMIT</Text>
+          <Button rounded style={styles.button} disabled block>
+            <Text style={styles.buttonText}>Continue</Text>
           </Button>
         )}
       </Body>

@@ -45,7 +45,7 @@ export default function LocationScreen({ navigation }) {
             onPress={() => navigation.goBack()}
           />
           <View style={styles.childContainer}>
-            <Text style={styles.title}>What state are you located in?</Text>
+            <Text style={styles.title}>Which state are you located in?</Text>
             <Entypo
               name='location-pin'
               style={styles.pin}

@@ -110,12 +110,12 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
         <Text style={styles.questionTextHeader}>{question.question.text}</Text>
         {questions}
         {checkWho.length === question.question.items.length ? (
-          <Button style={styles.button} block onPress={() => handleSubmit()}>
-            <Text style={styles.buttonText}>SUBMIT</Text>
+          <Button rounded style={styles.button} block onPress={() => handleSubmit()}>
+            <Text style={styles.buttonText}>Continue</Text>
           </Button>
         ) : (
-          <Button style={styles.button} disabled block>
-            <Text style={styles.buttonText}>SUBMIT</Text>
+          <Button rounded style={styles.button} disabled block>
+            <Text style={styles.buttonText}>Continue</Text>
           </Button>
         )}
       </Body>

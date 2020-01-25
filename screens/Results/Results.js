@@ -205,7 +205,7 @@ export default function SymptomsQA({ navigation }) {
         {getTopDiagnoses()}
       </ScrollView>
       <Button
-        block
+        rounded
         style={styles.button}
         onPress={() =>
           navigation.push('Doctors', {
@@ -218,7 +218,7 @@ export default function SymptomsQA({ navigation }) {
           })
         }
       >
-        <Text style={styles.buttonText}>FIND DOCTORS</Text>
+        <Text style={styles.buttonText}>Find Doctors</Text>
       </Button>
     </View>
   );
