@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { Body, Button, Card, Text } from 'native-base';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
@@ -126,12 +126,29 @@ export default function GroupSingleQ({ question, answerQuestion }) {
         <Text style={styles.questionTextHeader}>{question.question.text}</Text>
         {questions}
         {checkWho.length === question.question.items.length ? (
-          <Button rounded style={styles.button} block onPress={() => handleSubmit()}>
+          <Button
+            rounded
+            style={styles.button}
+            block
+            onPress={() => handleSubmit()}
+          >
             <Text style={styles.buttonText}>Continue</Text>
+            <Feather
+              name='arrow-right-circle'
+              size={30}
+              color='white'
+              style={styles.icon}
+            />
           </Button>
         ) : (
           <Button rounded style={styles.button} disabled block>
             <Text style={styles.buttonText}>Continue</Text>
+            <Feather
+              name='arrow-right-circle'
+              size={30}
+              color='white'
+              style={styles.icon}
+            />
           </Button>
         )}
       </Body>
@@ -191,16 +208,22 @@ const styles = StyleSheet.create({
     width: width * 0.7
   },
   button: {
+    alignItems: 'center',
     alignSelf: 'center',
-    marginBottom: height * 0.02,
-    marginTop: height * 0.02,
+    height: height * 0.07,
+    justifyContent: 'space-around',
+    marginTop: height * 0.05,
     shadowColor: 'black',
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    width: width * 0.6
+    width: width * 0.65
   },
   buttonText: {
+    fontSize: height * 0.025,
     fontWeight: 'bold'
+  },
+  icon: {
+    marginRight: height * 0.02
   }
 });
