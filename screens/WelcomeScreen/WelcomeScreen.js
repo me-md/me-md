@@ -28,7 +28,7 @@ export default function WelcomeScreen({ navigation }) {
             style={styles.button}
             onPress={() => navigation.push('TermsAndConditions')}
           >
-            <Text style={styles.buttonText}>New Checkup</Text>
+            <Text style={styles.buttonText}>Start Checkup</Text>
             <MaterialCommunityIcons
               name='stethoscope'
               style={styles.buttonIcon}
@@ -82,13 +82,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    width: width * 0.65,
+    width: width * 0.65
   },
   buttonText: {
     fontSize: height * 0.025,
     fontWeight: 'bold'
   },
   buttonIcon: {
-      marginRight: height * 0.02
+    marginRight: height * 0.02
   }
 });
