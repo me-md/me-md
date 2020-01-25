@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<View
+  id={0}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#fff",
+        "borderBottomWidth": 0.5,
+        "borderColor": "#ccc",
+        "borderLeftWidth": 0.5,
+        "borderRadius": 2,
+        "borderRightWidth": 0.5,
+        "borderTopWidth": 0.5,
+        "elevation": 3,
+        "flexWrap": "nowrap",
+        "marginBottom": 5,
+        "marginLeft": 2,
+        "marginRight": 2,
+        "marginTop": 5,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 1.5,
+      },
+      Object {
+        "backgroundColor": "#f7f7f7",
+        "marginBottom": 13.34,
+        "marginTop": 13.34,
+        "padding": 26.68,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 5,
+          "width": 5,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 4.65,
+        "width": 600,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "flex": 1,
+        },
+        Object {
+          "padding": 13.34,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "alignSelf": "flex-start",
+            "flex": 0.5,
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 26.68,
+            "marginTop": 13.34,
+            "padding": 0,
+          },
+        ]
+      }
+      uppercase={false}
+    >
+      Where's Rachel?!?
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#fff",
+            "borderBottomWidth": 0.5,
+            "borderColor": "#ccc",
+            "borderLeftWidth": 0.5,
+            "borderRadius": 2,
+            "borderRightWidth": 0.5,
+            "borderTopWidth": 0.5,
+            "elevation": 3,
+            "flexWrap": "nowrap",
+            "marginBottom": 5,
+            "marginLeft": 2,
+            "marginRight": 2,
+            "marginTop": 5,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.1,
+            "shadowRadius": 1.5,
+          },
+          Object {
+            "elevation": 8,
+            "height": 200.1,
+            "marginBottom": 13.34,
+            "marginTop": 13.34,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 5,
+              "width": 5,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 4.65,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "flex": 1,
+            },
+            Object {
+              "padding": 13.34,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              },
+              Object {
+                "alignSelf": "flex-start",
+                "fontSize": 27.75,
+                "fontWeight": "bold",
+                "marginBottom": 26.68,
+                "padding": 0,
+              },
+            ]
+          }
+          uppercase={false}
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "fontSize": 12,
+              "justifyContent": "space-around",
+              "marginBottom": 26.68,
+              "padding": 0,
+              "width": 525,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              }
+            }
+            uppercase={false}
+          >
+            Yes
+          </Text>
+          <Text />
+          <Text
+            style={
+              Object {
+                "color": "#000",
+                "fontFamily": "System",
+                "fontSize": 16,
+              }
+            }
+            uppercase={false}
+          >
+            No
+          </Text>
+          <Text />
+        </View>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      focusable={false}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "#b5b5b5",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 57,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "borderWidth": undefined,
+          "elevation": 2,
+          "flexDirection": "row",
+          "height": 93.38000000000001,
+          "justifyContent": "space-around",
+          "marginTop": 66.7,
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 5,
+            "width": 5,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 4.65,
+          "width": 487.5,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#fff",
+              "fontFamily": "System",
+              "fontSize": 16.5,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+            },
+            Object {
+              "fontSize": 33.35,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+        uppercase={false}
+      >
+        Continue
+      </Text>
+      <Text />
+    </View>
+  </View>
+</View>
+`;

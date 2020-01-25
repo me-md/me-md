@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#fff",
+          "borderBottomWidth": 0.5,
+          "borderColor": "#ccc",
+          "borderLeftWidth": 0.5,
+          "borderRadius": 2,
+          "borderRightWidth": 0.5,
+          "borderTopWidth": 0.5,
+          "elevation": 3,
+          "flexWrap": "nowrap",
+          "marginBottom": 5,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "marginTop": 5,
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.1,
+          "shadowRadius": 1.5,
+        },
+        Object {
+          "flex": 0.45,
+          "justifyContent": "space-evenly",
+          "width": 690,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "flex": 1,
+          },
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-evenly",
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "System",
+              "fontSize": 16,
+            },
+            Object {
+              "fontSize": 14,
+            },
+          ]
+        }
+        uppercase={false}
+      >
+        I have read and accept the Terms of Service
+      </Text>
+    </View>
+  </View>
+</View>
+`;
