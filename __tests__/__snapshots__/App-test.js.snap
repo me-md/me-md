@@ -161,7 +161,7 @@ exports[`App renders the loading screen 1`] = `
                   }
                   uppercase={false}
                 >
-                  Welcome to MeMD, a mobile platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
+                  Welcome to MeMD, a mobile platform designed to help diagnose conditions and locate potential doctors. Please click Start Checkup to start your health checkup.
                 </Text>
                 <View
                   accessible={true}
@@ -182,43 +182,54 @@ exports[`App renders the loading screen 1`] = `
                       "borderBottomWidth": null,
                       "borderColor": "#007aff",
                       "borderLeftWidth": null,
-                      "borderRadius": 5,
+                      "borderRadius": 57,
                       "borderRightWidth": null,
                       "borderTopWidth": null,
                       "borderWidth": undefined,
                       "elevation": 2,
                       "flexDirection": "row",
-                      "height": 45,
-                      "justifyContent": "center",
+                      "fontWeight": "bold",
+                      "height": 93.38000000000001,
+                      "justifyContent": "space-around",
                       "marginTop": 26.68,
                       "opacity": 1,
                       "paddingBottom": 6,
                       "paddingTop": 6,
-                      "shadowColor": undefined,
-                      "shadowOffset": undefined,
-                      "shadowOpacity": undefined,
-                      "shadowRadius": undefined,
-                      "width": "75%",
+                      "shadowColor": "black",
+                      "shadowOffset": Object {
+                        "height": 5,
+                        "width": 5,
+                      },
+                      "shadowOpacity": 0.3,
+                      "shadowRadius": 4.65,
+                      "width": 487.5,
                     }
                   }
                 >
                   <Text
                     style={
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontFamily": "System",
-                        "fontSize": 16.5,
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                        "paddingLeft": 16,
-                        "paddingRight": 16,
-                      }
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                          "color": "#fff",
+                          "fontFamily": "System",
+                          "fontSize": 16.5,
+                          "marginLeft": 0,
+                          "marginRight": 0,
+                          "paddingLeft": 16,
+                          "paddingRight": 16,
+                        },
+                        Object {
+                          "fontSize": 33.35,
+                          "fontWeight": "bold",
+                        },
+                      ]
                     }
                     uppercase={false}
                   >
-                    BEGIN CHECKUP
+                    Start Checkup
                   </Text>
+                  <Text />
                 </View>
               </View>
             </View>
@@ -391,7 +402,7 @@ exports[`App renders the root without loading screen 1`] = `
                   }
                   uppercase={false}
                 >
-                  Welcome to MeMD, a mobile platform designed to help diagnose conditions and locate potential doctors. Please click BEGIN CHECKUP to start your health checkup.
+                  Welcome to MeMD, a mobile platform designed to help diagnose conditions and locate potential doctors. Please click Start Checkup to start your health checkup.
                 </Text>
                 <View
                   accessible={true}
@@ -412,43 +423,54 @@ exports[`App renders the root without loading screen 1`] = `
                       "borderBottomWidth": null,
                       "borderColor": "#007aff",
                       "borderLeftWidth": null,
-                      "borderRadius": 5,
+                      "borderRadius": 57,
                       "borderRightWidth": null,
                       "borderTopWidth": null,
                       "borderWidth": undefined,
                       "elevation": 2,
                       "flexDirection": "row",
-                      "height": 45,
-                      "justifyContent": "center",
+                      "fontWeight": "bold",
+                      "height": 93.38000000000001,
+                      "justifyContent": "space-around",
                       "marginTop": 26.68,
                       "opacity": 1,
                       "paddingBottom": 6,
                       "paddingTop": 6,
-                      "shadowColor": undefined,
-                      "shadowOffset": undefined,
-                      "shadowOpacity": undefined,
-                      "shadowRadius": undefined,
-                      "width": "75%",
+                      "shadowColor": "black",
+                      "shadowOffset": Object {
+                        "height": 5,
+                        "width": 5,
+                      },
+                      "shadowOpacity": 0.3,
+                      "shadowRadius": 4.65,
+                      "width": 487.5,
                     }
                   }
                 >
                   <Text
                     style={
-                      Object {
-                        "backgroundColor": "transparent",
-                        "color": "#fff",
-                        "fontFamily": "System",
-                        "fontSize": 16.5,
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                        "paddingLeft": 16,
-                        "paddingRight": 16,
-                      }
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                          "color": "#fff",
+                          "fontFamily": "System",
+                          "fontSize": 16.5,
+                          "marginLeft": 0,
+                          "marginRight": 0,
+                          "paddingLeft": 16,
+                          "paddingRight": 16,
+                        },
+                        Object {
+                          "fontSize": 33.35,
+                          "fontWeight": "bold",
+                        },
+                      ]
                     }
                     uppercase={false}
                   >
-                    BEGIN CHECKUP
+                    Start Checkup
                   </Text>
+                  <Text />
                 </View>
               </View>
             </View>

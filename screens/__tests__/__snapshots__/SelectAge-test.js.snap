@@ -23,7 +23,6 @@ exports[`SelectAge should match a snapshot 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "flex": 1,
       }
     }
   >
@@ -31,7 +30,6 @@ exports[`SelectAge should match a snapshot 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "flex": 1,
           "justifyContent": "space-between",
           "marginBottom": 80.03999999999999,
           "marginTop": 80.03999999999999,
@@ -45,7 +43,6 @@ exports[`SelectAge should match a snapshot 1`] = `
             "alignItems": "center",
             "flex": 1,
             "justifyContent": "space-evenly",
-            "marginBottom": 400.2,
           }
         }
       >
@@ -53,188 +50,515 @@ exports[`SelectAge should match a snapshot 1`] = `
           style={
             Object {
               "color": "#fff",
-              "fontSize": 48,
+              "fontSize": 67.5,
               "fontWeight": "bold",
             }
           }
         >
-          Age
+          What is your age?
         </Text>
         <Text />
         <View
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderWidth": 1,
-                "flexDirection": "row",
-                "justifyContent": "center",
-              },
-              Object {
-                "borderColor": "#d4d4d4",
-                "height": 133.4,
-                "width": 562.5,
-              },
-              Object {},
-              Object {},
-            ]
+            Object {
+              "color": "white",
+              "width": 200,
+            }
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "white",
-                "borderWidth": 0,
-                "height": 131.4,
-                "justifyContent": "center",
-                "left": 0,
-                "opacity": 1,
-                "position": "absolute",
-                "width": 168.75,
-                "zIndex": -1,
-              }
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 50.692,
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "fontWeight": "900",
-                    },
-                    Object {},
-                    Object {},
-                    Object {},
-                  ],
-                  Object {
-                    "fontFamily": "Ionicons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-          <View
-            style={
+          <RCTPicker
+            items={
               Array [
                 Object {
-                  "alignSelf": "center",
-                  "borderLeftColor": "#d4d4d4",
-                  "borderLeftWidth": 1,
-                  "borderRightColor": "#d4d4d4",
-                  "borderRightWidth": 1,
+                  "label": "5",
+                  "textColor": undefined,
+                  "value": "5",
+                },
+                Object {
+                  "label": "6",
+                  "textColor": undefined,
+                  "value": "6",
+                },
+                Object {
+                  "label": "7",
+                  "textColor": undefined,
+                  "value": "7",
+                },
+                Object {
+                  "label": "8",
+                  "textColor": undefined,
+                  "value": "8",
+                },
+                Object {
+                  "label": "9",
+                  "textColor": undefined,
+                  "value": "9",
+                },
+                Object {
+                  "label": "10",
+                  "textColor": undefined,
+                  "value": "10",
+                },
+                Object {
+                  "label": "11",
+                  "textColor": undefined,
+                  "value": "11",
+                },
+                Object {
+                  "label": "12",
+                  "textColor": undefined,
+                  "value": "12",
+                },
+                Object {
+                  "label": "13",
+                  "textColor": undefined,
+                  "value": "13",
+                },
+                Object {
+                  "label": "14",
+                  "textColor": undefined,
+                  "value": "14",
+                },
+                Object {
+                  "label": "15",
+                  "textColor": undefined,
+                  "value": "15",
+                },
+                Object {
+                  "label": "16",
+                  "textColor": undefined,
+                  "value": "16",
+                },
+                Object {
+                  "label": "17",
+                  "textColor": undefined,
+                  "value": "17",
+                },
+                Object {
+                  "label": "18",
+                  "textColor": undefined,
+                  "value": "18",
+                },
+                Object {
+                  "label": "19",
+                  "textColor": undefined,
+                  "value": "19",
+                },
+                Object {
+                  "label": "20",
+                  "textColor": undefined,
+                  "value": "20",
+                },
+                Object {
+                  "label": "21",
+                  "textColor": undefined,
+                  "value": "21",
+                },
+                Object {
+                  "label": "22",
+                  "textColor": undefined,
+                  "value": "22",
+                },
+                Object {
+                  "label": "23",
+                  "textColor": undefined,
+                  "value": "23",
+                },
+                Object {
+                  "label": "24",
+                  "textColor": undefined,
+                  "value": "24",
+                },
+                Object {
+                  "label": "25",
+                  "textColor": undefined,
+                  "value": "25",
+                },
+                Object {
+                  "label": "26",
+                  "textColor": undefined,
+                  "value": "26",
+                },
+                Object {
+                  "label": "27",
+                  "textColor": undefined,
+                  "value": "27",
+                },
+                Object {
+                  "label": "28",
+                  "textColor": undefined,
+                  "value": "28",
+                },
+                Object {
+                  "label": "29",
+                  "textColor": undefined,
+                  "value": "29",
+                },
+                Object {
+                  "label": "30",
+                  "textColor": undefined,
+                  "value": "30",
+                },
+                Object {
+                  "label": "31",
+                  "textColor": undefined,
+                  "value": "31",
+                },
+                Object {
+                  "label": "32",
+                  "textColor": undefined,
+                  "value": "32",
+                },
+                Object {
+                  "label": "33",
+                  "textColor": undefined,
+                  "value": "33",
+                },
+                Object {
+                  "label": "34",
+                  "textColor": undefined,
+                  "value": "34",
+                },
+                Object {
+                  "label": "35",
+                  "textColor": undefined,
+                  "value": "35",
+                },
+                Object {
+                  "label": "36",
+                  "textColor": undefined,
+                  "value": "36",
+                },
+                Object {
+                  "label": "37",
+                  "textColor": undefined,
+                  "value": "37",
+                },
+                Object {
+                  "label": "38",
+                  "textColor": undefined,
+                  "value": "38",
+                },
+                Object {
+                  "label": "39",
+                  "textColor": undefined,
+                  "value": "39",
+                },
+                Object {
+                  "label": "40",
+                  "textColor": undefined,
+                  "value": "40",
+                },
+                Object {
+                  "label": "41",
+                  "textColor": undefined,
+                  "value": "41",
+                },
+                Object {
+                  "label": "42",
+                  "textColor": undefined,
+                  "value": "42",
+                },
+                Object {
+                  "label": "43",
+                  "textColor": undefined,
+                  "value": "43",
+                },
+                Object {
+                  "label": "44",
+                  "textColor": undefined,
+                  "value": "44",
+                },
+                Object {
+                  "label": "45",
+                  "textColor": undefined,
+                  "value": "45",
+                },
+                Object {
+                  "label": "46",
+                  "textColor": undefined,
+                  "value": "46",
+                },
+                Object {
+                  "label": "47",
+                  "textColor": undefined,
+                  "value": "47",
+                },
+                Object {
+                  "label": "48",
+                  "textColor": undefined,
+                  "value": "48",
+                },
+                Object {
+                  "label": "49",
+                  "textColor": undefined,
+                  "value": "49",
+                },
+                Object {
+                  "label": "50",
+                  "textColor": undefined,
+                  "value": "50",
+                },
+                Object {
+                  "label": "51",
+                  "textColor": undefined,
+                  "value": "51",
+                },
+                Object {
+                  "label": "52",
+                  "textColor": undefined,
+                  "value": "52",
+                },
+                Object {
+                  "label": "53",
+                  "textColor": undefined,
+                  "value": "53",
+                },
+                Object {
+                  "label": "54",
+                  "textColor": undefined,
+                  "value": "54",
+                },
+                Object {
+                  "label": "55",
+                  "textColor": undefined,
+                  "value": "55",
+                },
+                Object {
+                  "label": "56",
+                  "textColor": undefined,
+                  "value": "56",
+                },
+                Object {
+                  "label": "57",
+                  "textColor": undefined,
+                  "value": "57",
+                },
+                Object {
+                  "label": "58",
+                  "textColor": undefined,
+                  "value": "58",
+                },
+                Object {
+                  "label": "59",
+                  "textColor": undefined,
+                  "value": "59",
+                },
+                Object {
+                  "label": "60",
+                  "textColor": undefined,
+                  "value": "60",
+                },
+                Object {
+                  "label": "61",
+                  "textColor": undefined,
+                  "value": "61",
+                },
+                Object {
+                  "label": "62",
+                  "textColor": undefined,
+                  "value": "62",
+                },
+                Object {
+                  "label": "63",
+                  "textColor": undefined,
+                  "value": "63",
+                },
+                Object {
+                  "label": "64",
+                  "textColor": undefined,
+                  "value": "64",
+                },
+                Object {
+                  "label": "65",
+                  "textColor": undefined,
+                  "value": "65",
+                },
+                Object {
+                  "label": "66",
+                  "textColor": undefined,
+                  "value": "66",
+                },
+                Object {
+                  "label": "67",
+                  "textColor": undefined,
+                  "value": "67",
+                },
+                Object {
+                  "label": "68",
+                  "textColor": undefined,
+                  "value": "68",
+                },
+                Object {
+                  "label": "69",
+                  "textColor": undefined,
+                  "value": "69",
+                },
+                Object {
+                  "label": "70",
+                  "textColor": undefined,
+                  "value": "70",
+                },
+                Object {
+                  "label": "71",
+                  "textColor": undefined,
+                  "value": "71",
+                },
+                Object {
+                  "label": "72",
+                  "textColor": undefined,
+                  "value": "72",
+                },
+                Object {
+                  "label": "73",
+                  "textColor": undefined,
+                  "value": "73",
+                },
+                Object {
+                  "label": "74",
+                  "textColor": undefined,
+                  "value": "74",
+                },
+                Object {
+                  "label": "75",
+                  "textColor": undefined,
+                  "value": "75",
+                },
+                Object {
+                  "label": "76",
+                  "textColor": undefined,
+                  "value": "76",
+                },
+                Object {
+                  "label": "77",
+                  "textColor": undefined,
+                  "value": "77",
+                },
+                Object {
+                  "label": "78",
+                  "textColor": undefined,
+                  "value": "78",
+                },
+                Object {
+                  "label": "79",
+                  "textColor": undefined,
+                  "value": "79",
+                },
+                Object {
+                  "label": "80",
+                  "textColor": undefined,
+                  "value": "80",
+                },
+                Object {
+                  "label": "81",
+                  "textColor": undefined,
+                  "value": "81",
+                },
+                Object {
+                  "label": "82",
+                  "textColor": undefined,
+                  "value": "82",
+                },
+                Object {
+                  "label": "83",
+                  "textColor": undefined,
+                  "value": "83",
+                },
+                Object {
+                  "label": "84",
+                  "textColor": undefined,
+                  "value": "84",
+                },
+                Object {
+                  "label": "85",
+                  "textColor": undefined,
+                  "value": "85",
+                },
+                Object {
+                  "label": "86",
+                  "textColor": undefined,
+                  "value": "86",
+                },
+                Object {
+                  "label": "87",
+                  "textColor": undefined,
+                  "value": "87",
+                },
+                Object {
+                  "label": "88",
+                  "textColor": undefined,
+                  "value": "88",
+                },
+                Object {
+                  "label": "89",
+                  "textColor": undefined,
+                  "value": "89",
+                },
+                Object {
+                  "label": "90",
+                  "textColor": undefined,
+                  "value": "90",
+                },
+                Object {
+                  "label": "91",
+                  "textColor": undefined,
+                  "value": "91",
+                },
+                Object {
+                  "label": "92",
+                  "textColor": undefined,
+                  "value": "92",
+                },
+                Object {
+                  "label": "93",
+                  "textColor": undefined,
+                  "value": "93",
+                },
+                Object {
+                  "label": "94",
+                  "textColor": undefined,
+                  "value": "94",
+                },
+                Object {
+                  "label": "95",
+                  "textColor": undefined,
+                  "value": "95",
+                },
+                Object {
+                  "label": "96",
+                  "textColor": undefined,
+                  "value": "96",
+                },
+                Object {
+                  "label": "97",
+                  "textColor": undefined,
+                  "value": "97",
+                },
+                Object {
+                  "label": "98",
+                  "textColor": undefined,
+                  "value": "98",
+                },
+                Object {
+                  "label": "99",
+                  "textColor": undefined,
+                  "value": "99",
                 },
               ]
             }
-          >
-            <TextInput
-              allowFontScaling={true}
-              editable={true}
-              keyboardType="numeric"
-              onBlur={[Function]}
-              onChangeText={[Function]}
-              onFocus={[Function]}
-              rejectResponderTermination={true}
-              returnKeyType="done"
-              style={
-                Array [
-                  Object {
-                    "padding": 0,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "borderLeftColor": "#d4d4d4",
-                    "borderLeftWidth": 1,
-                    "borderRightColor": "#d4d4d4",
-                    "borderRightWidth": 1,
-                    "color": "white",
-                    "fontSize": 50.692,
-                    "height": 133.4,
-                    "width": 225,
-                  },
-                  Object {},
-                ]
-              }
-              underlineColorAndroid="rgba(0,0,0,0)"
-              value="0"
-            />
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
+            onChange={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
+            selectedIndex={30}
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "white",
-                "borderWidth": 0,
-                "height": 131.4,
-                "justifyContent": "center",
-                "opacity": 1,
-                "position": "absolute",
-                "right": 0,
-                "width": 168.75,
-                "zIndex": -1,
-              }
+              Array [
+                Object {
+                  "height": 216,
+                },
+                undefined,
+              ]
             }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 50.692,
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "fontWeight": "900",
-                    },
-                    Object {},
-                    Object {},
-                    Object {},
-                  ],
-                  Object {
-                    "fontFamily": "Ionicons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+          />
         </View>
       </View>
       <Text />

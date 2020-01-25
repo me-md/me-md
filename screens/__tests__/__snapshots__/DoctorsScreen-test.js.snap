@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DoctorsScreen should match a snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "paddingBottom": 66.7,
+    }
+  }
+>
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          4278210303,
+          4287155441,
+        ],
+        "endPoint": undefined,
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 200.1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "alignSelf": "center",
+          "borderWidth": 0,
+          "height": 133.4,
+          "marginBottom": 13.34,
+          "marginTop": 60.03,
+          "width": 133.4,
+        }
+      }
+    />
+  </ViewManagerAdapter_ExpoLinearGradient>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "alignSelf": "center",
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "marginTop": 26.68,
+            "textAlign": "center",
+          },
+        ]
+      }
+      uppercase={false}
+    >
+      Doctors and Specialists Near You
+    </Text>
+    <View
+      style={
+        Object {
+          "flex": 0.5,
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "padding": 266.8,
+        }
+      }
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#004EFF"
+        hidesWhenStopped={true}
+        size="large"
+      />
+    </View>
+  </View>
+</View>
+`;

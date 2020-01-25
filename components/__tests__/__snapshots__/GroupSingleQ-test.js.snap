@@ -32,6 +32,13 @@ exports[`should render correctly 1`] = `
         "marginBottom": 13.34,
         "marginTop": 13.34,
         "padding": 26.68,
+        "shadowColor": "black",
+        "shadowOffset": Object {
+          "height": 5,
+          "width": 5,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 4.65,
         "width": 600,
       },
     ]
@@ -104,10 +111,10 @@ exports[`should render correctly 1`] = `
             "height": 200.1,
             "marginBottom": 13.34,
             "marginTop": 13.34,
-            "shadowColor": "#000",
+            "shadowColor": "black",
             "shadowOffset": Object {
-              "height": 4,
-              "width": 0,
+              "height": 5,
+              "width": 5,
             },
             "shadowOpacity": 0.3,
             "shadowRadius": 4.65,
@@ -210,44 +217,53 @@ exports[`should render correctly 1`] = `
           "borderBottomWidth": null,
           "borderColor": "#007aff",
           "borderLeftWidth": null,
-          "borderRadius": 5,
+          "borderRadius": 57,
           "borderRightWidth": null,
           "borderTopWidth": null,
           "borderWidth": undefined,
           "elevation": 2,
           "flexDirection": "row",
-          "height": 45,
-          "justifyContent": "center",
-          "marginBottom": 26.68,
-          "marginTop": 26.68,
+          "height": 93.38000000000001,
+          "justifyContent": "space-around",
+          "marginTop": 66.7,
           "opacity": 1,
           "paddingBottom": 6,
           "paddingTop": 6,
-          "shadowColor": undefined,
-          "shadowOffset": undefined,
-          "shadowOpacity": undefined,
-          "shadowRadius": undefined,
-          "width": 450,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 5,
+            "width": 5,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 4.65,
+          "width": 487.5,
         }
       }
     >
       <Text
         style={
-          Object {
-            "backgroundColor": "transparent",
-            "color": "#fff",
-            "fontFamily": "System",
-            "fontSize": 16.5,
-            "marginLeft": 0,
-            "marginRight": 0,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-          }
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#fff",
+              "fontFamily": "System",
+              "fontSize": 16.5,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+            },
+            Object {
+              "fontSize": 33.35,
+              "fontWeight": "bold",
+            },
+          ]
         }
         uppercase={false}
       >
-        SUBMIT
+        Continue
       </Text>
+      <Text />
     </View>
   </View>
 </View>

@@ -8,8 +8,6 @@ jest.mock('expo', () => ({
   AppLoading: 'AppLoading',
 }));
 
-
-
 describe('EmailScreen', () => {
   jest.useFakeTimers();
 
@@ -17,7 +15,7 @@ describe('EmailScreen', () => {
     NavigationTestUtils.resetInternalState();
   });
 
-  it.skip(`should match a snapshot`, () => {
+  it(`should match a snapshot`, () => {
     const mockNavigation = {
 
       state: {

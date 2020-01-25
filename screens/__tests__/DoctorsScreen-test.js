@@ -2,13 +2,13 @@ import React from 'react';
 import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
 import renderer from 'react-test-renderer';
 
-import Results from '../../screens/Results/Results';
+import DoctorsScreen from '../../screens/DoctorsScreen/DoctorsScreen';
 
 jest.mock('expo', () => ({
-  AppLoading: 'AppLoading'
+  AppLoading: 'AppLoading',
 }));
 
-describe('Results', () => {
+describe('DoctorsScreen', () => {
   jest.useFakeTimers();
 
   beforeEach(() => {
@@ -17,24 +17,33 @@ describe('Results', () => {
 
   it(`should match a snapshot`, () => {
     const mockNavigation = {
+
       state: {
         params: {
-          userInfo: {},
-          symptomFollowup: {
-            conditions: [{}, {}, {}]
-          },
           location: {
             lat: 121,
             long: 25
           },
-          stateAbbreviation: 'CO'
+          userInfo: {
+            id: 1,
+            age: 22
+          },
+          stateAbbreviation: 'CO',
+          symptomFollowup: {
+
+          },
+          conditionDetails: {
+
+          },
+          explanation: {
+
+          }
         }
       }
     };
 
-    const tree = renderer
-      .create(<Results navigation={mockNavigation} />)
-      .toJSON();
+    const tree = renderer.create(<DoctorsScreen navigation={mockNavigation} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
 });
