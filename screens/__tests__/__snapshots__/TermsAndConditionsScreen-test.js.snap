@@ -37,10 +37,7 @@ Array [
       }
     />
   </ViewManagerAdapter_ExpoLinearGradient>,
-  <RCTScrollView
-    collapsable={false}
-    onGestureHandlerEvent={[Function]}
-    onGestureHandlerStateChange={[Function]}
+  <View
     style={
       Object {
         "backgroundColor": "#FFFFFF",
@@ -48,184 +45,98 @@ Array [
       }
     }
   >
-    <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+        }
+      }
+    >
+      <Text />
+      <Image
+        source={1}
+        style={
+          Object {
+            "borderRadius": 50,
+            "borderWidth": 0,
+            "height": 133.4,
+            "width": 133.4,
+          }
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "System",
+              "fontSize": 16,
+            },
+            Object {
+              "alignSelf": "center",
+              "fontSize": 52.50000000000001,
+              "fontWeight": "bold",
+              "margin": 26.68,
+              "marginBottom": 0.667,
+            },
+          ]
+        }
+        uppercase={false}
+      >
+        Terms and Conditions
+      </Text>
       <View
         style={
           Object {
-            "alignItems": "center",
-            "flex": 0.8,
+            "height": 466.9,
+            "marginBottom": 0.667,
           }
         }
       >
-        <Text />
-        <Image
-          source={1}
+        <RCTScrollView
+          collapsable={false}
+          onGestureHandlerEvent={[Function]}
+          onGestureHandlerStateChange={[Function]}
           style={
             Object {
-              "borderRadius": 50,
-              "borderWidth": 0,
-              "height": 133.4,
-              "width": 133.4,
-            }
-          }
-        />
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#000",
-                "fontFamily": "System",
-                "fontSize": 16,
-              },
-              Object {
-                "alignSelf": "center",
-                "fontSize": 52.50000000000001,
-                "fontWeight": "bold",
-                "margin": 26.68,
-                "marginBottom": 0.667,
-              },
-            ]
-          }
-          uppercase={false}
-        >
-          Terms and Conditions
-        </Text>
-        <View
-          style={
-            Object {
-              "height": 466.9,
-              "marginBottom": 0.667,
+              "alignSelf": "center",
+              "backgroundColor": "#CCCCCC",
+              "borderColor": "#FFFFFF",
+              "margin": 26.68,
+              "paddingLeft": 26.68,
+              "paddingRight": 26.68,
             }
           }
         >
-          <RCTScrollView
-            collapsable={false}
-            onGestureHandlerEvent={[Function]}
-            onGestureHandlerStateChange={[Function]}
-            style={
-              Object {
-                "alignSelf": "center",
-                "backgroundColor": "#CCCCCC",
-                "borderColor": "#FFFFFF",
-                "margin": 26.68,
-                "paddingLeft": 26.68,
-                "paddingRight": 26.68,
-              }
-            }
-          >
-            <View>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    },
-                    Object {
-                      "fontSize": 24.011999999999997,
-                      "lineHeight": 46.690000000000005,
-                      "marginBottom": 26.68,
-                      "marginTop": 26.68,
-                    },
-                  ]
-                }
-                uppercase={false}
-              >
-                This app is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always read the label before taking any over-the-counter (OTC) medications. The label identifies the active ingredient(s) and contains other important information including warnings about possible drug interactions and side effects. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on MeMD! If you think you may have a medical emergency, call your doctor or 911 immediately. MeMD does not recommend or endorse any specific products or services. Reliance on any information provided by MeMD is solely at your own risk.
-              </Text>
-            </View>
-          </RCTScrollView>
-        </View>
-        <View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
+          <View>
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "#fff",
-                    "borderBottomWidth": 0.5,
-                    "borderColor": "#ccc",
-                    "borderLeftWidth": 0.5,
-                    "borderRadius": 2,
-                    "borderRightWidth": 0.5,
-                    "borderTopWidth": 0.5,
-                    "elevation": 3,
-                    "flexWrap": "nowrap",
-                    "marginBottom": 5,
-                    "marginLeft": 2,
-                    "marginRight": 2,
-                    "marginTop": 5,
-                    "shadowColor": "#000",
-                    "shadowOffset": Object {
-                      "height": 2,
-                      "width": 0,
-                    },
-                    "shadowOpacity": 0.1,
-                    "shadowRadius": 1.5,
+                    "color": "#000",
+                    "fontFamily": "System",
+                    "fontSize": 16,
                   },
                   Object {
-                    "flex": 0.2,
-                    "justifyContent": "space-evenly",
-                    "width": 690,
+                    "fontSize": 24.011999999999997,
+                    "lineHeight": 46.690000000000005,
+                    "marginBottom": 26.68,
+                    "marginTop": 26.68,
                   },
                 ]
               }
+              uppercase={false}
             >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "alignSelf": "center",
-                      "flex": 1,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "flex": 0.3,
-                      "flexDirection": "row",
-                      "justifyContent": "space-evenly",
-                      "width": "100%",
-                    },
-                  ]
-                }
-              >
-                <Text />
-                <Text
-                  style={
-                    Object {
-                      "color": "#000",
-                      "fontFamily": "System",
-                      "fontSize": 16,
-                    }
-                  }
-                  uppercase={false}
-                >
-                  I have read and accept the Terms of Service
-                </Text>
-              </View>
-            </View>
+              This app is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always read the label before taking any over-the-counter (OTC) medications. The label identifies the active ingredient(s) and contains other important information including warnings about possible drug interactions and side effects. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on MeMD! If you think you may have a medical emergency, call your doctor or 911 immediately. MeMD does not recommend or endorse any specific products or services. Reliance on any information provided by MeMD is solely at your own risk.
+            </Text>
           </View>
-        </View>
+        </RCTScrollView>
+      </View>
+      <View>
         <View
           accessible={true}
-          focusable={false}
+          focusable={true}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -236,34 +147,128 @@ Array [
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "alignItems": "center",
-              "alignSelf": "center",
-              "backgroundColor": "#b5b5b5",
-              "borderBottomWidth": null,
-              "borderColor": "#007aff",
-              "borderLeftWidth": null,
-              "borderRadius": 5,
-              "borderRightWidth": null,
-              "borderTopWidth": null,
-              "borderWidth": undefined,
-              "elevation": 2,
-              "flexDirection": "row",
-              "height": 45,
-              "justifyContent": "center",
-              "marginBottom": 40.019999999999996,
               "opacity": 1,
-              "paddingBottom": 6,
-              "paddingTop": 6,
-              "shadowColor": undefined,
-              "shadowOffset": undefined,
-              "shadowOpacity": undefined,
-              "shadowRadius": undefined,
-              "width": "75%",
             }
           }
         >
-          <Text
+          <View
             style={
+              Array [
+                Object {
+                  "backgroundColor": "#fff",
+                  "borderBottomWidth": 0.5,
+                  "borderColor": "#ccc",
+                  "borderLeftWidth": 0.5,
+                  "borderRadius": 2,
+                  "borderRightWidth": 0.5,
+                  "borderTopWidth": 0.5,
+                  "elevation": 3,
+                  "flexWrap": "nowrap",
+                  "marginBottom": 5,
+                  "marginLeft": 2,
+                  "marginRight": 2,
+                  "marginTop": 5,
+                  "shadowColor": "#000",
+                  "shadowOffset": Object {
+                    "height": 2,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 0.1,
+                  "shadowRadius": 1.5,
+                },
+                Object {
+                  "flex": 0.45,
+                  "justifyContent": "space-evenly",
+                  "width": 690,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "flex": 1,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "space-evenly",
+                    "width": "100%",
+                  },
+                ]
+              }
+            >
+              <Text />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#000",
+                      "fontFamily": "System",
+                      "fontSize": 16,
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+                uppercase={false}
+              >
+                I have read and accept the Terms of Service
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#b5b5b5",
+            "borderBottomWidth": null,
+            "borderColor": "#007aff",
+            "borderLeftWidth": null,
+            "borderRadius": 57,
+            "borderRightWidth": null,
+            "borderTopWidth": null,
+            "borderWidth": undefined,
+            "elevation": 2,
+            "flexDirection": "row",
+            "height": 93.38000000000001,
+            "justifyContent": "space-around",
+            "marginBottom": 26.68,
+            "marginTop": -333.5,
+            "opacity": 1,
+            "paddingBottom": 6,
+            "paddingTop": 6,
+            "shadowColor": "black",
+            "shadowOffset": Object {
+              "height": 5,
+              "width": 5,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 4.65,
+            "width": 487.5,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
               Object {
                 "backgroundColor": "transparent",
                 "color": "#fff",
@@ -273,15 +278,20 @@ Array [
                 "marginRight": 0,
                 "paddingLeft": 16,
                 "paddingRight": 16,
-              }
-            }
-            uppercase={false}
-          >
-            CONTINUE
-          </Text>
-        </View>
+              },
+              Object {
+                "fontSize": 33.35,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Continue
+        </Text>
+        <Text />
       </View>
     </View>
-  </RCTScrollView>,
+  </View>,
 ]
 `;

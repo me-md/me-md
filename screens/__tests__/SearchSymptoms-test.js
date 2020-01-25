@@ -2,13 +2,13 @@ import React from 'react';
 import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
 import renderer from 'react-test-renderer';
 
-import Results from '../../screens/Results/Results';
+import SearchSymptoms from '../../screens/SearchSymptoms/SearchSymptoms';
 
 jest.mock('expo', () => ({
   AppLoading: 'AppLoading'
 }));
 
-describe('Results', () => {
+describe('SearchSymptoms', () => {
   jest.useFakeTimers();
 
   beforeEach(() => {
@@ -19,21 +19,20 @@ describe('Results', () => {
     const mockNavigation = {
       state: {
         params: {
-          userInfo: {},
-          symptomFollowup: {
-            conditions: [{}, {}, {}]
-          },
+          sex: 'male',
+          age: 24,
+          stateAbbreviation: 'CO',
           location: {
             lat: 121,
             long: 25
           },
-          stateAbbreviation: 'CO'
+          presentFactors: [{}, {}, {}]
         }
       }
     };
 
     const tree = renderer
-      .create(<Results navigation={mockNavigation} />)
+      .create(<SearchSymptoms navigation={mockNavigation} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

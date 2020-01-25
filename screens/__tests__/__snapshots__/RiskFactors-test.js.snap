@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RiskFactors should match a snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          4278210303,
+          4287155441,
+        ],
+        "endPoint": undefined,
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "space-evenly",
+          "marginBottom": 80.03999999999999,
+          "marginTop": 80.03999999999999,
+        }
+      }
+    >
+      <Text />
+      <View
+        style={
+          Object {
+            "alignContent": "space-between",
+            "alignItems": "center",
+            "flex": 0.95,
+            "justifyContent": "space-around",
+            "marginBottom": 13.34,
+            "marginTop": 20.009999999999998,
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 133.4,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 67.5,
+                "fontWeight": "bold",
+                "marginTop": 1.334,
+              }
+            }
+          >
+            Common Risk Factors
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 37.5,
+                "textAlign": "center",
+              }
+            }
+          >
+            Select all that apply:
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignContent": "space-between",
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "space-around",
+              "width": "100%",
+            }
+          }
+        >
+          <ActivityIndicator
+            animating={true}
+            color="#004EFF"
+            hidesWhenStopped={true}
+            size="large"
+          />
+        </View>
+      </View>
+      <Text />
+    </View>
+  </ViewManagerAdapter_ExpoLinearGradient>
+</View>
+`;

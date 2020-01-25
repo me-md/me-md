@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailScreen should match a snapshot 1`] = `
+Array [
+  <ViewManagerAdapter_ExpoLinearGradient
+    proxiedProperties={
+      Object {
+        "colors": Array [
+          4278210303,
+          4287155441,
+        ],
+        "endPoint": undefined,
+        "locations": undefined,
+        "startPoint": undefined,
+      }
+    }
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "height": 200.1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "alignSelf": "center",
+          "borderWidth": 0,
+          "height": 133.4,
+          "marginBottom": 13.34,
+          "marginTop": 60.03,
+          "width": 133.4,
+        }
+      }
+    />
+  </ViewManagerAdapter_ExpoLinearGradient>,
+  <Text />,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "space-between",
+        "paddingBottom": 100.05,
+        "width": 750,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontFamily": "System",
+            "fontSize": 16,
+          },
+          Object {
+            "fontSize": 52.50000000000001,
+            "fontWeight": "bold",
+            "paddingTop": 13.34,
+            "textAlign": "center",
+            "width": 675,
+          },
+        ]
+      }
+      uppercase={false}
+    >
+      Send Detailed Report
+    </Text>
+    <Image
+      source={1}
+      style={
+        Object {
+          "alignSelf": "center",
+          "borderWidth": 0,
+          "height": 226.78000000000003,
+          "marginBottom": 13.34,
+          "marginTop": 40.019999999999996,
+          "width": 226.78000000000003,
+        }
+      }
+    />
+    <View
+      accessible={true}
+      focusable={false}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": 1,
+          "borderColor": "#D9D5DC",
+          "borderLeftWidth": 0,
+          "borderRadius": undefined,
+          "borderRightWidth": 0,
+          "borderTopWidth": 0,
+          "borderWidth": undefined,
+          "flexDirection": "row",
+          "marginBottom": 133.4,
+          "marginLeft": 2,
+          "opacity": 1,
+          "width": 600,
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        editable={true}
+        onChangeText={[Function]}
+        placeholder="Enter your email address"
+        placeholderTextColor="#575757"
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "flex": 1,
+              "fontSize": 17,
+              "height": 50,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+              "top": 1.5,
+            },
+            Object {
+              "fontSize": 30,
+              "textAlign": "center",
+              "width": 450,
+            },
+          ]
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "marginBottom": 106.72,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#b5b5b5",
+            "borderBottomWidth": null,
+            "borderColor": "#007aff",
+            "borderLeftWidth": null,
+            "borderRadius": 57,
+            "borderRightWidth": null,
+            "borderTopWidth": null,
+            "borderWidth": undefined,
+            "elevation": 2,
+            "flexDirection": "row",
+            "height": 93.38000000000001,
+            "justifyContent": "space-around",
+            "marginTop": 66.7,
+            "opacity": 1,
+            "paddingBottom": 6,
+            "paddingTop": 6,
+            "shadowColor": "black",
+            "shadowOffset": Object {
+              "height": 5,
+              "width": 5,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 4.65,
+            "width": 487.5,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "color": "#fff",
+                "fontFamily": "System",
+                "fontSize": 16.5,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "paddingLeft": 16,
+                "paddingRight": 16,
+              },
+              Object {
+                "fontSize": 33.35,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          Send Report
+        </Text>
+        <Text />
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#007aff",
+            "borderBottomWidth": null,
+            "borderColor": "#007aff",
+            "borderLeftWidth": null,
+            "borderRadius": 57,
+            "borderRightWidth": null,
+            "borderTopWidth": null,
+            "borderWidth": undefined,
+            "elevation": 2,
+            "flexDirection": "row",
+            "height": 93.38000000000001,
+            "justifyContent": "space-around",
+            "marginTop": 66.7,
+            "opacity": 1,
+            "paddingBottom": 6,
+            "paddingTop": 6,
+            "shadowColor": "black",
+            "shadowOffset": Object {
+              "height": 5,
+              "width": 5,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 4.65,
+            "width": 487.5,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "color": "#fff",
+                "fontFamily": "System",
+                "fontSize": 16.5,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "paddingLeft": 16,
+                "paddingRight": 16,
+              },
+              Object {
+                "fontSize": 33.35,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+          uppercase={false}
+        >
+          New Checkup
+        </Text>
+        <Text />
+      </View>
+    </View>
+  </View>,
+]
+`;
