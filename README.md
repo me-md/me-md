@@ -8,14 +8,14 @@
 ## Table of Contents
 
 <!--ts-->
-   * [Table of Contents](#table-of-contents)
-   * [Set Up](#set-up)
-   * [Focuses](#focuses)
-   * [Screenshots](#screenshots)
-   * [Tech Stack](#tech-stack)
-   * [Team](#team)
-   * [Project Board](#project-board)
-   
+
+- [Table of Contents](#table-of-contents)
+- [Set Up](#set-up)
+- [Screenshots](#screenshots)
+- [Focuses](#focuses)
+- [Tech Stack and Team](#tech-stack)
+- [Agile Workflow](#project-board)
+
 <!--te-->
 
 ## Set Up
@@ -23,22 +23,28 @@
 **Before you get too far...**
 
 #### 1. Apply for an API key and App ID
+
 with the [Infermedica API](https://developer.infermedica.com/signup). This can take **24-36 hours**.
 
 You will also need to apply for a MapQuest API key [here](https://developer.mapquest.com/plan_purchase/steps/business_edition/business_edition_free/register).
 This normally doesn't take long and you should receive your API key within the hour.
 
 #### 2. Clone the repository
+
 ```
 https://github.com/me-md/me-md.git
 ```
+
 #### 3. Install dependencies
+
 ```
 npm install
 ```
 
 #### 4. Create an `.env` file in the root directory of the repository.
+
 #### 5. You will need to declare three **environmental variables**:
+
 ```
 REACT_APP_ID=yourAppIdHere
 REACT_APP_KEY=yourAppKeyHere
@@ -46,37 +52,27 @@ MAPQUEST_KEY=yourMapQuestAPIKeyHere
 ```
 
 #### 6. To start the server:
+
 ```
 npm start
 ```
 
 #### To run this on your computer:
-1) Set up `expo cli` using:
-```sudo npm i expo-cli -g```
 
-2) Have Xcode installed for IOS simulator, or an iPhone
+1. Set up `expo cli` using:
+   `sudo npm i expo-cli -g`
+
+2. Have Xcode installed for IOS simulator, or an iPhone
 
 #### To run this on your phone:
+
 1. Download XCode from the App Store and open it
 2. From the bar at the top of your screen when in XCode, click "XCode" and then "Preferences"
-  a. Go to "locations" and then for Command Line Tools, select the XCode Command Line Tools
-  b. Go back to the top bar, click "Xcode" and then "Open Developer Tool," then "Simulator"
-  c. Will launch a simulator. To change the device, click on it (top bar should now say "Simulator"), then select "Hardware" and under "iOS" you can choose another phone
+   a. Go to "locations" and then for Command Line Tools, select the XCode Command Line Tools
+   b. Go back to the top bar, click "Xcode" and then "Open Developer Tool," then "Simulator"
+   c. Will launch a simulator. To change the device, click on it (top bar should now say "Simulator"), then select "Hardware" and under "iOS" you can choose another phone
 3. "i" in terminal to run project on iOS simulator
-[Reference](https://nandovieira.com/setting-up-react-native-on-macos-mojave)
-
-
-## Focuses
-
-The primary learning goals for this project are:
-
-- Use an agile process to turn well defined requirements into deployed and production ready software
-- Gain experience dividing applications into components and domains of responsibilities to facilitate multi-developer teams. -  - Service oriented architecture concepts and patterns are highly encouraged.
-- Explore and implement new concepts, patterns, or libraries that have not been explicitly taught while at Turing
-- Practice an advanced, professional git workflow (see whole-team expectations)
-- Gain more experience using continuous integration tools to build and automate the deployment of features in various environments
-- Build applications that execute in development, test, CI, and production environments
-- Focus on communication between front-end and back-end teams in order to complete and deploy features that have been outlined by the project spec
+   [Reference](https://nandovieira.com/setting-up-react-native-on-macos-mojave)
 
 ## Screenshots
 
@@ -84,33 +80,42 @@ The primary learning goals for this project are:
 <img width="535" alt="Screen Shot 2020-01-09 at 11 35 40 AM" src="https://user-images.githubusercontent.com/25589695/72379018-788e1700-370a-11ea-862f-2ce72fc3e0f2.png">
 <img width="535" alt="Screen Shot 2020-01-09 at 11 35 34 AM" src="https://user-images.githubusercontent.com/25589695/72379021-79bf4400-370a-11ea-8dfa-fc9dc33e0c1e.png">
 
-
 ## Tech Stack
 
 ### Front End
+
+[Vanessa Randall](https://github.com/vrandall66) and [Pol Sieira](https://github.com/polsieira)
+
 - React Native
 - Expo
 - React Navigation
 - Tested with Jest/Enzyme
 
 ### Back End
+
+[Tylor Schafer](https://github.com/tylorschafer), [Evette Telyas](https://github.com/evettetelyas) and [Nathan Thomas](https://github.com/nathangthomas)
+
 - Elixir/Phoenix
 - Pyhton/Django
 - Python/Flask
 - Ruby/Rails
 
+## Goals
 
-## Team
-- [Vanessa Randall](https://github.com/vrandall66)
-- [Tylor Schafer](https://github.com/tylorschafer)
-- [Pol Sieira](https://github.com/polsieira)
-- [Evette Telyas](https://github.com/evettetelyas)
-- [Nathan Thomas](https://github.com/nathangthomas)
+- Use an agile process to turn well defined requirements into deployed and production ready software
+- Gain experience dividing applications into components and domains of responsibilities to facilitate multi-developer teams
+- Explore and implement brand new frameworks/technologies (React Native, hooks)
+- Practice an advanced, professional git workflow
+- Gain more experience using continuous integration tools to build and automate the deployment of features in various environments
+- Build applications that execute in development, test, CI, and production environments
+- Focus on communication between front end and back end teams in order to complete and deploy features
+
 
 ## Project Board
-This organization followed an agile workflow by utilizing a kanban project board through GitHub projects.
 
-Over 120 tickets (user stories, bugs, new feature and testing tickets) were converted into issues, and tracked by the entire team.
+The MeMD organization follows an agile workflow by utilizing the kanban board template on GitHub projects.
+
+Over 120 tickets (user stories, bugs, new feature and testing tickets) were converted into issues, and tracked by the entire team throughout the four week build.
 
 A PR template was utilized for both the front end and back end repositories to encourage code reviews and conversations on GitHub.
 
