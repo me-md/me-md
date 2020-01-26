@@ -1,9 +1,11 @@
 <p align="center">
   <img src="https://i.ibb.co/rkRkYMS/github-banner.png" /><br>
-  MeMD is a React Native App allowing a user to self diagnosis medical conditions and find the closest specialists.
 </p>
+# MeMD
 
-### Table of Contents
+**MeMD** is a mobile platform that allows users to self diagnosis potential medical conditions and find the closest specialists that accept their insurance plan. MeMD can help you have a more informed conversation with your doctor.
+
+## Table of Contents
 
 <!--ts-->
    * [Table of Contents](#table-of-contents)
@@ -16,53 +18,55 @@
    
 <!--te-->
 
-### Set Up
+## Set Up
 
-To fetch all information, you will have to apply for an API key and App ID with the Infermedica API [here](https://developer.infermedica.com/signup). This can take 24-36 hours, so plan accordingly.
+**Before you get too far...**
 
-You will also need to apply for a MapQuest API key [here](https://developer.mapquest.com/plan_purchase/steps/business_edition/business_edition_free/register). This normally doesn't take long and you should receive your API key within the hour.
+#### 1. Apply for an API key and App ID
+with the [Infermedica API](https://developer.infermedica.com/signup). This can take **24-36 hours**.
 
-Clone repo.
+You will also need to apply for a MapQuest API key [here](https://developer.mapquest.com/plan_purchase/steps/business_edition/business_edition_free/register).
+This normally doesn't take long and you should receive your API key within the hour.
+
+#### 2. Clone the repository
 ```
 https://github.com/me-md/me-md.git
 ```
-Install dependencies.
+#### 3. Install dependencies
 ```
 npm install
 ```
 
-Create an `.env` file in the root directory of the repository.
-  You will need to declare three environmental variables:
+#### 4. Create an `.env` file in the root directory of the repository.
+#### 5. You will need to declare three **environmental variables**:
 ```
 REACT_APP_ID=yourAppIdHere
 REACT_APP_KEY=yourAppKeyHere
 MAPQUEST_KEY=yourMapQuestAPIKeyHere
 ```
 
-Run browser.
+#### 6. To start the server:
 ```
 npm start
 ```
 
-Note you will need to set up expo cli using:
-```
-sudo npm i expo-cli -g
-```
+#### To run this on your computer:
+1) Set up `expo cli` using:
+```sudo npm i expo-cli -g```
 
-And have Xcode installed for IOS simulator, or a IPhone.
+2) Have Xcode installed for IOS simulator, or an iPhone
 
-For iOS Simulator:
+#### To run this on your phone:
 1. Download XCode from the App Store and open it
 2. From the bar at the top of your screen when in XCode, click "XCode" and then "Preferences"
-  a. go to "locations" and then for Command Line Tools, select the XCode Command Line Tools
+  a. Go to "locations" and then for Command Line Tools, select the XCode Command Line Tools
   b. Go back to the top bar, click "Xcode" and then "Open Developer Tool," then "Simulator"
   c. Will launch a simulator. To change the device, click on it (top bar should now say "Simulator"), then select "Hardware" and under "iOS" you can choose another phone
 3. "i" in terminal to run project on iOS simulator
+[Reference](https://nandovieira.com/setting-up-react-native-on-macos-mojave)
 
-For reference: https://nandovieira.com/setting-up-react-native-on-macos-mojave
 
-
-### Focuses
+## Focuses
 
 The primary learning goals for this project are:
 
@@ -74,37 +78,44 @@ The primary learning goals for this project are:
 - Build applications that execute in development, test, CI, and production environments
 - Focus on communication between front-end and back-end teams in order to complete and deploy features that have been outlined by the project spec
 
-### Screenshots
+## Screenshots
 
 <img width="535" alt="Screen Shot 2020-01-09 at 11 35 53 AM" src="https://user-images.githubusercontent.com/25589695/72379016-775cea00-370a-11ea-9c20-4501c88bc2e2.png">
 <img width="535" alt="Screen Shot 2020-01-09 at 11 35 40 AM" src="https://user-images.githubusercontent.com/25589695/72379018-788e1700-370a-11ea-862f-2ce72fc3e0f2.png">
 <img width="535" alt="Screen Shot 2020-01-09 at 11 35 34 AM" src="https://user-images.githubusercontent.com/25589695/72379021-79bf4400-370a-11ea-8dfa-fc9dc33e0c1e.png">
 
 
-### Tech Stack
+## Tech Stack
 
-#### Front End
+### Front End
 - React Native
+- Expo
 - React Navigation
 - Tested with Jest/Enzyme
 
-#### Back End
+### Back End
 - Elixir/Phoenix
 - Pyhton/Django
 - Python/Flask
 - Ruby/Rails
 
 
-### Team
+## Team
 - [Vanessa Randall](https://github.com/vrandall66)
 - [Tylor Schafer](https://github.com/tylorschafer)
 - [Pol Sieira](https://github.com/polsieira)
 - [Evette Telyas](https://github.com/evettetelyas)
 - [Nathan Thomas](https://github.com/nathangthomas)
 
-### Project Board
-- [MeMD Project Board](https://github.com/orgs/me-md/projects/1)
+## Project Board
+This organization followed an agile workflow by utilizing a kanban project board through GitHub projects.
 
-#### Image Credits
+Over 120 tickets (user stories, bugs, new feature and testing tickets) were converted into issues, and tracked by the entire team.
+
+A PR template was utilized for both the front end and back end repositories to encourage code reviews and conversations on GitHub.
+
+To see the process, check out the project board **[here](https://github.com/orgs/me-md/projects/1)**
+
+## Image Credits
 
 Icons made by <a href="https://www.flaticon.com/authors/popcorns-arts" title="Icon Pond">Icon Pond</a>, <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>, <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
