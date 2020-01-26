@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+  ActivityIndicator,
   Dimensions,
   StyleSheet,
   SafeAreaView,
@@ -203,7 +204,7 @@ export default function SymptomsQA({ navigation }) {
     <View style={styles.container}>
       <Header />
       <ScrollView style={styles.contentContainer}>
-        {conditionDetails.data ? createTopDiagnosis() : null}
+        {conditionDetails.data ? createTopDiagnosis() : <ActivityIndicator size='large' color='#004EFF' />}
         {getTopDiagnoses()}
       </ScrollView>
       <Button
