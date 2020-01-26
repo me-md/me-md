@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Dimensions, StyleSheet, View } from 'react-native';
 import { Text } from 'native-base';
 import { Entypo } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -26,11 +26,11 @@ export default function SymptomsQA({ navigation }) {
       setQuestion(symptomFollowup);
       symptomFollowup.should_stop
         ? navigation.push('Results', {
-          userInfo,
-          symptomFollowup,
-          location,
-          stateAbbreviation
-        })
+            userInfo,
+            symptomFollowup,
+            location,
+            stateAbbreviation
+          })
         : null;
     } catch (error) {
       throw new Error(error);
@@ -90,7 +90,11 @@ export default function SymptomsQA({ navigation }) {
           <Text style={styles.symptomText}>Regarding your symptoms</Text>
           <ScrollView style={styles.card}>
             <View style={styles.cardContainer}>
-              {question.question && displayQuestion()}
+              {question.question ? (
+                displayQuestion()
+              ) : (
+                <ActivityIndicator size='large' color='#004EFF' />
+              )}
             </View>
           </ScrollView>
         </View>
