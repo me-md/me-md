@@ -20,8 +20,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Header } from '../../components/Header';
 import {
   compileReport,
-  formatPhoneNumber,
-  shortenCoordinates
+  formatPhoneNumber
 } from '../../utils/helpers/helpers';
 import { getAllProviders } from '../../utils/apiCalls/DoctorsAndProviders/getAllProviders';
 import { getDoctorsByLocation } from '../../utils/apiCalls/DoctorsAndProviders/getDoctorsByLocation';
