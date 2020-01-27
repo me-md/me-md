@@ -73,8 +73,8 @@ export default function SymptomsQA({ navigation }) {
         {expanded ? (
           <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-up' />
         ) : (
-          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-down' />
-        )}
+            <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-down' />
+          )}
       </View>
     );
   };
@@ -112,8 +112,8 @@ export default function SymptomsQA({ navigation }) {
         />
       </SafeAreaView>
     ) : (
-      <Text>No conflicting evidence</Text>
-    );
+        <Text>No conflicting evidence</Text>
+      );
   };
 
   const createTopDiagnosis = () => {
@@ -299,16 +299,16 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   button: {
-      alignSelf: 'center',
-      height: height * 0.07,
-      justifyContent: 'space-around',
-      marginBottom: height * 0.02,
-      marginTop: -height * 0.25,
-      shadowColor: 'black',
-      shadowOffset: { width: 5, height: 5 },
-      shadowOpacity: 0.3,
-      shadowRadius: 4.65,
-      width: width * 0.65
+    alignSelf: 'center',
+    height: height * 0.07,
+    justifyContent: 'space-around',
+    marginBottom: height * 0.02,
+    marginTop: -height * 0.25,
+    shadowColor: 'black',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    width: width * 0.65
   },
   buttonText: {
     fontSize: height * 0.025,
