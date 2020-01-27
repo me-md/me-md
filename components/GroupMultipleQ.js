@@ -108,6 +108,7 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <Body style={styles.body}>
         <Text style={styles.questionTextHeader}>{question.question.text}</Text>
+        <Text style={styles.helperText}>Select all that apply:</Text>
         {questions}
         {checkWho.length === question.question.items.length ? (
           <Button
@@ -125,16 +126,16 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
             />
           </Button>
         ) : (
-          <Button rounded style={styles.button} disabled block>
-            <Text style={styles.buttonText}>Continue</Text>
-            <Feather
-              name='arrow-right-circle'
-              size={30}
-              color='white'
-              style={styles.icon}
-            />
-          </Button>
-        )}
+            <Button rounded style={styles.button} disabled block>
+              <Text style={styles.buttonText}>Continue</Text>
+              <Feather
+                name='arrow-right-circle'
+                size={30}
+                color='white'
+                style={styles.icon}
+              />
+            </Button>
+          )}
       </Body>
     </Card>
   );
