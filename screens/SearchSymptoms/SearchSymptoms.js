@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Body, Card, CardItem, Input, Item } from 'native-base';
 import { Entypo, AntDesign, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -78,7 +78,9 @@ export default function SymptomsScreen({ navigation }) {
   const displaySymptoms = searchResults.map((result, index) => {
     let found = symptoms.find(symptom => symptom.id == result.id);
     return (
-      <View key={index} style={styles.checkboxes}>
+      <TouchableOpacity key={index} style={styles.checkboxes} onPress={() => {
+        findSymptom(result);
+      }}>
         <Text style={styles.symptomText}>{result.common_name}?</Text>
         <AntDesign
           name={found ? 'checkcircle' : 'pluscircleo'}
@@ -86,11 +88,8 @@ export default function SymptomsScreen({ navigation }) {
           style={styles.add}
           size={26}
           color={found ? 'green' : 'black'}
-          onPress={() => {
-            findSymptom(result);
-          }}
         />
-      </View>
+      </TouchableOpacity>
     );
   });
 
