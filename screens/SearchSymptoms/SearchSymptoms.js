@@ -162,7 +162,7 @@ export default function SymptomsScreen({ navigation }) {
           </Item>
           <Text style={styles.hint}>Select all that apply (at least 3):</Text>
           <ScrollView style={styles.scroll}>
-            <View style={styles.searchResultsContainer}>
+            {symptoms.length ? <View style={styles.searchResultsContainer}>
               <Accordion
                 dataArray={[
                   {
@@ -172,7 +172,8 @@ export default function SymptomsScreen({ navigation }) {
                 renderContent={renderContent}
                 style={styles.accordion}
               />
-            </View>
+            </View> : <View style={styles.searchResultsContainer}>
+              </View>}
             <View style={styles.searchResults}>{displaySymptoms}</View>
           </ScrollView>
           {symptoms.length >= 3 && (
