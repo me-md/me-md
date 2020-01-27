@@ -41,7 +41,6 @@ export default function SymptomsQA({ navigation }) {
 
   useEffect(() => {
     getResults();
-    console.log(explanation);
   }, []);
 
   const getResults = async () => {
