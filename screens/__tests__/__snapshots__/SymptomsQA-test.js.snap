@@ -84,7 +84,14 @@ exports[`SymptomsQA should match a snapshot 1`] = `
                 "width": "100%",
               }
             }
-          />
+          >
+            <ActivityIndicator
+              animating={true}
+              color="#004EFF"
+              hidesWhenStopped={true}
+              size="large"
+            />
+          </View>
         </View>
       </RCTScrollView>
     </View>

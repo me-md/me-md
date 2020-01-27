@@ -58,6 +58,12 @@ exports[`Results should match a snapshot 1`] = `
     }
   >
     <View>
+      <ActivityIndicator
+        animating={true}
+        color="#004EFF"
+        hidesWhenStopped={true}
+        size="large"
+      />
       <View
         style={
           Array [
