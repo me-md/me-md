@@ -24,10 +24,7 @@
 
 #### 1. Apply for an API key and App ID
 
-with the [Infermedica API](https://developer.infermedica.com/signup). This can take **24-36 hours**.
-
-You will also need to apply for a MapQuest API key [here](https://developer.mapquest.com/plan_purchase/steps/business_edition/business_edition_free/register).
-This normally doesn't take long and you should receive your API key within the hour.
+with the [Infermedica API](https://developer.infermedica.com/signup). This can take **24-36 hours**
 
 #### 2. Clone the repository
 
@@ -48,7 +45,6 @@ npm install
 ```
 REACT_APP_ID=yourAppIdHere
 REACT_APP_KEY=yourAppKeyHere
-MAPQUEST_KEY=yourMapQuestAPIKeyHere
 ```
 
 #### 6. To start the server:
