@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Body, Card, CardItem, Input, Item } from 'native-base';
+import { Dimensions, Icon, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Accordion, Card, CardItem, Input, Item } from 'native-base';
 import { Entypo, AntDesign, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -20,6 +20,8 @@ export default function SymptomsScreen({ navigation }) {
   } = navigation.state.params;
   const [symptoms, setSymptoms] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const [expanded, setExpanded] = useState({});
+
 
   const searchSymptoms = async text => {
     if (text.length > 2) {
@@ -93,6 +95,43 @@ export default function SymptomsScreen({ navigation }) {
     );
   });
 
+  const renderHeader = (item, expanded) => {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          padding: 10,
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          backgroundColor: '#0960FF',
+          width: '80%'
+        }}
+      >
+        <Text style={{ fontWeight: '600', color: '#fff' }}> {item.title}</Text>
+        {expanded ? (
+          <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-up' />
+        ) : (
+            <Icon style={{ fontSize: 18, color: '#fff' }} name='arrow-down' />
+          )}
+      </View>
+    );
+  };
+  const renderContent = item => {
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          height: expanded ? null : 0,
+          overflow: 'hidden'
+        }}
+      >
+        <Card style={styles.selectedContainer}>
+          {displaySelectedSymptoms}
+        </Card>
+      </SafeAreaView>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -124,9 +163,15 @@ export default function SymptomsScreen({ navigation }) {
           <Text style={styles.hint}>Select all that apply (at least 3):</Text>
           <ScrollView style={styles.scroll}>
             <View style={styles.searchResultsContainer}>
-              <Card style={styles.selectedContainer}>
-                {displaySelectedSymptoms}
-              </Card>
+              <Accordion
+                dataArray={[
+                  {
+                    title: symptoms.length ? `Selected Symptoms (${symptoms.length})` : `Selected Symptoms`
+                  }
+                ]}
+                renderContent={renderContent}
+                style={styles.accordion}
+              />
             </View>
             <View style={styles.searchResults}>{displaySymptoms}</View>
           </ScrollView>
@@ -169,6 +214,10 @@ const styles = StyleSheet.create({
     marginTop: height * 0.06,
     width: '100%'
   },
+  accordion: {
+    alignSelf: 'center',
+    width: width * 0.90
+  },
   scroll: {
     marginTop: height * 0.01,
     width: '100%'
@@ -189,7 +238,6 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.01
   },
   searchResultsContainer: {
-    marginLeft: '5%',
     width: '100%'
   },
   selectedContainer: {
@@ -204,7 +252,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: height * 0.01,
     marginTop: height * 0.01,
     maxWidth: width * 0.9,
     padding: height * 0.01,
