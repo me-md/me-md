@@ -122,29 +122,38 @@ export default function DoctorsScreen({ navigation }) {
   const nearbyPractices = doctors.map((doctor, index) => {
     return (
       <Card key={index} style={styles.doctorCard}>
-        <CardItem>
+        <Accordion
+          dataArray={[
+            { title: doctor.practice.name, content: doctor.profile.bio }
+          ]}
+          renderHeader={renderHeader}
+          renderContent={renderContent}
+          style={styles.accordion}
+        />
+        <CardItem style={styles.docInfo}>
           <Body>
-            <Accordion
-              dataArray={[
-                { title: doctor.practice.name, content: doctor.profile.bio }
-              ]}
-              renderHeader={renderHeader}
-              renderContent={renderContent}
-              style={styles.accordion}
-            />
-            <Text>{formatPhoneNumber(doctor.practice.phone)}</Text>
-            <Text>{doctor.practice.distance}</Text>
-          </Body>
-        </CardItem>
-        <CardItem>
-          <Body>
-            <Text>
-              {doctor.practice.street}. {doctor.practice.street2}
-            </Text>
+            {doctor.practice.street2 === 'N/A' ? (
+              <Text>{doctor.practice.street}</Text>
+            ) : (
+              <Fragment>
+                <Text>{doctor.practice.street}</Text>
+                <Text>{doctor.practice.street2}</Text>
+              </Fragment>
+            )}
             <Text>
               {doctor.practice.city}, {doctor.practice.state}{' '}
               {doctor.practice.zip}
             </Text>
+          </Body>
+          <Body>
+            <Text style={styles.phone}>
+              {formatPhoneNumber(doctor.practice.phone)}
+            </Text>
+            {doctor.practice.distance ? (
+              <Text style={styles.distance}>
+                Distance: {doctor.practice.distance}
+              </Text>
+            ) : null}
           </Body>
         </CardItem>
       </Card>
@@ -305,7 +314,7 @@ const styles = StyleSheet.create({
   accordion: {
     alignSelf: 'center',
     marginBottom: height * 0.01,
-    width: width * 0.87
+    width: width * 0.9
   },
   doctorCard: {
     alignSelf: 'center',
@@ -318,5 +327,16 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: height * 0.02
+  },
+  docInfo: {
+    flex: 1,
+    justifyContent: 'space-between',
+    width: '100%'
+  },
+  phone: {
+    alignSelf: 'flex-end'
+  },
+  distance: {
+    alignSelf: 'flex-end'
   }
 });
