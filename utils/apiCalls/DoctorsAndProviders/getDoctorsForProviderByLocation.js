@@ -1,8 +1,8 @@
 const doctorsUrl = 'https://memd-doc-search.herokuapp.com/api/v1';
 
-export const getDoctorsForProviderByLocation = async (location, provider) => {
+export const getDoctorsForProviderByLocation = async (location, provider, lat, lon) => {
   const response = await fetch(
-    `${doctorsUrl}/doctors/?location=${location}&provider=${provider}`
+    `${doctorsUrl}/doctors/?location=${location}&provider=${provider}&lat=${lat}&lon=${lon}`
   );
   if (!response.ok) {
     throw new Error(

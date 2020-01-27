@@ -46,16 +46,10 @@ export const specifyTargetCondition = (userInfo, symptomFollowup) => {
   return userInfo;
 };
 
-export const filterDoctorsByDistance = (location, doctors) => {
-  const { coords } = location;
-  const { latitude, longitude } = coords;
-  // doctors.sort((doctorA, doctorB))
-};
-
 export const formatPhoneNumber = number => {
-  let phone = number.toString()
-  return `(${phone.slice(0, 3)})-${phone.slice(3, 6)}-${phone.slice(6, 10)}`
-}
+  let phone = number.toString();
+  return `(${phone.slice(0, 3)})-${phone.slice(3, 6)}-${phone.slice(6, 10)}`;
+};
 
 export const compileReport = (
   location,
@@ -76,4 +70,3 @@ export const compileReport = (
     doctors
   };
 };
-

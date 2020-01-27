@@ -18,8 +18,11 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { Header } from '../../components/Header';
-import { compileReport, formatPhoneNumber } from '../../utils/helpers/helpers';
-import { getDistanceToDoctor } from '../../utils/apiCalls/DistanceToDoctor/getDistanceToDoctor';
+import {
+  compileReport,
+  formatPhoneNumber,
+  shortenCoordinates
+} from '../../utils/helpers/helpers';
 import { getAllProviders } from '../../utils/apiCalls/DoctorsAndProviders/getAllProviders';
 import { getDoctorsByLocation } from '../../utils/apiCalls/DoctorsAndProviders/getDoctorsByLocation';
 import { getDoctorsForProviderByLocation } from '../../utils/apiCalls/DoctorsAndProviders/getDoctorsForProviderByLocation';
@@ -69,21 +72,6 @@ export default function DoctorsScreen({ navigation }) {
     );
     setDoctors(doctorsInLocation);
     setLoading(false);
-  };
-
-  const getDistanceToDoc = async (lat, long) => {
-    const { coords } = location;
-    const { latitude, longitude } = coords;
-    let distance = await getDistanceToDoctor(latitude, longitude, lat, long);
-    return distance.route.distance;
-  };
-
-  const doctorDistance = async doctor => {
-    let distance = await getDistanceToDoc(
-      doctor.practice.lat,
-      doctor.practice.lon
-    );
-    return distance;
   };
 
   const report = compileReport(
@@ -145,6 +133,7 @@ export default function DoctorsScreen({ navigation }) {
               style={styles.accordion}
             />
             <Text>{formatPhoneNumber(doctor.practice.phone)}</Text>
+            <Text>{doctor.practice.distance}</Text>
           </Body>
         </CardItem>
         <CardItem>
@@ -163,12 +152,19 @@ export default function DoctorsScreen({ navigation }) {
   });
 
   const handleChange = async itemValue => {
+    const { coords } = location;
+    const { latitude, longitude } = coords;
+    const lat = latitude.toFixed(4);
+    const lon = longitude.toFixed(4);
+    let state = stateAbbreviation.toLowerCase();
     setLoading(true);
     setCurrentProvider(itemValue);
     if (itemValue !== 'none') {
       const doctors = await getDoctorsForProviderByLocation(
-        stateAbbreviation,
-        itemValue
+        state,
+        itemValue,
+        lat,
+        lon
       );
       setDoctors(doctors);
       setLoading(false);
@@ -228,12 +224,12 @@ export default function DoctorsScreen({ navigation }) {
                   }
                 >
                   <Text style={styles.buttonText}>Email Report</Text>
-                    <Ionicons
-                      name='ios-send'
-                      style={styles.icon}
-                      size={26}
-                      color='white'
-                    />
+                  <Ionicons
+                    name='ios-send'
+                    style={styles.icon}
+                    size={26}
+                    color='white'
+                  />
                 </Button>
               </Fragment>
             )}
@@ -322,5 +318,5 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: height * 0.02
-  },
+  }
 });
