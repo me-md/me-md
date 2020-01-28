@@ -1,7 +1,9 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { Body, Button, Card, Text } from 'native-base';
 import { AntDesign, Feather } from '@expo/vector-icons';
+import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
@@ -9,104 +11,45 @@ const width = Dimensions.get('window').width;
 export default function GroupSingleQ({ question, answerQuestion }) {
   const [checkWho, setCheckWho] = useState([]);
 
+  useEffect(() => {
+    let initialCheckWho = [];
+    question.question.items.forEach(() => {
+      initialCheckWho.push('unknown')
+    });
+    setCheckWho(initialCheckWho)
+  }, [question]);
+
   const questions = question.question.items.map((item, cardIndex) => {
     return (
-      <Card key={cardIndex} style={styles.questionCardItem}>
-        <Body style={styles.body}>
-          <Text style={styles.questionText}>{item.name}</Text>
-          <View style={styles.checkboxes}>
-            {item.choices.map((choice, index) => {
-              switch (choice.label) {
-                case 'Yes':
-                  return (
-                    <Fragment key={index}>
-                      <Text>Yes</Text>
-                      <AntDesign
-                        key={index}
-                        name={
-                          checkWho[cardIndex] === choice.id
-                            ? 'checkcircle'
-                            : 'checkcircleo'
-                        }
-                        id={choice.id}
-                        size={32}
-                        color='green'
-                        onPress={() => {
-                          handlePress(choice.id, cardIndex);
-                        }}
-                      />
-                    </Fragment>
-                  );
-                case 'No':
-                  return (
-                    <Fragment key={index}>
-                      <Text>No</Text>
-                      <AntDesign
-                        key={index}
-                        name={
-                          checkWho[cardIndex] === choice.id
-                            ? 'closecircle'
-                            : 'closecircleo'
-                        }
-                        id={choice.id}
-                        size={32}
-                        color='red'
-                        onPress={() => {
-                          handlePress(choice.id, cardIndex);
-                        }}
-                      />
-                    </Fragment>
-                  );
-                case `Don't know`:
-                  return (
-                    <Fragment key={index}>
-                      <Text>Unsure</Text>
-                      <AntDesign
-                        key={index}
-                        name={
-                          checkWho[cardIndex] === choice.id
-                            ? 'questioncircle'
-                            : 'questioncircleo'
-                        }
-                        id={choice.id}
-                        size={32}
-                        color='black'
-                        onPress={() => {
-                          handlePress(choice.id, cardIndex);
-                        }}
-                      />
-                    </Fragment>
-                  );
-                default:
-                  <></>;
-              }
-            })}
-          </View>
-        </Body>
-      </Card>
+      {
+        label: item.name,
+        value: cardIndex
+      }
     );
   });
 
+  questions.push(
+    {
+      label: 'Not sure',
+      value: 'unknown'
+    }
+  )
+
   const handlePress = (id, index) => {
     let IDs;
-    if (id === 'present') {
-      IDs = [...checkWho];
+    IDs = [...checkWho];
+    if (index === 'unknown') {
+      IDs = question.question.items.map(id => {
+        return (id = 'unknown');
+      });
+    } else {
       IDs = question.question.items.map(id => {
         return (id = 'absent');
       });
       IDs[index] = id;
-      setCheckWho(IDs);
-    } else if (id === 'absent') {
-      IDs = [...checkWho];
-      IDs[index] = id;
-      setCheckWho(IDs);
-    } else {
-      IDs = question.question.items.map(id => {
-        return (id = 'unknown');
-      });
-      IDs[index] = id;
-      setCheckWho(IDs);
     }
+    setCheckWho(IDs);
+    console.log(checkWho)
   };
 
   const handleSubmit = () => {
@@ -124,33 +67,30 @@ export default function GroupSingleQ({ question, answerQuestion }) {
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <Body style={styles.body}>
         <Text style={styles.questionTextHeader}>{question.question.text}</Text>
-        {questions}
-        {checkWho.length === question.question.items.length ? (
-          <Button
-            rounded
-            style={styles.button}
-            block
-            onPress={() => handleSubmit()}
-          >
-            <Text style={styles.buttonText}>Continue</Text>
-            <Feather
-              name='arrow-right-circle'
-              size={30}
-              color='white'
-              style={styles.icon}
-            />
-          </Button>
-        ) : (
-          <Button rounded style={styles.button} disabled block>
-            <Text style={styles.buttonText}>Continue</Text>
-            <Feather
-              name='arrow-right-circle'
-              size={30}
-              color='white'
-              style={styles.icon}
-            />
-          </Button>
-        )}
+        <Text style={styles.helperText}>Select one:</Text>
+        <RadioForm
+          radio_props={questions}
+          initial={question.question.items.length}
+          formHorizontal={false}
+          labelHorizontal={true}
+          buttonColor={'#2196f3'}
+          style={styles.radio}
+          onPress={(value) => { handlePress('present', value) }}
+        />
+        <Button
+          rounded
+          style={styles.button}
+          block
+          onPress={() => handleSubmit()}
+        >
+          <Text style={styles.buttonText}>Continue</Text>
+          <Feather
+            name='arrow-right-circle'
+            size={30}
+            color='white'
+            style={styles.icon}
+          />
+        </Button>
       </Body>
     </Card>
   );
@@ -197,6 +137,9 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     marginTop: height * 0.01,
     padding: 0
+  },
+  radio: {
+    marginTop: height * 0.02
   },
   checkboxes: {
     alignItems: 'center',
