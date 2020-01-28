@@ -28,27 +28,21 @@ export default function GroupSingleQ({ question, answerQuestion }) {
     );
   });
 
-  questions.push(
-    {
-      label: 'Not sure',
-      value: 'unknown'
-    }
-  )
-
   const handlePress = (id, index) => {
     let IDs;
     IDs = [...checkWho];
-    if (index === 'unknown') {
+    if (IDs[index] === id) {
       IDs = question.question.items.map(id => {
         return (id = 'unknown');
       });
+      setCheckWho(IDs);
     } else {
       IDs = question.question.items.map(id => {
         return (id = 'absent');
       });
       IDs[index] = id;
+      setCheckWho(IDs);
     }
-    setCheckWho(IDs);
     console.log(checkWho)
   };
 
@@ -67,16 +61,38 @@ export default function GroupSingleQ({ question, answerQuestion }) {
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <Body style={styles.body}>
         <Text style={styles.questionTextHeader}>{question.question.text}</Text>
-        <Text style={styles.helperText}>Select one:</Text>
+        <Text style={styles.helperText}>Select one or leave blank if unsure:</Text>
         <RadioForm
-          radio_props={questions}
-          initial={question.question.items.length}
           formHorizontal={false}
           labelHorizontal={true}
-          buttonColor={'#2196f3'}
-          style={styles.radio}
-          onPress={(value) => { handlePress('present', value) }}
-        />
+          style={styles.radio}>
+          {
+            questions.map((question, i) => (
+              <RadioButton labelHorizontal={true} key={i} >
+                <RadioButtonInput
+                  obj={question}
+                  index={i}
+                  isSelected={checkWho[i] === 'present'}
+                  onPress={(value) => { handlePress('present', value) }}
+                  borderWidth={1}
+                  buttonInnerColor={'#2196f3'}
+                  buttonOuterColor={checkWho[i] === 'present' ? '#2196f3' : '#000'}
+                  buttonSize={20}
+                  buttonOuterSize={30}
+                  buttonStyle={{}}
+                  buttonWrapStyle={{ marginLeft: 10 }}
+                />
+                <RadioButtonLabel
+                  obj={question}
+                  index={i}
+                  labelHorizontal={true}
+                  onPress={(value) => { handlePress('present', value) }}
+                  labelStyle={{ fontSize: 16, maxWidth: width * 0.5, color: checkWho[i] === 'present' ? '#2196f3' : 'black' }}
+                  labelWrapStyle={{}}
+                />
+              </RadioButton>
+            ))}
+        </RadioForm>
         <Button
           rounded
           style={styles.button}
@@ -155,7 +171,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     height: height * 0.07,
     justifyContent: 'space-around',
-    marginTop: height * 0.05,
+    marginTop: height * 0.02,
     shadowColor: 'black',
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
