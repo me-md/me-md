@@ -100,16 +100,16 @@ export default function SingleQ({ question, answerQuestion }) {
             />
           </Button>
         ) : (
-          <Button rounded style={styles.button} disabled block>
-            <Text style={styles.buttonText}>Continue</Text>
-            <Feather
-              name='arrow-right-circle'
-              size={30}
-              color='white'
-              style={styles.icon}
-            />
-          </Button>
-        )}
+            <Button rounded style={styles.button} disabled block>
+              <Text style={styles.buttonText}>Continue</Text>
+              <Feather
+                name='arrow-right-circle'
+                size={30}
+                color='white'
+                style={styles.icon}
+              />
+            </Button>
+          )}
       </Body>
     </Card>
   );
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     height: height * 0.07,
     justifyContent: 'space-around',
-    marginTop: height * 0.05,
+    marginTop: height * 0.01,
     shadowColor: 'black',
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
