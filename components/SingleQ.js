@@ -23,8 +23,8 @@ export default function SingleQ({ question, answerQuestion }) {
     switch (choice.label) {
       case 'Yes':
         return (
-          <Fragment key={index}>
-            <Text>Yes</Text>
+          <View style={styles.choice} key={index}>
+            <Text style={styles.choiceText}>Yes</Text>
             <AntDesign
               key={index}
               name={checkWho === choice.id ? 'checkcircle' : 'checkcircleo'}
@@ -36,12 +36,12 @@ export default function SingleQ({ question, answerQuestion }) {
                 setCheckWho(choice.id);
               }}
             />
-          </Fragment>
+          </View>
         );
       case 'No':
         return (
-          <Fragment key={index}>
-            <Text>No</Text>
+          <View style={styles.choice} key={index}>
+            <Text style={styles.choiceText}>No</Text>
             <AntDesign
               key={index}
               name={checkWho === choice.id ? 'closecircle' : 'closecircleo'}
@@ -53,12 +53,12 @@ export default function SingleQ({ question, answerQuestion }) {
                 setCheckWho(choice.id);
               }}
             />
-          </Fragment>
+          </View>
         );
       case `Don't know`:
         return (
-          <Fragment key={index}>
-            <Text>Unsure</Text>
+          <View style={styles.choice} key={index}>
+            <Text style={styles.choiceText}>Unsure</Text>
             <AntDesign
               key={index}
               name={
@@ -72,7 +72,7 @@ export default function SingleQ({ question, answerQuestion }) {
                 setCheckWho(choice.id);
               }}
             />
-          </Fragment>
+          </View>
         );
       default:
         <></>;
@@ -146,6 +146,13 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     padding: 0,
     width: '90%'
+  },
+  choice: {
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  choiceText: {
+    marginRight: width * 0.02
   },
   button: {
     alignItems: 'center',

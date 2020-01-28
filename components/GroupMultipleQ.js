@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { Body, Button, Card, Text } from 'native-base';
 import { AntDesign, Feather } from '@expo/vector-icons';
@@ -8,6 +8,14 @@ const width = Dimensions.get('window').width;
 
 export default function GroupMultipleQ({ question, answerQuestion }) {
   const [checkWho, setCheckWho] = useState([]);
+
+  useEffect(() => {
+    let initialCheckWho = [];
+    question.question.items.forEach(() => {
+      initialCheckWho.push('unknown')
+    });
+    setCheckWho(initialCheckWho)
+  }, [question]);
 
   const questions = question.question.items.map((item, cardIndex) => {
     return (
@@ -19,8 +27,8 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
               switch (choice.label) {
                 case 'Yes':
                   return (
-                    <Fragment key={index}>
-                      <Text>Yes</Text>
+                    <View style={styles.choice} key={index}>
+                      <Text style={styles.choiceText}>Yes</Text>
                       <AntDesign
                         key={index}
                         name={
@@ -35,12 +43,12 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                           handlePress(choice.id, cardIndex);
                         }}
                       />
-                    </Fragment>
+                    </View>
                   );
                 case 'No':
                   return (
-                    <Fragment key={index}>
-                      <Text>No</Text>
+                    <View style={styles.choice} key={index}>
+                      <Text style={styles.choiceText}>No</Text>
                       <AntDesign
                         key={index}
                         name={
@@ -55,27 +63,7 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
                           handlePress(choice.id, cardIndex);
                         }}
                       />
-                    </Fragment>
-                  );
-                case `Don't know`:
-                  return (
-                    <Fragment key={index}>
-                      <Text>Unsure</Text>
-                      <AntDesign
-                        key={index}
-                        name={
-                          checkWho[cardIndex] === choice.id
-                            ? 'questioncircle'
-                            : 'questioncircleo'
-                        }
-                        id={choice.id}
-                        size={32}
-                        color='black'
-                        onPress={() => {
-                          handlePress(choice.id, cardIndex);
-                        }}
-                      />
-                    </Fragment>
+                    </View>
                   );
                 default:
                   <></>;
@@ -91,6 +79,7 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
     let IDs = [...checkWho];
     IDs[index] = id;
     setCheckWho(IDs);
+    console.log(checkWho)
   };
 
   const handleSubmit = () => {
@@ -108,34 +97,22 @@ export default function GroupMultipleQ({ question, answerQuestion }) {
     <Card id={question.question.items[0].id} style={styles.questionCard}>
       <Body style={styles.body}>
         <Text style={styles.questionTextHeader}>{question.question.text}</Text>
-        <Text style={styles.helperText}>Select all that apply:</Text>
+        <Text style={styles.helperText}>Select all that apply or leave blank if unsure:</Text>
         {questions}
-        {checkWho.length === question.question.items.length ? (
-          <Button
-            rounded
-            style={styles.button}
-            block
-            onPress={() => handleSubmit()}
-          >
-            <Text style={styles.buttonText}>Continue</Text>
-            <Feather
-              name='arrow-right-circle'
-              size={30}
-              color='white'
-              style={styles.icon}
-            />
-          </Button>
-        ) : (
-            <Button rounded style={styles.button} disabled block>
-              <Text style={styles.buttonText}>Continue</Text>
-              <Feather
-                name='arrow-right-circle'
-                size={30}
-                color='white'
-                style={styles.icon}
-              />
-            </Button>
-          )}
+        <Button
+          rounded
+          style={styles.button}
+          block
+          onPress={() => handleSubmit()}
+        >
+          <Text style={styles.buttonText}>Continue</Text>
+          <Feather
+            name='arrow-right-circle'
+            size={30}
+            color='white'
+            style={styles.icon}
+          />
+        </Button>
       </Body>
     </Card>
   );
@@ -164,10 +141,19 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    elevation: 8,
-    height: height * 0.15,
+    flex: 0.2,
     marginBottom: height * 0.01,
     marginTop: height * 0.01
+  },
+  choice: {
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  choiceText: {
+    marginRight: width * 0.02
+  },
+  helperText: {
+    width: width * 0.7
   },
   questionText: {
     alignSelf: 'flex-start',
@@ -177,8 +163,7 @@ const styles = StyleSheet.create({
     padding: 0
   },
   questionTextHeader: {
-    alignSelf: 'flex-start',
-    flex: 0.5,
+    alignSelf: 'center',
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: height * 0.02,
