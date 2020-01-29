@@ -99,8 +99,8 @@ export default function DoctorsScreen({ navigation }) {
         {expanded ? (
           <Icon style={{ fontSize: 24, color: '#fff' }} name='arrow-up' />
         ) : (
-          <Icon style={{ fontSize: 24, color: '#fff' }} name='arrow-down' />
-        )}
+            <Icon style={{ fontSize: 24, color: '#fff' }} name='arrow-down' />
+          )}
       </View>
     );
   };
@@ -134,11 +134,11 @@ export default function DoctorsScreen({ navigation }) {
             {doctor.practice.street2 === 'N/A' ? (
               <Text>{doctor.practice.street}</Text>
             ) : (
-              <Fragment>
-                <Text>{doctor.practice.street}</Text>
-                <Text>{doctor.practice.street2}</Text>
-              </Fragment>
-            )}
+                <Fragment>
+                  <Text>{doctor.practice.street}</Text>
+                  <Text>{doctor.practice.street2}</Text>
+                </Fragment>
+              )}
             <Text>
               {doctor.practice.city}, {doctor.practice.state}{' '}
               {doctor.practice.zip}
@@ -208,45 +208,45 @@ export default function DoctorsScreen({ navigation }) {
                 <ActivityIndicator size='large' color='#004EFF' />
               </View>
             ) : (
-              <Fragment>
-                <ScrollView block style={styles.doctorsContainer}>
-                  {nearbyPractices.length > 0 && !loading ? (
-                    nearbyPractices
-                  ) : (
-                    <View style={styles.noDoctorsContainer}>
-                      <Text
-                        style={styles.noDoctors}
-                      >{`There are currently no doctors in ${stateAbbreviation} for this insurance provider.`}</Text>
-                    </View>
-                  )}
-                </ScrollView>
-                <Button
-                  rounded
-                  style={styles.button}
-                  onPress={() =>
-                    navigation.push('Email', {
-                      location,
-                      stateAbbreviation,
-                      report
-                    })
-                  }
-                >
-                  <Text style={styles.buttonText}>Email Report</Text>
-                  <Ionicons
-                    name='ios-send'
-                    style={styles.icon}
-                    size={26}
-                    color='white'
-                  />
-                </Button>
-              </Fragment>
-            )}
+                <Fragment>
+                  <ScrollView block style={styles.doctorsContainer}>
+                    {nearbyPractices.length > 0 && !loading ? (
+                      nearbyPractices
+                    ) : (
+                        <View style={styles.noDoctorsContainer}>
+                          <Text
+                            style={styles.noDoctors}
+                          >{`There are currently no doctors in ${stateAbbreviation} for this insurance provider.`}</Text>
+                        </View>
+                      )}
+                  </ScrollView>
+                  <Button
+                    rounded
+                    style={styles.button}
+                    onPress={() =>
+                      navigation.push('Email', {
+                        location,
+                        stateAbbreviation,
+                        report
+                      })
+                    }
+                  >
+                    <Text style={styles.buttonText}>Email Report</Text>
+                    <Ionicons
+                      name='ios-send'
+                      style={styles.icon}
+                      size={26}
+                      color='white'
+                    />
+                  </Button>
+                </Fragment>
+              )}
           </Fragment>
         ) : (
-          <View style={styles.horizontal}>
-            <ActivityIndicator size='large' color='#004EFF' />
-          </View>
-        )}
+            <View style={styles.horizontal}>
+              <ActivityIndicator size='large' color='#004EFF' />
+            </View>
+          )}
       </View>
     </View>
   );

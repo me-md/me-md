@@ -43,7 +43,6 @@ export default function GroupSingleQ({ question, answerQuestion }) {
       IDs[index] = id;
       setCheckWho(IDs);
     }
-    console.log(checkWho)
   };
 
   const handleSubmit = () => {
