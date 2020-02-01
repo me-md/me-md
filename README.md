@@ -73,7 +73,7 @@ npm start
    
 ## Video
 
-[![MeMD Demo Video](/assets/video-screenshot.png)](https://www.youtube.com/watch?v=fGJA7GIW5cI)
+[![MeMD Demo Video](/assets/images/video-screenshot.png)](https://www.youtube.com/watch?v=fGJA7GIW5cI)
 
 ## Screenshots
 
