@@ -11,6 +11,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Set Up](#set-up)
+- [Video](#video)
 - [Screenshots](#screenshots)
 - [Focuses](#focuses)
 - [Tech Stack and Team](#tech-stack)
@@ -69,6 +70,10 @@ npm start
    c. Will launch a simulator. To change the device, click on it (top bar should now say "Simulator"), then select "Hardware" and under "iOS" you can choose another phone
 3. "i" in terminal to run project on iOS simulator
    [Reference](https://nandovieira.com/setting-up-react-native-on-macos-mojave)
+   
+## Video
+
+[[MeMD Demo Video](/assets/video-screenshot.png)](https://www.youtube.com/watch?v=fGJA7GIW5cI)
 
 ## Screenshots
 
